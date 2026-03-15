@@ -38,6 +38,70 @@ The model has 7 phases: **INTAKE - DECOMPOSE - DISCOVER - PLAN - EXECUTE - VERIF
 
 ---
 
+## Activation Banner
+
+**At the very start of every Superhuman invocation**, before any other output, display this ASCII art banner:
+
+```
+███████╗██╗   ██╗██████╗ ███████╗██████╗ ██╗  ██╗██╗   ██╗███╗   ███╗ █████╗ ███╗   ██╗
+██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗██║  ██║██║   ██║████╗ ████║██╔══██╗████╗  ██║
+███████╗██║   ██║██████╔╝█████╗  ██████╔╝███████║██║   ██║██╔████╔██║███████║██╔██╗ ██║
+╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗██╔══██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
+███████║╚██████╔╝██║     ███████╗██║  ██║██║  ██║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
+╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+```
+
+This banner is mandatory. It signals to the user that Superhuman mode is active.
+
+---
+
+## Activation Protocol
+
+**Immediately after displaying the banner**, enter plan mode before doing anything else:
+
+1. **On platforms with native plan mode** (e.g., Claude Code's `EnterPlanMode`, Gemini CLI's planning mode): invoke the native plan mode mechanism immediately.
+2. **On platforms without native plan mode**: simulate plan mode by completing all planning phases (INTAKE through PLAN) in full before making any code changes. Present the complete plan to the user for explicit approval before proceeding to EXECUTE.
+
+This ensures that every Superhuman invocation begins with structured thinking. The first four phases (INTAKE, DECOMPOSE, DISCOVER, PLAN) are inherently planning work - no files should be created or modified until the user has approved the plan and execution begins in Phase 5.
+
+---
+
+## Session Resume Protocol
+
+When Superhuman is invoked and a `.superhuman/board.md` already exists in the project root:
+
+1. **Detect**: Read the existing board and determine its status (`in-progress`, `blocked`, `completed`)
+2. **Display**: Print a compact status summary showing completed/in-progress/blocked/remaining tasks
+3. **Resume**: Pick up from the last incomplete wave - do NOT restart from INTAKE
+4. **Reconcile**: If the codebase has changed since the last session (e.g., manual edits, other commits), run a quick diff check against the board's expected state and flag any conflicts before resuming
+
+If the board is marked `completed`, ask the user whether to start a new Superhuman session (archive the old board to `.superhuman/archive/`) or review the completed work.
+
+**Never blow away an existing board without explicit user confirmation.**
+
+---
+
+## Codebase Convention Detection
+
+**Before INTAKE begins**, automatically detect the project's conventions by scanning for key files. This grounds all subsequent phases in reality rather than assumptions.
+
+### Auto-detect Checklist
+| Signal | Files to Check |
+|---|---|
+| **Package manager** | `package-lock.json` (npm), `yarn.lock` (yarn), `pnpm-lock.yaml` (pnpm), `bun.lockb` (bun), `Cargo.lock` (cargo), `go.sum` (go) |
+| **Language/Runtime** | `tsconfig.json` (TypeScript), `pyproject.toml` / `setup.py` (Python), `go.mod` (Go), `Cargo.toml` (Rust) |
+| **Test runner** | `jest.config.*`, `vitest.config.*`, `pytest.ini`, `.mocharc.*`, test directory patterns |
+| **Linter/Formatter** | `.eslintrc.*`, `eslint.config.*`, `.prettierrc.*`, `ruff.toml`, `.golangci.yml` |
+| **Build system** | `Makefile`, `webpack.config.*`, `vite.config.*`, `next.config.*`, `turbo.json` |
+| **CI/CD** | `.github/workflows/`, `.gitlab-ci.yml`, `Jenkinsfile` |
+| **Available scripts** | `scripts` section of `package.json`, `Makefile` targets |
+| **Directory conventions** | `src/`, `lib/`, `app/`, `tests/`, `__tests__/`, `spec/` |
+
+### Output
+Write the detected conventions to the board under a `## Project Conventions` section. Reference these conventions in every subsequent phase - particularly PLAN and the Mandatory Tail Tasks verification step.
+
+---
+
 ## When to Use This Skill
 
 **Use Superhuman when:**
@@ -156,6 +220,37 @@ Each sub-task must have:
 3. Infrastructure/config tasks come before code that depends on them
 4. Documentation tasks depend on the code they document
 5. Aim for 5-15 sub-tasks. Fewer means under-decomposed; more means over-engineered
+6. Every task graph MUST end with two mandatory tail tasks (see below)
+7. Apply the complexity budget (see below)
+
+### Complexity Budget
+After decomposition, sanity-check total scope before proceeding:
+- Count the total number of tasks by complexity: S (small), M (medium), L (large)
+- If any L tasks remain, decompose them further - L tasks are not allowed
+- If total estimated scope exceeds **15 M-equivalent tasks** (where 1 L = 3 M, 1 S = 0.5 M), flag to the user that scope may be too large for a single Superhuman session
+- Suggest splitting into multiple Superhuman sessions with clear boundaries (e.g., "Session 1: backend API, Session 2: frontend integration")
+- The user can override and proceed, but they must explicitly acknowledge the scope
+
+### Mandatory Tail Tasks
+Every Superhuman task graph must include these two tasks as the final wave, in this order:
+
+**Second-to-last task: Requirements Validation**
+- **Type**: `verify`
+- **Title**: "Validate changes against original requirements"
+- **Description**: Review all changes made across every completed sub-task and compare them against the original user prompt and intake summary. Verify that every requirement, success criterion, and constraint from INTAKE is satisfied. If any requirement is unmet or the implementation deviates from what was asked, flag the gaps and loop back to EXECUTE to address them. Do NOT proceed to the final task until all requirements are confirmed met.
+- **Dependencies**: All other implementation/test/docs tasks
+- **Acceptance Criteria**: Every success criterion from INTAKE is demonstrably satisfied. If gaps are found, reiterate until they are resolved.
+
+**Last task: Full Project Verification**
+- **Type**: `verify`
+- **Title**: "Run full project verification suite"
+- **Description**: Run all available verification checks in the repo, in order. Use the project's package manager scripts (check `package.json`, `Makefile`, `pyproject.toml`, etc.) - never invoke tools directly. Skip any that are not configured in the project - only run what exists:
+  1. **Tests** - Run the test script (`npm test`, `yarn test`, `pnpm test`, `make test`, `pytest`, etc.)
+  2. **Lint** - Run the lint script (`npm run lint`, `yarn lint`, `pnpm lint`, `make lint`, etc.)
+  3. **Typecheck** - Run the typecheck script (`npm run typecheck`, `yarn typecheck`, `pnpm typecheck`, `make typecheck`, etc.)
+  4. **Build** - Run the build script (`npm run build`, `yarn build`, `pnpm build`, `make build`, etc.)
+- **Dependencies**: The requirements validation task above
+- **Acceptance Criteria**: All available checks pass. If any check fails, fix the issues and re-run until green. Do not mark the board as complete until every available check passes.
 
 ### Build the DAG
 1. List all sub-tasks
@@ -189,11 +284,20 @@ Task Graph:
                       +---> SH-007 [test: Auth integration tests]
                       +---> SH-008 [docs: API documentation]
 
+  --- Mandatory Tail Tasks ---
+  SH-007, SH-008
+    |
+    +---> SH-009 [verify: Validate changes against original requirements]
+              |
+              +---> SH-010 [verify: Run full project verification suite]
+
 Wave Assignments:
   Wave 1: SH-001                          (1 task, serial)
   Wave 2: SH-002, SH-003                  (2 tasks, parallel)
   Wave 3: SH-004, SH-005, SH-006         (3 tasks, parallel)
   Wave 4: SH-007, SH-008                  (2 tasks, parallel)
+  Wave 5: SH-009                          (1 task, requirements validation)
+  Wave 6: SH-010                          (1 task, full project verification)
 ```
 
 Update the board with the full task graph and wave assignments. See `references/dependency-graph-patterns.md` for common patterns and the wave assignment algorithm.
@@ -268,6 +372,13 @@ Update each sub-task on the board with its execution plan. The board now contain
 
 Execute tasks wave by wave. Within each wave, spin up parallel agents for independent tasks.
 
+### Pre-Execution Snapshot
+Before executing the first wave, create a git safety net:
+1. Ensure all current changes are committed or stashed
+2. Record the current commit hash on the board under `## Rollback Point`
+3. If execution goes catastrophically wrong (build broken after max retries, critical files corrupted), the user can `git reset --hard` to this commit
+4. Remind the user of the rollback point hash when flagging unrecoverable failures
+
 ### Wave Execution Loop
 ```
 for each wave in [Wave 1, Wave 2, ..., Wave N]:
@@ -277,16 +388,73 @@ for each wave in [Wave 1, Wave 2, ..., Wave N]:
     3. Refactor if needed (refactor phase)
     4. Update board status: in-progress -> verifying
   wait for all tasks in wave to complete
-  run cross-task verification for this wave
+  run wave boundary checks (conflict resolution, progress report)
   proceed to next wave
 ```
 
-### Agent Prompt Template
-Each parallel agent receives:
-- The sub-task details from the board (ID, title, description, plan)
-- The research notes for that task
-- The acceptance criteria
-- Instructions to follow TDD: write tests first, then implement
+### Agent Context Handoff Format
+Each parallel agent receives a standardized prompt with these sections:
+```
+## Task: {SH-XXX} - {Title}
+
+### Context
+{Description from the board}
+
+### Project Conventions
+{Detected conventions from Codebase Convention Detection - package manager, test runner, linter, directory patterns}
+
+### Research Notes
+{Findings from DISCOVER phase for this task}
+
+### Execution Plan
+- Files to create/modify: {list}
+- Test files: {list}
+- Approach: {from PLAN phase}
+
+### Acceptance Criteria
+{Specific, verifiable conditions from PLAN phase}
+
+### Rules
+1. Follow TDD: write tests first, then implement
+2. Use the project's existing patterns and conventions
+3. Do NOT modify files outside your task scope
+4. If you encounter a blocker, stop and report it - do not work around it
+5. Update the board with your status when done
+```
+
+### Wave Boundary Checks
+After all tasks in a wave complete, before proceeding to the next wave:
+
+**1. Conflict Resolution**
+- Check if any two agents in the wave modified the same file
+- If conflicts exist: review both changes, merge them intelligently (prefer the change that better satisfies its task's acceptance criteria), and verify the merged result
+- If conflicts cannot be auto-resolved: flag to the user with both versions and let them decide
+- Run a quick build/test check after any merge to catch integration issues early
+
+**2. Progress Report**
+Print a compact status table after each wave:
+```
+Wave 2 Complete (3/6 waves done)
+-----------------------------------------
+| Task   | Status | Notes               |
+|--------|--------|----------------------|
+| SH-001 | done   |                      |
+| SH-002 | done   |                      |
+| SH-003 | done   |                      |
+| SH-004 | done   | wave 2               |
+| SH-005 | done   | wave 2               |
+| SH-006 | next   | wave 3               |
+| SH-007 | next   | wave 3               |
+| SH-008 | queued | wave 4               |
+-----------------------------------------
+```
+
+### Scope Creep Guard
+During EXECUTE, agents may discover additional work needed ("oh, this also needs X"). Handle scope creep strictly:
+
+1. **Blocking discovery** (can't complete the current task without it): Add a new task to the DAG, assign it to the current or next wave, and flag the change to the user on the board. Continue with other tasks in the wave.
+2. **Non-blocking discovery** (nice-to-have, related improvement, cleanup): Do NOT absorb it. Add it to a `## Deferred Work` section on the board. Mention it in the CONVERGE summary. The user decides whether to start a new Superhuman session for it.
+3. **Never silently expand scope** - every addition to the DAG must be visible on the board and flagged in the next progress report.
 
 ### Handling Blocked Tasks
 If a task cannot proceed:
@@ -299,7 +467,7 @@ If a task cannot proceed:
 If an agent fails to complete a task:
 1. Capture the error/failure reason on the board
 2. Attempt one retry with adjusted approach
-3. If retry fails, mark as `failed` and flag for user attention
+3. If retry fails, mark as `failed` and flag for user attention with the rollback point hash
 4. Continue with other tasks - don't let one failure block the wave
 
 See `references/wave-execution.md` for detailed agent orchestration patterns.
@@ -385,6 +553,11 @@ The completed board serves as an audit trail:
 | Over-decomposing into 20+ micro-tasks | Aim for 5-15 tasks - too many creates overhead that defeats the purpose |
 | Ignoring research phase | DISCOVER prevents rework - 10 minutes of research saves hours of wrong implementation |
 | Sequential execution when parallelism is possible | Always check the DAG for parallel opportunities - that's the whole point of Superhuman |
+| Silently absorbing scope creep during EXECUTE | Flag blocking additions on the board; defer non-blocking discoveries to the Deferred Work section |
+| Starting fresh when a board already exists | Detect existing boards, display status, and resume from last incomplete wave |
+| Assuming project conventions without checking | Always run Codebase Convention Detection before INTAKE - read `package.json`, config files, directory structure |
+| No rollback plan before execution | Record the git commit hash before Wave 1 starts - offer rollback if things go sideways |
+| Parallel agents modifying the same file without reconciliation | Run conflict resolution checks at every wave boundary before proceeding |
 
 ---
 
