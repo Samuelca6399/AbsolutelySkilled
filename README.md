@@ -16,6 +16,73 @@ AbsolutelySkilled is a collection of skills that teach AI agents domain-specific
 
 Skills work with any agent that supports the SKILL.md format: Claude Code, Gemini CLI, OpenAI Codex, Cursor, and [40+ more agents](#supported-agents).
 
+---
+
+## Flagship Skills
+
+These three skills form the backbone of AbsolutelySkilled - install them first and watch your AI agent transform from a code assistant into an autonomous development partner.
+
+### Superhuman - AI-Native Development Lifecycle
+
+Traditional development methods - Agile, Waterfall, TDD - were built around human constraints: limited parallelism, context switching costs, and meeting overhead. **Superhuman** throws all of that out and rebuilds the SDLC from scratch for AI agents.
+
+Give it a feature request, and Superhuman will:
+
+1. **Interview you** to extract requirements, constraints, and success criteria
+2. **Decompose** the work into a dependency-graphed DAG of atomic sub-tasks
+3. **Research** each task by exploring your codebase and docs in parallel
+4. **Plan** test-first implementation strategies per task
+5. **Execute** tasks in parallel waves - independent tasks run simultaneously via sub-agents
+6. **Verify** every task with TDD, lint, typecheck, and build checks
+7. **Converge** with a self code review, requirements validation, and full project verification
+
+Everything is tracked on a persistent `.superhuman/board.md` that survives across sessions - resume where you left off, audit decisions, or hand off to another developer.
+
+```
+INTAKE --> DECOMPOSE --> DISCOVER --> PLAN --> EXECUTE --> VERIFY --> CONVERGE
+```
+
+```bash
+npx skills add AbsolutelySkilled/AbsolutelySkilled --skill superhuman
+```
+
+### Second Brain - Persistent Memory for AI Agents
+
+Every time you start a new conversation, your AI agent forgets everything it learned in the last one. **Second Brain** fixes that.
+
+It turns `~/.memory/` into a structured, hierarchical knowledge store that persists across projects, sessions, and tools. Your agent remembers your preferences, workflows, debugging techniques, and domain expertise - automatically loading only what's relevant to the current context.
+
+- **Tag-indexed retrieval** - memories are scored against your current context and only the top matches are loaded (no wasted tokens)
+- **100-line ceiling** - files stay small and split automatically, keeping context window usage efficient
+- **Wiki-linked graph** - memories cross-reference each other with `[[wiki-links]]` for rich knowledge traversal
+- **Auto-propose learnings** - after complex tasks, your agent suggests what to remember for next time
+- **CRUSP lifecycle** - Create, Read, Update, Split, Prune - your memory stays fresh and organized
+
+Your agent goes from amnesia to institutional knowledge in one install.
+
+```bash
+npx skills add AbsolutelySkilled/AbsolutelySkilled --skill second-brain
+```
+
+### Skill Suggestor - Your Personal Skill Discovery Engine
+
+With 147+ skills in the registry, how do you know which ones to install? **Skill Suggestor** figures it out for you.
+
+Every skill in the registry declares companion skills in its `recommended_skills` field - skills that multiply its effectiveness when used together. Skill Suggestor reads these declarations, compares them against what you have installed, and surfaces the gaps you didn't know existed.
+
+- **Proactive companion checks** - when you use a skill, Skill Suggestor quietly identifies missing companions and suggests them
+- **Full audit mode** - scan all installed skills at once, ranked by how many of your existing skills recommend them
+- **One-command install** - suggestions come with ready-to-run `npx skills add` commands
+- **No spam** - suggests once per session per skill, capped at 5 recommendations max
+
+Think of it as a recommendation engine that builds your perfect skill stack, one companion at a time.
+
+```bash
+npx skills add AbsolutelySkilled/AbsolutelySkilled --skill skill-suggestor
+```
+
+---
+
 ## Install Skills
 
 Skills are installed using the [`skills`](https://github.com/vercel-labs/skills) CLI via `npx`.
@@ -46,6 +113,9 @@ npx skills add AbsolutelySkilled/AbsolutelySkilled --skill clean-code -g -a clau
 
 # Install all skills to all agents
 npx skills add AbsolutelySkilled/AbsolutelySkilled --all
+
+# Recommended: Install skill-suggestor for companion skill discovery
+npx skills add AbsolutelySkilled/AbsolutelySkilled --skill skill-suggestor
 ```
 
 ### Install Options

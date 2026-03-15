@@ -203,6 +203,16 @@ Key rules:
   mechanism - be specific. Include tool name, common synonyms, and key verbs.
 - All other fields: see the reference file for the complete list
 
+### Recommended skills
+
+After writing the core frontmatter, add companion skill recommendations:
+
+1. Read `references/skill-registry.md` to find skills in the same or adjacent categories
+2. Pick 2-5 skills that a user of this skill would logically also benefit from
+3. Add the field after `tags`: `recommended_skills: [skill-1, skill-2, ...]`
+4. Only recommend skills that exist in the registry - never invent skill names
+5. Prefer skills that are complementary (not duplicative) - e.g. code-review pairs with clean-code, not with another review skill
+
 ### Body structure
 
 See `references/body-structure-template.md` for the full markdown scaffold with
@@ -235,6 +245,8 @@ Principles:
 - Use imperative/infinitive form throughout
 - Keep SKILL.md under 300 lines when possible (hard limit 500)
 - If approaching 300 lines, move detail to references/ files
+- Always append the shared footer from `references/skill-footer.md` as the very
+  last section of SKILL.md. Copy the footer block verbatim - do not modify it.
 
 ---
 
@@ -333,11 +345,54 @@ Flagged items requiring human review:
   1. SKILL.md:47  - webhook signature verification method unconfirmed
   2. evals.json:23 - rate limit value (100 req/min) is a best guess
 
+Recommendation graph updated:
+  - api-design: added <tool-name>
+  - microservices: added <tool-name> (replaced <old-skill>)
+  - backend-engineering: skipped (already at 5 recommendations)
+
 Next steps:
   1. Review flagged items above
   2. Run: npx @askilled/cli validate ./<tool-name>/
   3. Open a PR to github.com/AbsolutelySkilled/skills
 ```
+
+---
+
+## Phase 7 - Propagate recommended_skills
+
+After creating or heavily modifying a skill, update the recommendation graph so
+existing skills can also recommend the new/modified one.
+
+### When to run
+
+- **New skill created**: always run this phase
+- **Major skill modification** (renamed, merged, or scope changed significantly):
+  run this phase to update any stale references
+
+### Steps
+
+1. Read the new skill's `recommended_skills` field to identify its companions
+2. For each companion skill listed, read that companion's SKILL.md
+3. If the companion's `recommended_skills` does not already include the new skill,
+   and the companion has fewer than 5 recommendations, add the new skill name
+4. If the companion already has 5 recommendations, evaluate whether the new skill
+   is a better fit than an existing entry - if so, swap it in; if not, skip
+5. Only add reciprocal links where the relationship is genuinely complementary -
+   do not force bidirectional links for every recommendation
+
+### Example
+
+If you create `api-gateway` with `recommended_skills: [api-design, microservices]`:
+- Read `skills/api-design/SKILL.md` - if it doesn't list `api-gateway` and has
+  room, add it
+- Read `skills/microservices/SKILL.md` - same check
+
+### Rules
+
+- Never remove existing recommendations without a clear reason
+- Never exceed 5 recommendations per skill
+- Only add the new skill if it's genuinely complementary to the companion
+- Print which skills were updated in the output summary
 
 ---
 
@@ -354,6 +409,7 @@ Before outputting, verify all of these:
 - [ ] Flagged items use the `<!-- VERIFY: -->` comment format
 - [ ] references/ files each have the header comment
 - [ ] Output summary is printed
+- [ ] Recommended skills propagated to companion skills (Phase 7)
 
 ---
 

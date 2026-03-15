@@ -19,6 +19,7 @@ description: >
   invoice management.">
 category: <see taxonomy below>
 tags: [<3-6 lowercase tags>]
+recommended_skills: [<2-5 kebab-case skill names from the registry>]
 platforms:
   - claude-code
   - gemini-cli
@@ -52,6 +53,17 @@ The description is the PRIMARY triggering mechanism. It must:
 
 **Bad example:**
 > A skill for payment processing. (Too vague, no tool name, no task types)
+
+## Recommended skills guidelines
+
+The `recommended_skills` field lists 2-5 companion skills from the registry that
+complement this skill. Rules:
+
+1. Only use skill names that exist in the registry (`references/skill-registry.md`)
+2. Pick skills that are complementary, not duplicative
+3. Prefer skills in adjacent categories (e.g. `clean-code` recommends `code-review-mastery`)
+4. 2-5 entries - fewer for niche skills, more for broadly applicable ones
+5. Use an empty array `[]` only for meta skills with no natural companions
 
 ## Category taxonomy
 
