@@ -339,6 +339,8 @@ export function ArrowRightIcon({ size = 20, className }: IconProps) {
 
 For raster images: export at 1x, 2x, 3x from Figma. Use `<img srcset>` or Next.js `<Image>`.
 
+> Never substitute emojis for icons in code. Figma designs use vector icons - implement them as SVG components using Lucide React, Heroicons, Phosphor, React Icons, or Font Awesome. Emojis render inconsistently across platforms and cannot be styled.
+
 ---
 
 ## Anti-patterns

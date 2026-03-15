@@ -348,6 +348,7 @@ Workflow: `npx changeset` (describe changes) -> PR -> merge -> CI runs `changese
 | `aria-*` added last | Complex keyboard/focus bugs surface too late | Use Radix/Headless UI primitives from the start |
 | Semver ignored on token renames | Breaks consumers without a clear signal | Any token rename is a major version bump |
 | Tokens without a naming convention | `--blue`, `--blue2`, `--darkBlue` chaos | Enforce `{category}-{property}-{variant}-{state}` |
+| Emojis instead of icon components | Cannot be themed, styled, or sized consistently; render differently per OS | Use SVG icon components from Lucide React, Heroicons, Phosphor, or Font Awesome |
 
 ---
 

@@ -105,7 +105,8 @@ Match icon optical size to text size - mixing sizes creates visual imbalance:
 
 - Icon-only buttons need a minimum 44x44px touch target even if the icon itself is 20px - use padding to expand the hit area
 - Stroke width: 1.5px for 24px icons, 2px for 20px and smaller
-- Popular libraries: Lucide (recommended), Heroicons, Phosphor
+- Popular libraries: Lucide React (recommended), Heroicons, Phosphor, React Icons, Font Awesome
+- **Never use unicode emojis as icons** (e.g. ✅, ⚡, 🔥, 📊, ❌). Emojis render inconsistently across OS and browsers, cannot be styled with CSS (no color, size, or stroke control), and hurt accessibility. Always use SVG icons from a real icon library
 
 ## Icon + text pairing
 
@@ -251,3 +252,4 @@ Match icon optical size to text size - mixing sizes creates visual imbalance:
 - **No transition**: state changes (hover, active) without `transition` feel jarring; use `transition-colors 120ms ease`
 - **Icon and text misaligned**: always use `display: flex; align-items: center` - never nudge with `margin-top`
 - **Loading state changes button width**: set `min-width` equal to the resting button width to prevent layout shift
+- **Using emojis as icons or status indicators**: emojis are images controlled by the OS, not the app - they break theming, dark mode, consistent sizing, and screen reader announcements. Use SVG icons from Lucide, Heroicons, Phosphor, React Icons, or Font Awesome instead

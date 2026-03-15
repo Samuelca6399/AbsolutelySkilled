@@ -73,6 +73,8 @@ Do NOT trigger this skill for:
 
 6. **Consistency beats novelty** - Use the same border-radius everywhere (pick one: 6px, 8px, or 12px). Same shadow scale. Same transition timing. Inconsistency is what makes AI-generated UIs look "off."
 
+7. **Use real icons, never emojis** - Unicode emojis (e.g. ✅, ⚡, 🔥, 📊) render inconsistently across operating systems and browsers, cannot be styled with CSS (no size, color, or stroke control), break visual consistency, and hurt accessibility. Always use a proper icon library - Lucide React (recommended), React Icons, Heroicons, Phosphor, or Font Awesome. Icons from these libraries are SVG-based, styleable, consistent, and accessible.
+
 ---
 
 ## Core concepts
@@ -300,6 +302,7 @@ Use a modular scale with ratio 1.25 (major third). Base size: 16px.
 | Animating everything | Distracting, feels gimmicky, hurts performance | Only animate what changes state. 150-300ms transitions max |
 | Centering everything | Kills readability, looks like a PowerPoint slide | Left-align body text. Center only hero headlines and CTAs |
 | Inconsistent spacing | Most obvious tell of unpolished UI | Use a 4/8px spacing scale. Same gap everywhere for same context |
+| Using emojis as icons | Render differently across OS/browsers, cannot be styled, break visual consistency, poor a11y | Use a real icon library: Lucide React, React Icons, Heroicons, Phosphor, or Font Awesome |
 
 ---
 

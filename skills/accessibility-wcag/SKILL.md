@@ -503,6 +503,7 @@ Manual audit checklist beyond automated tools:
 | `placeholder` as the only label | Placeholder disappears on focus, fails contrast requirements, not reliably announced | Always use a visible `<label>` associated via `for`/`id` |
 | `tabindex="2"` or higher | Creates a parallel tab order separate from DOM order - unpredictable and hard to maintain | Use `tabindex="0"` (natural order) or `tabindex="-1"` (programmatic only) |
 | No focus indicator | Keyboard users cannot see where they are on the page; violates WCAG 2.4.7 | Use `:focus-visible` with a high-contrast outline; never `outline: none` without a visible replacement |
+| Emojis as functional icons | Screen readers announce emoji names inconsistently ("red circle" vs "error"); rendering varies by OS; no contrast or size control | Use SVG icons from Lucide React, Heroicons, Phosphor, or Font Awesome with proper `aria-label` or `aria-hidden` |
 
 ---
 

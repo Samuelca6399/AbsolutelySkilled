@@ -209,6 +209,7 @@ Build resilient UIs that work across conditions.
 | Bundle blindness | Never checking what ships to users | Audit bundle regularly, set performance budgets, check before adding deps |
 | A11y as afterthought | Bolting on accessibility at the end | Build accessible from the start - semantic HTML, keyboard nav, ARIA where needed |
 | Overengineering state | Global state for everything | Use local state by default, URL params for shareable state, server cache for API data |
+| Emojis as UI icons | Render inconsistently across OS/browsers, unstyled, break a11y and theming | Use SVG icon libraries: Lucide React, React Icons, Heroicons, Phosphor, or Font Awesome |
 
 ---
 
