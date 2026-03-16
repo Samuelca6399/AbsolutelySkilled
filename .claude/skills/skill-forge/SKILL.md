@@ -352,8 +352,7 @@ Recommendation graph updated:
 
 Next steps:
   1. Review flagged items above
-  2. Run: npx @askilled/cli validate ./<tool-name>/
-  3. Open a PR to github.com/AbsolutelySkilled/skills
+  2. Open a PR to github.com/AbsolutelySkilled/skills
 ```
 
 ---

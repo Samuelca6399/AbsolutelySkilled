@@ -233,6 +233,7 @@ skills/
 | [debugging-tools](skills/debugging-tools/) | Chrome DevTools, lldb, strace, network debugging, memory profilers |
 | [cli-design](skills/cli-design/) | Argument parsing, help text, interactive prompts, config files, distribution |
 | [open-source-management](skills/open-source-management/) | OSS project maintenance - governance, changelogs, community, licensing |
+| [meta-repo](skills/meta-repo/) | Multi-repository management with `meta` - coordinating git/shell commands across many repos, polyrepo orchestration |
 
 ### Testing & QA
 
@@ -432,7 +433,7 @@ skills/
 
 ### Full Registry
 
-**151+ skills** across 25 categories.
+**152+ skills** across 25 categories.
 
 ## Creating Skills
 
