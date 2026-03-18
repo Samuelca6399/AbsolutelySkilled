@@ -11,7 +11,7 @@ description: >
   the AI search era.
 category: marketing
 tags: [seo, geo, generative-search, ai-overviews, chatgpt-search, perplexity, llms-txt]
-recommended_skills: [aeo-optimization, international-seo, local-seo, seo-mastery]
+recommended_skills: [keyword-research, aeo-optimization, international-seo, local-seo, seo-mastery]
 platforms:
   - claude-code
   - gemini-cli

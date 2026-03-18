@@ -262,7 +262,7 @@ skills/
 | Skill | Description |
 |---|---|
 | [seo-mastery](skills/seo-mastery/) | Technical SEO, keyword research, link building, schema markup |
-| [keyword-research](skills/keyword-research/) | Search intent taxonomy, keyword clustering, SERP analysis |
+| [keyword-research](skills/keyword-research/) | Tri-surface keyword research - organic, AEO (snippets/PAA), GEO (AI citations) scoring |
 | [schema-markup](skills/schema-markup/) | JSON-LD structured data, Schema.org types, rich snippets |
 | [core-web-vitals](skills/core-web-vitals/) | LCP, INP, CLS optimization, Lighthouse CI, RUM monitoring |
 | [technical-seo](skills/technical-seo/) | Crawlability, indexing, sitemaps, canonicals, rendering strategies |

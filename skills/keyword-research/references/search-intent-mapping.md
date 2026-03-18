@@ -236,3 +236,95 @@ When you have 50-500 keywords to classify, use this workflow:
 
 This classification table becomes the input to your content calendar and content
 brief creation process.
+
+---
+
+## Intent signals for AEO and GEO surfaces
+
+Traditional intent classification maps keywords to content types for organic search.
+In tri-surface keyword research, intent also determines which non-organic surfaces
+are viable for a keyword. Not every intent type works on every surface.
+
+### Intent-to-surface mapping
+
+| Intent type | Organic | AEO (snippets/PAA/voice) | GEO (AI citations) | Notes |
+|---|---|---|---|---|
+| Informational | High | High | High | Best tri-surface opportunity. AI engines answer informational queries extensively and cite sources. Snippets fire frequently. |
+| Commercial investigation | High | Medium | High | AI engines produce detailed comparison answers with citations. Snippets are less common (Google prefers showing multiple results) but PAA is active. |
+| Transactional | High | Low | Low | Snippets rarely fire for "buy X" queries. AI Overviews usually don't appear for direct purchase intent - Google shows shopping results instead. |
+| Navigational | Low (unless your brand) | None | None | AI engines redirect to the brand. No snippet or AI citation opportunity for third parties. |
+
+### How intent affects AEO scoring
+
+**High AEO intent signals:**
+- Question-format queries ("how to", "what is", "why does") - these directly trigger
+  featured snippets and are natural voice search patterns
+- Definition queries ("X definition", "X meaning", "what is X") - paragraph snippets
+- Process queries ("how to X step by step") - list snippets
+- Comparison queries with clear structure ("X vs Y") - table snippets
+- "Best" queries with listicle format - list snippets
+
+**Low/zero AEO intent signals:**
+- Brand navigational queries - no snippet opportunity
+- Direct purchase queries ("buy X", "order X") - shopping results, not snippets
+- Login/account queries - Google shows the brand's page directly
+- Price-only queries ("X pricing") - sometimes a snippet, but usually product page
+
+### How intent affects GEO scoring
+
+**High GEO intent signals:**
+- Multi-factor evaluation queries ("best X for Y") - AI engines love producing
+  structured comparisons and cite multiple sources
+- How-to queries with multiple steps - AI engines generate step-by-step answers
+  and cite authoritative guides
+- "Explain" queries ("how does X work") - AI engines synthesize explanations
+  from multiple cited sources
+- Emerging topic queries - AI engines pull from recent sources when training
+  data is insufficient, increasing citation opportunity
+
+**Low/zero GEO intent signals:**
+- Simple factual queries ("population of France") - AI answers from training
+  data without citations
+- Navigational queries - AI engines redirect, don't generate answers
+- Very recent event queries - AI engines may not have indexed recent sources
+- Highly subjective queries ("is X worth it") - AI engines are cautious and
+  may not generate an answer at all
+
+---
+
+## AI Overview intent patterns
+
+Google AI Overviews and other AI search engines do not fire equally across all
+query types. Understanding which patterns trigger AI answers helps you predict
+GEO opportunity during keyword research.
+
+### Query types that consistently trigger AI Overviews
+
+| Query pattern | Example | AI Overview behavior |
+|---|---|---|
+| "How to" process queries | "how to set up a home network" | Detailed step-by-step answer with 3-6 citations |
+| "What is" explainer queries | "what is retrieval augmented generation" | Definition + context with 2-4 citations |
+| "Best X for Y" comparisons | "best project management tool for remote teams" | Structured comparison with 4-8 citations |
+| "X vs Y" comparisons | "PostgreSQL vs MySQL for web apps" | Side-by-side analysis with 3-5 citations |
+| Multi-factor decision queries | "should I use TypeScript or JavaScript" | Pros/cons analysis with 3-6 citations |
+| Complex informational queries | "how does mRNA vaccine technology work" | Detailed explanation with 4-7 citations |
+
+### Query types that rarely trigger AI Overviews
+
+| Query pattern | Example | Why AI Overview doesn't fire |
+|---|---|---|
+| Direct purchase intent | "buy iPhone 16 Pro" | Google serves shopping results instead |
+| Brand navigational | "Netflix login" | Direct link is more useful |
+| Simple factual | "height of Mount Everest" | Knowledge panel handles this |
+| Very local queries | "pizza near me" | Local pack is more appropriate |
+| Current news/events | "election results today" | Top stories/news box serves this |
+| YMYL health/finance (sometimes) | "should I take aspirin daily" | Google is cautious with AI answers on health/finance topics |
+
+### Using AI Overview patterns in keyword research
+
+During the research phase, use these patterns to quickly estimate GEO potential:
+1. If a keyword matches a "consistently triggers" pattern, start with GEO score 5+
+2. If a keyword matches a "rarely triggers" pattern, start with GEO score 0-2
+3. Always verify with a manual search - patterns have exceptions
+4. For borderline keywords, test on both Google and Perplexity - if either fires
+   a detailed cited answer, there is GEO opportunity

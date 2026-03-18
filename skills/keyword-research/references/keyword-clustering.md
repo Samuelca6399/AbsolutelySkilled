@@ -207,3 +207,62 @@ Before finalizing a cluster and briefing a writer:
 A validated cluster becomes a one-to-one mapping to a content brief. One cluster =
 one content item = one calendar slot. This is the link between keyword research and
 content execution.
+
+---
+
+## Surface-aware clustering
+
+In tri-surface keyword research, clusters should be annotated with their dominant
+surface opportunity. This annotation tells content creators not just what to write
+about but which surface to optimize for first.
+
+### How to annotate clusters with a dominant surface
+
+After building your clusters using any of the methods above, add a surface annotation
+step:
+
+1. **Score each keyword in the cluster** using the tri-surface scoring rubric from
+   `references/tri-surface-scoring.md`. You need organic, AEO, and GEO scores per keyword.
+
+2. **Average the scores across the cluster** to get cluster-level surface scores:
+   - Cluster organic score = average of all keywords' organic scores
+   - Cluster AEO score = average of all keywords' AEO scores
+   - Cluster GEO score = average of all keywords' GEO scores
+
+3. **Assign the dominant surface** based on the highest cluster-level score. If two
+   scores are within 1 point, mark it as a dual-surface cluster.
+
+4. **Add the surface label to the cluster name:**
+   - "email marketing automation [ORG]" - organic-dominant
+   - "how to improve email deliverability [AEO]" - AEO-dominant (snippet opportunity)
+   - "best email marketing tools for startups [GEO]" - GEO-dominant (AI citation opportunity)
+   - "email marketing vs SMS marketing [AEO+GEO]" - dual-surface
+
+### Surface patterns by cluster type
+
+Certain cluster shapes naturally align with specific surfaces:
+
+| Cluster type | Dominant surface | Why |
+|---|---|---|
+| Question clusters ("how to X", "what is X", "why X") | AEO | Question queries trigger featured snippets and PAA boxes at high rates. Voice search also favors question-format content. |
+| Comparison clusters ("X vs Y", "best X for Y", "X alternatives") | GEO | AI engines produce detailed comparison answers with multiple citations. These are the highest-value GEO clusters. |
+| Data-rich clusters ("X statistics", "X benchmarks", "X report") | GEO | AI engines cite sources with original data and statistics. If your content has proprietary data, GEO opportunity is high. |
+| Transactional clusters ("buy X", "X pricing", "X free trial") | Organic | Neither snippets nor AI Overviews fire for purchase-intent queries. Pure organic play. |
+| Tutorial clusters ("X tutorial", "X step by step", "X for beginners") | AEO + Organic | Step-by-step content wins list snippets and ranks well organically. Some GEO opportunity if the tutorial is comprehensive. |
+| Definition clusters ("what is X", "X definition", "X explained") | AEO | Paragraph snippets fire for definition queries. AI engines answer these from training data with fewer citations, so GEO is lower. |
+
+### Impact on content brief
+
+The dominant surface annotation changes the content brief requirements:
+
+- **Organic-dominant clusters**: standard SEO brief - focus on depth, internal linking,
+  keyword placement, and matching the SERP content type
+- **AEO-dominant clusters**: brief must include snippet-formatted answer blocks,
+  PAA subheadings, concise answer paragraphs (40-60 words), and structured lists/tables.
+  Reference the `aeo-optimization` skill for formatting details.
+- **GEO-dominant clusters**: brief must include citable claims with supporting data,
+  clear expert positioning, unique analysis or original research, and structured
+  content that AI engines can extract. Reference the `geo-optimization` skill for
+  citation optimization details.
+- **Dual/tri-surface clusters**: layer the requirements - lead with the primary surface
+  format, then address secondary surface needs in supporting sections

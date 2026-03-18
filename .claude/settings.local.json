@@ -10,7 +10,8 @@
       "Read(//Users/dhruv/dev/AbsolutelySkilled/skills/$skill/**)",
       "Bash(done)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(python3:*)"
     ]
   }
 }

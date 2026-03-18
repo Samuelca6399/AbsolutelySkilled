@@ -1,15 +1,15 @@
 ---
 name: keyword-research
-version: 0.1.0
+version: 1.0.0
 description: >
   Use this skill when performing keyword research, search intent analysis, keyword
-  clustering, SERP analysis, competitor keyword gaps, or long-tail keyword discovery.
-  Triggers on any task involving finding what users search for, mapping search intent
-  (informational, navigational, transactional, commercial), grouping keywords into
-  topic clusters, or identifying content opportunities through keyword gap analysis.
+  clustering, SERP analysis, competitor keyword gaps, long-tail keyword discovery,
+  or evaluating keywords for snippet opportunity, AI Overview presence, and
+  tri-surface keyword reports. Covers organic (SEO), answer engine (AEO snippets/PAA),
+  and AI citation (GEO AI Overviews/ChatGPT Search/Perplexity) surfaces.
 category: marketing
-tags: [seo, keywords, search-intent, serp-analysis, content-strategy, competitor-analysis]
-recommended_skills: [content-seo, seo-mastery, aeo-optimization, programmatic-seo]
+tags: [seo, keywords, search-intent, serp-analysis, content-strategy, competitor-analysis, aeo, geo, ai-search, tri-surface, citation-score]
+recommended_skills: [content-seo, seo-mastery, aeo-optimization, programmatic-seo, geo-optimization]
 platforms:
   - claude-code
   - gemini-cli
@@ -24,14 +24,26 @@ When this skill is activated, always start your first response with the 🧢 emo
 
 # Keyword Research
 
-Keyword research is the foundation of all organic search strategy. It is the process
-of discovering what words and phrases people type into search engines, understanding
-why they search for them (intent), and mapping those signals to content that can rank
-and convert. Done well, keyword research reveals not just topics to cover but the
-exact language your audience uses, the gaps your competitors have left open, and the
-highest-leverage pages to build first. This skill covers the full research workflow -
-from seed topic to prioritized content plan - using intent mapping, SERP analysis,
-clustering, and gap analysis as the primary tools.
+> **Quick start (5 steps):** Seed keywords > Expand with tools/autocomplete >
+> Classify intent for each keyword > Tri-score (organic + AEO + GEO) >
+> Cluster by topic with surface annotations. See the common tasks below for details.
+
+Keyword research is the foundation of all organic and AI search strategy. It is the
+process of discovering what words and phrases people type into search engines and AI
+assistants, understanding why they search (intent), and evaluating which of three
+surfaces - organic results, answer engine features, or AI-generated citations -
+offers the best opportunity for each keyword.
+
+In 2026, keyword research must account for three surfaces simultaneously:
+- **Organic blue links (SEO)** - traditional rankings on Google, Bing, etc.
+- **Answer engine features (AEO)** - featured snippets, People Also Ask, voice results
+- **AI-generated citations (GEO)** - Google AI Overviews, ChatGPT Search, Perplexity
+
+This skill covers the full research workflow - from seed topic to prioritized,
+tri-surface-scored keyword report. It tells you WHAT to target and WHERE the
+opportunity is. For HOW to optimize content once you have chosen your targets,
+use the companion skills `aeo-optimization` (snippet/PAA formatting) and
+`geo-optimization` (AI citation optimization).
 
 ---
 
@@ -46,11 +58,17 @@ Trigger this skill when the user:
 - Needs to prioritize a list of keywords by opportunity or difficulty
 - Wants to understand what SERP features appear for a target keyword
 - Asks to detect keyword cannibalization across existing pages
+- Wants to evaluate keywords for snippet opportunity or featured snippet potential
+- Asks to assess AI Overview presence for target keywords
+- Needs a tri-surface keyword report scoring organic, AEO, and GEO opportunity
+- Wants to understand which keywords AI search engines answer vs. defer
 
 Do NOT trigger this skill for:
-- Paid search (PPC/Google Ads) bid strategy - keyword research overlaps, but ad-specific
-  match types, Quality Scores, and CPC optimization are a different domain
+- Paid search (PPC/Google Ads) bid strategy - ad-specific match types, Quality Scores,
+  and CPC optimization are a different domain
 - Brand naming or tagline development - that is copywriting, not search research
+- Formatting content to win snippets or PAA - that is `aeo-optimization`
+- Making content more citable by AI engines - that is `geo-optimization`
 
 ---
 
@@ -64,9 +82,10 @@ Do NOT trigger this skill for:
    of semantically related terms. Building one page per keyword creates duplication,
    splits authority, and fragments the user experience.
 
-3. **The SERP is the real source of truth** - No tool tells you more about what Google
-   wants to rank than the current top 10 results. Content type, length, format, and
-   featured snippet presence all reveal the implicit standard for a keyword.
+3. **The SERP + AI Overview is the source of truth** - No tool tells you more about what
+   Google wants to rank than the current top 10 results and whether an AI Overview fires.
+   Content type, length, format, featured snippet presence, and AI Overview citations
+   all reveal the implicit standard for a keyword.
 
 4. **Long-tail keywords convert better** - Longer, more specific queries have lower
    volume but higher purchase intent and lower competition. A content strategy built
@@ -75,6 +94,17 @@ Do NOT trigger this skill for:
 5. **Competitor gaps reveal the fastest wins** - Finding keywords where competitors
    rank in positions 4-15 (or not at all) is faster than trying to beat them on
    keywords where they dominate. Gaps are the entry points.
+
+6. **Every keyword has three surfaces to evaluate** - A keyword that looks mediocre
+   for organic ranking may have excellent snippet opportunity (AEO) or strong AI
+   citation potential (GEO). Evaluating all three surfaces prevents blind spots and
+   reveals non-obvious wins that single-surface research misses.
+
+7. **Research and optimization are separate phases** - This skill identifies WHAT to
+   target and WHERE the opportunity is. Optimization (HOW to format for snippets,
+   HOW to boost AI citations) is a downstream activity handled by `aeo-optimization`
+   and `geo-optimization`. Do not mix phases - complete research before starting
+   optimization.
 
 ---
 
@@ -87,7 +117,8 @@ on what the searcher is trying to accomplish. Informational intent ("how does X 
 ("buy X online", "X pricing", "X discount code") signals readiness to act.
 Commercial investigation ("best X", "X vs Y", "X review") sits between informational
 and transactional - the user is evaluating options before deciding. See
-`references/search-intent-mapping.md` for detailed classification guidance.
+`references/search-intent-mapping.md` for detailed classification guidance including
+intent-to-surface mapping.
 
 **Keyword difficulty (KD)** is a 0-100 score estimating how hard it is to rank on
 page one for a keyword, based primarily on the backlink authority of the current
@@ -108,11 +139,30 @@ page to surface. Symptoms include ranking oscillation, positions that drop when
 publishing new content, and two pages from the same domain appearing for the same
 query. Resolve by merging, redirecting, or clearly differentiating the pages.
 
+**Tri-surface keyword scoring** evaluates every keyword across three surfaces:
+organic opportunity (0-10), AEO opportunity (0-10), and GEO opportunity (0-10).
+The composite score (0-30) reveals total opportunity, and the priority surface
+tells you where to focus optimization efforts. See `references/tri-surface-scoring.md`
+for the full scoring rubrics and worked examples.
+
+**SERP feature landscape** - SERP features (featured snippets, PAA, video carousels,
+image packs, shopping results, AI Overviews) are research signals, not just ranking
+features. Their presence or absence tells you which surfaces are active for a keyword.
+A keyword with a featured snippet and an AI Overview has tri-surface potential. A
+keyword with only shopping results is organic-only. Map features during research to
+inform scoring.
+
+**AI search query patterns** - AI search engines (Google AI Overviews, ChatGPT Search,
+Perplexity) do not answer every query. They tend to fire on informational, comparison,
+and multi-step queries while skipping navigational, transactional, and simple factual
+queries. Understanding these patterns helps predict GEO opportunity during research.
+See `references/search-intent-mapping.md` for the full AI Overview intent pattern table.
+
 ---
 
 ## Common tasks
 
-### Map search intent for a keyword list
+### 1. Map search intent for a keyword list
 
 For each keyword, classify it using the four-type taxonomy. Apply this decision order:
 
@@ -127,11 +177,15 @@ For each keyword, classify it using the four-type taxonomy. Apply this decision 
    types. "Best project management software" is primarily commercial investigation
    with transactional secondary (the user may click through to pricing).
 
-Output format: a table with columns `keyword | intent | confidence | content type`.
+Output format: a table with columns
+`keyword | intent | confidence | content_type | snippet_type | ai_overview_present`.
+
+The last two columns feed into AEO and GEO scoring. Record snippet type as
+paragraph/list/table/none and AI Overview presence as yes/sometimes/no.
 
 See `references/search-intent-mapping.md` for the full classification guide.
 
-### Build a keyword cluster from a seed topic
+### 2. Build a keyword cluster from a seed topic
 
 Start with one seed keyword and expand outward:
 
@@ -147,44 +201,62 @@ Start with one seed keyword and expand outward:
    woven into subheadings and body copy.
 4. **Name the cluster** - Give it a descriptive label: "project management software -
    top-of-funnel commercial". This label drives content brief decisions.
+5. **Annotate with dominant surface** - Score the cluster's keywords using tri-surface
+   scoring and assign a surface label: [ORG], [AEO], [GEO], or [AEO+GEO]. This tells
+   the content team which optimization approach to take after writing.
 
-See `references/keyword-clustering.md` for semantic, SERP-based, and modifier-based
-clustering methods.
+See `references/keyword-clustering.md` for semantic, SERP-based, modifier-based,
+and surface-aware clustering methods.
 
-### Analyze SERP features for target keywords
+### 3. Tri-surface scoring
 
-For each priority keyword, note which SERP features are present:
+This is the signature task of modern keyword research. For each keyword (or cluster),
+produce scores across all three surfaces.
 
-| Feature | What it signals |
-|---|---|
-| Featured snippet | Create a concise, direct answer in your content (40-60 words) |
-| People Also Ask | Each PAA question is a subheading opportunity |
-| Image pack | Include optimized images with descriptive alt text |
-| Video carousel | Consider creating a companion video |
-| Local pack | Signals local intent; not worth targeting without a local presence |
-| Shopping results | Strong transactional intent; product page or comparison table needed |
-| Knowledge panel | Navigational or branded keyword; informational content has limited upside |
+**Process:**
+1. **Gather raw data** - For each keyword, collect: search volume, traffic potential,
+   KD, SERP features present, featured snippet format and holder, PAA count, and
+   AI Overview presence (check Google, optionally ChatGPT Search and Perplexity).
+   See `references/tool-specific-workflows.md` for tool-by-tool data collection steps.
+2. **Score organic (0-10)** - Based on traffic potential, KD inversion, intent-business
+   alignment, and content gap existence.
+3. **Score AEO (0-10)** - Based on snippet presence, format match, PAA count, voice
+   search likelihood, and current holder strength. Score 0 for navigational and
+   most transactional keywords where snippets don't fire.
+4. **Score GEO (0-10)** - Based on AI Overview trigger, citation density, query type
+   match, entity relevance, and content uniqueness. Score 0 when no AI Overview fires.
+5. **Calculate composite** - Sum the three scores (0-30). Apply business-goal weighting
+   if needed.
+6. **Assign priority surface** - Highest-scoring surface becomes the priority. If two
+   are within 2 points and both above 5, mark as dual-surface opportunity.
 
-The absence of a featured snippet on an informational keyword is an opportunity -
-it means no one has written a clean enough answer yet.
+See `references/tri-surface-scoring.md` for the complete rubrics, weighting tables,
+and three worked examples.
 
-### Identify competitor keyword gaps
+**Output format:**
+`keyword | intent | organic_score | aeo_score | geo_score | composite | priority_surface`
+
+### 4. Identify competitor keyword gaps (surface-aware)
 
 A keyword gap is a keyword where a competitor ranks in the top 20 but you do not.
-These are validated opportunities - someone has proven the keyword is rankable.
 
-Framework for gap analysis:
-1. Pull the keyword rankings for 3-5 direct competitors using a tool (Ahrefs, Semrush,
-   Moz). Export keywords where competitor is in positions 1-20.
+Framework for surface-aware gap analysis:
+1. Pull keyword rankings for 3-5 competitors using a tool (Ahrefs, Semrush).
+   Export keywords where competitor is in positions 1-20.
 2. Filter out keywords where your site already ranks positions 1-5 (already winning).
-3. Filter for keywords matching your target intent (usually informational + commercial
-   investigation for content strategy; transactional for product pages).
-4. Sort by traffic potential descending. The top of this list is your gap opportunity list.
-5. Cross-reference with your existing content inventory. If you have a page that could
-   be optimized to capture the keyword, that is a quick win. If no page exists, it is
-   a content creation opportunity.
+3. Filter for keywords matching your target intent.
+4. Sort by traffic potential descending.
+5. **New: Surface gap analysis** - For the top 50 gap keywords, check whether they
+   trigger featured snippets and AI Overviews. A keyword gap where the competitor
+   ranks organically but doesn't hold the snippet or isn't cited by AI is a
+   multi-surface gap - you can potentially win the snippet or AI citation even if
+   the organic position takes time to capture.
+6. Cross-reference with your content inventory. Existing pages that can be optimized
+   are quick wins; missing pages are content creation opportunities.
 
-### Find long-tail variations
+See `references/tool-specific-workflows.md` for tool-specific gap analysis steps.
+
+### 5. Find long-tail variations with surface annotations
 
 Long-tail keywords (typically 3+ words, lower volume, higher specificity) are easier
 to rank for and often signal stronger intent. To find them:
@@ -195,32 +267,46 @@ to rank for and often signal stronger intent. To find them:
 - **Location modifiers**: city, region, "near me", "in [country]"
 - **Feature modifiers**: "free", "open source", "enterprise", "API", "integration"
 
-For a seed keyword "email marketing", long-tail examples include:
-"email marketing for e-commerce", "email marketing vs SMS marketing",
-"email marketing best practices for B2B", "free email marketing tools for startups".
+**Surface annotations for long-tail keywords:**
+- Question-format long-tails ("how to X for Y") score high on AEO (snippet targets)
+- Comparison long-tails ("X vs Y for Z") score high on GEO (AI engines love comparisons)
+- Feature/qualifier long-tails ("X with API for enterprise") are usually organic-only
+- Location long-tails are almost always organic-only (local pack, not snippets or AI)
 
-Target long-tail keywords with a dedicated FAQ section, comparison page, or use-case
-landing page rather than trying to insert them unnaturally into a pillar page.
+Target long-tail keywords with dedicated FAQ sections, comparison pages, or use-case
+landing pages. Annotate each with its likely priority surface.
 
-### Prioritize keywords by opportunity score
+### 6. Produce a keyword research report
 
-When you have more keywords than capacity, prioritize using an opportunity score:
+The keyword research report is the primary deliverable of this skill. It synthesizes
+all research into an actionable document.
 
-```
-Opportunity Score = (Traffic Potential / Keyword Difficulty) * Intent Weight
-```
+**Report structure:**
 
-Where Intent Weight is:
-- Transactional = 3
-- Commercial investigation = 2
-- Informational = 1
-- Navigational = 0.5 (rarely worth targeting unless it is your own brand)
+1. **Executive summary** (1 paragraph) - Total keywords analyzed, top clusters,
+   dominant surface opportunity, and 3 biggest findings.
 
-Sort descending. Assign content type (new page, optimize existing, FAQ) to each item.
-Apply a reality check: do you have the domain authority to rank for KD > 60 yet?
-If not, filter to KD < 40 for the first content wave.
+2. **Intent distribution** - Pie chart or table showing the breakdown of informational,
+   commercial, transactional, and navigational keywords in the dataset.
 
-### Detect keyword cannibalization
+3. **Surface opportunity map** - Table showing how many keywords have their priority
+   surface as organic, AEO, GEO, dual, or tri. This reveals whether the overall
+   strategy should lean toward traditional SEO, snippet optimization, or AI citation.
+
+4. **Top keyword clusters** - For each cluster: name, primary keyword, keyword count,
+   average composite score, dominant surface, and recommended content type.
+
+5. **Quick wins** - Keywords where you have the best ratio of opportunity to effort:
+   striking-distance organic keywords (positions 5-15), snippet-eligible keywords with
+   no current holder, and AI Overview queries citing weak sources you can displace.
+
+6. **Content recommendations** - Map clusters to content calendar items: new pages,
+   existing pages to optimize, FAQ additions, and comparison articles to create.
+
+7. **Full keyword data** - Appendix table with all keywords and their scores. Use
+   the spreadsheet template from `references/tool-specific-workflows.md`.
+
+### 7. Detect keyword cannibalization
 
 Run a site search for the target keyword (`site:yourdomain.com "keyword phrase"`) and
 audit Google Search Console for pages sharing the same top query.
@@ -233,6 +319,9 @@ Diagnosis:
   the weaker page's content into the stronger one via a 301 redirect.
 - **New page tanked the ranking of an existing page**: Re-differentiate the new page's
   focus term or merge it back into the original.
+- **Snippet cannibalization**: If two of your pages alternate holding the featured
+  snippet for the same query, Google may drop both. Consolidate to ensure one
+  definitive page owns the snippet-eligible answer.
 
 ---
 
@@ -243,11 +332,13 @@ Diagnosis:
 | Chasing volume over intent | A high-volume keyword that doesn't match your buyer's stage sends irrelevant traffic that bounces | Filter by intent first, then sort by volume within the right intent category |
 | One page per keyword | Creates thin, near-duplicate pages that split link equity and rarely rank | Cluster semantically related keywords to one page; build depth |
 | Ignoring the SERP | Targeting a keyword without checking what type of content currently ranks leads to mismatched format | Always check the top 10 before writing a brief; match dominant content type |
-| Targeting KD 70+ with a new site | New domains lack the authority to rank on competitive terms; traffic is zero for months | Start with KD < 30 to earn rankings, traffic, and links; build up to harder terms |
-| Keyword stuffing | Inserting a keyword unnaturally into every sentence triggers spam filters and hurts readability | Use the primary keyword in title, H1, and first paragraph; use variants and synonyms naturally throughout |
+| Targeting KD 70+ with a new site | New domains lack the authority to rank on competitive terms | Start with KD < 30 to earn rankings, traffic, and links; build up to harder terms |
 | Skipping competitor gap analysis | Building content only from brainstorming misses proven opportunities | Always run a gap report before finalizing your content calendar |
-| Conflating search volume with business value | A 10,000/month keyword in the wrong industry stage (awareness) may produce zero conversions | Map every keyword to a funnel stage and business goal before investing in content |
 | Never updating keyword research | Search behavior evolves; queries from 2 years ago may have shifted in intent or volume | Audit top content annually; refresh keyword targets based on current SERP data |
+| Ignoring snippet and AI Overview presence | Treating all keywords as organic-only misses AEO and GEO opportunities that may be easier to win than organic rankings | Record SERP features and AI Overview status for every keyword during research |
+| Treating every keyword as organic-only | Defaulting to traditional SEO without checking if a keyword is better won through snippets or AI citations | Run tri-surface scoring for all priority keywords; assign a priority surface |
+| Scoring GEO when no AI Overview fires | Assigning GEO opportunity to a keyword where AI engines don't generate an answer wastes effort | Always verify AI Overview presence manually; GEO = 0 if no AI answer fires |
+| Mixing research and optimization | Trying to format content for snippets or AI citations before finishing keyword research leads to premature decisions | Complete the full research workflow (seed > expand > classify > score > cluster) before any optimization work |
 
 ---
 
@@ -256,13 +347,22 @@ Diagnosis:
 For detailed content on specific topics, read the relevant file from `references/`:
 
 - `references/search-intent-mapping.md` - Deep dive into the four intent types,
-  classification signals, intent-to-content-type matrix, and how to validate intent
+  classification signals, intent-to-content-type matrix, intent-to-surface mapping
+  for AEO and GEO, AI Overview intent patterns, and how to validate intent
   assumptions from SERP data. Load when classifying a keyword list or writing a
   content brief.
 - `references/keyword-clustering.md` - Methods for clustering keywords (semantic,
-  SERP-based, modifier-based), building pillar-and-spoke topic clusters, avoiding
-  over/under-clustering, and tooling options. Load when building a cluster or
-  planning a content architecture.
+  SERP-based, modifier-based, surface-aware), building pillar-and-spoke topic
+  clusters, surface-aware cluster annotation, and tooling options. Load when building
+  a cluster or planning a content architecture.
+- `references/tri-surface-scoring.md` - Complete scoring rubrics for organic (0-10),
+  AEO (0-10), and GEO (0-10) opportunity scores, composite scoring, business-goal
+  weighting, three worked examples, and limitations. Load when scoring keywords
+  or producing a tri-surface keyword research report.
+- `references/tool-specific-workflows.md` - Step-by-step workflows for Ahrefs,
+  Semrush, Google Search Console + free tools, and ChatGPT/Perplexity manual audits.
+  Includes spreadsheet template with columns, formulas, and conditional formatting.
+  Load when performing hands-on keyword research with specific tools.
 
 Only load a references file if the current task requires deep detail on that topic.
 
@@ -277,7 +377,8 @@ Only load a references file if the current task requires deep detail on that top
 
 - [content-seo](https://github.com/AbsolutelySkilled/AbsolutelySkilled/tree/main/skills/content-seo) - Optimizing content for search engines - topic cluster strategy, pillar page architecture,...
 - [seo-mastery](https://github.com/AbsolutelySkilled/AbsolutelySkilled/tree/main/skills/seo-mastery) - Optimizing for search engines, conducting keyword research, implementing technical SEO, or building link strategies.
-- [aeo-optimization](https://github.com/AbsolutelySkilled/AbsolutelySkilled/tree/main/skills/aeo-optimization) - Optimizing content for answer engines and SERP features - featured snippets (paragraph,...
+- [aeo-optimization](https://github.com/AbsolutelySkilled/AbsolutelySkilled/tree/main/skills/aeo-optimization) - Optimizing content for answer engines and SERP features - featured snippets, PAA, voice results. Use after keyword research to format content for snippet capture.
 - [programmatic-seo](https://github.com/AbsolutelySkilled/AbsolutelySkilled/tree/main/skills/programmatic-seo) - Building programmatic SEO pages at scale - template-based page generation, data-driven...
+- [geo-optimization](https://github.com/AbsolutelySkilled/AbsolutelySkilled/tree/main/skills/geo-optimization) - Making content citable by AI search engines - Google AI Overviews, ChatGPT Search, Perplexity. Use after keyword research to optimize for AI citations.
 
 Install a companion: `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill <name>`
