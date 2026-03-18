@@ -9,7 +9,7 @@ description: >
   analysis, and doc-as-code workflows for engineering teams.
 category: writing
 tags: [technical-writing, documentation, api-docs, adr, runbooks, tutorials]
-recommended_skills: [internal-docs, developer-experience, developer-advocacy, knowledge-base]
+recommended_skills: [internal-docs, developer-experience, developer-advocacy, knowledge-base, codedocs]
 platforms:
   - claude-code
   - gemini-cli

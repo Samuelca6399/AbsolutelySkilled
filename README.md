@@ -404,6 +404,7 @@ skills/
 
 | Skill | Description |
 |---|---|
+| [codedocs](skills/codedocs/) | AI-agent-friendly codebase docs - generate layered docs, answer questions docs-first, update incrementally via git diff |
 | [technical-writing](skills/technical-writing/) | API docs, tutorials, architecture docs, ADRs, runbooks |
 | [developer-experience](skills/developer-experience/) | SDK design, onboarding, changelog, migration guides |
 | [internal-docs](skills/internal-docs/) | RFCs, design docs, post-mortems, runbooks, knowledge management |

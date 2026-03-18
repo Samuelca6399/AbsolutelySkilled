@@ -9,7 +9,7 @@ description: >
   advocacy. Covers the full DX lifecycle from first impression to long-term retention.
 category: engineering
 tags: [developer-experience, sdk-design, onboarding, changelog, migration, dx]
-recommended_skills: [technical-writing, cli-design, open-source-management, internal-docs]
+recommended_skills: [technical-writing, cli-design, open-source-management, internal-docs, codedocs]
 platforms:
   - claude-code
   - gemini-cli

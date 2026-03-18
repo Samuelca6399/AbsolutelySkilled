@@ -1,0 +1,146 @@
+{
+  "skill": "codedocs",
+  "version": "0.1.0",
+  "evals": [
+    {
+      "id": "eval-001",
+      "description": "Triggers on request to document a codebase",
+      "prompt": "Generate documentation for this repository so new developers can onboard quickly",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "OVERVIEW.md" },
+        { "type": "contains", "value": "modules/" },
+        { "type": "contains", "value": ".codedocs.json" }
+      ]
+    },
+    {
+      "id": "eval-002",
+      "description": "Triggers on request to explain a codebase",
+      "prompt": "What does this project do and how is it structured?",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "OVERVIEW.md" }
+      ]
+    },
+    {
+      "id": "eval-003",
+      "description": "Triggers on request to update docs after changes",
+      "prompt": "I just refactored the auth module, can you update the docs?",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "codedocs:update" },
+        { "type": "contains", "value": "--scope" }
+      ]
+    },
+    {
+      "id": "eval-004",
+      "description": "Generates correct output structure with all required files",
+      "prompt": "Run codedocs:generate on this TypeScript project and show me the output plan",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "OVERVIEW.md" },
+        { "type": "contains", "value": "modules/" },
+        { "type": "contains", "value": "patterns/" },
+        { "type": "contains", "value": ".codedocs.json" },
+        { "type": "contains", "value": "Tech stack" }
+      ]
+    },
+    {
+      "id": "eval-005",
+      "description": "Detects tech stack from manifest files during discovery",
+      "prompt": "Document this repo that has a package.json with Next.js and Prisma dependencies",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "package.json" },
+        { "type": "contains", "value": "TypeScript" },
+        { "type": "not_contains", "value": "Cargo.toml" }
+      ]
+    },
+    {
+      "id": "eval-006",
+      "description": "Routes questions to docs first before reading source code",
+      "prompt": "How does the authentication flow work in this project?",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "docs/" },
+        { "type": "contains", "value": "module" }
+      ]
+    },
+    {
+      "id": "eval-007",
+      "description": "Uses git diff for incremental updates when --diff flag is provided",
+      "prompt": "Update the docs based on my last 5 commits using codedocs:update --diff",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "git diff" },
+        { "type": "contains", "value": ".codedocs.json" },
+        { "type": "contains", "value": "manifest" }
+      ]
+    },
+    {
+      "id": "eval-008",
+      "description": "Handles missing codedocs gracefully when asked a question",
+      "prompt": "Run codedocs:ask to tell me about the database layer",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": ".codedocs.json" },
+        { "type": "contains", "value": "codedocs:generate" }
+      ]
+    },
+    {
+      "id": "eval-009",
+      "description": "Separates module docs from pattern docs correctly",
+      "prompt": "Document this repo - the error handling is used across auth, api, and database modules",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "patterns/" },
+        { "type": "contains", "value": "error-handling" },
+        { "type": "contains", "value": "cross-cutting" }
+      ]
+    },
+    {
+      "id": "eval-010",
+      "description": "Does not confuse codedocs with API documentation for external consumers",
+      "prompt": "Write API reference docs for our REST endpoints that external developers will use",
+      "type": "explanation",
+      "assertions": [
+        { "type": "not_contains", "value": "codedocs:generate" },
+        { "type": "not_contains", "value": ".codedocs.json" }
+      ]
+    },
+    {
+      "id": "eval-011",
+      "description": "Does not invent non-existent codedocs commands",
+      "prompt": "Use codedocs to analyze code quality and suggest improvements",
+      "type": "explanation",
+      "assertions": [
+        { "type": "not_contains", "value": "codedocs:analyze" },
+        { "type": "not_contains", "value": "codedocs:lint" },
+        { "type": "not_contains", "value": "codedocs:review" }
+      ]
+    },
+    {
+      "id": "eval-012",
+      "description": "References the generate-workflow reference file for deep discovery details",
+      "prompt": "How does codedocs detect module boundaries in a Rust monorepo?",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "references/generate-workflow.md" },
+        { "type": "contains", "value": "Cargo.toml" },
+        { "type": "contains", "value": "workspace" }
+      ]
+    },
+    {
+      "id": "eval-013",
+      "description": "Presents a discovery plan before generating docs",
+      "prompt": "Generate codedocs for this repo but let me review the plan first",
+      "type": "explanation",
+      "assertions": [
+        { "type": "contains", "value": "discovery" },
+        { "type": "contains", "value": "module" },
+        { "type": "contains", "value": "pattern" },
+        { "type": "contains", "value": "approve" }
+      ]
+    }
+  ]
+}

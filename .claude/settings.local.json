@@ -11,7 +11,10 @@
       "Bash(done)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:github.com)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/dhjain/dev/maddhruv/AbsolutelySkilled/**)"
     ]
   }
 }
