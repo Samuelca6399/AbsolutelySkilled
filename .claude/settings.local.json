@@ -14,7 +14,11 @@
       "Bash(python3:*)",
       "Bash(for f:*)",
       "Bash(do echo:*)",
-      "Read(//Users/dhjain/dev/maddhruv/AbsolutelySkilled/**)"
+      "Read(//Users/dhjain/dev/maddhruv/AbsolutelySkilled/**)",
+      "Read(//Users/dhjain/.agents/skills/keyword-research/**)",
+      "Read(//Users/dhjain/.agents/skills/superhuman/**)",
+      "Bash(npx skills:*)",
+      "Bash(node:*)"
     ]
   }
 }
