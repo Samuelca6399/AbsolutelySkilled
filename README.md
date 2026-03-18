@@ -541,6 +541,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide on creating and submit
 
 We welcome contributions! Whether it's a new skill for a framework you love or fixing a typo in an existing one, check out the [contributing guide](CONTRIBUTING.md).
 
+## Star History
+
+<a href="https://www.star-history.com/?repos=AbsolutelySkilled%2FAbsolutelySkilled&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=AbsolutelySkilled/AbsolutelySkilled&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=AbsolutelySkilled/AbsolutelySkilled&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=AbsolutelySkilled/AbsolutelySkilled&type=date&legend=top-left" />
+ </picture>
+</a>
+
 ## License
 
 [MIT](LICENSE)
