@@ -340,6 +340,20 @@ quarter?"
 
 ---
 
+## Gotchas
+
+1. **RICE scores treated as absolute truth** - RICE produces a number, but the inputs (Reach, Confidence, Effort) are estimates. Teams often stop debating once the spreadsheet exists. Treat RICE as a structured conversation starter, not a decision oracle - challenge the inputs, not just the outputs.
+
+2. **Vision written for the all-hands, not the team** - Inspirational vision statements that sound good in a company meeting often give zero guidance on what to build. A vision that can't help a PM decline a feature request has failed its job.
+
+3. **OKRs that are actually task lists** - The most common mistake is writing KRs as deliverables ("ship search feature") rather than metric movements. When asked to write OKRs, explicitly check every KR: can you achieve it without the metric moving? If yes, rewrite it.
+
+4. **Roadmap shared at the feature level with executives** - Executives reading feature-level roadmaps immediately start adding items. Share outcomes-only views with execs; reserve feature-level detail for engineering and design.
+
+5. **"Won't Have" items deleted instead of parked** - MoSCoW's Won't Have bucket is a deliberate parking lot. Deleting items means they reappear as new requests next quarter. Always keep the Won't Have list visible and reference it when similar requests arrive.
+
+---
+
 ## References
 
 For detailed scoring guides, formulas, and worked examples:

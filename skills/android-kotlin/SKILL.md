@@ -346,6 +346,20 @@ Room.databaseBuilder(context, AppDatabase::class.java, "app.db")
 
 ---
 
+## Gotchas
+
+1. **`collectAsState()` vs `collectAsStateWithLifecycle()`** - `collectAsState()` continues collecting flow emissions even when the app is in the background, wasting battery and potentially causing crashes. Always use `collectAsStateWithLifecycle()` from `lifecycle-runtime-compose` which automatically pauses collection when the lifecycle is not at least `STARTED`.
+
+2. **Room migrations are required in production** - Changing any `@Entity` class without a corresponding `Migration` object will crash the app on launch with `IllegalStateException`. `fallbackToDestructiveMigration()` deletes all user data silently; never use it in a published app. Write migrations for every schema change before release.
+
+3. **Process death drops ViewModel state** - `ViewModel` survives configuration changes (rotation) but NOT process death. If the OS kills the app, `StateFlow` state is lost. For state that must survive process death, use `SavedStateHandle` in the ViewModel constructor.
+
+4. **Composable recompositions on every state change** - Lambdas and objects created inside composables are recreated on every recomposition, causing excessive child recompositions. Wrap event handlers in `remember { }` or define them in the ViewModel. Unstable function parameters also break Compose's skipping optimization.
+
+5. **`versionCode` must increment for every Play Store upload** - Uploading an AAB with the same or lower `versionCode` than an existing track will be rejected by the Play Console. Automate `versionCode` incrementing in CI; never rely on manual updates.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

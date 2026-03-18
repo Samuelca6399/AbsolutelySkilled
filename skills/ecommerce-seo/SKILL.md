@@ -398,6 +398,20 @@ categories) down to product pages.
 
 ---
 
+## Gotchas
+
+1. **Canonicalling paginated category pages to page 1 removes them from the index** - This is one of the most common e-commerce SEO mistakes. Each paginated page should canonical to itself, not to page 1. Canonical to page 1 tells Google "this is a duplicate of page 1" and Google drops pages 2+ from the index, hiding products from search.
+
+2. **Product schema `price` must exactly match the on-page price** - Google cross-validates the structured data price against the rendered page. A mismatch (e.g., schema shows `$99` but the page renders `$99.99` with taxes) causes rich snippet ineligibility. Ensure both values are sourced from the same data point.
+
+3. **JavaScript-only facet filters create zero indexable URLs** - If filtering updates the DOM without changing the URL (no `history.pushState`, no query params), Googlebot sees only the base category page. All filter combinations are invisible to search. You need distinct URLs for any filter combination you want indexed.
+
+4. **`noindex` on filtered pages doesn't prevent crawl waste** - `noindex, follow` tells Google not to index the page but still crawls it. For high-volume filter combinations with zero search demand (sort orders, page numbers beyond page 3), `robots.txt Disallow` stops the crawl entirely, preserving crawl budget.
+
+5. **Out-of-stock products 404'd lose their backlinks permanently** - Returning a 404 for a temporarily unavailable product destroys accumulated link equity and may take months to recover if the product returns to stock. Keep the page live, update the `availability` schema to `OutOfStock`, and add a back-in-stock notification.
+
+---
+
 ## References
 
 For deep-dive implementation guides, load the relevant file from `references/`:

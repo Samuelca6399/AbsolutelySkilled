@@ -303,6 +303,20 @@ operations where possible.
 
 ---
 
+## Gotchas
+
+1. **Kafka ordering is per-partition, not per-topic** - If two events for the same aggregate land on different partitions (e.g., because the partition key was not the aggregate ID), consumers can process them out of order. Always partition by aggregate ID to guarantee ordering for a single entity.
+
+2. **Projections that fail partway through leave read models in a partially-updated state** - If a projection crashes after updating one table but before updating a second, the read model is inconsistent. Either wrap projection updates in a transaction, or design projections to be idempotent and rebuildable from scratch on failure.
+
+3. **No dead-letter queue means one poison message blocks all consumers indefinitely** - A malformed event that causes a consumer to throw on every retry will halt the entire consumer group for that partition. Configure a DLQ from day one and alert on DLQ depth. Never leave a consumer group blocked waiting for a poison message to magically self-heal.
+
+4. **Schema changes to events must be backward-compatible or all existing consumers break** - Renaming a field, changing a field type, or removing a required field in an event schema breaks every consumer that uses it, including projections built from historical events replayed from the store. Add new fields as optional with defaults; never remove or rename fields without a versioning strategy.
+
+5. **The event store growing without snapshots causes unbounded aggregate reconstruction time** - An aggregate with 10,000 events takes 10,000 event loads and applies to reconstruct current state. Plan snapshots before going to production: capture state every N events (e.g., every 100) and store alongside the event log.
+
+---
+
 ## References
 
 For detailed content on specific sub-topics, read the relevant file from the

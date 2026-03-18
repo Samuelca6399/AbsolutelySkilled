@@ -260,6 +260,20 @@ cmux notify --title "Error" --subtitle "Build failed" --body "See surface:42"
 
 ---
 
+## Gotchas
+
+1. **Stale surface refs after workspace close** - If a workspace is closed (by the user or another agent), all surface refs from that workspace become invalid. Subsequent commands using those refs return "Surface not found". Always re-list with `cmux --json list-panes` before sending commands to a surface that was created more than a few minutes ago.
+
+2. **`send` does not press Enter** - `cmux send --surface <ref> "command"` types the text but does not execute it. You must follow with `cmux send-key --surface <ref> Enter`. Missing this step leaves commands typed but not run, causing `read-screen` to show input but no output.
+
+3. **`read-screen` without `--scrollback` misses completed output** - Once a long-running command finishes and its output scrolls off the visible terminal area, `read-screen` without `--scrollback` returns only what's currently visible - potentially just a shell prompt. Always use `--scrollback` when reading the result of a command that may have produced more output than one screen.
+
+4. **Socket path mismatch in nested environments** - When running cmux commands from inside a cmux-spawned terminal, the `CMUX_SOCKET_PATH` env var is set automatically. But if you spawn a subshell or use `sudo`, the variable may not propagate. Always pass `--socket-path` explicitly or verify the env var is inherited when running cmux from non-standard shell contexts.
+
+5. **Closing the wrong surface** - `cmux close-surface` closes the surface (terminal tab), not the pane. To remove a pane from the layout entirely, close all surfaces in it first, then the pane collapses. Calling `close-surface` on the wrong ref silently removes a still-needed terminal - always verify the ref with `cmux --json list-pane-surfaces` before closing.
+
+---
+
 ## References
 
 For detailed content on specific cmux sub-domains, read the relevant file

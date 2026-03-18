@@ -475,6 +475,20 @@ function validateBody<T>(schema: z.ZodSchema<T>) {
 
 ---
 
+## Gotchas
+
+1. **DNS rebinding bypasses IP-based SSRF blocklists** - An attacker registers a domain that initially resolves to a public IP (passing your IP check), then immediately re-resolves to `169.254.169.254` (cloud metadata). The server fetches the attacker's internal target. Mitigate by using a host allowlist, not just an IP blocklist, or by caching the resolved IP and using it for the actual connection.
+
+2. **`bcrypt.compare()` must always run even for missing users** - If you return early with "user not found" before calling `bcrypt.compare()`, the response time is measurably shorter than a failed password check. Timing-based enumeration reveals valid email addresses. Always run `bcrypt.compare()` against a dummy hash even when the user doesn't exist.
+
+3. **CSP `unsafe-inline` on `script-src` negates XSS protection** - Adding `'unsafe-inline'` to `script-src` allows all inline scripts, which is what CSP exists to prevent. If you need inline styles, use `'unsafe-inline'` on `style-src` only. For inline scripts, use nonces or hashes instead.
+
+4. **`SameSite=Lax` doesn't protect non-GET state-changing requests on cross-site navigation** - Top-level navigations with GET are allowed under `SameSite=Lax`. For mutation endpoints invoked via form POST from another origin, `Lax` provides no protection. Use `SameSite=Strict` or implement CSRF tokens for server-rendered form submissions.
+
+5. **Dynamic `ORDER BY` column names can't be parameterized and are injection vectors** - You can't use `$1` for a column name or SQL keyword. A `sortBy` query parameter passed directly into `ORDER BY ${sortBy}` is injectable. Always validate against an explicit allowlist of permitted column names before interpolating.
+
+---
+
 ## References
 
 For deeper implementation guidance, load the relevant reference file:

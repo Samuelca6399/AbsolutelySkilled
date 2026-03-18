@@ -273,6 +273,20 @@ A shared checklist that every increment must satisfy before it can be called don
 
 ---
 
+## Gotchas
+
+1. **Velocity is team-specific and not comparable across teams** - Teams calibrate story points differently. A team doing 40 points per sprint is not twice as productive as one doing 20. Using velocity to compare teams, pressure individuals, or set targets from outside the team destroys the signal. It is a planning tool only.
+
+2. **Adding items mid-sprint breaks the sprint goal** - The sprint goal is a commitment, not a suggestion. Adding new work mid-sprint without removing equivalent work invalidates velocity data and trains the team that commitments are flexible. Only the PO can add items, and only by removing something of equal size.
+
+3. **Retrospectives without named action owners are decoration** - "We should communicate better" is not an action item. Actions without a single owner and a due date will not happen. Every retro must end with 2-3 specific, owned, sprint-scoped actions. Anything else is venting.
+
+4. **Carrying over stories inflates apparent velocity** - If a team regularly carries over 20-30% of committed work and counts it as completed in the next sprint, their velocity is artificially high and sprint planning is unreliable. Track carry-over rate separately and reduce committed scope until completion rate reaches 85%+.
+
+5. **Definition of Done that bends per story creates hidden debt** - Lowering the DoD to "finish" a story (skipping tests, skipping review) creates undisclosed technical debt that surfaces as bugs and rework. The DoD is a floor, not a negotiation. A story that cannot meet the DoD is not done; it carries over.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file

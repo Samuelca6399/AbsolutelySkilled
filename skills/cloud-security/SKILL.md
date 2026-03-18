@@ -443,6 +443,20 @@ controls comparison.
 
 ---
 
+## Gotchas
+
+1. **Service Control Policies silently block actions** - An SCP at the AWS Organization level that denies an action overrides any IAM Allow in a member account. When a permission looks correct in IAM but still fails with "AccessDenied", check the SCP chain at the organization and OU level - they are often overlooked because they're managed by a separate team.
+
+2. **CloudTrail logging gap on multi-region trails** - A trail configured as multi-region still won't capture events from services that are global (IAM, STS, CloudFront) unless `include_global_service_events` is explicitly set to `true`. Most IAM changes and assume-role events fall into this gap and disappear from audit logs without this flag.
+
+3. **KMS key deletion is irreversible after the waiting period** - KMS imposes a 7-30 day waiting period before key deletion, but once the period expires, the key and all data encrypted with it that lacks a backup decryption path are permanently unrecoverable. Never schedule a key for deletion unless you have verified that no data encrypted with it needs to be decrypted in the future.
+
+4. **Security group rule accumulation** - Security groups are additive - rules are only added, never automatically removed. Over months, groups accumulate stale rules (former services, debug ports, one-off access). A security group that looks fine has rules from two years ago that opened ports to long-deleted resources, some of which may overlap with new infrastructure in the same CIDR range.
+
+5. **Secrets in environment variables baked into container images** - Setting `ENV DB_PASSWORD=...` in a Dockerfile bakes the secret into every image layer permanently. Anyone with `docker history` access or registry pull access can recover it. Secrets must be injected at container runtime from a secrets manager, never built into the image.
+
+---
+
 ## References
 
 For deep-dive guidance on specific domains, load the relevant file from

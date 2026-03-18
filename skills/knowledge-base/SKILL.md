@@ -334,6 +334,20 @@ without requiring the user to navigate away.
 
 ---
 
+## Gotchas
+
+1. **Failed search data is the most valuable signal and most teams ignore it** - Most help center analytics dashboards surface pageviews and article ratings. The highest-signal data is failed searches (queries that return zero results or zero clicks). These are users who came looking for help and left empty-handed. Pull this report weekly and treat it as a content gap backlog.
+
+2. **Organizing by product feature structure instead of user mental model causes high bounce rates** - When users see categories like "Workspace Settings > Members > Invitation Flow" they have to translate their problem ("how do I add someone") into your product's internal taxonomy. Users who can't find the category in 3 seconds leave and open a ticket. Always validate category names with real users before launching.
+
+3. **Article titles written for SEO but not for scanning produce low click rates in search** - A title like "Complete Guide to Password Management in Your Account Settings" is verbose and buries the action. Users scanning search results for "reset password" need to see those words in the title. Keep titles short, verb-first, and match the exact language users type when searching.
+
+4. **High article ratings on outdated content create a false health signal** - Users who found a workaround or figured it out on their own often rate the article positively despite it being partially wrong. Article staleness tracking (days since last review) must run in parallel with ratings - a 4-star article that hasn't been reviewed in 18 months for a changing feature is still a liability.
+
+5. **Deflection rate drops are invisible without session-level tracking** - If you measure deflection as "tickets opened / total KB pageviews" instead of at the session level, you can't tell whether users who opened tickets also visited the KB first. Session-level tracking (user visited KB then opened a ticket within the same session) is the only accurate failure signal.
+
+---
+
 ## References
 
 For detailed templates and patterns, load the relevant file from `references/`:

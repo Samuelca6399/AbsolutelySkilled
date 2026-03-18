@@ -303,6 +303,20 @@ Build a safe, isolated practice environment:
 
 ---
 
+## Gotchas
+
+1. **Scope creep via pivoting to discovered out-of-scope systems is a legal exposure** - During exploitation or enumeration, you will discover systems adjacent to your scope. Even if pivoting there would demonstrate greater impact, touching them is unauthorized access regardless of intent. When you discover an out-of-scope system that is critical (e.g., a connected production DB), stop, document, and notify the client immediately - do not test it.
+
+2. **Nmap aggressive scans (`-A`) without rate limiting will trigger IDS and disrupt fragile services** - The default aggressive scan sends thousands of packets per second and will trigger intrusion detection, fill firewall logs, and crash UDP-sensitive services on older hardware. Always set `--max-rate 100-500` for initial scans in production environments and increase only after confirming stability.
+
+3. **Storing captured credentials or PII beyond engagement close is a data liability** - Pentest tooling (Responder, Metasploit loot, Burp history) accumulates real credentials, session tokens, and PII. Many testers forget to purge this data after the engagement. The ROE data-handling clause applies: destroy all captured data per the agreed method on the day the engagement closes.
+
+4. **CVSS base scores do not account for business context** - A CVSS 9.8 on an internal dev tool with no external access is genuinely lower risk than a CVSS 6.5 IDOR on a payment API. Presenting raw CVSS scores to clients without contextualizing for their environment creates misplaced remediation priorities. Always add a business risk statement to each finding that reflects the actual environment.
+
+5. **Password spraying without lockout testing first triggers account lockouts at scale** - Testing a list of 500 accounts with one password attempt each can lock out a significant fraction of users if the lockout threshold is low (e.g., 3 attempts in 30 minutes from any source). Always test the lockout policy on a single test account before running any spray, and confirm spray scope with the client.
+
+---
+
 ## References
 
 For detailed methodology and patterns, load the relevant references file:

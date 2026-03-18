@@ -328,6 +328,20 @@ An at-risk account requires a structured save motion, not ad-hoc heroics.
 
 ---
 
+## Gotchas
+
+1. **Champion departure kills the renewal** - A champion who changes roles or leaves takes their internal advocacy with them. If you haven't built multi-threaded relationships before that happens, you're starting from zero 60 days before renewal. Update the stakeholder map every quarter and treat any "single contact" account as high churn risk.
+
+2. **Expansion before proven ROI backfires** - Pitching an upsell to a customer who hasn't seen clear value from the current contract reads as a vendor play, not a strategic partnership. It erodes trust and can accelerate churn. Require documented ROI and champion buy-in as prerequisites before any expansion conversation.
+
+3. **QBR without the economic buyer is a lost quarter** - A QBR attended only by day-to-day users cannot advance the renewal or expansion conversation. The economic buyer controls the budget. If they decline to attend, reschedule rather than proceed; a QBR without them produces no commercial outcomes.
+
+4. **At-risk response speed matters more than quality** - Waiting a week to craft a perfect save plan while a customer is actively evaluating competitors is worse than a fast, imperfect response in 24 hours. Triage immediately, engage at the executive level within 48 hours, and treat the first response as a listening mission, not a sales defense.
+
+5. **Generic account plans are ignored** - An account plan that references the customer's industry but not their specific strategic goals is a vendor template, not a strategy. Customers can tell when they're reading a copy-paste document. Tie every action in the plan to a named goal from the customer's last QBR or annual report.
+
+---
+
 ## References
 
 For detailed content on specific sub-tasks, read the relevant file from

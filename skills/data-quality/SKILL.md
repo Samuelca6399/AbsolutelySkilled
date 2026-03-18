@@ -402,6 +402,20 @@ for expectation in profiler_result.expectation_suite.expectations:
 
 ---
 
+## Gotchas
+
+1. **Static volume thresholds cause alert fatigue** - Setting a fixed threshold like "alert if row count < 900,000" breaks as soon as business seasonality kicks in (weekends, holidays, seasonal products). Static thresholds generate false positive alerts that teams learn to ignore. Use z-score anomaly detection against a rolling 7-14 day baseline instead.
+
+2. **Great Expectations profiler expectations promoted without review** - The onboarding profiler auto-generates expectations based on observed data distributions. If the data you profile on already contains quality issues (outliers, null spikes), those bad patterns get baked into the expectation suite as acceptable. Always review and tighten profiler-generated expectations with domain knowledge before promoting to production checkpoints.
+
+3. **Data contracts without enforcement** - A YAML data contract in a repository that no pipeline actually reads is documentation, not a contract. Contracts only provide value when a CI check or pipeline gate validates that the producer's output conforms to the contract schema and SLA before it lands in the consumer's dataset.
+
+4. **Lineage at table level misses column-level blast radius** - Table-level lineage tells you "Table A feeds Table B," but if you rename a column in Table A, you need column-level lineage to know which specific downstream columns and models break. Instrument column-level lineage from the start via dbt's built-in lineage or OpenLineage column facets.
+
+5. **Running checkpoints only in CI, not production** - CI validates a sample of test data. Production data has different volumes, distributions, and edge cases that CI fixtures never capture. A checkpoint that passes in CI and never runs in production provides a false sense of security. Run checkpoints on every production pipeline execution, not just on PRs.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file

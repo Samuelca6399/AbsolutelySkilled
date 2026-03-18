@@ -316,6 +316,20 @@ no one will read.
 
 ---
 
+## Gotchas
+
+1. **ISO exercise triggers AMT** - Exercising Incentive Stock Options creates a tax preference item that can trigger Alternative Minimum Tax, even if the employee doesn't sell the shares. Employees who exercise a large ISO grant in a high-valuation year can owe six-figure AMT bills on paper gains that aren't yet liquid. Always flag the AMT risk and recommend personal tax advice before any ISO exercise.
+
+2. **Pay compression discovered at offer stage** - A new hire offer above the band midpoint that crosses or approaches a tenured employee's salary creates compression. If the tenured employee finds out (and they often do), it destroys morale and accelerates attrition. Audit the band for compression before finalizing any offer, not after.
+
+3. **Equity value communicated as strike price, not FMV** - Candidates often misunderstand option grants because the hiring team presents the strike price ("you get options at $0.50/share") without explaining current 409A fair market value and the implied spread. Communicate equity value as both the grant size and the estimated current value so candidates can do real math.
+
+4. **Geographic pay policy announced after hiring** - Introducing a location-tiered pay policy after hiring remote employees at a flat rate triggers immediate resentment. Those hired at SF rates and later adjusted to their local tier feel a retroactive pay cut. Establish and communicate the geographic policy before the first offer, not when the policy becomes a cost problem.
+
+5. **Refresh grant eligibility not documented** - If the company has no written policy on who gets refresh grants and when, managers informally grant them to favorites and skip others with equal performance. This becomes a pay equity finding and a legal exposure. Document the refresh cadence, eligibility criteria, and sizing formula before the first refresh cycle.
+
+---
+
 ## References
 
 For detailed guidance on specific compensation topics, read the relevant file

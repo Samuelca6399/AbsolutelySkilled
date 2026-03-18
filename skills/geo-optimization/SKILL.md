@@ -312,6 +312,20 @@ For teams with established SEO content programs:
 
 ---
 
+## Gotchas
+
+1. **Blocking AI crawlers in robots.txt removes you from AI search entirely** - GPTBot, ClaudeBot, PerplexityBot, and Google-Extended are AI crawler user agents. A blanket `User-agent: * Disallow: /` or a past "block all bots" rule may be excluding all AI crawlers silently. Audit `robots.txt` before any GEO effort - being unindexable is the failure mode that makes all other GEO work irrelevant.
+
+2. **Adding statistics without sources backfires worse than having none** - AI engines cross-reference claims against their training data. Fabricated or unsourced statistics that conflict with known data cause the content to be scored as low-trust and excluded from citations. Every data point must link to a verifiable primary source (report, study, official dataset).
+
+3. **LLMs.txt helps AI crawlers but doesn't help if the pages aren't indexed** - LLMs.txt is a navigation aid, not a crawling permission grant. If the pages it points to are blocked by `robots.txt`, return errors, or are not indexed in Google, AI systems that use traditional search indices to retrieve content will never see them. Fix indexing and crawlability first.
+
+4. **Entity inconsistency across brand touchpoints dilutes knowledge graph recognition** - If your product is called "Acme" on your website, "Acme.io" in press mentions, and "The Acme Platform" in your schema markup, AI engines build three weak entity nodes instead of one strong one. Standardize the canonical brand name across every mention, schema field, and social profile before building entity authority.
+
+5. **GEO strategies are engine-specific and change frequently** - What increases citation probability on Perplexity today may not affect Google AI Overviews, and both may change their retrieval behavior within months. Never apply GEO tactics without specifying which engine you are targeting, and revisit your strategy at least quarterly.
+
+---
+
 ## References
 
 Load these files when going deeper on specific topics:

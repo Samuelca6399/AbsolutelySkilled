@@ -433,6 +433,20 @@ const budgetRemaining = `
 
 ---
 
+## Gotchas
+
+1. **Cardinality explosion kills Prometheus** - Adding a label with high cardinality (user_id, request_id, IP address) creates a new time series per unique value. A single bad label can OOM a Prometheus instance overnight. Always check cardinality before adding labels; use traces or logs for high-cardinality data.
+
+2. **Context propagation breaks at async boundaries** - In Node.js, if you use `setTimeout`, `setImmediate`, or create a new `Promise` chain without explicitly passing `context.active()`, the trace context is lost and spans appear as orphan roots. Use AsyncLocalStorage-aware frameworks or manually propagate context with `context.with(ctx, fn)`.
+
+3. **100% trace sampling in production is unsustainable** - At any real scale, sampling every trace destroys budget and storage. Start at 10% head-based sampling with tail-based sampling for errors. The default `AlwaysOnSampler` in OTel SDKs is NOT suitable for production.
+
+4. **SLO burn rate alerts on short windows produce noise** - A single spike in errors can trigger a "fast burn" alert that resolves in minutes. Pair fast-window alerts (1h) with slow-window alerts (6h) using multi-window alerting. Alert only when both windows exceed the threshold simultaneously.
+
+5. **Structured logging without redaction leaks secrets** - pino and winston log entire objects by default. Passing `req` or `body` without a `redact` config will log Authorization headers, passwords, and tokens in plain text. Always configure the `redact` option before shipping to production.
+
+---
+
 ## References
 
 - `references/opentelemetry-setup.md` - OTel SDK setup for Node.js and Python, exporters,

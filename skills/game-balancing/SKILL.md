@@ -250,6 +250,20 @@ For free-to-play games, balance the free and premium economies separately:
 
 ---
 
+## Gotchas
+
+1. **Balancing the median player silently destroys your hardest content** - If you tune difficulty for the 50th percentile, the top 10% of players will find late content trivial within a week of release. Segment playtesting explicitly - run sessions with expert players separately from casual ones, and tune different content tiers to different targets.
+
+2. **Pity systems need a persistent counter, not a session counter** - If the pity counter resets on app restart or session end, players who hit the pity threshold just before quitting restart from zero next session. The pity counter must persist to permanent storage and survive all session boundaries.
+
+3. **XP curve validation is useless without a realistic earn rate** - The formula looks right on paper, but if you model `200 XP/hr` and real players average `80 XP/hr`, the curve is 2.5x harder than designed. Always validate the curve against measured in-game earn rates from playtests, not theoretical maximums.
+
+4. **Buffing alternatives that nobody uses doesn't fix the problem** - If one strategy is dominant because it synergizes with a core mechanic, buffing weak alternatives doesn't break the dominance - it just makes the game slightly more powerful overall. First identify WHY the dominant strategy is dominant (usually a core mechanic interaction), then address the root cause.
+
+5. **Free-to-play "ethical" balance breaks if premium items stack** - Premium items that are individually 2x free alternatives become 8x when players stack three of them. Always model stacking scenarios during balance review, not just individual item comparisons.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file

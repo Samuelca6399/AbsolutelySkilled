@@ -378,6 +378,20 @@ When a page is not indexed, work through this checklist in order:
 
 ---
 
+## Gotchas
+
+1. **Canonical tags are a hint, not a directive** - Google can and does override canonical tags if it disagrees with your signal. If your site serves near-identical content at two URLs and one has more internal links, Google may index the more-linked URL regardless of your canonical. Canonical must be reinforced with consistent internal linking and redirects.
+
+2. **Blocking CSS/JS in robots.txt causes Googlebot to see a broken page** - Even a single blocked CSS file can prevent Googlebot from rendering a page correctly, leading to indexing of an empty or unstyled shell. Always test with the URL Inspection tool's "Test Live URL" option to confirm Googlebot's rendered view.
+
+3. **noindex in robots.txt does not work** - The `noindex` directive in robots.txt is not a valid robots.txt directive; it is ignored. The only valid `noindex` placement is in the HTTP response header (`X-Robots-Tag`) or the HTML `<meta name="robots">` tag on the page itself.
+
+4. **Hreflang is validated in both directions** - If page A in English points to page B in French, page B must also point back to page A. Missing the return link causes Google to ignore the entire hreflang cluster. Validate every hreflang implementation bidirectionally.
+
+5. **Sitemap `lastmod` dates that never change train Googlebot to deprioritize your site** - Many CMSs emit the current date as `lastmod` on every page regardless of actual changes. Googlebot learns these dates are dishonest and reduces crawl frequency. Only emit `lastmod` when content genuinely changed.
+
+---
+
 ## References
 
 For detailed implementation guidance, load the relevant reference file:

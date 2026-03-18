@@ -300,6 +300,20 @@ Document the retro output and add lessons to the team's launch playbook.
 
 ---
 
+## Gotchas
+
+1. **Launch date set before graduation criteria met** - Teams often lock a public date first and then work backward, creating pressure to skip beta graduation gates. Push back on calendar-first planning; let graduation criteria drive the date.
+
+2. **Internal launch skipped as a "nice to have"** - When timelines slip, internal readiness is the first thing cut. This means sales and support get blindsided on launch day. Treat T-5 internal launch as a hard dependency, not optional polish.
+
+3. **Rollback plan written as a vague intention** - "We can roll back if needed" is not a rollback plan. An agent drafting a launch plan must produce specific rollback criteria (e.g., error rate > 2x baseline for 30 minutes) and named steps, not a note to "define later."
+
+4. **Launch tier not assigned at kickoff** - Without a tier decision upfront, every stakeholder lobbies for full Tier 1 treatment. Assign tier at the first planning meeting and use it to automatically scope which checklist items are required.
+
+5. **Success metrics defined after launch** - Post-hoc metric selection lets teams cherry-pick numbers that look good. The launch scorecard must be agreed and signed off before any external communications go out.
+
+---
+
 ## References
 
 For a detailed, ready-to-use checklist broken down by function and launch phase,

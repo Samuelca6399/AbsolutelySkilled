@@ -312,6 +312,20 @@ Apply this checklist when reviewing any doc:
 
 ---
 
+## Gotchas
+
+1. **Tutorials that work on the author's machine often fail for readers** - Missing environment prerequisites, OS-specific path differences, and version mismatches are the most common failure points. Test every tutorial on a clean environment with no prior setup before publishing.
+
+2. **ADRs edited after acceptance lose their value** - The entire point of an ADR is preserving the reasoning at the time of the decision, including rejected alternatives. Editing an accepted ADR to "clean it up" erases the historical context. If the decision changed, write a new ADR that supersedes the original.
+
+3. **OpenAPI specs and actual API behavior diverge silently** - Without automated contract testing, your API docs will drift from the implementation. Integrate OpenAPI validation in CI to catch discrepancies before they reach developers consuming the API.
+
+4. **Runbooks tested only at creation become unreliable** - A runbook that has never been executed in a real or simulated incident will fail when needed. Schedule quarterly runbook dry runs and update the "Last tested" date. A runbook with no test date should be treated as untrusted.
+
+5. **Audience mismatch between docs is harder to fix than missing docs** - A tutorial written for experienced engineers will block new hires; architecture docs written for junior engineers will be ignored by seniors. Define the audience explicitly at the top of every document and review it when onboarding new readers.
+
+---
+
 ## References
 
 For detailed templates and examples on specific document types, read the relevant

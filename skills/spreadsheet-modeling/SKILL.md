@@ -284,6 +284,20 @@ Where `Scenario_Selector` is a data-validation drop-down cell containing 1, 2, o
 
 ---
 
+## Gotchas
+
+1. **Pivot tables silently exclude blank rows** - If any row in your source data has a blank value in the row or column field, that row is excluded from the pivot entirely with no warning. Clean blank values (replace with "Unknown" or 0) before building pivots that need complete coverage.
+
+2. **SUMIFS range size mismatch produces #VALUE! with no useful message** - All criteria ranges in a SUMIFS must be the exact same dimensions as the sum range. A single range that is one row taller than the others throws #VALUE! with no indication of which range is mismatched. Build a helper formula to check range sizes when debugging.
+
+3. **Data Tables recalculate on every edit in large models** - Excel recalculates all Data Tables whenever any cell in the workbook changes. In models with large Data Tables, this can make every keystroke take seconds. Set calculation mode to Manual (Formulas > Calculation Options > Manual) and use Ctrl+Alt+F9 to force recalc when needed.
+
+4. **`OFFSET` and `INDIRECT` break when used in table references** - Both functions are volatile and recalculate on every change. Using them inside structured table references (`Table[Column]`) can cause unexpected reference errors when tables are resized. Prefer `INDEX` as a non-volatile alternative to `OFFSET`.
+
+5. **Apps Script 6-minute execution limit fails silently on large datasets** - A script that times out after 6 minutes does not throw an error to the user - it just stops partway through the operation, leaving data in a partially modified state. For large datasets, implement batch processing with `PropertiesService` to store a continuation token and re-trigger the script.
+
+---
+
 ## Anti-patterns / common mistakes
 
 | Mistake | Why it's wrong | What to do instead |

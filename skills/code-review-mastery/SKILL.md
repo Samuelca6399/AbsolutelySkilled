@@ -86,7 +86,7 @@ trust in the review.
 
 ## The review workflow
 
-Execute these four phases in order. Do not skip phases.
+Work through these four phases in order. Each phase feeds the next, so skipping one typically degrades review quality.
 
 ### Phase 1: DETECT
 
@@ -280,6 +280,20 @@ Avoid these mistakes when producing a review:
 | Reviewing files not in the diff | Scope creep; confuses the user | Only analyze lines present in the diff output |
 | Inventing project rules | Flagging violations of standards the project doesn't have | Only flag Convention `[MAJOR]` when you found an explicit config/rule |
 | Skipping the offer to fix | Misses the interactive value of this skill | Always end with the fix offer |
+
+---
+
+## Gotchas
+
+1. **Reviewing files not in the diff** - It's easy to open related files for context and then accidentally include findings from those files in the review. Only report issues on lines that appear in the actual diff output - scope creep confuses authors and erodes trust.
+
+2. **Flagging what linters already enforce** - If the project has ESLint, Prettier, or Ruff configured and CI runs them, reporting style violations in the review duplicates automated feedback. Check for linter configs in Phase 2 and skip findings that existing tooling will catch.
+
+3. **Severity inflation** - Marking every finding `[MAJOR]` to signal thoroughness causes authors to lose trust in severity ratings and start ignoring the review. Apply the staff engineer test strictly: only block-worthy issues are `[MAJOR]`. When in doubt, downgrade to `[MINOR]`.
+
+4. **Missing context before judging** - A pattern that looks wrong in isolation (e.g., a `.catch(() => {})` that swallows errors) may be intentional and documented elsewhere. Phase 2 context gathering exists to prevent false positives. Read `CLAUDE.md`, surrounding files, and lint config before flagging anything as a violation.
+
+5. **Large diff, no focus strategy** - Reviewing a 1,000-line diff end-to-end produces an overwhelming output that authors can't action. For large diffs, warn the user and focus exclusively on `[MAJOR]` findings. Offer to do a second pass for `[MINOR]` items if wanted.
 
 ---
 

@@ -358,6 +358,20 @@ FROM date_spine;
 
 ---
 
+## Gotchas
+
+1. **Mixed grain in a fact table is the hardest bug to find** - Adding a row-level sale and a daily summary row into the same fact table looks harmless until someone sums `net_amount` across a date range and gets 2x the correct revenue. Grain violations produce numerically plausible but wrong answers. Declare the grain in a comment on the `CREATE TABLE` statement and enforce it with a uniqueness test.
+
+2. **SCD Type 2 MERGE leaving orphaned "current" rows** - A MERGE statement that expires old rows but fails (network timeout, transaction rollback) after the UPDATE but before the INSERT leaves the dimension in an inconsistent state: the old row is expired but no new current row exists. Always wrap SCD Type 2 updates in a transaction and verify row count after each MERGE + INSERT pair.
+
+3. **Natural keys as fact table foreign keys break on source changes** - Using `customer_email` instead of `customer_sk` as the foreign key on a fact table means a customer who changes their email address breaks all historical joins. Surrogate keys are immune to natural key changes. Always generate surrogate keys for dimension foreign key references.
+
+4. **BigQuery partition filter not used in JOIN conditions** - BigQuery only prunes partitions when the partition column appears in a `WHERE` clause, not in a `JOIN ON` condition. A query joining a partitioned table only on `customer_id` performs a full table scan on the partitioned table, negating the cost benefit. Always include the partition column in the `WHERE` clause.
+
+5. **Snowflake warehouse not auto-suspending in development** - A development or analytics warehouse left running with `AUTO_SUSPEND` disabled (or set to a long interval) accumulates compute costs continuously. Set `AUTO_SUSPEND = 60` on all non-production warehouses, and use separate warehouses for ETL loads vs. analyst queries to prevent compute contention.
+
+---
+
 ## References
 
 For detailed implementation patterns and platform-specific guidance, load the relevant

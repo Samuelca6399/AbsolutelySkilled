@@ -270,6 +270,20 @@ For a complete picture, run the full 35-check audit.
 
 ---
 
+## Gotchas
+
+1. **GSC data lags by 2-3 days** - Google Search Console performance data has a processing delay. If you run an audit on Monday, the most recent data in GSC is from Thursday or Friday. Do not interpret the most recent 2-3 days as a traffic drop - it is always incomplete.
+
+2. **Robots.txt check T1 can return false PASS if crawled from the wrong user-agent** - A robots.txt that disallows Googlebot but allows all other agents will pass generic crawl tests. Always test with `User-agent: Googlebot` specifically, or use the robots.txt tester in Google Search Console directly.
+
+3. **Canonical to a redirecting URL creates a canonical-redirect chain** - If the canonical tag points to a URL that itself 301s to another URL, Google may choose to follow the redirect rather than the canonical, or may not honor either. Canonicals must point to the final destination URL, not an intermediate redirect.
+
+4. **Core Web Vitals field data vs lab data diverge** - PageSpeed Insights lab data (Lighthouse) and the CrUX field data (real user measurements) frequently disagree. A page can show LCP < 2.5s in lab but fail in field data due to geography, network conditions, or device mix. Always treat field data as the ground truth for audit scoring.
+
+5. **Hreflang errors silently break international rankings** - Invalid hreflang attributes (missing return links, wrong locale codes, self-referencing inconsistencies) are not reported as errors in GSC - they are silently ignored. International SEO issues must be audited with a dedicated hreflang validator tool.
+
+---
+
 ## Anti-patterns / common mistakes
 
 | Anti-pattern | Problem | Fix |

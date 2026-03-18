@@ -390,6 +390,20 @@ useSeoMeta({
 
 ---
 
+## Gotchas
+
+1. **Next.js generateMetadata does not merge with layout.tsx metadata** - If a root `layout.tsx` defines a `metadata` export and a page also uses `generateMetadata`, they do not deep-merge automatically. The page's metadata overrides the layout's at the same key. You must spread the parent metadata explicitly or use `metadata.metadataBase` at the root level to avoid broken absolute URL generation for OG images.
+
+2. **Canonical self-referencing with trailing slash mismatch causes duplicate content** - If the server serves both `/page` and `/page/`, and the canonical points to only one form, crawlers still see two URLs. Enforce a consistent URL form at the CDN or server level AND set canonical - don't rely on canonical alone to resolve the conflict.
+
+3. **OG image URL must be absolute, not relative** - `og:image` content must be a full `https://` URL. Relative paths like `/images/og.png` are not followed by most social crawlers. Always include the full domain, including in framework configurations like Next.js `metadataBase`.
+
+4. **noindex on paginated pages blocks discovery of linked content** - Adding `noindex` to `?page=2` and beyond is a common SEO mistake. Crawlers still follow links from those pages to discover new URLs. The correct approach for pagination is using `<link rel="canonical">` pointing to page 1 or letting Google handle pagination discovery naturally.
+
+5. **title tag set in JavaScript renders too late for crawlers** - Client-side JS that sets `document.title` after load is not reliably indexed by crawlers or used for social previews. Always set title tags server-side in the `<head>`, never via `document.title = ...` after hydration.
+
+---
+
 ## References
 
 For detailed framework-specific SEO patterns, load the relevant reference file:

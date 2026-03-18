@@ -279,6 +279,20 @@ strong consistency.
 
 ---
 
+## Gotchas
+
+1. **CAP theorem is about partitions, not a free choice** - You cannot "choose" to sacrifice partition tolerance. P is always present in distributed systems. The real choice is between C and A when a partition occurs. Framing it as a three-way trade-off is wrong.
+
+2. **Caching invalidation is the hard part, not caching itself** - Most designs add Redis without defining when data becomes stale. The moment a cache-aside entry is written, define the exact condition that invalidates it. "We'll figure that out later" causes stale reads in production.
+
+3. **Read replicas have replication lag** - Writes go to the primary; reads from replicas may be 10-100ms stale. If you route reads to replicas immediately after writes (e.g., "create, then fetch profile"), users will see the old version. Use read-after-write consistency or route critical reads to primary.
+
+4. **Consistent hashing does not eliminate hotspots** - If one key receives dramatically more requests than others (celebrity user, viral post), consistent hashing still routes all requests for that key to the same shard. Solve with key-based sharding variants like adding a suffix, or cache at a higher layer.
+
+5. **Message queues do not guarantee exactly-once delivery** - SQS standard queues deliver at-least-once; consumers must be idempotent. Kafka can deliver exactly-once within a single cluster but not across network boundaries. Design consumers to handle duplicate messages before relying on queue semantics.
+
+---
+
 ## References
 
 For detailed frameworks and opinionated defaults, read the relevant file from the

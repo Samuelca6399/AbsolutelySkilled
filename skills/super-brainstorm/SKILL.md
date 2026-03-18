@@ -204,6 +204,11 @@ This is the heart of the skill. Walk down every branch of the design tree,
 resolving dependencies between decisions one by one.
 
 **Rules:**
+- **Use the `AskUserQuestion` tool for every question** - this is a built-in Claude
+  Code tool that pauses execution and waits for the user's response. Use it for
+  every interview question, every section approval, and every decision point. Never
+  just print a question in your output - always use the tool so the conversation
+  properly blocks until the user responds.
 - **One question at a time** - never overwhelm with multiple questions
 - **Ultrathink before every question** - reason deeply about what you need to know
   next, what depends on what, and whether the codebase can answer it
@@ -379,7 +384,7 @@ Let the user decide the next step. Do not auto-invoke any skill.
 
 - **Ultrathink everything** - deep reasoning before every decision, no lazy shortcuts
 - **Codebase before questions** - respect the user's time, only ask genuine unknowns
-- **One question at a time** - never overwhelm
+- **One question at a time via `AskUserQuestion` tool** - never overwhelm, always use the built-in tool to ask
 - **Strictly linear** - resolve dependencies before moving forward
 - **Honest options** - real forks get multiple approaches, obvious answers get presented directly
 - **Always mark (Recommended)** - every set of options includes a clear recommendation with rationale
@@ -389,12 +394,27 @@ Let the user decide the next step. Do not auto-invoke any skill.
 
 ---
 
+## Gotchas
+
+1. **`AskUserQuestion` tool not available in all environments** - The `AskUserQuestion` tool is a Claude Code-specific built-in. In other environments (Gemini CLI, OpenAI Codex), it may not exist. Fall back to printing the question as a clearly demarcated output block and waiting for user response, but track that you are waiting for an answer before proceeding.
+
+2. **Deep context scan can consume the entire context window** - Reading every file in `docs/` and every recent commit in a large codebase can exhaust the context window before the first question is asked. Be selective: read README, CLAUDE.md, and recent commits first; only go deeper on files directly relevant to the task.
+
+3. **Spec saved to `docs/plans/` in the wrong repo** - If the skill is invoked in a monorepo or a workspace with multiple `docs/` directories, saving the spec to the wrong subdirectory means it will never be found during future DISCOVER phases. Confirm the target `docs/plans/` path with the user before writing.
+
+4. **Reviewer subagent approves incomplete specs** - The reviewer subagent is prompted to "approve unless there are serious gaps," which means minor incompleteness often passes. Do not treat reviewer approval as a substitute for user approval. The user gate in Phase 9 is mandatory regardless of the reviewer's verdict.
+
+5. **Flexible exit auto-invokes the next skill** - Presenting the exit options and then immediately invoking a skill without waiting for user input defeats the purpose of a flexible exit. Always use `AskUserQuestion` (or equivalent) to receive the user's choice before taking any post-spec action.
+
+---
+
 ## Anti-Patterns and Common Mistakes
 
 | Anti-Pattern | Better Approach |
 |---|---|
 | Asking questions the codebase can answer | Search code first - check configs, existing patterns, test files before every question |
 | Batching multiple questions in one message | One question at a time, always. Break complex topics into sequential questions |
+| Printing questions as plain text output | Always use the `AskUserQuestion` tool to ask - it blocks until the user responds |
 | Skipping docs/ and README before starting | Always read all available documentation before the first question |
 | Proposing fake alternatives when the answer is obvious | Present the single right answer with rationale; only show options at genuine forks |
 | Accepting vague answers without follow-up | Dig deeper - "what do you mean by that?" is always valid |

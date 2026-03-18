@@ -271,6 +271,20 @@ Common debugging steps:
 
 ---
 
+## Gotchas
+
+1. **Zapier polling triggers miss events if too many happen between polls** - Zapier's polling triggers check for new items every 1-15 minutes and retrieve only the latest batch. If your source app generates more new records than Zapier's API pagination returns in one poll, older records in that window are silently skipped. For high-volume sources, switch to an instant webhook trigger or use Make/n8n with proper pagination handling.
+
+2. **Make operation counts multiply inside iterators** - A Make scenario with a Router that has 3 branches, each with 4 modules, processing an iterator of 50 items, consumes 3 x 4 x 50 = 600 operations per execution. Teams regularly exceed their monthly operation quota because they built iterators without calculating the multiplication effect. Always estimate peak operations per scenario before building.
+
+3. **n8n expressions reference the current item's JSON differently than you expect** - In n8n, `{{ $json.fieldName }}` refers to the current item from the most recent node's output. Cross-node references require `{{ $node["NodeName"].json.fieldName }}`. Using `$json` when you intend a cross-node reference silently returns `undefined` and passes empty values downstream without throwing an error.
+
+4. **OAuth credentials in no-code platforms expire and break automations silently** - Most SaaS OAuth tokens expire or are revoked (on password change, security audit, permission change). When a connected account's token expires, the automation fails with a 401 but the error often goes unnoticed until a business process breaks. Set up failure notifications for every automation and audit connected accounts quarterly.
+
+5. **Webhook endpoints in Zapier and Make are public URLs with no built-in auth** - Any client that knows the webhook URL can trigger your automation. This is especially dangerous for Zaps that create CRM records, send emails, or trigger financial processes. Validate a shared secret or HMAC signature in the first step of any webhook-triggered workflow, or use n8n's built-in webhook authentication options.
+
+---
+
 ## References
 
 For detailed implementation guidance on specific platforms and patterns:

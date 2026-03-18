@@ -362,6 +362,20 @@ misconduct that could expose the company to liability.
 
 ---
 
+## Gotchas
+
+1. **Terminating an employee the week after they filed a complaint creates a near-perfect retaliation timeline** - Even if the termination is for a legitimate, unrelated reason, the timing is extremely difficult to defend in litigation. Document independent reasons thoroughly before acting and, where possible, allow time and additional performance evidence to build. Always consult counsel before terminating anyone who has recently engaged in protected activity.
+
+2. **Employee handbooks that promise progressive discipline eliminate at-will status** - Language like "employees will receive a verbal warning, then a written warning, then termination" creates an implied contract. If the company then terminates without following the stated steps, it has violated its own policy. Use permissive language: "may include" rather than "will include."
+
+3. **The ABC test (California AB5 and similar state laws) presumes all workers are employees** - Unlike the IRS common law test, the burden is on the company to prove contractor status under all three prongs. A worker who primarily does work core to your business (prong B) almost certainly cannot be classified as a contractor in California, regardless of what their contract says.
+
+4. **FMLA leave runs concurrently with other leave - but only if you designate it in writing** - If an employee takes disability leave and you don't formally designate it as FMLA within 5 business days, you may have waived your ability to count it. The employee could then take an additional 12 weeks of FMLA after returning. Always send a written FMLA designation notice immediately.
+
+5. **Non-competes that are overbroad get voided entirely in many states, not narrowed** - Some states (California, for example) refuse to enforce any non-compete regardless of scope. Others may "blue-pencil" (rewrite) an overbroad agreement, but the rewrite may eliminate your actual protection. Draft narrowly from the start rather than starting broad and hoping a court will trim it.
+
+---
+
 ## References
 
 For detailed guidance on specific tasks, load the relevant file from `references/`:

@@ -314,6 +314,20 @@ models:
 
 ---
 
+## Gotchas
+
+1. **dbt incremental model without `unique_key` causes duplicates** - An incremental model without `unique_key` set in the config appends new records on every run instead of merging. A re-run after a failure produces duplicate rows that are extremely hard to detect and clean up downstream. Always define `unique_key` for incremental models.
+
+2. **Airflow `catchup=True` triggering thousands of backfill runs** - If you set `catchup=True` (the default) on a DAG with a `start_date` months in the past, Airflow immediately schedules one run per interval from that start date until now. This can flood your workers. Set `catchup=False` for production DAGs and trigger backfills explicitly via the CLI.
+
+3. **Hardcoded dates break idempotency** - SQL queries with `WHERE created_at >= '2024-01-01'` cannot be safely re-run for different time windows. Use Airflow template variables (`{{ ds }}`) or dbt source freshness definitions so that re-runs and backfills process the correct partition automatically.
+
+4. **Data skew makes one Spark task run 10x longer** - A join key where 80% of rows share one value (e.g., `customer_id = NULL` or a dominant category) causes one partition to process nearly the entire dataset while others finish immediately. Profile key cardinality with `df.groupBy("key").count().orderBy(desc("count")).show(20)` before writing join logic.
+
+5. **Streaming over-engineering for batch-compatible requirements** - Kafka + Flink adds exactly-once semantics complexity, late-data handling, state backend management, and operational overhead. If the business requirement is "data available within 15 minutes," a scheduled Airflow DAG running every 10 minutes satisfies it with a fraction of the complexity. Start with batch; add streaming only for proven sub-minute latency needs.
+
+---
+
 ## References
 
 For detailed patterns and implementation guidance on specific domains, read the

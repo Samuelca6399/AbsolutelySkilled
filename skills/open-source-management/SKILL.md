@@ -259,6 +259,20 @@ See `references/governance-models.md` for templates.
 
 ---
 
+## Gotchas
+
+1. **SemVer MAJOR bump requirement is frequently underestimated** - Any breaking change to a public API - including removing a previously exported function, changing a function signature, or changing behavior in a way that breaks existing consumers - requires a MAJOR version bump. Teams routinely ship breaking changes as MINOR bumps ("it's just a small change"), which breaks downstream consumers and erodes trust. When in doubt, bump MAJOR.
+
+2. **Relicensing without CLA consent from all contributors is legally risky** - If contributors submitted code under MIT and you want to relicense to Apache 2.0 or AGPL, you need written consent from every contributor who owns copyrightable contributions. Even one holdout blocks the relicense. Use a CLA (Contributor License Agreement) from day one if you anticipate ever changing the license.
+
+3. **`actions/stale` closes issues contributors are actively working on** - A default stale bot configuration that closes issues after 60 days of inactivity will close issues where a contributor is mid-implementation but just hasn't commented. This is a common contributor experience failure. Configure stale bots to apply a label and warn, not close automatically - require human review before closing.
+
+4. **GitHub security advisories are not automatically sent to dependents** - Creating a SECURITY.md only helps if reporters use it. For vulnerabilities in published packages, you must create a GitHub Security Advisory and request a CVE to trigger automated alerts in dependent projects. Simply patching and releasing a new version without an advisory leaves most users unaware.
+
+5. **Automated changelog generation requires conventional commits from day one** - Tools like `release-please` or `semantic-release` depend on conventional commit message prefixes (`feat:`, `fix:`, `BREAKING CHANGE:`). Introducing these tools to a project with non-conventional commit history produces either empty or incorrect changelogs. Establish the commit message convention before the first release, not retroactively.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

@@ -332,6 +332,20 @@ Rules of thumb:
 
 ---
 
+## Gotchas
+
+1. **FMOD/Wwise events not releasing cause memory leaks** - Creating an `EventInstance` and calling `start()` without calling `stop()` and `release()` on `OnDestroy` leaks audio resources permanently. Looping sounds in particular will play forever even after the game object is destroyed. Always pair `CreateInstance()` with a `release()` in the cleanup path.
+
+2. **Voice stealing can silence the most important sound** - If your voice limit steal mode is set to "oldest" or "lowest priority" and you don't assign proper priority weights, the enemy warning sound or boss music can get stolen by ambient birds. Set explicit priority values for every event category and use "lowest priority" steal on non-critical sounds only.
+
+3. **Streaming audio from disk introduces frame spikes on seek** - Streaming is memory-efficient but seeks cause disk I/O spikes. Enabling streaming on short SFX (under 5 seconds) trades memory savings for CPU/IO cost with no benefit. Stream only music and long ambiences; load short SFX into memory compressed.
+
+4. **Occlusion raycasts every frame on all emitters tanks CPU** - Running `Physics.Raycast` per emitter per frame for 50+ active audio sources will consume significant CPU time. Stagger occlusion updates (every 3-5 frames per emitter, not every frame) and use a maximum occlusion check distance to skip distant emitters.
+
+5. **Parameter automation curves that are too fast cause audible clicks** - Changing a parameter value instantly (e.g., switching ThreatLevel from 0 to 1 in one frame) causes a discontinuity in the audio signal that produces an audible click. Always use smoothed parameter changes with a minimum ramp time of 50-100ms for volume/frequency parameters.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

@@ -264,6 +264,20 @@ public void withdraw(Account account, int amount) {
 
 ---
 
+## Gotchas
+
+1. **Refactoring without a safety net** - Extract Method and Rename refactors look safe but break things when the surrounding code has implicit coupling, side effects, or no test coverage. Always ensure tests cover the behavior being refactored before making any structural change - even a "trivial" rename.
+
+2. **Over-decomposing into micro-functions** - Splitting a 40-line function into 15 two-line helpers makes individual pieces shorter but the flow incomprehensible. Extract only when the extracted block has a name that is more informative than reading the code itself. Length is not the trigger; clarity is.
+
+3. **Applying SOLID to one-off utilities** - Adding an interface for a class that has exactly one implementation "to follow Dependency Inversion" introduces indirection without value. Apply SOLID principles when you feel friction from rigidity or testability problems, not preemptively as a ritual.
+
+4. **Comments explaining what, not why** - After a refactor, leftover "what" comments that now contradict the code are worse than no comments. They mislead future readers. Delete any comment that describes the operation of code that has since been renamed or restructured to be self-explanatory.
+
+5. **TDD on implementation, not behavior** - Writing tests that call private methods or assert on internal state means the tests break every refactor, defeating the purpose of having tests. Test only through public interfaces and observable outputs; the test should survive any internal restructuring.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

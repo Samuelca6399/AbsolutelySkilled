@@ -371,6 +371,20 @@ async function transformStream(input: ReadableStream, output: WritableStream): P
 
 ---
 
+## Gotchas
+
+1. **`ctx.waitUntil()` is required for async work after `Response` is returned** - Any `await` after you return a `Response` in a Cloudflare Worker is silently dropped. Logging, analytics calls, and cache writes that happen post-response must be wrapped in `ctx.waitUntil(promise)` or they never execute.
+
+2. **Cloudflare KV has ~60 second eventual consistency - don't use it for flags that must take effect immediately** - A KV write to disable a feature or block a user may take up to a minute to propagate across all PoPs. If you need instant effect (rate limiting, auth revocation), use Durable Objects, not KV.
+
+3. **`Vary: Cookie` on cached responses causes catastrophic cache fragmentation** - Setting `Vary: Cookie` tells CDNs to cache a separate copy for every unique Cookie header value. Most users have unique session cookies, effectively making your cache useless. Instead, strip the cookie from the cache key and use a separate `Vary` value that identifies the variant (e.g., a normalized A/B bucket cookie).
+
+4. **Edge functions can't use Node.js built-ins even if they're in `node_modules`** - A library that uses `require('crypto')`, `require('buffer')`, or `require('path')` will fail at runtime in a V8 isolate even though the import succeeds at build time. Audit all dependencies for Node.js API usage before deploying to edge.
+
+5. **A/B test cookie without `Vary: Cookie` on the response causes cache mixing** - If you set an `ab-variant` cookie but don't set `Vary: Cookie` (or a more targeted Vary), CDN caches may serve one variant's cached response to users assigned the other variant. Always pair sticky cookies with appropriate Vary headers.
+
+---
+
 ## References
 
 Load the relevant reference file only when the current task requires it:

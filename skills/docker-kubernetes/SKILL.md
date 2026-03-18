@@ -430,6 +430,20 @@ Common causes:
 
 ---
 
+## Gotchas
+
+1. **Shell-form CMD (`CMD node server.js`) doesn't receive signals** - Shell form wraps the command in `/bin/sh -c`, making `sh` PID 1. When Kubernetes sends `SIGTERM` during pod shutdown, `sh` receives it but may not forward it to your process. This causes the pod to hang until the `terminationGracePeriodSeconds` timeout expires. Always use exec form: `CMD ["node", "server.js"]`.
+
+2. **Liveness probe failure restarts the pod regardless of cause** - If the liveness probe checks an endpoint that depends on a downstream service (database, external API), a downstream outage will restart all your pods in a cascade. Liveness probes should only check the process itself, not external dependencies. Use readiness probes for dependency checks.
+
+3. **`kubectl apply` on a running Deployment with `latest` image tag doesn't trigger a rollout** - If the image tag hasn't changed, Kubernetes considers the spec unchanged and doesn't pull a new image. Always use a unique tag per build (git SHA or build number). `imagePullPolicy: Always` is a workaround but masks the root problem.
+
+4. **ConfigMap and Secret updates don't automatically reload running pods** - Changing a ConfigMap or Secret that is mounted as an env var has no effect until pods are restarted. Either trigger a rolling restart (`kubectl rollout restart deployment/name`) or use a file-mounted volume (which does receive live updates, with propagation delay).
+
+5. **Resource limits without requests can cause scheduling failures** - Kubernetes uses `requests` for pod placement decisions. If you set only `limits` with no `requests`, the scheduler defaults `requests` to equal `limits`. This can cause nodes to appear full when they have spare capacity, leading to `Pending` pods.
+
+---
+
 ## References
 
 For quick kubectl command reference during live debugging, load:

@@ -288,6 +288,20 @@ understanding advantage over teams that research in batches.
 
 ---
 
+## Gotchas
+
+1. **Recruiting interviewees through your own app produces selection bias** - Users who respond to an in-app recruitment banner are your most engaged advocates. They will tell you the product is great and suggest incremental improvements. To discover why users churn or never activate, you must recruit from people who did not engage - churned users, trial non-converters, and target-persona non-users. Use external recruitment panels for discovery that needs unbiased signal.
+
+2. **Opportunity solution trees built in workshops produce solutions disguised as opportunities** - When teams generate the OST collaboratively in a room, "opportunities" are often features rephrased as problems ("users want a better export experience" is a solution frame, not an opportunity). Real opportunities come from verbatim customer language captured in interviews, not from workshop sticky notes. Build the OST from interview data, not from team hypotheses.
+
+3. **Smoke tests measure intent to click, not willingness to pay or actual use** - A high click-through rate on a "coming soon" landing page is a desirability signal, not a conversion signal. Users who click are curious; they have not committed to changing behavior, paying, or integrating the feature into their workflow. Smoke tests invalidate "no one wants this" but do not validate "people will pay and retain."
+
+4. **Using a high-fidelity prototype for flow testing anchors users on visual design** - When a prototype looks production-ready, participants comment on button colors and copy instead of navigating authentically and revealing flow problems. For testing information architecture and navigation, deliberately use lo-fi wireframes. Reserve hi-fi prototypes for testing emotional response and design quality.
+
+5. **Kill thresholds defined after the experiment results are in are rationalization, not rigor** - If you decide what "failure looks like" after you see the data, you will unconsciously set the threshold to preserve your preferred conclusion. Write the kill threshold - the specific metric result that would cause you to abandon or pivot the bet - in the experiment design document before the study begins.
+
+---
+
 ## References
 
 - `references/experiment-playbook.md` - Experiment templates by assumption type with

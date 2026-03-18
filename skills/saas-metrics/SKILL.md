@@ -309,6 +309,20 @@ specifications and narrative frameworks.
 
 ---
 
+## Gotchas
+
+1. **Ending-period denominator used for churn calculation** - Using the end-of-period customer count in the denominator systematically understates churn because churned customers are excluded from the denominator. Always use the start-of-period (or average-period) count.
+
+2. **Revenue churn calculated from revenue instead of gross margin** - LTV must use gross margin, not revenue. A customer paying $1000/month with 60% gross margin has half the LTV of the raw revenue number. Using revenue LTV overstates CAC payback attractiveness.
+
+3. **MRR including one-time or non-recurring charges** - Professional services revenue, setup fees, and annual true-ups included in MRR inflate the number and create a misleading growth signal. MRR must contain only normalized recurring subscription revenue. Audit your MRR data source definition before reporting.
+
+4. **Cohort table using calendar months instead of relative months** - Month 1 means "one month after signup," not "the next calendar month." A customer who signs up January 28 and is measured February 1 has not completed Month 1. Calendar-based cohort tables produce meaningless curves for businesses with mid-month signups.
+
+5. **Board metrics changed mid-stream without restating historicals** - Changing the definition of a metric between board meetings (e.g., how churn is calculated) makes trend comparisons meaningless and erodes investor trust. Always lock definitions in a glossary. If methodology must change, restate at least 12 months of historicals.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file from

@@ -421,6 +421,20 @@ Day 90 survey (10 questions, onboarding NPS):
 
 ---
 
+## Gotchas
+
+1. **Buddy assignment without a structured agenda defaults to silence** - Simply assigning a buddy and announcing it via Slack produces almost zero value. Without a week-by-week check-in cadence, a topic guide, and a clear scope ("help them navigate norms, not replace the manager"), buddies default to "let me know if you have questions" - which new hires almost never use. Require a kick-off meeting template and a check-in schedule at the time of assignment.
+
+2. **30/60/90 plans handed down top-down destroy ownership** - A plan written by the manager and handed to the new hire on Day 1 signals "execute this" rather than "own this." Co-create the plan in the first two weeks. The new hire's input on what they need to learn surfaces blind spots and creates accountability that top-down plans cannot.
+
+3. **IT access delays on Day 1 damage the psychological contract** - If a new hire spends their first day waiting for laptop setup, email access, or tool provisioning, it signals disorganization and devalues the hire. All access requests must be submitted at offer acceptance, not at start date. Build a pre-boarding access checklist with a manager-owned SLA.
+
+4. **Role-specific onboarding scheduled after general onboarding creates a gap** - Starting the engineering or sales track in Week 3 (after "general onboarding is done") leaves new hires directionless during the most critical learning weeks. Run general and role-specific onboarding in parallel from Day 2.
+
+5. **Onboarding NPS surveys sent too late miss the critical signal** - A Day 90 survey tells you what you could have fixed 80 days ago. Add a Day 7 pulse survey (5 questions, 3 minutes) that flags problems while they can still be addressed for that cohort.
+
+---
+
 ## References
 
 For detailed role-specific templates, load the relevant file from `references/`:

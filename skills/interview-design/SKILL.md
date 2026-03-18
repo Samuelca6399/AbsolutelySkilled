@@ -305,6 +305,20 @@ Run it badly and you amplify bias. Run it well and you surface the truth.
 
 ---
 
+## Gotchas
+
+1. **Rubrics calibrated only on strong candidates produce grade inflation** - If interviewers see 10 qualified candidates in a row, their mental model of "a 3" drifts upward over time. Run calibration sessions quarterly using the same reference examples to anchor scores. Grade inflation causes you to reject good candidates because they score "only" a 3 when the bar has silently moved to 3.5.
+
+2. **Take-home exercises without a time cap select for availability, not skill** - Without an explicit time cap, candidates who are between jobs or have no outside commitments will spend 12 hours on a "2-3 hour" challenge, and their submissions will look objectively better. State "we expect this to take 2-3 hours" in the instructions and calibrate your evaluation rubric to what a strong engineer can produce in that time.
+
+3. **Allowing the hiring manager to see scores before all interviewers submit creates anchor bias** - If one interviewer submits a Strong Yes early and the hiring manager shares it in Slack, every subsequent scorer is subconsciously anchored. Enforce blind independent scoring: no interviewer sees anyone else's score or written feedback until all scorecards are submitted.
+
+4. **Interview loops covering the same dimension twice produce inflated confidence** - Two coding rounds both asking algorithm questions don't double the signal - they create redundant data while leaving system design, communication, or values completely unevaluated. Map each round to a unique dimension before the first candidate interviews, and stick to the map.
+
+5. **Debrief dominated by the most senior person in the room is not a debrief** - If an engineering director speaks first with a strong opinion, junior interviewers defer and the decision reflects the director's prior, not the collective evidence. The facilitator must ask every interviewer to present their evidence before any discussion begins, starting with the most junior voice.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

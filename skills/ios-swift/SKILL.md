@@ -306,6 +306,20 @@ struct ItemListView: View {
 
 ---
 
+## Gotchas
+
+1. **`@StateObject` vs `@ObservedObject` on the wrong owner causes views to reset** - Using `@ObservedObject` to create a view model (instead of injecting one) means SwiftUI may recreate the object every time the parent view re-renders, destroying all state. Use `@StateObject` when the view owns the object's lifecycle; use `@ObservedObject` only when the object is injected from outside.
+
+2. **Core Data `NSManagedObjectContext` is not thread-safe and crashes are non-obvious** - Accessing a managed object or its context from any thread other than the one it was created on causes data corruption or crashes that appear intermittent. Always use `context.perform {}` for background context work, and never pass `NSManagedObject` instances across threads - pass object IDs instead.
+
+3. **App Store rejection for missing purpose strings is instant and takes days to resolve** - If your app accesses camera, photos, location, microphone, contacts, or any other private data without a corresponding `NS*UsageDescription` key in `Info.plist`, Apple rejects the binary automatically within hours of submission. Audit `Info.plist` against your permission calls before every submission, not just the first one.
+
+4. **`NavigationView` is deprecated but mixing it with `NavigationStack` breaks navigation state** - In Xcode projects with mixed iOS version support, using `NavigationView` on older iOS alongside `NavigationStack` on iOS 16+ causes navigation state corruption. Pick one per navigation hierarchy - use `NavigationStack` with availability checks for older OS rather than mixing both.
+
+5. **Storing large blobs in Core Data's SQLite store bloats the database and slows all fetches** - SQLite stores all column data in the same file. Even one row with a 5MB image makes every fetch of that entity slow because SQLite reads past the image data. Store binary assets on disk via FileManager, keep only the file path in Core Data, and use `allowsExternalBinaryDataStorage` for smaller blobs that Apple should manage externally.
+
+---
+
 ## References
 
 For detailed guidance on specific iOS topics, load the relevant reference file:

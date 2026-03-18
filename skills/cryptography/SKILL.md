@@ -434,6 +434,20 @@ export function generateOtp(digits = 6): string {
 
 ---
 
+## Gotchas
+
+1. **IV reuse with AES-256-GCM is catastrophically insecure** - Reusing an IV (nonce) with the same key in GCM mode allows an attacker to recover the plaintext and the authentication key. This is not a theoretical risk - it is a known attack. Generate a fresh `randomBytes(12)` IV for every single encrypt call without exception.
+
+2. **`alg: "none"` JWT bypass via missing algorithm allowlist** - If you call `jwtVerify` without passing an explicit `algorithms` allowlist, some library versions accept a token with `alg: "none"` in the header, bypassing signature verification entirely. Always pass `algorithms: ['ES256']` (or your chosen algorithm) to every verification call.
+
+3. **Timing attacks on signature comparison** - Using `===` or `.equals()` to compare HMAC signatures or password hashes leaks timing information: the comparison short-circuits as soon as it finds a mismatch, revealing how many prefix bytes matched. Always use `crypto.timingSafeEqual()` for any security-sensitive comparison.
+
+4. **bcrypt silently truncates passwords at 72 bytes** - bcrypt only processes the first 72 bytes of a password. A user with a 100-byte password gets the same hash as if they used the first 72 bytes. This is not a bug per se, but it means bcrypt does not protect extremely long passwords. Pre-hash with SHA-256 before bcrypt if you need to support passwords beyond 72 bytes.
+
+5. **Storing the DEK in plaintext next to the ciphertext** - Envelope encryption only works if the data encryption key (DEK) is itself encrypted by a KMS-managed key. Storing an unencrypted DEK in the same database column as the ciphertext provides zero additional security over not encrypting at all.
+
+---
+
 ## References
 
 - `references/algorithm-guide.md` - when to use which algorithm: AES vs RSA vs ECDH,

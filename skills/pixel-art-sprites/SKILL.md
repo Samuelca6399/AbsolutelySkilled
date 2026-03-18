@@ -262,6 +262,20 @@ Sub-pixel animation creates the illusion of movement smaller than one pixel by s
 
 ---
 
+## Gotchas
+
+1. **Exporting with transparency to JPEG destroys it** - JPEG does not support alpha channels. Exporting a sprite with transparent background to JPEG fills the transparency with white (or black depending on the tool). Always export sprites as PNG. If a tool auto-selects JPEG, override it.
+
+2. **Unity's default texture filter is Bilinear, not Point** - When you import a sprite sheet into Unity, the default Filter Mode is Bilinear, which blurs pixels. You must change it to Point (no filter) in the Texture Import Settings for every sprite. Setting it per-sprite is tedious; configure the default texture filter in the project settings or use an AssetPostprocessor to enforce Point filtering on import.
+
+3. **Non-integer pixel-per-unit settings cause sub-pixel jitter during movement** - If your sprite is 16x16 and you set Pixels Per Unit to 32 (not 16), the sprite renders at 0.5 Unity units. Movement in increments smaller than 1/32 of a unit causes the sprite to render between pixel boundaries, producing visible jitter. Set Pixels Per Unit to match your tile size exactly.
+
+4. **Animation frames with different canvas sizes cause jitter in all engines** - If walk frame 1 is 32x32 but walk frame 3 is accidentally 32x33 due to a slip in the art tool, the sprite will shift 1 pixel vertically on that frame. Every frame in an animation must share identical canvas dimensions. Check canvas size consistency before exporting a sprite sheet.
+
+5. **Palette colors sampled with anti-aliasing enabled produce off-palette colors** - If you draw with any anti-aliasing or smoothing enabled in your art tool (even a small amount), edge pixels blend with surrounding colors and produce hundreds of near-palette colors that are not in the palette. Always draw with hard-edge (aliased) brushes only and verify the final image contains only palette-exact color values.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file

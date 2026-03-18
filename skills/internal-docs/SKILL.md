@@ -286,6 +286,20 @@ Structure team knowledge around these four categories (adapted from Divio):
 
 ---
 
+## Gotchas
+
+1. **RFCs without a decision deadline stay in "review" forever** - An RFC without a deadline becomes a perpetual discussion that blocks implementation. Always set a concrete decision deadline (typically 1-2 weeks) in the frontmatter, and explicitly close the RFC as Approved or Rejected on that date even if not everyone has commented.
+
+2. **Post-mortems written more than a week after the incident lose critical detail** - Memory degrades fast. Timelines reconstructed from memory a week later miss key decision points and often misattribute causality. The IC should assign a post-mortem owner and require a draft timeline within 24 hours of resolution, even if the full document takes 5 days.
+
+3. **ADRs edited retroactively destroy the historical record** - An ADR is only valuable as a record of what was decided and why at a specific point in time. If you update an ADR to reflect a changed decision, future readers can't distinguish the original context from the revision. Write a new ADR that supersedes the old one; mark the old one "Superseded by ADR-NNN".
+
+4. **Runbooks with "check the dashboard" as a step fail at 3 AM** - "Check the monitoring dashboard" is not a runbook step. A runbook step specifies which dashboard, which panel, what a normal reading looks like, and what to do if it's abnormal. Vague steps require context the on-call engineer won't have. Every step needs a specific action, an expected result, and a failure path.
+
+5. **Wiki pages without owners decay into organizational memory holes** - A wiki page written once and never reviewed will be confidently wrong within 6-12 months for any actively developed system. Every page needs a named owner and a "Last verified" date. Unmaintained pages should be archived, not left as false ground truth.
+
+---
+
 ## References
 
 For detailed content on specific document types, read the relevant file from

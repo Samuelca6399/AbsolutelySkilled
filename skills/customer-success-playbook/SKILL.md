@@ -281,6 +281,20 @@ brief your exec sponsor, identify one expansion opportunity (if Green health).
 
 ---
 
+## Gotchas
+
+1. **Health score with no action trigger is decoration** - A health score that lives in Salesforce and gets reviewed once a month during pipeline calls is not driving behavior. Every health band must have a mandatory CSM action with a defined SLA. Green without an expansion motion and Red without an escalation protocol are both failures of the system.
+
+2. **Champion departure is not always visible in usage data** - Product usage can remain stable for 30-60 days after a champion leaves, because the remaining users keep using the product out of habit. The champion departure is a leading indicator that usage will decline. Monitor LinkedIn/CRM for job changes on key contacts, not just product telemetry.
+
+3. **Premature expansion pitches accelerate churn** - Attempting to upsell a customer who has not yet achieved their primary success plan goals communicates that you care more about revenue than their outcomes. It damages trust, poisons renewal conversations, and produces contraction, not expansion. Gate expansion motions strictly on Green health for 60+ days and at least one documented ROI milestone.
+
+4. **QBR attendance without executive preparation** - A QBR where the customer executive shows up cold (no agenda sent in advance, no pre-read, no briefing with the champion) quickly turns into a status update that could have been an email. Send the agenda and ROI data 5 business days in advance and pre-brief the champion on what you want the executive to walk away thinking.
+
+5. **Onboarding completion measured by setup, not value** - Marking onboarding complete when technical setup is done (SSO configured, data imported) does not indicate the customer has achieved any business value. The real onboarding milestone is first value realization: a user has completed a meaningful workflow with real data and can demonstrate it unaided.
+
+---
+
 ## References
 
 - `references/health-score-model.md` - Detailed weighted health score model with

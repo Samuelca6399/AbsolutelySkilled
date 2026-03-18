@@ -312,6 +312,20 @@ defined fix with an owner and deadline. Do not audit without a plan to act on fi
 
 ---
 
+## Gotchas
+
+1. **Positioning that tries to win everyone wins no one** - The most common failure: a positioning statement so broad it excludes no competitor and excludes no customer. "For businesses that want to grow" is not a position. Without a specific audience and an explicit alternative being rejected, there's no position to defend.
+
+2. **Voice guidelines without examples are ignored** - A voice attribute like "conversational and direct" means different things to every writer. Without a "write this, not this" example pair for each attribute, different team members will interpret the same guideline completely differently. Every voice guideline needs at least one concrete before/after example.
+
+3. **Changing positioning after 6 months wipes accumulated brand equity** - Repositioning feels necessary when early conversion numbers are disappointing, but the problem is usually channel execution, not positioning. Brand associations take 12-18+ months of consistent repetition to form. Diagnose at the campaign/offer level before touching the positioning statement.
+
+4. **Brand archetype selection without behavioral commitments is cosmetic** - Teams choose "The Sage" or "The Rebel" and then write the same safe, committee-approved copy they would have written anyway. An archetype is only useful if it generates 2-3 concrete behavioral commitments - things the brand will do or won't do - that are different from the default.
+
+5. **Messaging hierarchy with 6+ equal-weight messages is a feature list** - If all messages are weighted equally, audiences can't identify the main point and the brand says nothing memorable. One message must be primary (the umbrella claim); everything else exists to support and prove it, not to compete with it.
+
+---
+
 ## References
 
 For deep-dive frameworks on specific brand strategy topics, load the relevant file:

@@ -320,6 +320,20 @@ Enablement assets to prepare:
 
 ---
 
+## Gotchas
+
+1. **"Partner" and "integration partner" are completely different contractual relationships** - A technology integration can go live with no contract, no revenue sharing, and no co-marketing. But calling it a "partnership" internally creates expectations of joint pipeline, shared KPIs, and dedicated resources that never materialize. Distinguish clearly: integration (technical), referral (commercial), and strategic (joint GTM) - each needs a different agreement and operational model.
+
+2. **Lead sharing without a no-compete clause causes channel conflict** - When a co-marketing campaign generates leads and both sales teams call the same prospect the same week with conflicting positioning and pricing, the prospect loses confidence in both vendors. Define lead ownership, territory, and sequencing in writing before the first campaign launches.
+
+3. **Affiliate fraud is systematic, not occasional** - Without clawback clauses, cookie stuffing detection, and self-referral controls, well-funded bad actors will generate fake signups at scale. First-party fraud (affiliate signs up themselves using referral link) and coupon site abuse can consume 20-40% of affiliate payouts before you notice. Build fraud controls into the program design, not as a post-launch patch.
+
+4. **Partner portals built without self-serve onboarding stall at activation** - A portal that requires a human to approve access, manually create accounts, or send welcome emails creates bottlenecks that prevent the Ecosystem tier from scaling. Partners who wait more than 48 hours for access rarely activate. Build fully automated self-serve onboarding as a launch requirement, not a phase-two feature.
+
+5. **QBRs without pre-shared data produce defensive conversations, not alignment** - Arriving at a quarterly business review without sending pipeline data, co-marketing metrics, and KPI performance to the partner 48 hours in advance turns the meeting into a data-gathering session instead of a strategic review. Send the data package in advance and use the meeting to discuss implications and next quarter's plan.
+
+---
+
 ## References
 
 For detailed guidance on specific partnership sub-domains, read the relevant

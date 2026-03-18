@@ -376,6 +376,20 @@ Minimum viable Search Console setup:
 
 ---
 
+## Gotchas
+
+1. **Noindex on staging left in production** - A `<meta name="robots" content="noindex">` tag or `X-Robots-Tag: noindex` header copied from staging to production will silently deindex pages. Google does not warn you - pages simply disappear from the index. Always audit robots directives post-deployment.
+
+2. **Self-referencing canonical conflicts with noindex** - If a page has both `<link rel="canonical" href="[this page]">` and `<meta name="robots" content="noindex">`, the signals conflict. Noindex wins for crawling, but the canonical may cause Google to retain the page in index longer than expected. Remove the canonical when noindexing.
+
+3. **Paginated pages canonicaling to page 1 loses deep content** - Canonicalizing all paginated series pages (`/blog?page=2`) to the root (`/blog`) tells Google to ignore the content on pages 2+. Use self-referencing canonicals on each paginated page and ensure internal linking surfaces the paginated content.
+
+4. **Disavow file removes good links with bad** - Submitting a broad disavow file (`domain:example.com`) removes all links from a domain including any legitimate ones. Only disavow specific URLs unless the entire domain is clearly spam/malicious.
+
+5. **Search Console impressions spike without a ranking change** - A sudden impression spike in GSC often indicates Google started showing your page for a new query set, not that your ranking improved. Always check which queries drove the spike before concluding a campaign worked.
+
+---
+
 ## Anti-patterns
 
 | Mistake | Why it's wrong | What to do instead |

@@ -340,6 +340,20 @@ A clean expense process prevents both fraud and friction:
 
 ---
 
+## Gotchas
+
+1. **Bank feed rules that auto-post without review create silent errors** - Bank feed rules in QuickBooks/Xero match by payee name or description pattern. When a vendor changes their billing descriptor, the rule stops matching and transactions land in an uncategorized account. Auto-approved rules mean this can accumulate for months. Review unmatched and newly categorized transactions daily.
+
+2. **Accruals without auto-reverse cause double-counting** - If you post an accrued expense in Month 1 (e.g., $5K for uninvoiced consulting) and then the actual invoice also posts in Month 2, the expense appears twice. Always enable auto-reverse on accrual entries so they zero out on the first day of the next period before the actual invoice arrives.
+
+3. **AR aging report total not matching the GL control account signals a subledger problem** - If the sum of all open invoices in the AR subledger doesn't match the AR balance on the general ledger, there's an unrecorded transaction, a manual journal entry that bypassed the subledger, or a data integrity issue. This must be resolved before month-end close, not ignored.
+
+4. **Cash basis and accrual basis entries mixed in the same period produce meaningless financials** - Recording revenue when invoiced (accrual) but expenses when paid (cash) in the same reporting period makes the P&L unreadable and legally problematic. Pick one method and apply it consistently to both revenue and expense recognition.
+
+5. **A `Miscellaneous Expense` catch-all account that grows is an audit flag** - Using a catch-all for transactions that don't fit neatly signals inadequate COA design. Auditors flag high-balance miscellaneous accounts immediately. Any transaction category that appears more than twice per quarter deserves its own account.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

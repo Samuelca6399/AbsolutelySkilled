@@ -213,6 +213,20 @@ Build resilient UIs that work across conditions.
 
 ---
 
+## Gotchas
+
+1. **CSS class-based queries in tests break on refactor** - Using `getByClassName` or querying by CSS selectors couples tests to implementation. When you rename a class, tests fail even though the UI still works. Always query by `role`, `label`, or visible text.
+
+2. **Third-party bundle size is invisible until it's catastrophic** - Adding a dependency like `moment.js` or a UI component library can triple your bundle silently. Run `source-map-explorer` or `webpack-bundle-analyzer` before merging any PR that adds a new `npm install`.
+
+3. **ARIA roles on wrong elements break screen readers worse than no ARIA** - Adding `role="button"` to a `<div>` makes screen readers announce "button" but keyboard users still can't Tab to it or activate it with Enter/Space. Use `<button>` or add both `tabindex="0"` and a `keydown` handler. Incomplete ARIA is worse than none.
+
+4. **CSS container queries require a containment context on the parent** - A container query will silently never fire if the parent element doesn't have `container-type` set. Adding `container-type: inline-size` to the wrong ancestor (e.g., body) changes layout behavior unexpectedly. Always set the containment on the direct parent of the component.
+
+5. **Lazy loading below-the-fold images is fine; lazy loading LCP images kills performance** - Adding `loading="lazy"` to every image is cargo-cult optimization. The Largest Contentful Paint image must load eagerly (or use `fetchpriority="high"`). Lazy-loading the LCP image can drop your LCP score by seconds.
+
+---
+
 ## References
 
 For detailed guidance on specific topics, load the relevant reference file:

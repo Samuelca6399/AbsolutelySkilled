@@ -285,6 +285,20 @@ mastra migrate          # Run DB migrations
 
 ---
 
+## Gotchas
+
+1. **Forgetting `.commit()` causes a silent no-op workflow** - A workflow chain that is missing `.commit()` at the end will not throw an error when defined, but calling `workflow.createRun()` will either fail or produce unexpected behavior. Always end every workflow chain with `.commit()` as the final call.
+
+2. **Accessing agents directly (not via `mastra.getAgent()`) bypasses telemetry and logging** - Importing and calling an agent instance directly skips the Mastra registry's wiring, meaning no trace data, no logger output, and no resource access via the registered Mastra instance. Always resolve agents through `mastra.getAgent('id')` in step execute functions.
+
+3. **`mcp.listTools()` caches tools at initialization time** - If the MCP server's available tools change after `MCPClient` initializes, the agent will not see the new tools until the process restarts. For dynamic multi-user scenarios where credentials or available tools differ per request, use `mcp.listToolsets()` per request instead of the static `listTools()` pattern.
+
+4. **Memory `resource` scope isolation can cause cross-user data leakage if resource IDs are not unique** - If two users share the same `resource` ID (e.g., a static string like `"default"`), their working memory and semantic recall overlap. Always derive the resource ID from a unique identifier (user ID, session token) before passing it to `agent.generate()`.
+
+5. **Workflow step schema mismatches produce cryptic runtime errors** - When a step's `outputSchema` does not match the next step's `inputSchema`, Mastra throws a Zod parse error at runtime, not at workflow definition time. Use `.map()` between steps to transform data shapes, and verify schema compatibility during development by running the workflow with a test payload before deploying.
+
+---
+
 ## References
 
 For detailed content on specific Mastra sub-domains, read the relevant file

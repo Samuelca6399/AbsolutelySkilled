@@ -294,6 +294,20 @@ heartbeat.interval.ms=15000   # heartbeat frequency (1/3 of session timeout)
 
 ---
 
+## Gotchas
+
+1. **Orphaned Postgres replication slots from CDC** - When a Debezium connector is paused, deleted, or loses connectivity, the replication slot on the database side continues to accumulate WAL. This can exhaust disk and bring down the primary. Always monitor `pg_replication_slots` for `active = false` slots and alert on slot lag. Drop slots explicitly when decommissioning a connector.
+
+2. **Consumer group rebalance triggered by slow processing** - If a consumer's processing loop exceeds `max.poll.interval.ms`, Kafka evicts it and triggers a rebalance. This causes duplicate processing and lag spikes. Reduce `max.poll.records` to keep processing within the interval, or increase the interval - but don't increase it blindly without understanding the processing time distribution.
+
+3. **Increasing Kafka partition count breaks key ordering** - Partitions can be added but never removed. Adding partitions after data exists changes the key-to-partition mapping, meaning events for the same key may now land on different partitions. Never increase partition count on a topic where key-based ordering is a correctness requirement.
+
+4. **Flink checkpoint interval too aggressive** - Very frequent checkpoints (e.g., every 10 seconds) increase checkpoint overhead and can starve actual processing throughput. Start with 1-5 minute intervals and tune down only if recovery time is unacceptably long.
+
+5. **Transactional consumer not setting `isolation.level=read_committed`** - Without this setting, consumers read uncommitted records from in-progress transactions, causing phantom reads. Any consumer of a transactionally-produced topic must set `isolation.level=read_committed`, accepting the added latency.
+
+---
+
 ## References
 
 For detailed patterns and implementation guidance on specific streaming domains,

@@ -391,6 +391,20 @@ semantic_chunks = semantic_splitter.create_documents([text])
 
 ---
 
+## Gotchas
+
+1. **Embedding model upgrades invalidate the entire index** - Switching from `BAAI/bge-small-en-v1.5` to `text-embedding-3-small` (or any other model) produces vectors in a different semantic space. Mixing embeddings from two different models in the same index causes meaningless similarity scores. When upgrading embedding models, you must re-embed and re-index every document in the corpus before the new model can be used in production.
+
+2. **Preprocessing applied at index time must be applied identically at query time** - If you lowercase and strip HTML when building the index but forget to apply the same preprocessing to the query string, queries produce poor recall because the normalized index vectors don't match un-normalized query vectors. Encapsulate preprocessing in a shared function called by both the indexing pipeline and the query path.
+
+3. **FAISS `IndexFlatIP` does exact search but does not scale past ~1M vectors** - For production corpora above ~500K documents, exact search latency becomes unacceptable. Use `IndexIVFFlat` (inverted file index, approximate) or a managed vector store. The tradeoff is recall (95-99% instead of 100%) for 10-100x faster search. Benchmark recall vs. latency before committing to an ANN approach.
+
+4. **HuggingFace `pipeline()` loads the full model on every call in scripts** - Calling `pipeline("token-classification", model="...")` inside a request handler or loop re-loads the model weights from disk on every invocation, causing massive latency. Instantiate the pipeline once at module load time (or application startup) and reuse the same instance across all requests.
+
+5. **Sentence boundary detection matters more than chunk size for retrieval quality** - Splitting text every N characters without checking for sentence boundaries creates chunks that start or end mid-sentence. These partial-sentence chunks retrieve poorly because their vectors average semantically incomplete text. Use `RecursiveCharacterTextSplitter` with sentence-aware separators (`["\n\n", "\n", ". ", " "]`) rather than a character-count-only splitter.
+
+---
+
 ## References
 
 For detailed comparison tables and implementation guidance on specific topics,

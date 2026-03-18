@@ -568,6 +568,20 @@ The completed board serves as an audit trail:
 
 ---
 
+## Gotchas
+
+1. **Parallel agents modifying shared files without a lock strategy** - Two agents in the same wave that both edit the same utility file or test fixture will produce a merge conflict at the wave boundary. During DECOMPOSE, identify shared files and assign ownership to one task; other tasks must treat those files as read-only until the owning task completes.
+
+2. **Board marked `completed` but tests were never run** - The mandatory tail task "Run full project verification suite" is frequently skipped when agents declare done based on subjective confidence. Never mark the board `completed` until the actual test/lint/build commands have been run and their output recorded on the board.
+
+3. **DISCOVER phase skipped for "obvious" tasks** - Agents assume they know the codebase well enough to skip research. Then they write code that duplicates existing utilities, uses the wrong import paths, or misses a convention that would have been visible in a 2-minute code scan. Always run DISCOVER, even for small tasks.
+
+4. **Rollback point recorded after Wave 1 has already started** - Recording the git commit hash mid-wave means the rollback point already includes partial changes. The pre-execution snapshot must be taken before any file is touched - before Wave 1 begins, not during it.
+
+5. **Scope creep absorbed silently expands the DAG without user visibility** - Agents frequently discover adjacent improvements during EXECUTE and absorb them into the current task without flagging them. This makes the wave take longer than planned, obscures what changed, and violates the scope agreement from INTAKE. Everything outside the original scope goes to the Deferred Work section.
+
+---
+
 ## Anti-Patterns and Common Mistakes
 
 | Anti-Pattern | Better Approach |

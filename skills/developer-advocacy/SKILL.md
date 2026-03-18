@@ -302,6 +302,20 @@ Quickstarts must get a developer from zero to a working API call in under
 
 ---
 
+## Gotchas
+
+1. **Demo Wi-Fi always fails - cache everything** - Conference venue networks are unreliable. Any demo that makes a live HTTP call during the talk risks dying on stage. Pre-record a backup video of the demo working, use localhost or a local mock server, and cache all API responses before walking on stage.
+
+2. **SDK code samples without pinned versions break silently** - `npm install acme-sdk` installs the latest version, which may have different method signatures than your tutorial shows. Always pin with exact versions (`acme-sdk@2.3.1`) and set a quarterly calendar reminder to update samples.
+
+3. **A/B testing advocacy content with vanity metrics gives false signal** - GitHub stars and YouTube views are activity metrics, not impact metrics. A post can get 10,000 views but generate zero API signups. Always instrument content with UTM parameters that tie to your business conversion event.
+
+4. **Community channels without SLA commitments lose trust fast** - Opening a Discord or forum and then taking 72+ hours to respond to first-time posters damages the community more than having no channel. Only open channels you can staff with a sub-24-hour first-response commitment.
+
+5. **Live-coding demos typed too fast lose the audience** - Narrating your keystrokes is not optional - silence while typing causes the audience to disengage within 10 seconds. Practice narrating every step aloud: "I'm setting the API key as an environment variable because we never hard-code credentials."
+
+---
+
 ## References
 
 For detailed guidance on specific sub-domains, read the relevant file from the

@@ -331,6 +331,20 @@ RECOMMENDED RESPONSE
 
 ---
 
+## Gotchas
+
+1. **Treating marketing copy as ground truth** - Competitor website copy describes the best-case version of the product, not the actual user experience. A "full" checkmark on your matrix based only on the competitor's pricing page is likely wrong. Validate capability claims with G2/Capterra reviews, hands-on trials, or win/loss calls before trusting them.
+
+2. **SWOT without the SO/ST/WO/WT synthesis** - A four-box SWOT with lists of bullet points produces observations, not strategy. The value comes from crossing quadrants: which strength can you deploy against which threat? Which weakness blocks which opportunity? If the SWOT doesn't close with at least four strategic implications, it's an incomplete exercise.
+
+3. **Positioning map axes that are correlated** - Using "price" and "features" as the two axes of a 2x2 produces a diagonal line with all competitors clustered from bottom-left to top-right - revealing nothing actionable. Choose axes that are orthogonal: dimensions where competitors can and do trade off against each other independently.
+
+4. **Feature matrix becoming a scorekeeping exercise** - A matrix that sums up "wins" per vendor and declares a winner is used by sales as a trophy, not as strategic input. Feature parity does not predict market outcomes. Use the matrix to identify your unique differentiators and the gaps that are actual deal-blockers, not to declare overall superiority.
+
+5. **Snapshot analysis without a refresh process** - A competitive brief created for a board deck 6 months ago that gets recirculated without an update is actively harmful: it may show a competitor's weakness that has since been shipped, or miss a new entrant. Every competitive artifact needs a "next review" date and an owner. Mark anything older than 90 days as potentially stale.
+
+---
+
 ## References
 
 For detailed templates and worked examples on specific frameworks, read the

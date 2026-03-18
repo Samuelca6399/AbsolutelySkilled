@@ -315,6 +315,20 @@ Dashboard hygiene rules:
 
 ---
 
+## Gotchas
+
+1. **A/B test results are invalid if you peek before reaching the required sample size** - Checking results daily and stopping when p < 0.05 is reached inflates the false positive rate to 30%+ (compared to the nominal 5%). This is p-hacking. Pre-calculate the required sample size using a power analysis before the experiment starts and do not evaluate results until that size is reached.
+
+2. **Funnel conversion windows that are too long inflate conversion rates** - A 90-day conversion window for a trial-to-paid funnel will show a higher conversion rate than a 14-day window, but it mixes cohorts and obscures actual purchase latency. Choose conversion windows that match the actual product cycle; validate them by checking the distribution of time-to-convert before locking in a window.
+
+3. **Event naming changes retroactively break historical queries** - Renaming `user_signup` to `account_created` splits the event stream at the migration date. Any retention or funnel query that spans the rename returns incomplete data silently. Before renaming an event, ensure both the old and new names are captured in parallel during a transition period, and update all dashboards and queries before deprecating the old name.
+
+4. **Session ID reuse across app restarts can merge separate user journeys** - If your session ID is a persistent device identifier rather than a time-bounded session token, all activity from the same device over weeks may appear as one enormous session. This corrupts session-level funnel analysis. Define sessions with an inactivity timeout (30 minutes is standard) and generate new session IDs after each timeout.
+
+5. **North star metrics that include internal users overcount value delivered** - If your product's north star includes employee accounts, test accounts, or bot activity, the metric is inflated by non-customer usage. Filter internal users from all product metrics from the start. Retroactively excluding them mid-measurement creates discontinuities that look like regressions.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file from

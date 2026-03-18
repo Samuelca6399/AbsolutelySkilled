@@ -281,6 +281,20 @@ See `references/security-audit.md` for the full audit checklist.
 
 ---
 
+## Gotchas
+
+1. **CEI pattern is violated by modifier usage** - A common mistake is putting a reentrancy guard or balance check in a modifier that runs before state updates, then making an external call in the modifier. Modifiers execute around the function body, which means the external call in the modifier runs before `effects` in the function body. Keep the CEI pattern entirely within the function, not split across modifiers.
+
+2. **`address.transfer()` and `address.send()` are deprecated but still taught** - Both have a hardcoded 2300 gas stipend that will fail if the recipient is a contract with non-trivial receive logic. The correct pattern is `(bool success, ) = addr.call{value: amount}("")` combined with a ReentrancyGuard. New code should never use `transfer()` or `send()`.
+
+3. **Proxy storage collisions silently corrupt state** - In upgradeable proxy patterns (TransparentProxy, UUPS), if the implementation contract declares state variables that overlap with the proxy's admin slot (slot 0), state corruption occurs on every write. Use OpenZeppelin's unstructured storage pattern for admin variables and verify storage layout with `forge inspect` before upgrading.
+
+4. **Foundry fuzz testing hits the default seed repeatedly without corpus expansion** - `forge test --fuzz-runs 256` uses pseudo-random inputs that may not cover edge cases near integer boundaries. Always define `vm.assume()` guards for valid ranges and increase `fuzz.runs` in `foundry.toml` for security-critical functions. Use invariant testing for stateful properties.
+
+5. **Block timestamp is miner-manipulable within ~15 seconds** - Using `block.timestamp` for time-sensitive logic (token vesting cliffs, auction deadlines) allows miners to shift outcomes by up to ~15 seconds. This is rarely exploitable in practice but becomes significant in high-value time-lock contracts. Use `block.number` with expected block time for coarser timing.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

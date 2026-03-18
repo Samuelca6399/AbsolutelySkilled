@@ -353,6 +353,20 @@ public class HealthBarUI : MonoBehaviour
 
 ---
 
+## Gotchas
+
+1. **Modifying a ScriptableObject's values in Play mode persists in the Editor but not in builds** - ScriptableObject assets are shared references. Changes made to their fields during Play mode in the Editor are saved to the asset file and persist after stopping. In a build, there is no asset file to save to, so changes are lost on scene reload. Use runtime clones (`Instantiate()`) for mutable per-game-session data.
+
+2. **`OnEnable` runs before `Start` but after `Awake` on scene load - and again on every re-enable** - Code in `OnEnable` that subscribes to events will subscribe again every time the GameObject is disabled and re-enabled. Always unsubscribe in `OnDisable`. Missing this causes duplicate event handlers that accumulate across scene loads.
+
+3. **Rigidbody interpolation causes visual lag without it, jitter with it misapplied** - If you move a Rigidbody in `FixedUpdate` without interpolation, visual movement is choppy on high-framerate screens. Setting `Rigidbody.interpolation = Interpolate` smooths rendering but adds one physics frame of lag. Camera follow scripts must run in `LateUpdate` after physics resolves to avoid camera jitter.
+
+4. **ECS Burst compilation fails silently on managed type references** - If a DOTS component or system references a managed type (class, string, array), the Burst compiler silently falls back to non-Burst execution without error. Performance-sensitive systems will run at MonoBehaviour speeds. Use `[BurstDiscard]` intentionally and check the Burst Inspector for compilation errors.
+
+5. **URP and HDRP shaders are not interchangeable** - A shader written for URP (using `UniversalPipeline` render pipeline tag and `UniversalForwardPass`) will appear as an unlit pink fallback in HDRP, and vice versa. Always specify the target render pipeline in the `SubShader` `Tags` block and confirm the project's Graphics settings.
+
+---
+
 ## References
 
 For detailed patterns and implementation guidance on specific domains, read the

@@ -374,6 +374,20 @@ print(f"Pass rate: {sum(r['pass'] for r in results) / len(results):.1%}")
 
 ---
 
+## Gotchas
+
+1. **Temperature > 0 for structured extraction** - Even `temperature: 0.1` meaningfully increases JSON parse failure rates. Always use `temperature: 0` when the output must be parsed programmatically. This is the single highest-yield change for reliability.
+
+2. **RAG context injected without delimiters** - When retrieved chunks are concatenated directly into the prompt without separators (`---` or XML-style tags), models confuse retrieved content with instructions. Always use explicit structural delimiters around each retrieved chunk.
+
+3. **Verification pattern creates hallucination loops** - The critic-and-revise pattern can cause a model to confidently generate new hallucinations to "fix" non-existent errors. If the draft is factually grounded, set a high bar for what triggers revision - don't revise unless there's a concrete, checkable error.
+
+4. **Few-shot examples grouped by class** - In classification prompts, showing all POSITIVE examples first then all NEGATIVE examples trains the model to pattern-match on recency rather than semantic content. Interleave classes in few-shot examples.
+
+5. **System prompt changes not tracked against an eval set** - Prompt changes that feel like improvements often degrade performance on edge cases. Maintain a golden eval set of 20+ cases before any production prompt is modified, and measure pass rate before and after every change.
+
+---
+
 ## References
 
 For a comprehensive catalog of 15+ individual prompting techniques with examples

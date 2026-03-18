@@ -331,6 +331,20 @@ Level 4: Director/VP + incident commander (SEV1 only)
 
 ---
 
+## Gotchas
+
+1. **Severity escalation delays compound MTTR** - The most common cause of a 2-hour incident that should have taken 30 minutes is a 45-minute delay in escalating from SEV3 to SEV2. The escalation rule "if no mitigation progress after 30 minutes, escalate one level" is not optional - build it into your pager escalation policy as an automatic trigger, not a judgment call.
+
+2. **Post-mortem action items decay without a 30-day review** - Action items written in the heat of post-mortem often get deprioritized as new features take over the sprint. Without a mandatory 30-day follow-up meeting with the IC and action item owners, the same incident repeats within 6 months. Treat action item review as a blocking ceremony, not a nice-to-have.
+
+3. **Status page updates that use internal jargon erode customer trust** - Saying "the Kafka consumer group is lagging due to a partition rebalance" confuses customers and implies you don't know how to communicate. Customers need to know the symptom they're experiencing, whether you're aware, and when you expect resolution. Translate everything to user impact before posting.
+
+4. **War rooms without a single Incident Commander devolve into chaos** - When multiple senior engineers simultaneously investigate, propose fixes, and run commands against production without coordination, changes step on each other and the true root cause gets masked by noise. The IC role is not debugging - it is traffic control. Assign an IC before anyone runs a single query.
+
+5. **Runbooks that haven't been tested under stress are not runbooks** - A runbook that works when you write it (calm, familiar with the system, full context) may be unusable at 3am by a tired on-call engineer seeing the service for the first time. Run fire drills where engineers who didn't write the runbook follow it end-to-end. Gaps in instructions surface immediately.
+
+---
+
 ## References
 
 For detailed guidance on specific incident management domains, load the relevant

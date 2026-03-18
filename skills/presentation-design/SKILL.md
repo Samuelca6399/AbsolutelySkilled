@@ -226,6 +226,20 @@ Checklist for every content slide:
 
 ---
 
+## Gotchas
+
+1. **Deck sent as read-ahead but designed for live delivery fails both use cases** - A deck with minimal text, large visuals, and no context reads as confusing to someone receiving it by email. Conversely, a read-ahead deck with dense prose is death-by-slide in a live presentation. Decide the delivery format before slide 1 and design accordingly. If you need both, build a "speaker version" and a "leave-behind version" as separate files.
+
+2. **"Most Popular" badge on the middle tier backfires if the middle tier is empty** - Social proof on a pricing tier or comparison slide (e.g., marking the middle column as "most popular") loses credibility if the content doesn't justify it. The badge should reinforce a natural gravitational pull, not substitute for it. Ensure the middle tier genuinely offers the best value proposition before adding the badge.
+
+3. **Pie charts with more than 4 segments are consistently misread** - Humans cannot accurately compare arc lengths when there are 5+ segments. Audiences in live presentations have no time to study the chart. If a pie chart has more than 3-4 meaningful segments, replace it with a sorted horizontal bar chart immediately. This is the single most common data visualization error in business presentations.
+
+4. **Dark slide backgrounds render poorly in bright conference rooms** - A dark-theme deck that looks stunning on a monitor can become near-unreadable when projected in a daylight-lit conference room with a low-lumen projector. Test your deck in the actual room or use a high-contrast theme with at least 7:1 contrast ratio for any text on background.
+
+5. **Animations and transitions in exported PDF break the read-ahead experience** - Build and reveal animations (text appearing line by line, chart bars animating in) are invisible in PDFs sent for async review - readers see only the final state. If a slide's argument depends on the reveal order, add numbers or explicit visual cues to the exported version, or duplicate the slide in a progressive state for PDF exports.
+
+---
+
 ## References
 
 For detailed guidance on specific sub-domains, read the relevant file from `references/`:

@@ -287,6 +287,20 @@ fallback chain terminates at a fully-translated locale.
 
 ---
 
+## Gotchas
+
+1. **i18next `{{double braces}}` vs ICU `{single braces}` silently produce different output** - These two interpolation syntaxes are not interchangeable. Using ICU-style `{name}` in a project configured for i18next double-brace mode renders the literal string `{name}` to users. The `i18next-icu` plugin must be installed and configured before switching syntax. Always verify interpolation works end-to-end with a real locale before migrating your message catalog.
+
+2. **`Intl.DateTimeFormat` and `Intl.NumberFormat` constructors are expensive - cache them** - Creating a new `Intl.NumberFormat('de-DE', {...})` on every render or request has measurable overhead on high-traffic paths. Cache formatter instances keyed by locale and options string, or use a memoization wrapper. This is a common source of unexpected latency on locale-switching UIs.
+
+3. **Pluralization fallback to `other` masks missing plural forms in production** - ICU's `other` is required and acts as a catch-all. If a translator omits the `few` form for Polish and a user has exactly 3 items, the `other` form renders silently - wrong grammar but no error. Run pluralization validation against CLDR's expected forms per locale in CI to catch missing categories before release.
+
+4. **RTL flipping CSS is not enough - icon direction and component orientation also need adjustment** - Applying `dir="rtl"` flips text direction but does not automatically mirror directional icons (arrows, chevrons, back buttons), progress bars, or timeline components. Each directional UI element needs explicit RTL handling. Use a design system that supports `dir`-aware icon variants rather than flipping with CSS transforms.
+
+5. **String extraction tools miss dynamic message IDs** - If your code constructs a message ID at runtime (`t('error.' + code)`), extraction tools like `i18next-parser` or `formatjs extract` cannot statically analyze it and will omit the key from the catalog. Translators never see it; users see raw keys. Use static string literals for all message IDs; handle dynamic content as parameters within a static message.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

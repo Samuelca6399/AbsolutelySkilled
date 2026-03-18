@@ -373,6 +373,20 @@ Target -> Intro Requested -> First Meeting -> Follow-up/Diligence -> Term Sheet 
 
 ---
 
+## Gotchas
+
+1. **Term sheets are binding on exclusivity, not economics** - Signing a term sheet typically triggers a no-shop clause (30-90 days) that prevents you from soliciting other investors. You are not committed to accepting the deal, but you are committed to not running a competing process. Read the exclusivity clause carefully before signing.
+
+2. **Post-money SAFE valuation cap is not the same as company valuation** - A $10M post-money SAFE cap means the investor's ownership is calculated as if the company is worth $10M after their investment. If you raise $1M on a $10M post-money SAFE, you have given away 10% - not a fraction of $10M minus $1M. Model this explicitly before issuing multiple SAFEs at different caps.
+
+3. **Option pool shuffle happens before close, not after** - If a lead investor requires a 15% option pool "post-round" but structures it pre-money, the existing shareholders (founders) absorb the full dilution of creating the pool before the round closes. The effective pre-money valuation is reduced by the pool value. Always model both scenarios before agreeing.
+
+4. **Data room access given too early leaks competitive intelligence** - Sharing your full data room with investors who are still in early conversations exposes your customer list, pricing, and financial model to potential competitors in your space (many VCs hold portfolio companies that compete with you). Gate data room access until a term sheet or strong letter of intent.
+
+5. **Pro-rata rights compound dilution in down rounds** - Pro-rata rights allow investors to maintain their ownership percentage in future rounds. In a strong up round this is manageable. In a down round, investors exercising pro-rata to avoid dilution may force founders to take worse terms or face a harder close. Negotiate pro-rata rights to apply only above a minimum round size.
+
+---
+
 ## Anti-patterns / common mistakes
 
 | Mistake | Why it's wrong | What to do instead |

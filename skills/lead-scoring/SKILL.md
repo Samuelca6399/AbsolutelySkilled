@@ -325,6 +325,20 @@ scoring fails to improve pipeline. Build a shared definition document covering:
 
 ---
 
+## Gotchas
+
+1. **Combined score threshold hides bad fits** - A lead with a perfect behavioral score (50/50) but a zero fit score (wrong industry, wrong company size) can still hit the MQL threshold if you only gate on the total. Always require a minimum sub-score on both fit AND behavioral independently, not just the combined total.
+
+2. **Score decay runs on stale data when jobs fail silently** - Decay jobs that error without alerting leave behavioral scores frozen at their peak indefinitely. The symptom is sales complaining that the pipeline is full of "ghost" hot leads who never respond. Add failure alerting and a last-ran timestamp check to your decay job.
+
+3. **Technographic signals are often stale** - Data from providers like Clearbit or ZoomInfo can be 6-18 months out of date. A company that "uses Salesforce" in the data may have migrated off it. Treat technographic data as a weak fit signal, not a strong one, and never make it the sole reason for a high fit score.
+
+4. **PQL thresholds need per-product calibration** - A "product qualified lead" in a tool with a 5-minute time-to-value (e.g., Loom) needs a completely different activation milestone than one with a 30-day ramp (e.g., a data platform). Copying PQL definitions from other companies' case studies without calibrating against your own activation data produces high MQL-rejection rates.
+
+5. **Sales rejection reasons are unstructured by default** - Most CRMs let reps type free text when rejecting an MQL. Without a fixed reason code dropdown ("wrong company size", "no budget", "competitor", "timing"), you cannot aggregate feedback to recalibrate the model. Enforce a picklist from day one.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file from `references/`:

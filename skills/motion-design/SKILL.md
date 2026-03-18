@@ -477,6 +477,20 @@ if (!prefersReduced) {
 
 ---
 
+## Gotchas
+
+1. **`AnimatePresence` requires a stable `key` prop on its direct child** - Without a unique `key`, Framer Motion cannot differentiate between the exiting and entering component, so exit animations never play. The `key` must change when the content changes (e.g., `key={pathname}` for page transitions, `key={item.id}` for list items). Using `key={Math.random()}` or omitting it are the two most common causes of broken exit animations.
+
+2. **CSS scroll-driven animations (`animation-timeline: scroll()`) have no Safari support as of early 2026** - The native CSS scroll timeline API is Chromium-only. Shipping it without an `IntersectionObserver` fallback means Safari users see no scroll animations at all. Always implement the `IntersectionObserver` approach as the baseline and treat scroll-driven CSS as progressive enhancement.
+
+3. **`will-change: transform` on many elements simultaneously tanks GPU memory** - Each element with `will-change` gets promoted to its own GPU layer. Applying it to 20+ card elements, a background, a header, and navigation simultaneously can exhaust GPU memory on low-end devices and cause more jank than having no `will-change` at all. Apply it only immediately before an animation starts (via JS class add/remove) and remove it after the animation ends.
+
+4. **Framer Motion `layout` animations conflict with CSS `transition`** - When a `motion` element has both `layout` prop and a CSS `transition` applied to `transform`, the two systems fight over the same property. The CSS transition animates the pre-layout position, while Framer Motion tries to animate to the post-layout position, causing a flash or jump. Remove CSS `transition: transform` from any element that uses the Framer Motion `layout` prop.
+
+5. **GSAP timelines in React components leak if not cleaned up** - A GSAP timeline created in a `useEffect` without a cleanup function continues running after the component unmounts, animating elements that no longer exist in the DOM and throwing warnings. Always return a cleanup function from `useEffect` that calls `tl.kill()` to stop and garbage-collect the timeline.
+
+---
+
 ## References
 
 For detailed guidance on specific motion topics, read the relevant file

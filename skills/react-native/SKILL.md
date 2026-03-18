@@ -398,6 +398,20 @@ const useStore = create<AppState>((set) => ({
 
 ---
 
+## Gotchas
+
+1. **OTA update applied to incompatible native runtime** - EAS Update pushes JS bundles, but if a native module was added or changed since the last app store build, the JS update will crash on load. Use `runtimeVersion.policy: 'fingerprint'` to automatically detect native changes and prevent incompatible updates from being served.
+
+2. **`memo()` applied without measuring first** - Adding `memo()` everywhere is a common premature optimization. It adds object comparison overhead on every render and can cause subtle bugs when object references change unexpectedly. Profile with React DevTools first, then memoize actual bottlenecks.
+
+3. **Config plugin modifying already-ejected native files** - If native files have been manually edited after `expo prebuild`, re-running prebuild overwrites those changes. Either commit all native customizations to config plugins or document explicitly which files are manually managed and must not be regenerated.
+
+4. **Expo Router file not a default export** - Expo Router requires every route file to have a default export. A named-only export silently breaks routing with an opaque error. Always use `export default function ScreenName()` for route files.
+
+5. **Context as global state causing full tree re-renders** - React Context triggers a re-render in every consumer when any value changes. Using a single large Context object for app state causes cascading re-renders. Use Zustand, Jotai, or split contexts with narrow value shapes for any state accessed by more than a few components.
+
+---
+
 ## Error handling
 
 | Error | Cause | Resolution |

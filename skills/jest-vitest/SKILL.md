@@ -418,6 +418,20 @@ markers in the Istanbul HTML report. Focus on:
 
 ---
 
+## Gotchas
+
+1. **`vi.mock()` calls are hoisted but imports are not - order matters** - Vitest (and Jest) hoist `vi.mock()` calls to the top of the file at compile time, but the imported mock values are still assigned at runtime. If you reference a mock return value before calling `vi.mocked(fn).mockReturnValue(...)`, you'll get `undefined`. Always configure mock return values inside `beforeEach` or inside the test body, not at the module scope.
+
+2. **`jsdom` environment makes Node-specific APIs silently undefined** - If your test config sets `environment: 'jsdom'` but the code under test uses Node APIs like `fs`, `path`, or `process.env`, those may behave differently or return undefined without error. Use `environment: 'node'` for server-side code and restrict `jsdom` to browser/component tests only.
+
+3. **Fake timers must be cleaned up or they leak into subsequent tests** - Calling `vi.useFakeTimers()` in a test without `vi.useRealTimers()` in `afterEach` means every subsequent test in the suite runs with fake timers. `setTimeout` in unrelated tests will never fire, producing mysterious timeouts. Always restore real timers in the teardown of any test that uses fake ones.
+
+4. **`toMatchSnapshot()` on React components captures the entire rendered HTML, making every UI change a snapshot failure** - Component snapshots become a maintenance burden because every intentional style or markup change requires running `--updateSnapshot`, and reviewers stop reading the diffs. Use snapshots for stable serialized data structures, not rendered component output.
+
+5. **`vi.resetAllMocks()` vs `vi.clearAllMocks()` vs `vi.restoreAllMocks()` are not the same** - `clearAllMocks` clears call history but keeps implementations. `resetAllMocks` removes both history and mock implementations. `restoreAllMocks` also restores spied-on originals. Using the wrong one leaves either stale call counts or stale mock return values, causing false-positive test passes in later tests.
+
+---
+
 ## References
 
 For deep dives, read the relevant file from `references/`:

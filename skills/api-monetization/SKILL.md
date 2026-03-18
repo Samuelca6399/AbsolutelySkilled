@@ -296,6 +296,20 @@ async function checkUsageThresholds(customerId, currentUsage, includedCalls) {
 
 ---
 
+## Gotchas
+
+1. **In-memory usage buffers are lost on process restart** - Buffering usage counts in a `Map` or similar in-process store means any crash or deploy loses that billing period's data. Use a durable queue (SQS, Redis with AOF, Kafka) as the write-ahead log before aggregating and reporting to Stripe.
+
+2. **`action: 'set'` on retried Stripe usage reports silently under-bills** - If a usage record POST fails and you retry with `action: 'set'`, the retry sets the total to the retry value, discarding any usage already recorded in the current billing period. Always use `action: 'increment'` so retries are safe.
+
+3. **Redis sorted set race condition in sliding window rate limiter** - The `ZREMRANGEBYSCORE` + `ZCARD` + `ZADD` sequence is not atomic. Under high concurrency, two requests can both pass the check before either adds their entry, allowing a brief burst over the limit. Use a Lua script or `MULTI/EXEC` transaction to make the check-and-increment atomic.
+
+4. **Free tier users who never convert still cost infrastructure** - A free tier with no rate limits or usage caps can be abused as free compute. Define hard rate limits even on the free tier, and implement API key rotation or abuse detection before going public.
+
+5. **Stripe metered price `aggregate_usage` cannot be changed after creation** - If you create a metered price with `aggregate_usage: 'sum'` and later want `'max'`, you must create a new price and migrate subscribers. Plan the aggregation model before creating prices in production.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file

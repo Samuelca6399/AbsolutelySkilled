@@ -377,6 +377,20 @@ Crawl budget tips for large pSEO sites:
 
 ---
 
+## Gotchas
+
+1. **Scaling before validating seed batch** - The most expensive mistake is generating 10,000 pages before confirming the first 100 index properly. Google's quality filters can suppress the entire batch silently. Always wait for Search Console coverage confirmation on your seed batch before scaling.
+
+2. **AI-generated text filling thin data slots** - When real data is sparse, it's tempting to use an LLM to pad thin fields. Google's quality systems detect generic LLM filler as thin content even when it's grammatically fluent. Either get real data or suppress the page - don't fill slots with invented text.
+
+3. **Batch publishing not throttled on initial launch** - Publishing thousands of pages in a single deploy triggers Google's spam detection systems. Many pages end up in "Discovered - currently not indexed" limbo for months. Throttle the initial batch to 100-200 pages/day using a scheduled job or incremental static regeneration rather than a single full build dump.
+
+4. **Canonical tags missing on filter/sort URL variants** - Programmatic pages often have filter or sort variants (`?sort=price`, `?region=west`) that generate duplicate content. Without canonical tags pointing to the base URL, Google indexes the duplicates and splits PageRank across variants.
+
+5. **Content diversity score measured at template level, not rendered level** - A template can look diverse in code but render nearly identical pages if the data source has uniform values. Measure diversity on rendered HTML output, not on template logic.
+
+---
+
 ## References
 
 For deep-dive content on specific sub-topics, load the relevant references file:

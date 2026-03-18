@@ -348,6 +348,20 @@ Derive accents from your brand hue using OKLCH offsets. For an indigo brand at h
 
 ---
 
+## Gotchas
+
+1. **OKLCH browser support for older environments** - OKLCH is supported in Chrome 111+, Firefox 113+, and Safari 15.4+. Environments supporting older browsers need a PostCSS plugin (`postcss-oklab-function`) or explicit hex fallbacks. Don't use OKLCH directly in production CSS without confirming your browser support matrix or adding a build-time transform.
+
+2. **Dark mode contrast inversion failure** - A color that passes 4.5:1 in light mode often fails in dark mode because the relationship between text and background flips. A neutral-600 on white-background passes; the same neutral-600 on a dark-800 background may also fail (insufficient contrast in the other direction). Test every semantic token pair in both modes.
+
+3. **`color-mix()` in oklch produces unexpected hues near red** - OKLCH hue wraps at 360. When mixing two colors whose hues straddle 0/360 (e.g., hue 350 and hue 10), the interpolation goes the long way around the hue wheel through greens and blues instead of the short way through near-reds. Specify `hue shorter` in `color-mix()` to force the short path: `color-mix(in oklch shorter hue, ...)`.
+
+4. **Status color background tints failing in dark mode** - Light-mode status backgrounds (e.g., `oklch(0.96 0.04 145)` for success) are nearly white - they look fine on white backgrounds but become invisible on dark mode backgrounds. Always define explicit dark-mode overrides for status background tokens rather than letting them inherit.
+
+5. **Semantic token naming that doesn't survive rebrand** - Naming a token `--color-blue-action` instead of `--color-action-primary` means a rebrand from blue to teal requires renaming the token everywhere it's used. Semantic tokens should describe purpose (`action`, `status-success`, `text-muted`), never the color value itself.
+
+---
+
 ## References
 
 - `references/palette-recipes.md` - Pre-built palette recipes for common product archetypes (SaaS, e-commerce, editorial, fintech)

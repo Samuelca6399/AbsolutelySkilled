@@ -351,6 +351,20 @@ EXPLAIN SELECT * FROM events WHERE created_at >= '2024-01-15';
 
 ---
 
+## Gotchas
+
+1. **`ALTER TABLE ... ADD COLUMN ... NOT NULL` locks the table on Postgres < 11** - Without a constant DEFAULT, Postgres rewrites the entire table under an exclusive lock. On Postgres 11+ with a constant default it is safe, but a runtime-computed default still triggers a rewrite. Use the expand-contract pattern instead.
+
+2. **Composite index leftmost prefix is strictly enforced** - An index on `(a, b, c)` does not help a query that filters only on `b` or `c`. A common mistake is adding an index for a multi-column query and then using it in queries that don't start from the leftmost column. Always verify with `EXPLAIN ANALYZE`.
+
+3. **PgBouncer transaction mode breaks prepared statements** - Many ORMs (Prisma, JDBC) use prepared statements by default. In PgBouncer transaction mode, prepared statements don't persist across connections, causing `prepared statement "s1" does not exist` errors. Disable prepared statements in your driver (`prepared_statement_cache_size=0` for JDBC, `pgbouncer_mode: transaction` for Prisma).
+
+4. **`VACUUM` doesn't reclaim disk space by default** - Regular `VACUUM` marks dead tuples as reusable but doesn't shrink the file. Only `VACUUM FULL` returns disk space to the OS, but it acquires an exclusive lock and rewrites the table. Use `pg_repack` for online space reclamation on production tables.
+
+5. **Partition pruning only works when the partition key is in the `WHERE` clause** - Joining a partitioned table on a non-partition key column causes Postgres to scan all partitions. Always include the partition column in range queries or the planner cannot prune.
+
+---
+
 ## References
 
 For detailed patterns and implementation guidance, load the relevant file from

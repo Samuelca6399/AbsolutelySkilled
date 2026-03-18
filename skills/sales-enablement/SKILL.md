@@ -272,6 +272,20 @@ and replicate assets with strong win rate correlation.
 
 ---
 
+## Gotchas
+
+1. **Battle card built without input from reps who've been in those deals** - An enablement asset created by product marketing without validating objections against real deal data produces cards that look complete but fail in live calls. Validate every objection and response with at least two reps who have faced that competitor.
+
+2. **ROI calculator with hidden or locked assumptions** - If buyers can't see and edit the input assumptions, they distrust the output. A locked model that produces "you save $500k" with no visible math undermines credibility. Every assumption cell must be visible, labeled, and editable.
+
+3. **Case study numbers not customer-approved** - Publishing customer outcome numbers without explicit written approval is both a trust and legal risk. Every metric in an external case study needs sign-off from the customer's legal or PR team, not just the champion contact.
+
+4. **Enablement content launched without a training session** - Uploading assets to a portal and sending a Slack message does not drive adoption. Reps don't use content they weren't shown how and when to use. Run a 30-minute launch session with real deal scenarios before expecting content usage.
+
+5. **Competitive intel briefs that don't include "where they win"** - A battle card that only lists your strengths and the competitor's weaknesses reads as propaganda and trains reps to be blindsided. Honest "where they win" sections build rep credibility with buyers and prevent overconfidence in unsuitable deals.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

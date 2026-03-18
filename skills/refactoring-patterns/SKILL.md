@@ -393,6 +393,20 @@ function applyDiscount(order: Order): number {
 
 ---
 
+## Gotchas
+
+1. **Refactoring without a characterization test safety net** - When tests don't exist, write characterization tests that capture current behavior before touching anything. A refactoring without a test that would catch a behavioral change is a gamble, not a refactoring.
+
+2. **Extract Method applied to code that shares mutable state** - Extracting a method that reads or writes shared mutable state (class fields, closures) can introduce subtle bugs when the extracted function is called in a different order. Verify that the extracted method is free of hidden state coupling before extracting.
+
+3. **Replace Conditional with Polymorphism on a switch that never grows** - The Strategy pattern adds classes, indirection, and cognitive overhead. Only apply it when new cases are expected. A switch with three stable cases is often clearer than three classes plus a factory.
+
+4. **Mixing refactoring and feature work in one commit** - Combined commits make it impossible to bisect a regression to either the refactoring or the feature. Keep them separate. If you discover a needed refactoring while implementing a feature, commit the refactoring first on its own.
+
+5. **Rename refactoring done with find-and-replace instead of IDE tooling** - Manual find-and-replace misses dynamic usages, string references, and cross-file cases. Always use the IDE's rename refactoring which understands symbol scope, and review the diff carefully before committing.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

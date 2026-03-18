@@ -287,6 +287,20 @@ vp env doctor            # Run diagnostics
 
 ---
 
+## Gotchas
+
+1. **`vp build` and `vp run build` are different commands** - `vp build` always invokes the built-in Vite build regardless of `package.json` scripts. `vp run build` executes the `build` script in `package.json`. If your project has a custom `build` script that wraps Vite with additional steps, use `vp run build`. Using `vp build` will skip those steps silently.
+
+2. **Separate config files for Vitest/Oxlint/Oxfmt will conflict with Vite+ config** - Vite+ reads all tool configuration exclusively from `vite.config.ts`. If a `vitest.config.ts`, `.oxlintrc.json`, or `.prettierrc` exists alongside it, the behavior is undefined and tools may use conflicting settings. Remove separate configs entirely when migrating to Vite+.
+
+3. **`vp test` is single-run by default, unlike standalone Vitest** - Developers migrating from standalone Vitest expect watch mode. Running `vp test` in CI is correct; running it locally for development requires `vp test watch`. This is the opposite of Vitest's default behavior.
+
+4. **`vp migrate` does not update import paths for tool-specific APIs** - The migration command handles config consolidation but does not rewrite imports like `import { defineConfig } from 'vitest/config'` to `import { defineConfig } from 'vite-plus'`. Remaining broken imports will surface as type errors after migration; run `vp check` to find them.
+
+5. **Node.js managed mode intercepts all `node` calls, including CI scripts** - In managed mode (default), the Vite+ shim is at the front of PATH. CI environments with pre-installed Node.js may behave unexpectedly. Run `vp env doctor` to verify the resolved environment and use `vp env off` to switch to system-first mode in CI if needed.
+
+---
+
 ## References
 
 For detailed configuration options and advanced usage, read these files:

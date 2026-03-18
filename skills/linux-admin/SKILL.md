@@ -533,6 +533,20 @@ kill -TERM -"$(ps -o pgid= -p "$pid" | tr -d ' ')"
 
 ---
 
+## Gotchas
+
+1. **`set -e` silently swallows exit codes in conditionals** - `if cmd; then` or `cmd || true` suppress the exit code and bypass `set -e`. This is expected behavior but surprises people when a critical command fails without aborting the script. Use explicit exit code checks (`rc=$?; if [[ $rc -ne 0 ]]; then`) when a failure must be detected inside a conditional.
+
+2. **Restarting sshd locks you out if config is invalid** - Always run `sshd -t` to validate config before restarting. Then restart sshd and verify from a **new** terminal session before closing the old one. A broken `sshd_config` or missing `authorized_keys` file after a restart leaves the server completely inaccessible.
+
+3. **`iptables` rules are not persistent across reboots by default** - Rules applied via `iptables` commands are in-memory only. On reboot, they vanish. Use `iptables-save > /etc/iptables/rules.v4` and install `iptables-persistent`, or use `ufw` which handles persistence automatically.
+
+4. **systemd `After=` is ordering-only, not a dependency** - `After=network.target` does not guarantee the network is actually up; it only means the service starts after that target is reached. Use `After=network-online.target` combined with `Wants=network-online.target` if the service genuinely needs a routed network connection at start.
+
+5. **`du` and `df` disagree when deleted files are held open** - A process that deleted a large log file but still has an open file descriptor causes `df` to show the disk as full while `du` shows free space. Find the culprit with `lsof +L1` (lists open files with zero link count) and restart or signal the process to release the handle.
+
+---
+
 ## References
 
 For detailed guidance on specific security domains, read the relevant file from

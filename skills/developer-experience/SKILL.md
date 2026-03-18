@@ -253,6 +253,20 @@ A score below 3 on any dimension indicates a DX gap worth prioritizing.
 
 ---
 
+## Gotchas
+
+1. **README-driven development only works if you test the README literally** - Write the quickstart, then follow it step-by-step in a fresh environment with no prior knowledge. Steps that "obviously" work to the author often fail for a developer with a different OS, different shell, or missing global dependencies.
+
+2. **Changelog entries for "Changed" items without migration paths create upgrade anxiety** - Developers read changelogs to assess upgrade risk. A vague "Changed: `sendEmail` behavior" without before/after examples causes developers to skip the upgrade entirely rather than risk breakage.
+
+3. **Deprecation warnings in the SDK must be impossible to miss** - Emitting a `console.warn` that gets swallowed by log levels or a CI environment means developers never see the deprecation. Use both a runtime warning and a TypeScript `@deprecated` JSDoc annotation so IDEs surface it at code-writing time.
+
+4. **Error messages that expose internal stack traces in production erode security trust** - Returning raw stack traces or internal service names to SDK callers is a common DX anti-pattern from copy-pasting dev-mode error handling to production. Sanitize all user-facing errors before release.
+
+5. **Version-locked docs that lack a version selector actively mislead developers on older versions** - If your docs always show the latest API and a developer is on v1.x, they'll write broken code confidently. Either provide a version selector or prominently banner every page with the applicable version range.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file from

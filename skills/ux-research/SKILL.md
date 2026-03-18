@@ -343,6 +343,20 @@ APPENDIX
 
 ---
 
+## Gotchas
+
+1. **Stopping an A/B test when significance is first reached inflates false positive rate** - This is the "peeking problem." With continuous monitoring, you will reach p<0.05 by chance on roughly 1 in 20 tests even when there is no real effect. Set the test duration before launch based on sample size calculation and do not stop early regardless of when significance is reached.
+
+2. **Usability test participants who are too polite produce misleading data** - Many participants will complete tasks while struggling rather than say they are confused, to avoid seeming incompetent. Watch behavior (hesitation, wrong clicks, backtracking) more than verbal reports. Silence or slow movement is a signal; "yeah, that was fine" may not be.
+
+3. **Journey maps built from assumptions rather than data entrench existing beliefs** - A journey map created in a workshop without participant quotes attached to each cell is a hypothesis map, not a research artifact. Every pain point and emotion in a journey map must be traceable to a specific observation or quote.
+
+4. **Survey questions with "usually" or "typically" elicit aspirational, not actual behavior** - "How do you typically research products before buying?" invites respondents to describe their ideal selves. Ask about the last specific instance: "Think about the last time you bought something over $50 online. Walk me through what you did before purchasing." Specific past behavior is more accurate than general habits.
+
+5. **Recruiting from your own user base misses non-users and churned users** - If you only recruit current active users, you systematically exclude people who tried and left, people who never signed up, and people in adjacent segments. For generative research, recruit from the broader target population, not just existing customers.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

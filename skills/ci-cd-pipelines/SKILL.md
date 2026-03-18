@@ -426,6 +426,20 @@ Set `fail-fast: false` when the matrix combinations are independent. Use
 
 ---
 
+## Gotchas
+
+1. **Secrets not available in fork PRs** - GitHub Actions does not expose repository secrets to workflows triggered by pull requests from forks (security boundary). Using `pull_request_target` to work around this requires careful vetting because it runs in the base repo context with full secret access - a malicious PR can exfiltrate them. Default to requiring manual approval for external PRs instead.
+
+2. **Required status check name must match exactly** - If the workflow or job name changes (even a typo, case difference, or rename), GitHub branch protection silently stops enforcing the old required check. Always verify the status check name in branch protection settings after any workflow rename.
+
+3. **Cache poisoning via restore-keys** - A `restore-keys` partial hit restores an older cache, then the job installs on top. If the old cache has a broken or security-patched package that `npm ci` doesn't replace (because it wasn't in the lockfile update), the cached bad state persists. Use `npm ci` (not `npm install`) so it always installs exactly what the lockfile specifies.
+
+4. **Immutable artifact drift** - Building from source at deploy time (instead of promoting the artifact that passed staging) is a subtle but critical violation of the immutable artifact principle. A second build from the same SHA can produce different outputs if external dependencies (base images, npm packages without lockfiles) changed between builds.
+
+5. **Matrix `fail-fast: true` masking failures** - With `fail-fast: true` (the default), a single failing job cancels all others, which can hide that multiple matrix combinations are broken. Use `fail-fast: false` when you want a full picture of which combinations fail, then switch back to `true` for normal CI.
+
+---
+
 ## References
 
 For detailed implementation guidance on specific deployment strategies:

@@ -410,6 +410,20 @@ select * from final
 
 ---
 
+## Gotchas
+
+1. **Incremental models with a broken `unique_key` silently duplicate rows** - If the `unique_key` doesn't match how the source system generates IDs (e.g., composite keys, NULL-able columns), the merge strategy falls back to appending and your fact table will have duplicate rows. Always test with a `unique` dbt test on the mart's primary key after the first incremental run.
+
+2. **`ref()` creates a compile-time dependency but not a runtime guarantee** - dbt's `ref()` ensures build order, but if a staging model's source table is empty or missing, the downstream mart builds with zero rows and no error. Add `not_null` and row count tests to staging models so silent empty builds surface in CI.
+
+3. **Metrics defined in both the semantic layer and the BI tool diverge** - If analysts can also create calculated fields in Looker/Tableau/Power BI, they will. Within months there will be two definitions of "revenue" and no one knows which is correct. Enforce a semantic-layer-first policy and audit BI tool custom fields quarterly.
+
+4. **`SELECT *` in staging models breaks on upstream schema changes** - When a source table adds or removes a column, `SELECT *` staging models silently change shape, potentially breaking downstream marts. Explicitly list every column in staging models so schema changes cause a compile error rather than silent breakage.
+
+5. **Hardcoded dates in incremental WHERE clauses don't survive full refreshes** - An incremental model that filters with `where created_at > '2024-01-01'` will drop historical data on a `--full-refresh`. Use `{{ this }}` to reference the current max timestamp, and document what happens on a forced full refresh.
+
+---
+
 ## References
 
 For detailed patterns and implementation guidance, load the relevant file from

@@ -298,6 +298,20 @@ A demo should be a story, not a product tour.
 
 ---
 
+## Gotchas
+
+1. **Multi-threading too late** - Waiting until the deal is advanced to map the buying committee means you discover unknown stakeholders during legal review, not discovery. Map the buying committee in meeting two, not meeting eight.
+
+2. **MEDDIC without Metrics kills forecasting** - Deals scored as "commit" without a confirmed, quantified metric (not just "they want to reduce costs") are systematically overforecast. Treat no Metrics as a discovery task, not a pass.
+
+3. **Break-up emails trigger no-reply ghosting** - A break-up email sent before the prospect is warm signals desperation and gets archived. Only send touch 5 (break-up) if you have had at least one reply or engagement from them first.
+
+4. **Assumptive close on unqualified deals backfires** - Using closing language before the economic buyer has been engaged causes prospects to go cold or loop in a new stakeholder who restarts the process. Run trial closes first.
+
+5. **Discounting to beat a deadline creates a pattern** - A one-time end-of-quarter discount trains the buyer (and their colleagues) to wait for discounts every cycle. Link urgency to a legitimate business reason (implementation timeline, their stated deadline) rather than your quota.
+
+---
+
 ## Anti-patterns
 
 | Anti-pattern | Why it's wrong | What to do instead |

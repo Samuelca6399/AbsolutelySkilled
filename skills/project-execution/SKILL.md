@@ -175,6 +175,20 @@ At each major milestone, run a structured gate review. Check: Are all entry crit
 
 ---
 
+## Gotchas
+
+1. **Dependency treated as confirmed when it's just assumed** - The most common project failure mode: a team plans against a dependency that the other team never actually acknowledged. Always get explicit written confirmation (Slack/email/ticket) from the dependency owner before putting it on the critical path.
+
+2. **RAG status inflated to avoid a difficult conversation** - Amber status that gets reported as green because "we'll figure it out" destroys trust the moment the project turns red without warning. Define green/amber/red thresholds explicitly at kickoff so status becomes factual, not emotional.
+
+3. **Escalating without options** - Bringing a problem to leadership without presenting 2-3 options and a recommendation signals lack of ownership and puts the cognitive load on the wrong person. Always escalate with options.
+
+4. **Pre-mortem skipped as a team-building exercise** - Teams skip pre-mortems because they feel pessimistic. The result is that obvious risks (key person dependency, unconfirmed external dates) go unregistered until they materialize. Run a pre-mortem even if it's 30 minutes.
+
+5. **Go/no-go gate treated as a formality** - When a gate review happens but decisions are never actually no-go, the process loses credibility. Gates need real criteria and the authority to halt. If a gate has never blocked anything, it's not a gate.
+
+---
+
 ## References
 
 For detailed guidance on specific sub-domains, read the relevant file from the `references/` folder:

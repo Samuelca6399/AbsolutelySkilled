@@ -316,6 +316,20 @@ uv run tools/build_catalog/assemble_catalog.py \
 
 ---
 
+## Gotchas
+
+1. **v0.8 vs v0.9 syntax is incompatible** - The two spec versions use entirely different message shapes (`surfaceUpdate` vs `createSurface`, nested component syntax vs flat). Mixing them in the same stream will fail silently on most renderers. Confirm the renderer version before generating any output.
+
+2. **`beginRendering` is mandatory in v0.8** - In v0.8, the client will not render anything until it receives a `beginRendering` message with the `root` component ID. Forgetting it causes a blank surface with no error. In v0.9, `createSurface` triggers rendering immediately.
+
+3. **Catalog lock-in for the surface lifetime** - Once a surface is created with a `catalogId`, it cannot be changed. If you reference a component from a different catalog, it will fail validation. Plan the catalog choice before streaming any messages.
+
+4. **JSON Pointer paths must pre-exist in the data model** - A data binding like `{"path": "/reservation/date"}` will fail to resolve if the data model hasn't been populated yet. Always send `updateDataModel` (v0.9) or `dataModelUpdate` (v0.8) before referencing any path.
+
+5. **Adjacency list child references must be IDs, not inline objects** - Components reference children by string ID only. Embedding a child component object inline instead of by ID will fail schema validation without a useful error message.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file

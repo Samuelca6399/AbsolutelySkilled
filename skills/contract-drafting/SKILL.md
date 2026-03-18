@@ -325,6 +325,20 @@ A Data Processing Agreement is required under GDPR Article 28 whenever a control
 
 ---
 
+## Gotchas
+
+1. **Residuals clauses gut NDA protection** - A residuals clause allows the receiving party to use "information retained in the unaided memory of persons who have had access to confidential information." This effectively means any employee who read your confidential material can freely use it later. Always review NDAs for residuals clauses and strike or narrow them aggressively.
+
+2. **"Termination for convenience" asymmetry** - Many vendor-drafted contracts include termination for convenience for the vendor but not the customer, or require 90-day notice from the customer but allow the vendor to terminate with 30 days. Review termination provisions for symmetry and ensure the notice period is practical for your transition timeline.
+
+3. **Auto-renewal with a short cancellation window** - A contract that auto-renews annually with a 60-day cancellation notice is effectively a trap for busy teams. The renewal date must be calendared on signature day. A single missed deadline locks you in for another year.
+
+4. **"All IP created for customer" in MSAs** - A customer-favorable MSA clause claiming ownership of all IP created during the engagement may inadvertently claim ownership of improvements to the vendor's core platform. Always carve out vendor's pre-existing IP and general platform improvements before agreeing to broad work-for-hire language.
+
+5. **Governing law ≠ dispute resolution venue** - A contract can specify California law governs but require disputes be resolved in New York courts. These are separate clauses. Check both; agreeing to the counterparty's home jurisdiction for litigation is a significant concession.
+
+---
+
 ## References
 
 For detailed clause language and plain-language explanations of common provisions:

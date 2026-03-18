@@ -312,6 +312,20 @@ For subject line testing: 20% to variant A, 20% to variant B, 60% held for the w
 
 ---
 
+## Gotchas
+
+1. **Clever headlines that obscure the value** - Puns and wordplay feel creative but often tank CTR because readers don't understand the offer. "Where ideas take flight" tells a reader nothing. Test clever headlines against a plain-language alternative; the plain version wins in most A/B tests.
+
+2. **First-person CTA backfire on cold audiences** - "Start My Free Trial" outperforms "Start Your Free Trial" for warm audiences but can feel presumptuous for cold traffic who have not yet formed intent. Match CTA ownership language to how well the visitor already understands and wants the product.
+
+3. **Urgency without credibility reads as spam** - Countdown timers and "last chance" copy work when the scarcity is real. Fake urgency (a timer that resets on refresh) trains readers to ignore your CTAs entirely and damages brand trust. Only use urgency when it is genuine.
+
+4. **Social proof that's too vague to be persuasive** - "Trusted by 10,000 teams" is weaker than "10,000 engineering teams use this to ship faster." Numbers need context. "Used by Fortune 500 companies" without naming them provides almost no trust signal. Specific, named proof converts; generic claims don't.
+
+5. **Copy optimized for desktop ignores mobile readers** - Subject lines over 50 characters get cut on mobile. Above-the-fold copy that requires scrolling on a phone means most visitors never see the CTA. Review all hero copy and CTAs at 375px width before publishing.
+
+---
+
 ## References
 
 For ready-to-use templates, formulas, and structures, load the reference file:

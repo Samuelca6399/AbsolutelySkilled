@@ -282,6 +282,20 @@ PLG makes the product itself the primary driver of acquisition, activation, and 
 
 ---
 
+## Gotchas
+
+1. **Optimizing activation before you understand what the aha moment actually is** - Teams often build onboarding flows toward the wrong milestone. "Completed profile" or "uploaded first file" feels like activation, but if it doesn't correlate with Day-30 retention, you've optimized the wrong funnel step. Always validate the aha moment against retention cohort data before optimizing toward it.
+
+2. **Viral K-factor calculations ignore invite fatigue cycles** - K-factor measured in week 1 post-launch will overestimate steady-state virality because early adopters are your most enthusiastic inviters. Measure K-factor across 90-day cohorts, not just the launch burst, to get a realistic picture of your viral loop's durability.
+
+3. **A/B test contamination from multiple simultaneous experiments** - Running two experiments on the same user surface at the same time (e.g., two onboarding copy tests) means users may see combinations of variants, making it impossible to attribute results to a single change. One experiment per user surface, enforce isolation in your experimentation platform.
+
+4. **Referral programs that reward too early produce fraudulent referrals** - Triggering referral rewards at signup (rather than at activation or first payment) creates an arbitrage opportunity where users refer fake accounts for the reward. Tie rewards to the same activation milestone that predicts real retention.
+
+5. **Freemium free tier that's too good prevents upgrades** - If the free tier covers all core use cases, users have no natural reason to upgrade. The free tier must deliver genuine value at a scope that naturally hits a ceiling for power users - time, seats, usage volume, or collaboration features are common upgrade triggers. Define this ceiling before launching freemium, not after watching conversion rates disappoint.
+
+---
+
 ## References
 
 For detailed templates and frameworks, load the relevant file from `references/`:

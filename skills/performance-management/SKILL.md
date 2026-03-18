@@ -355,6 +355,20 @@ A "yes" rate below 70% means your career ladder is failing.
 
 ---
 
+## Gotchas
+
+1. **OKR scoring is meaningless without a pre-agreed measurement method** - Writing "increase user engagement" as a KR and then measuring it with a metric chosen at the end of the quarter is not scoring - it is post-hoc rationalization. Every KR must include the exact measurement method and data source at the time of writing, not retrospectively.
+
+2. **Calibration sessions without prior written justifications become seniority debates** - When managers show up to calibration without pre-submitted written evidence for each rating, decisions are driven by whoever speaks most confidently or is most senior. Require written evidence packages to be submitted 5 business days before calibration. The session is to resolve disagreements, not to discover evidence.
+
+3. **PIPs issued without prior documented coaching are legally and ethically vulnerable** - A PIP that is the first documented feedback an employee receives is both procedurally unfair and a legal liability in many jurisdictions. Before initiating a PIP, verify that prior coaching is documented in 1:1 notes, prior review cycles, or written feedback threads - not just verbal memory.
+
+4. **Career ladders with only "ceiling" descriptions create ambiguity about promotion timing** - Many ladders describe what each level looks like at full performance but omit what "ready to promote" looks like vs. "solidly at level." Without a "promotion ready" description, managers make arbitrary timing decisions that appear inconsistent to employees. Add an explicit "signals of readiness to level up" section to each ladder rung.
+
+5. **Peer feedback collected without anonymization guarantees creates political feedback** - If employees know (or suspect) they can identify who wrote each peer review, they write safe, positive feedback to protect relationships. Feedback volume goes up but signal quality collapses. Use aggregate summary reports shown to reviewees, not individual attributed quotes, unless your culture explicitly supports radical candor with attribution.
+
+---
+
 ## References
 
 For detailed guidance on specific performance management topics, load the relevant

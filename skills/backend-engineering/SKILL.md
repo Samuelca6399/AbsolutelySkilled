@@ -240,6 +240,20 @@ For distributed data across services:
 
 ---
 
+## Gotchas
+
+1. **Expand-contract is the only safe way to remove a column** - Deploying code that removes a column before the column is dropped from the database causes immediate errors. Deploying a migration that drops a column while old code still reads it causes the same. The only safe path: deploy new code that ignores the old column, then deploy the migration that drops it, then optionally clean up the code.
+
+2. **Connection pool exhaustion looks like a slow database** - When all connections in the pool are in use, new queries queue up indefinitely. Profiling shows slow queries; the real problem is too many concurrent requests or a connection leak. Check pool metrics (active, idle, waiting) before blaming the database.
+
+3. **Outbox pattern requires an idempotent consumer** - The outbox pattern guarantees at-least-once delivery. If your message consumer isn't idempotent, it will process the same event twice after a crash and a restart. Every consumer must be able to handle duplicate messages safely.
+
+4. **`N+1` queries in ORM code are invisible until production load** - Fetching a list of 50 orders and then calling `.customer` on each in a loop generates 51 queries. In development with 5 rows it's imperceptible; under production load it causes cascading timeouts. Always check query counts in integration tests and use eager loading for related data.
+
+5. **Circuit breakers need a half-open timeout** - A circuit that opens on failure and never closes traps a service in permanent degraded mode even after the downstream dependency recovers. Always configure a half-open probe interval so the breaker tests recovery and transitions back to closed state automatically.
+
+---
+
 ## References
 
 For detailed patterns and implementation guidance on specific domains, read the

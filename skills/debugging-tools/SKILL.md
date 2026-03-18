@@ -313,6 +313,20 @@ across many invocations.
 
 ---
 
+## Gotchas
+
+1. **`strace` significantly slows the traced process** - On production systems, attaching `strace` can reduce throughput by 50-80%. Use `-e trace=` filters to limit syscalls and `-o file` to write output off stderr. Never attach to a high-traffic process without understanding the performance impact.
+
+2. **Chrome DevTools heap snapshots don't capture the GC root path automatically** - The Comparison view shows object counts but you must manually navigate to the Retainers pane to find which object is keeping a reference alive. Without checking retainers, you know something is leaking but not why.
+
+3. **`node --inspect` exposes the debug port on `0.0.0.0` by default in some environments** - If running in a container or VM, the port is accessible from outside. Always use `--inspect=127.0.0.1:9229` to bind only to localhost.
+
+4. **`--inspect-brk` breaks on the first line of Node.js internals, not your code** - After attaching DevTools, you need to click "Resume" once to get past the internal breakpoint and land in your application code. Many people miss this and think the debugger is broken.
+
+5. **Core dumps require debug symbols to be useful** - A stripped production binary produces a backtrace with `??` instead of function names. Build with `-g` or retain a separate debug symbol file (`.dSYM` on macOS, `.debug` on Linux) that `lldb`/`gdb` can load alongside the binary.
+
+---
+
 ## References
 
 For detailed command references, read the relevant file from `references/`:

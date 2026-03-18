@@ -469,6 +469,20 @@ Fluid spacing that adapts to viewport size without breakpoints.
 
 ---
 
+## Gotchas
+
+1. **`clamp()` middle value not viewport-relative** - `clamp(1rem, 1.5rem, 2rem)` looks like a fluid value but the middle is a fixed `rem`, so it never actually scales. The middle value must contain a viewport-relative unit (`vw`, `cqi`) to produce fluid scaling. Always verify the preferred expression includes a fluid unit.
+
+2. **`container-type` set on the element being styled** - `@container` queries style descendants, not the container element itself. If you set `container-type` on `.card` and write `@container (.card) { .card { ... } }`, the inner rule never applies. The containment context must be on a wrapper element, one level up from the component being styled.
+
+3. **`100vw` causing horizontal scrollbar** - `100vw` includes the scrollbar width (typically 15-17px on desktop). Using it for full-width elements inside a document with a vertical scrollbar overflows by that amount. Use `100%` for widths inside layout containers; reserve `100vw` for truly viewport-edge elements like modals and overlays.
+
+4. **Fixed `px` font sizes breaking user's zoom preference** - WCAG 1.4.4 requires text to be resizable to 200% without loss of content. Fonts set in `px` don't scale with the browser's base font size preference. Use `rem` for all font sizes.
+
+5. **`env(safe-area-inset-bottom)` missing on bottom-fixed elements** - On notched iOS devices, `position: fixed; bottom: 0` elements overlap the home indicator. Always add `padding-bottom: env(safe-area-inset-bottom)` to fixed bottom bars and tab bars. Missing this creates an unusable UI on iPhone X and later models.
+
+---
+
 ## References
 
 For detailed pattern examples, load the relevant reference file:

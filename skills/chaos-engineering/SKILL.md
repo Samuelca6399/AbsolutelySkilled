@@ -428,6 +428,20 @@ MTTR = Detection + Triage + Response + Recovery
 
 ---
 
+## Gotchas
+
+1. **Kill switch first, experiment second** - The most common mistake is discovering the kill switch doesn't work only after the experiment has started causing damage. Always test the kill switch (e.g., `kubectl delete chaosexperiment`, `toxiproxy-cli toxic remove`) before injecting any failure.
+
+2. **Observability blind spots** - If your metrics pipeline routes through the same service you're injecting failure into, you'll lose visibility at exactly the moment you need it most. Confirm that dashboards and alerting are independent of the experiment target before starting.
+
+3. **Staging ≠ production behavior** - A hypothesis that holds in staging often fails in production due to traffic volume differences, connection pool sizing, or infrastructure configurations that only exist in prod. Graduate scope incrementally - don't treat a staging pass as proof production will hold.
+
+4. **Circuit breaker misconfiguration in tests** - Unit tests often use a timeout of 0 or 1ms for the circuit breaker reset window to speed tests up. The production timeout may be 30 seconds. Validate circuit breaker behavior with production-realistic timeouts in at least one integration test.
+
+5. **Experiment automation without human review** - Fully automated chaos experiments that run on every deploy are the goal, but skipping the review step when a new experiment type is added risks running untested blast-radius assumptions in production. Treat new experiment types as requiring manual approval for the first 2-3 runs.
+
+---
+
 ## References
 
 For experiment catalogs, failure injection recipes, and advanced tooling guidance:

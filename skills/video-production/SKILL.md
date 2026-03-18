@@ -213,6 +213,20 @@ Extract high-retention segments for Shorts, TikTok, and Reels:
 
 ---
 
+## Gotchas
+
+1. **YouTube's algorithm evaluates the first 24-48 hours heavily** - Publishing at the wrong time of day (when your audience is asleep) depresses early click-through rate, which signals low quality to the algorithm and suppresses further distribution. Analyze your audience's peak activity in YouTube Analytics and schedule publishes for 1-2 hours before that window.
+
+2. **Thumbnail CTR on the home feed differs from search CTR** - A thumbnail optimized for search (keyword-heavy text overlay) often underperforms on the home feed where curiosity and emotion drive clicks. Test thumbnails in both contexts; your best search thumbnail may not be your best browse thumbnail.
+
+3. **YouTube chapters only activate if the first timestamp is exactly `0:00`** - If the first chapter timestamp is `0:01` or has any formatting variation (space before the dash, colon instead of a hyphen), YouTube will not generate chapters and the description timestamps will be plain text. Validate chapter formatting exactly.
+
+4. **Reusing a Shorts clip verbatim from long-form suppresses both videos** - YouTube detects near-duplicate content and may deprioritize the Short, the long-form, or both. Reframe Shorts by adding a unique hook, captions, or vertical-specific b-roll rather than extracting the segment unchanged.
+
+5. **Writing a script that reads naturally is harder than writing to be read** - Scripts written in prose style sound stilted when spoken. Common failure: long dependent clauses, no paragraph breaks for breath, transitions that work visually but not aurally. Read every script aloud before recording; if you pause or stumble, rewrite that sentence.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file from `references/`:

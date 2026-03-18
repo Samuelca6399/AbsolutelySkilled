@@ -312,6 +312,20 @@ than you clear it, no single person knows what happened last week.
 
 ---
 
+## Gotchas
+
+1. **Launching before minimum viable activity exists** - A community that opens to the public with zero existing content and no seeded discussions looks like a ghost town. New members arrive, see nothing happening, and leave permanently. Seed 20-30 high-quality posts and recruit 10-15 active founding members before any public launch.
+
+2. **Inconsistent early moderation sets permanent culture** - The first 100 members watch what you allow. If you let one snarky reply or off-topic promotion slide because the member seems valuable, you've told everyone that rules are negotiable. Apply the guidelines uniformly from day one, including to champions and early advocates.
+
+3. **Onboarding drip through the wrong channel** - A welcome email sequence works only if new members gave an email address. On Discord or Slack, members may join without providing email. Build the onboarding drip natively in the platform (pinned welcome messages, introductions channel, bot prompts) rather than relying on email for activation.
+
+4. **Platform migration destroys community momentum** - Moving from Slack to Discord or Discourse to Circle requires re-importing content, re-authenticating members, and rebuilding integrations. Most communities lose 40-60% of active members during a migration. Only migrate when the current platform has a fundamental limitation; don't chase the newest tool.
+
+5. **Measuring success by member count, not engagement** - A community of 50,000 members with a 0.5% DAU/MAU ratio is dead. Report the ratio, not the raw count, to stakeholders. Optimization for follower count (e.g., paid social to grow the number) produces empty membership with no real community value.
+
+---
+
 ## References
 
 - `references/moderation-playbook.md` - Moderation policies, escalation procedures,

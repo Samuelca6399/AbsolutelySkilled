@@ -534,6 +534,20 @@ function evaluateTrace(trace: AgentTrace, expected: {
 
 ---
 
+## Gotchas
+
+1. **Missing `maxIterations` causes infinite loops** - An agent with no ceiling on iterations will loop indefinitely when it gets confused, hallucinates a tool name, or enters a reasoning cycle. Always set a hard limit (10-20 for most tasks) and return a partial result with a clear message when it's hit. Never rely on the LLM deciding to stop.
+
+2. **Vague tool descriptions cause wrong tool selection** - The tool `description` field is the primary signal the LLM uses to pick a tool. Descriptions that overlap ("get data" vs "fetch information") cause the agent to pick randomly. Write descriptions as action-oriented imperatives with specific use cases and clear exclusions.
+
+3. **Batching tool calls without observing breaks reasoning** - Generating multiple tool calls before processing their results means the agent acts on stale state. The plan-act-observe loop must be strictly sequential: one action, one observation, re-plan. Parallel tool calls are only safe for truly independent queries.
+
+4. **Context window exhaustion mid-run** - Long agent runs accumulate observation history that eventually exceeds the model's context window. Without a summarization or truncation strategy, the agent silently loses early context and starts making inconsistent decisions. Implement working memory summarization when history exceeds ~70% of the context budget.
+
+5. **Multi-agent trust boundaries** - When an orchestrator delegates to worker agents, the worker's output is untrusted input to the orchestrator. An adversarial document processed by a worker agent can inject instructions into the orchestrator's context (prompt injection). Always sanitize worker outputs before incorporating them into the orchestrator's reasoning context.
+
+---
+
 ## References
 
 For detailed content on agent patterns and architectures, read:

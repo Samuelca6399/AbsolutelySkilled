@@ -396,6 +396,20 @@ export default defineConfig({
 
 ---
 
+## Gotchas
+
+1. **`storageState` caches auth but does not refresh expired tokens** - Saving auth state with `context.storageState()` and reusing it across test runs is efficient, but if the session token expires (e.g., short-lived JWTs), tests fail with mysterious 401s rather than auth errors. Add a CI step to regenerate `storageState` before the test run, or check token expiry in a global setup fixture.
+
+2. **`page.route()` intercepts only requests from that page, not from other frames** - If your app loads content in iframes, API calls made from inside the iframe are not intercepted by `page.route()`. You must intercept at the `context` level using `context.route()` to catch all requests from any frame within that browser context.
+
+3. **`toHaveScreenshot()` baselines are OS and browser-engine specific** - Snapshot baselines generated on macOS will not match those generated in a Linux CI environment due to font rendering and sub-pixel differences. Always generate and store baseline screenshots in the same environment where CI runs (typically Linux). Never commit macOS baselines and expect them to pass in Linux CI.
+
+4. **`fullyParallel: true` with shared test data causes race conditions** - When tests run in parallel workers and share a database or external state (e.g., the same test user account), concurrent writes produce flaky failures that are nearly impossible to reproduce locally. Use per-test isolated data: unique email addresses generated per test run, or test fixtures that create and tear down their own data.
+
+5. **`workers: 1` in CI does not prevent parallelism across shards** - Setting `workers: 1` in `playwright.config.ts` limits parallelism within a single CI job. If you're running multiple shards (`--shard=1/4`), each shard still runs concurrently. Tests that share global state (a single database, a shared API key) will conflict across shards even with `workers: 1`.
+
+---
+
 ## References
 
 For detailed content on specific Playwright sub-domains, read the relevant

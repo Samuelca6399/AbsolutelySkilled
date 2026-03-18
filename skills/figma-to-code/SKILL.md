@@ -356,6 +356,20 @@ For raster images: export at 1x, 2x, 3x from Figma. Use `<img srcset>` or Next.j
 
 ---
 
+## Gotchas
+
+1. **Figma's "Fixed" width/height is not the same as a CSS fixed value** - A frame with a fixed 400px width in Figma is an absolute constraint for that design viewport. In a responsive implementation it may need to be `max-width: 400px` or `width: 100%` with a cap. Don't convert Figma fixed dimensions to hardcoded CSS pixels without understanding the responsive intent.
+
+2. **`position: absolute` child coordinates in Figma are relative to their direct parent frame, not the page** - When a Figma frame uses absolute positioning, the X/Y values shown in Inspect are relative to the parent frame's top-left corner. If you wrap the element in an extra div in code, the offset coordinates will be wrong.
+
+3. **Figma letter-spacing is in percent, CSS is in em** - Figma displays letter-spacing as a percentage (e.g., 2%). CSS `letter-spacing` uses em. Divide the Figma value by 100 to get the em value: `2% -> 0.02em`. Using the raw percentage number as a CSS value (e.g., `letter-spacing: 2%`) is invalid CSS and silently does nothing.
+
+4. **Auto layout "Fixed size" vs "Hug contents" is not always visible without switching modes** - A frame that appears to be fixed-width in Figma might actually be set to "Hug contents" for one axis, which would make it `width: fit-content` in CSS. Always open the auto layout panel to verify both width and height sizing modes before writing dimensions in code.
+
+5. **Figma effects like box shadows use X/Y offsets, spread, and blur - CSS `box-shadow` order differs** - Figma: `x offset, y offset, blur, spread, color`. CSS: `offset-x, offset-y, blur-radius, spread-radius, color`. The order is the same, but Figma's "Spread" can be negative (inset-like behavior). A Figma shadow with negative spread requires `box-shadow: X Y B -S color` in CSS, not an `inset` keyword.
+
+---
+
 ## References
 
 For detailed mapping tables and property-by-property reference:

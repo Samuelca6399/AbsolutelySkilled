@@ -275,6 +275,20 @@ Take-homes must balance signal quality with respect for candidate time:
 
 ---
 
+## Gotchas
+
+1. **Rubrics written after interviewing are not rubrics** - If interviewers define what "good" looks like after seeing a candidate's answer, they are post-hoc rationalizing, not evaluating. Write rubric anchors before the first candidate session, not after.
+
+2. **Hints are part of the rubric, not a kindness** - Unscripted hints produce wildly different interviews across candidates. Standardize hints: define at what point in the problem you offer a hint, what the hint is, and score separately whether the candidate needed it.
+
+3. **Take-home time estimates are always underestimated by designers** - When you build the take-home, you already know the answer. Multiply your time estimate by 2-3x for candidates approaching it cold. A 4-hour take-home that actually takes 8-10 hours destroys candidate experience and trust.
+
+4. **Debrief sequencing affects outcomes more than debrief content** - If the hiring manager or a senior engineer speaks first in the debrief, everyone else's scores shift toward theirs. Use independent written submissions before any discussion to prevent anchoring.
+
+5. **"Culture fit" rejections require the same documentation as technical rejections** - Vague "not a culture fit" is legally and ethically risky. If a candidate is rejected for collaboration or communication, document the specific observable behaviors from the rubric, not the general feeling.
+
+---
+
 ## References
 
 For detailed guidance on specific topics, read the relevant file from

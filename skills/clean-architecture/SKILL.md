@@ -310,6 +310,20 @@ See `references/component-principles.md` for the full breakdown.
 
 ---
 
+## Gotchas
+
+1. **Framework annotations leaking into entities** - JPA's `@Entity`, Spring's `@Component`, or NestJS's `@Injectable` placed on domain entities ties your core business objects to a framework. When the framework upgrades or changes, entities must change too - exactly what Clean Architecture prevents. Keep entities as plain classes; apply framework annotations only in the adapter/framework layer.
+
+2. **Use case explosion without value** - Every CRUD operation does not need a dedicated use case class. A `GetUserById` use case that does nothing except call `userRepository.findById()` adds a layer of indirection with no benefit. Apply use cases for operations that involve multiple entities, enforce business rules, or have meaningful orchestration logic.
+
+3. **DTOs at the wrong boundary** - Data Transfer Objects exist to prevent entity objects from crossing layer boundaries. A common mistake is passing the entity directly from the use case to the controller (coupling the HTTP response shape to the domain model). Always define explicit request/response models at each boundary.
+
+4. **Circular imports through shared folders** - A `shared/` or `common/` directory that grows to contain business logic creates a hidden coupling layer. Entities start importing from `shared/utils` which imports from other features. Audit `shared/` regularly - it should contain only pure utilities with zero business logic.
+
+5. **Testing the framework instead of the use case** - Integration tests that spin up a web server to test a use case are testing the framework wiring, not the business logic. Use cases should be unit-testable with constructor injection and mock gateways. If you can't test a use case without HTTP, the architecture has leaked.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

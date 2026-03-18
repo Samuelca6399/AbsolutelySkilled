@@ -320,6 +320,20 @@ use DynamoDB. If you need joins, aggregations, or ad-hoc SQL, use Aurora.
 
 ---
 
+## Gotchas
+
+1. **RDS encryption cannot be added after creation** - You cannot enable encryption on an existing unencrypted RDS instance in place. The only path is to take a snapshot, copy it with encryption enabled, and restore to a new instance. Plan encryption at creation time for any instance that might hold regulated or sensitive data.
+
+2. **Lambda concurrency exhaustion is account-wide** - Lambda functions share a per-region concurrency limit (default 1,000). A single runaway function (e.g., triggered by an SQS loop) can consume all available concurrency and throttle every other Lambda in the account. Always set reserved concurrency on high-traffic or loop-risky functions.
+
+3. **NAT Gateway costs accumulate silently** - NAT Gateways charge per GB processed plus an hourly fee. A private subnet with heavy outbound traffic (e.g., Lambda pulling large S3 objects) can generate surprising bills. Use VPC endpoints for S3 and DynamoDB to bypass NAT Gateway entirely for those services.
+
+4. **S3 eventual consistency trap (pre-2020 style)** - While S3 now provides strong read-after-write consistency for new objects, workflows that delete and recreate objects with the same key can still observe stale list results under some conditions. Don't assume a `ListObjects` immediately after a delete/recreate reflects the latest state in automated pipelines.
+
+5. **IAM policy evaluation order surprises** - An explicit `Deny` anywhere in the evaluation chain (SCPs, permission boundaries, identity policies, resource policies) overrides any `Allow`. A service control policy at the organization level silently blocking an action is a common source of "permission denied" that looks correctly configured in the IAM console.
+
+---
+
 ## References
 
 For detailed patterns and service-specific guidance, read the relevant file from

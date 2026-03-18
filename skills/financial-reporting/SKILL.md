@@ -337,6 +337,20 @@ detail builds confusion.
 
 ---
 
+## Gotchas
+
+1. **Net income does not equal cash flow - profitable companies run out of cash** - A company can show strong net income while burning cash due to rising receivables, prepaid expenses, or inventory buildup. The cash flow statement's operating section is the only way to understand actual cash generation. Never report P&L to a board without also reporting cash position and runway.
+
+2. **Non-GAAP metrics without a clear reconciliation to GAAP erode investor trust** - Presenting "Adjusted EBITDA" without showing the bridge from GAAP net income signals to sophisticated investors that GAAP results are being obscured. Always present GAAP first, then reconcile each adjustment line by line with a label.
+
+3. **Changing gross margin definition mid-year makes prior periods incomparable** - If you reclassify customer success headcount from COGS to operating expenses, your gross margin improves immediately with no change in the business. Without explicit disclosure and restatement of prior periods, this looks like performance improvement when it is accounting reclassification.
+
+4. **Deferred revenue on the balance sheet is a liability, not cash equivalence** - Deferred revenue (prepaid contracts not yet earned) shows up as a current liability. A growing deferred revenue balance is a positive signal (customers paying upfront), but it must be earned through service delivery. Never confuse deferred revenue balance with available cash.
+
+5. **Board decks that contain only highlights, no lowlights, destroy credibility** - Experienced board members and investors expect problems in every business. A deck with only wins signals that management is either unaware of issues or hiding them. Proactively identify 2-3 honest problem areas and the mitigation plan in every board pack.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

@@ -282,6 +282,20 @@ to the configured webhook URL.
 
 ---
 
+## Gotchas
+
+1. **`a2a-version` in every request** - The `a2a-version` field is required in every JSON-RPC params object. Omitting it causes `VersionNotSupportedError` even if the server version matches. Always include `"a2a-version": "1.0"`.
+
+2. **Streaming requires capability declaration** - You cannot call `a2a.sendStreamingMessage` unless the agent card explicitly declares `capabilities.streaming: true`. Check the agent card before attempting streaming; fall back to `sendMessage` otherwise.
+
+3. **Task IDs and context IDs are distinct** - `task_id` identifies the specific work unit; `context_id` groups related tasks across turns. In multi-turn flows, you must pass both. Sending only `task_id` without the original `context_id` creates a new context instead of continuing the conversation.
+
+4. **Push notifications require HTTPS** - The webhook URL in `createTaskPushNotificationConfig` must be an HTTPS endpoint. HTTP URLs are rejected. During local development, use a tunnel (ngrok, localtunnel) rather than trying to configure HTTP.
+
+5. **Terminal states are final** - Once a task reaches `completed`, `failed`, `canceled`, or `rejected`, no further messages can be sent to it. Attempting to send a message to a terminal task silently creates a new task in some implementations. Always check task state before continuing a thread.
+
+---
+
 ## References
 
 For detailed content on specific A2A sub-domains, read the relevant file

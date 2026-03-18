@@ -319,6 +319,20 @@ looks like before starting.
 
 ---
 
+## Gotchas
+
+1. **"So that" written as a technical rationale defeats the purpose** - "So that the database is updated" or "so that the API returns 200" describes implementation, not user value. If the "so that" clause could be written by an engineer rather than a user, rewrite it from the user's perspective - what can they now do or feel that they couldn't before?
+
+2. **Stories estimated without the team who will build them are not estimates** - Point estimates assigned by product managers or scrum masters without engineer input are not commitments the engineering team made. Only the team doing the work should size the stories.
+
+3. **INVEST "Independent" is aspirational, not absolute** - Some dependencies are unavoidable (auth before user profiles). The rule is to minimize hidden dependencies, not eliminate all sequencing. Expose dependencies explicitly in the story as a "Depends on:" note rather than pretending they don't exist.
+
+4. **Acceptance criteria written as UI wireframes lock in a solution prematurely** - "The button is blue and in the top-right corner" as an acceptance criterion prevents design iteration. Write behavior ("user can dismiss the notification at any time") and let design solve the visual implementation.
+
+5. **Spikes without a defined output become open-ended research sinkholes** - A spike with no output criteria runs until time is up and delivers a dump of information rather than a decision. Always define: what specific question will be answered, and what artifact (decision doc, ADR, prototype) will exist when the spike is done.
+
+---
+
 ## References
 
 - `references/story-splitting.md` - 10 patterns for splitting large stories with

@@ -358,6 +358,20 @@ review cycle. An unactioned post-mortem is a missed opportunity and a future lia
 
 ---
 
+## Gotchas
+
+1. **Rotating credentials before isolating the system** - If you rotate credentials while the attacker still has an active session, they may have already cached the token or established a persistent back-channel (e.g., reverse shell). Isolate the system from the network first, then rotate credentials.
+
+2. **GDPR 72-hour clock starts at awareness, not confirmation** - The 72-hour notification requirement to the supervisory authority begins when you have reasonable belief a breach occurred - not when you have confirmed every detail. Filing "we are investigating" within 72 hours is required; waiting until the investigation is complete is not compliant.
+
+3. **"Contained" does not mean "eradicated"** - Isolating a system stops active damage but the threat is still present. Attackers frequently pre-plant persistence (cron jobs, scheduled tasks, additional user accounts) before containment. Never return a system to production after containment alone - eradication must follow.
+
+4. **Slack incident channel membership leaks intel** - Adding non-essential stakeholders to the incident Slack channel before legal review can expose information subject to privilege or create a discoverable record. Keep the responder channel tight until legal has been consulted on external communication scope.
+
+5. **Post-mortem action items without due dates are permanent backlogs** - An action item with no owner and no deadline will be in the "backlog" forever. Every action item from a post-mortem needs a named owner, a specific due date, and a check-in at the next security review.
+
+---
+
 ## Anti-patterns / common mistakes
 
 | Mistake | Why it's wrong | What to do instead |

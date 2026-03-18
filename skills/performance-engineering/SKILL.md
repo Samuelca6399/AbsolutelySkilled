@@ -381,6 +381,20 @@ try {
 
 ---
 
+## Gotchas
+
+1. **Microbenchmarks without preventing dead-code elimination produce meaningless results** - V8 will optimize away computations whose results are never used. A benchmark that calls `computeResult()` without consuming the return value may be measuring near-zero work. Always store the result in a variable and use it (e.g., `sum += result`) so the compiler cannot eliminate the hot path.
+
+2. **Connection pool exhaustion masquerades as slow queries** - If all DB connections are in use, new queries queue behind them and appear in traces as 500ms+ "database time" when the query itself takes 5ms. Check `pool.totalCount`, `pool.idleCount`, and `pool.waitingCount` before optimizing queries. Pool exhaustion often looks like slow DB, not like a pool problem.
+
+3. **Profiling in development produces unrepresentative results** - V8 optimizes differently in development (no minification, source maps active, NODE_ENV=development guards enabled). Profiling a dev build and optimizing based on that output can be entirely misleading. Always profile against a production build with production environment variables and realistic data volume.
+
+4. **Heap snapshots taken during GC produce inflated retained sizes** - If you trigger a heap snapshot during a GC cycle, the snapshot may show objects that are already queued for collection but not yet freed. Compare two snapshots taken at the same phase of your workload (e.g., both after processing 100 requests) to get valid comparisons.
+
+5. **Worker threads do not share memory by default - serialization overhead can exceed compute savings** - Offloading a task to a worker thread requires serializing input data (via `postMessage`) and deserializing results back. For tasks involving large objects, this serialization cost can exceed the compute benefit. Use `SharedArrayBuffer` for large data payloads that need to cross the worker boundary frequently.
+
+---
+
 ## References
 
 Load the relevant reference file only when the current task requires it:

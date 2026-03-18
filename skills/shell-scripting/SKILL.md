@@ -365,6 +365,20 @@ spin() {
 
 ---
 
+## Gotchas
+
+1. **`set -e` swallows non-zero exits in conditionals** - `set -e` does NOT exit on non-zero returns inside `if`, `while`, `until`, or `||`/`&&` chains. A command like `if some_command; then` will not trigger `-e` if `some_command` fails - this is correct behavior but surprises people who expect `-e` to be a global safety net.
+
+2. **`local` does not isolate errors from `set -e`** - `local var=$(command_that_fails)` always returns exit code 0 because `local` itself succeeds. The subcommand failure is silently swallowed. Declare `local var` on one line, then `var=$(command_that_fails)` on the next so `set -e` can catch it.
+
+3. **`mktemp` without `-d` creates a file, not a directory** - `TMP=$(mktemp)` creates a temp file. If you then try `mkdir "$TMP/subdir"` it fails. Use `mktemp -d` when you need a temp directory.
+
+4. **Trap fires on subshell exits too** - A `trap cleanup EXIT` in a parent script also fires when any subshell `( ... )` in that script exits. If your cleanup function deletes temp directories, a subshell exit mid-script can remove files the parent still needs. Use `trap` selectively or test `$BASH_SUBSHELL` inside the trap function.
+
+5. **Word splitting on array expansion without `[@]`** - `"${arr[*]}"` expands the array as a single word joined by `IFS`; `"${arr[@]}"` expands each element as a separate word. Using `*` instead of `@` when passing arrays to functions causes multi-word elements to silently merge.
+
+---
+
 ## Anti-patterns
 
 | Anti-pattern | Why it's wrong | What to do instead |

@@ -271,6 +271,20 @@ the same content.
 
 ---
 
+## Gotchas
+
+1. **Cannibalization from near-identical intent pages** - Two pages targeting "best CRM software" and "top CRM tools" appear different but serve identical intent and will cannibalize each other. Check the actual SERP overlap, not just keyword wording. If the top-ranking URLs for both queries are the same, consolidate.
+
+2. **Freshness signals differ by query type** - Adding a new publish date to an old page does not help a truly evergreen query. Freshness only matters as a ranking signal for queries Google's systems classify as having "freshness intent" (news, trends, "best X in [year]"). Updating an evergreen page without improving substance has no ranking effect.
+
+3. **Internal link anchor text over-optimization** - Using the exact primary keyword as anchor text on every internal link pointing to a pillar page can trigger over-optimization signals. Use natural variants: "learn more about email marketing," "our email marketing guide," not always "email marketing" verbatim.
+
+4. **E-E-A-T is assessed per page, not per site** - A site with strong domain authority still gets low E-E-A-T marks on individual pages that lack author credentials or first-hand signals. YMYL pages need author attribution at the page level, not just a site-level "About" page.
+
+5. **Cluster spoke pages linking only to the pillar** - Spoke-to-spoke links are a significant part of the cluster's semantic coherence benefit. A cluster where every spoke only links back to the pillar misses the cross-linking signals. Highly related spokes should link to each other where contextually relevant.
+
+---
+
 ## References
 
 Load these files when the task requires deeper detail on a specific sub-topic:

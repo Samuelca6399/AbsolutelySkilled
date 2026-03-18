@@ -351,6 +351,20 @@ Without lineage, auditing and debugging become guesswork.
 
 ---
 
+## Gotchas
+
+1. **Training-serving skew is silent and deadly** - If the feature engineering code that runs during training differs even slightly from what runs at inference time (different library versions, different null handling, different normalization order), the model receives inputs it was never trained on. The model silently produces worse predictions. Share the exact same feature transformation code between training and serving; a feature store enforces this by design.
+
+2. **PSI drift alerts fire on expected seasonal changes, not just real drift** - A retail model will always show PSI > 0.2 on Black Friday vs. a July training baseline. Alerting on raw PSI without seasonality context produces alert fatigue and trains teams to ignore drift signals. Baseline your monitoring against the same calendar period from the prior year, or use rolling baselines updated monthly.
+
+3. **DVC pull on a different machine requires remote storage credentials** - `dvc pull` fetches data from the configured remote (S3, GCS, Azure). A teammate who clones the repo and runs `dvc pull` without configuring remote credentials gets a cryptic access-denied error that looks like a DVC bug. Document remote storage setup in the repo's README and use environment-based credential configuration.
+
+4. **MLflow autologging captures too much and inflates experiment storage** - `mlflow.autolog()` is convenient for notebooks but logs every parameter, metric, and artifact from every library it supports. In training pipelines running thousands of experiments, this creates massive metadata storage and slow UI queries. Enable autologging selectively with `mlflow.sklearn.autolog(log_models=False)` or log manually with `mlflow.log_params/metrics`.
+
+5. **A/B tests on models need sticky user assignment, not session assignment** - If a user is randomly assigned to the control or treatment model on each request, they experience inconsistent behavior within the same session. This contaminates the experiment (users implicitly see both models) and inflates variance. Hash on user ID to ensure consistent model assignment for the duration of the experiment.
+
+---
+
 ## References
 
 For detailed platform comparisons and tool selection guidance, read the relevant

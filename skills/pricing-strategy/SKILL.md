@@ -291,6 +291,20 @@ to pay. Design these intentionally.
 
 ---
 
+## Gotchas
+
+1. **Grandfathering existing customers breaks new pricing model adoption** - Grandfathering legacy pricing protects current customers but creates a permanent two-tier customer base where your highest-engaged users are also your lowest-paying. Every new feature you ship subsidizes old pricing. If you need to change pricing, give existing customers a generous migration window (90-180 days) and an incentive to switch, but set a hard cutover date.
+
+2. **Usage-based pricing without spend alerts causes customer shock and churn** - Customers who receive a bill 5x what they expected due to unanticipated usage spikes rarely renew, regardless of the value delivered. Every usage-based product must provide real-time usage dashboards and configurable spend alerts before GA. Pricing surprise is a top cause of B2B churn.
+
+3. **Free trial that defaults to paid after expiry without clear warning violates trust** - Auto-converting a trial to a paid subscription when no credit card was required at signup, or failing to send a prominent reminder before billing begins, generates chargebacks, negative reviews, and potential regulatory exposure (ROSCA in the US). Always send email reminders at 7 days and 1 day before any trial-to-paid conversion.
+
+4. **Showing annual pricing as "per month" without making the billing frequency obvious is deceptive** - "$49/month billed annually" shown as just "$49/mo" in a pricing table misleads customers into expecting monthly billing. Many buyers discover the $588 charge on their card and dispute it. Always show both the monthly equivalent AND the total annual amount prominently in the pricing UI.
+
+5. **Price testing on logged-in users who can compare notes destroys trust** - Unlike geographic or cohort splits, showing different prices to users in the same market who know each other (B2B teams, developer communities) will be discovered and publicized. The reputational damage from a perceived price-fixing discovery exceeds any revenue optimization gain.
+
+---
+
 ## References
 
 For detailed frameworks on specific pricing sub-domains, read the relevant file

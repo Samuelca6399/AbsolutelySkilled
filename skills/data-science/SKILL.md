@@ -373,6 +373,20 @@ print(f"ROC-AUC: {roc_auc_score(y_test, y_prob):.4f}")
 
 ---
 
+## Gotchas
+
+1. **Feature leakage from fitting transformers before splitting** - Fitting a `StandardScaler`, `LabelEncoder`, or imputer on the full dataset before `train_test_split` leaks test set statistics into training. The model then appears to generalize well but fails in production. Always split first, then `fit_transform` on train only, and `transform` on test.
+
+2. **Peeking at results mid-experiment inflates false positive rate** - Running a significance test daily and stopping as soon as `p < 0.05` is reached is p-hacking. The actual false positive rate can reach 30%+ instead of the nominal 5%. Pre-register your sample size, run the full duration, and analyze once. Use sequential testing (alpha spending) if early stopping is a genuine business requirement.
+
+3. **Shapiro-Wilk normality test unreliable above n=5000** - With large samples, Shapiro-Wilk becomes so sensitive it rejects normality for trivially small deviations that don't matter practically. For n > 5000, use visual diagnostics (Q-Q plot, histogram) instead of the test, and prefer non-parametric tests (Mann-Whitney U) or rely on the Central Limit Theorem for means.
+
+4. **`df.copy()` omission causes silent SettingWithCopyWarning mutations** - Chained indexing on a pandas slice (`df[mask]["col"] = value`) silently fails to modify the original DataFrame. Always call `.copy()` when creating a subset DataFrame you intend to modify. Pandas 2.0+ converts this from a warning to an error, so existing code that worked may break on upgrade.
+
+5. **Outlier removal before splitting contaminates the test set** - Applying IQR outlier removal to the full dataset before splitting removes some test set rows based on information from the training distribution. This is a subtle form of data leakage. Apply outlier handling only within the training fold during cross-validation or after splitting.
+
+---
+
 ## References
 
 For deeper guidance on specific topics, load the relevant references file:

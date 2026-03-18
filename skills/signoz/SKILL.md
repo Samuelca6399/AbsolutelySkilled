@@ -292,6 +292,20 @@ cut-off min/max thresholds, and chained function application.
 
 ---
 
+## Gotchas
+
+1. **OTel SDK must be initialized before any other imports** - If application code imports a DB driver, HTTP client, or framework before the OTel SDK is initialized, those libraries will not be auto-instrumented. In Node.js, use `--require ./instrument.js` to load the SDK before the app. In Python, call `sentry_sdk.init()` (or the OTel equivalent) at the top of the entry point.
+
+2. **gRPC (4317) is blocked by many cloud firewalls by default** - Outbound gRPC traffic on port 4317 is frequently blocked by corporate firewalls and cloud security groups. If traces are not arriving, switch the exporter to OTLP/HTTP on port 4318 (`OTLPTraceExporter` with `http://` URL) as a first debug step.
+
+3. **Missing `service.name` attribute makes all data unidentifiable** - If `OTEL_SERVICE_NAME` is not set and the SDK is not explicitly configured with a service name, all telemetry arrives in SigNoz grouped under a generic name or `unknown_service`. Set `OTEL_SERVICE_NAME` in your environment or SDK config before deploying.
+
+4. **Self-hosted ClickHouse storage fills up silently** - SigNoz self-hosted deployments do not have built-in disk alerting. ClickHouse will fill available disk and stop accepting writes without warning. Configure a disk utilization alert on the host and set a data retention policy in SigNoz settings (default is 15 days for traces).
+
+5. **High-cardinality span attributes break dashboards** - Adding user IDs, request IDs, or raw query strings as span attribute keys (not values) creates unbounded cardinality in ClickHouse and makes dashboards unusable. Cardinality should live in attribute values, not keys. Use a fixed set of keys like `user.id`, `request.id` with variable values.
+
+---
+
 ## Error handling
 
 | Error | Cause | Resolution |

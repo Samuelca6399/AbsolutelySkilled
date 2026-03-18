@@ -443,6 +443,20 @@ Bottleneck identification checklist:
 
 ---
 
+## Gotchas
+
+1. **k6 VU-based (closed) model produces misleadingly low RPS at high think times** - If your scenario has 5 seconds of think time and you run 50 VUs, your max throughput is 50/5 = 10 RPS. This feels like the system is underloaded when it is actually VU-constrained. Use the `ramping-arrival-rate` executor to control RPS directly when benchmarking throughput capacity.
+
+2. **`http_req_blocked` spikes are invisible in aggregate dashboards** - Aggregate p95 latency can look healthy while p99 `http_req_blocked` (connection pool wait time) is 2-3 seconds, indicating connection exhaustion. Always check `http_req_blocked` and `http_req_connecting` separately from `http_req_duration` before declaring a test passing.
+
+3. **Shared test data loaded with `open()` per-VU causes OOM on large datasets** - Loading a large JSON file with `open('./data/users.json')` at the top level of the default function runs once per VU, not once per run. Use `SharedArray` to load data once and share it across all VUs without duplicating memory.
+
+4. **Threshold failures abort the test before you see the full breakdown curve** - During stress tests, setting `abortOnFail: true` on latency thresholds stops the test the moment it crosses the boundary, preventing you from seeing how the system degrades at higher load. Use `abortOnFail: false` for stress and spike tests; reserve abort behavior for smoke tests in CI.
+
+5. **Load testing authenticated endpoints requires token refresh logic** - Tokens generated in `setup()` expire during long soak tests (2-24 hours). VUs that use an expired token receive 401s that inflate error rates without revealing the real cause. Implement token refresh in the VU loop or generate tokens with a lifetime longer than the test duration.
+
+---
+
 ## References
 
 For detailed comparisons and implementation patterns, read the relevant file from

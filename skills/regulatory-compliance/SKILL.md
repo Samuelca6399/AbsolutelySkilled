@@ -310,6 +310,20 @@ A well-run audit avoids surprises. Follow this timeline:
 
 ---
 
+## Gotchas
+
+1. **Starting SOC 2 Type II observation period before all controls operate** - The observation clock starts when controls are running, not when you decide to pursue SOC 2. Auditors verify operating effectiveness over the claimed period. Any control that was not operating at the start of the period creates a gap finding. Don't declare the observation period started until every control is actually in place.
+
+2. **PCI-DSS scope assumed to be narrow before scoping exercise** - Teams often assume they're out of scope because they "don't store card numbers." But processing or transmitting card data, or being on the same network segment as systems that do, puts you in scope. Conduct formal scope definition with a QSA before building any compliance program assumptions.
+
+3. **Compliance platform purchased before gap analysis** - Vanta and Drata automate evidence for generic controls but cannot replace custom controls specific to your architecture. Buying the platform before knowing your gaps means paying for integrations that don't cover your actual exposures.
+
+4. **Exception in SOC 2 report treated as a deal-breaker** - A qualified opinion with a management response showing a clear remediation plan is often acceptable to enterprise procurement. The response matters as much as the exception. Draft the management response carefully and include a concrete timeline with evidence of progress.
+
+5. **Risk assessment done once and never updated** - A static risk assessment taken at the start of a compliance program becomes fiction within 6 months as systems change. Schedule annual reviews and trigger an unscheduled review after any significant architecture change, acquisition, or data classification change.
+
+---
+
 ## References
 
 For detailed implementation guidance, read the relevant file from `references/`:

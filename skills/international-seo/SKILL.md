@@ -294,6 +294,20 @@ Use the hreflang Testing Tool (hreflang.org) or Screaming Frog to audit at scale
 
 ---
 
+## Gotchas
+
+1. **Auto-redirecting users by IP or Accept-Language hides content from Googlebot** - Googlebot crawls from US IP addresses. If your site redirects non-US IPs to regional variants, Googlebot sees only the English-US version and never indexes your German, French, or Spanish pages. Show all language versions to all crawlers without redirects; use hreflang to express the preference.
+
+2. **Hreflang in sitemap and HTML head simultaneously creates conflicting signals** - If you implement hreflang in your XML sitemap and also have `<link rel="alternate">` tags in the HTML head pointing to different URLs (e.g., the sitemap uses trailing slashes and the HTML doesn't), Google may discard the entire annotation set. Choose one implementation method and make it consistent across the entire site.
+
+3. **Using the wrong canonical with regional variants tells Google to suppress one variant** - On an `en-GB` page, if the canonical points to the `en-US` page, Google treats `en-GB` as a duplicate and eventually stops indexing it entirely. Each regional variant must have a canonical pointing to itself, paired with hreflang indicating it's an intentional variant.
+
+4. **Subdirectory geo-targeting in GSC only applies to the root property, not subdirectories** - Google Search Console geo-targeting settings apply to the property you configure, which for a root domain includes all subdirectories. You cannot set `example.com/de/` to target Germany and `example.com/fr/` to target France through GSC - that's what hreflang is for. GSC targeting is for the top-level property only.
+
+5. **Machine-translated content with source-language URL slugs ranks poorly in target markets** - Translating page content but keeping URL slugs in English (e.g., `/de/how-to-use-software/`) means the URL provides no language signal and local search queries don't match. Localize slugs along with content: `/de/software-verwenden/` performs better and avoids mixed-signal confusion.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

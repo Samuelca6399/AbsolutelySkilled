@@ -511,6 +511,20 @@ describe('Error handling', () => {
 
 ---
 
+## Gotchas
+
+1. **Shared test database state causes flaky tests** - Tests that don't clean up after themselves leave rows that cause unique constraint failures or wrong counts in subsequent tests. The tests pass in isolation but fail in suites. Use database transactions that roll back after each test, or seed and truncate in `beforeEach`/`afterEach`.
+
+2. **MSW `onUnhandledRequest: 'warn'` silently passes unmocked calls** - With the default `warn` setting, any request not matched by a handler goes through to the real network. In CI this causes non-deterministic test behavior. Set `onUnhandledRequest: 'error'` so unmatched requests fail loudly.
+
+3. **Supertest doesn't start a real server but shares app state** - Supertest binds to the app instance. If the app has module-level singletons (connection pools, caches), those persist across tests. Make sure database and cache connections are properly reset between test runs, or tests will interfere with each other.
+
+4. **Pact consumer tests passing doesn't mean provider will pass** - Consumer Pact tests only verify that the mock returns the expected shape. The provider verification step (running against the real provider) is where real contract drift is caught. Both steps must run in CI; running only the consumer half gives false confidence.
+
+5. **Schema validation with `.toMatchObject()` misses extra fields** - Jest's `toMatchObject` does a partial match: extra fields on the response body pass silently. If the API starts leaking sensitive fields (passwords, internal IDs), these tests won't catch it. Use Zod's `strict()` mode or exact schema validation for security-sensitive fields.
+
+---
+
 ## References
 
 For detailed patterns on specific tools and setups, read the relevant file from

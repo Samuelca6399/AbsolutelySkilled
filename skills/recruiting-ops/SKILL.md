@@ -411,6 +411,20 @@ Conference and community presence:
 
 ---
 
+## Gotchas
+
+1. **Must-haves list growing during the hiring process** - Hiring managers add requirements after seeing candidates, retroactively raising the bar in ways that weren't calibrated. Lock the must-haves list before the first screen and treat post-calibration changes as scope creep requiring explicit sign-off.
+
+2. **Debrief discussion before written scores submitted** - The loudest voice in the debrief anchors everyone else's recall. Require all interviewers to submit written scorecards independently before the debrief call begins. This is the highest-impact structural change for reducing bias.
+
+3. **Verbal offer extended by recruiter instead of hiring manager** - A verbal offer delivered by a recruiter signals the role is transactional. The hiring manager extending the offer personally signals the candidate matters. This is especially important for senior hires and competitive situations.
+
+4. **Competing offer handled by guessing at the number** - When a candidate has a competing offer, matching or beating an unknown number is a negotiation mistake. Ask to see the competing offer before responding. Counter on total value (equity, growth, mission), not just base salary.
+
+5. **Referral pipeline used as the primary or only channel** - Employee referrals produce fast, culturally similar hires, but relying on them exclusively homogenizes the team. Use referrals as one of at least three channels; audit source diversity quarterly.
+
+---
+
 ## References
 
 For detailed templates and examples, load the relevant file from `references/`:

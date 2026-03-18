@@ -259,6 +259,20 @@ See `references/link-audit.md` for full disavow guidance and when not to disavow
 
 ---
 
+## Gotchas
+
+1. **DR/DA metrics are easily gamed** - Domain Rating (Ahrefs) and Domain Authority (Moz) are third-party estimates, not Google metrics. Link farms actively inflate these scores with cross-linking schemes. Always verify organic traffic in Ahrefs/Semrush before targeting a site - a DR 60 site with 500 monthly organic visitors is worthless for link equity.
+
+2. **Disavowing legitimate links causes ranking drops** - Over-disavowing is a real risk. Disavowing a genuine editorial link (even from a slightly spammy-looking site) removes that link's equity permanently. Only disavow links you are confident are either manipulative or from clearly deindexed/penalized domains.
+
+3. **HARO pitches need to land in the journalist's inbox within minutes, not hours** - Most queries receive 50-200 responses. Journalists read the first batch that arrive and stop when they have their sources. A 4-hour response time is effectively no response. Set up email filters and push notifications; otherwise the platform is useless.
+
+4. **Anchor text diversification requires active monitoring, not just upfront planning** - Your anchor text profile is shaped by how other sites link to you, not just what you ask for. Run quarterly anchor audits in Ahrefs and flag exact-match ratios above 15-20% of your total followed link profile before they become a pattern Google notices.
+
+5. **Broken link building yield is lower than it appears** - Finding a broken link on a relevant resource page does not mean the webmaster will replace it with your link. Response rates of 5-10% are typical. Scale the outreach list accordingly; working from a short list of 20 opportunities is not enough to see meaningful results.
+
+---
+
 ## References
 
 For detailed playbooks, templates, and audit procedures, read the relevant file:

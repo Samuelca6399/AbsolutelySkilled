@@ -344,6 +344,20 @@ import heroImage from '../assets/hero.jpg';
 
 ---
 
+## Gotchas
+
+1. **Lighthouse score does not equal CrUX pass** - A perfect Lighthouse 100 performance score can coexist with a "Poor" CrUX rating. Lighthouse runs on a fast simulated device; CrUX reflects real users on slow networks and low-end phones. Always verify with Search Console's Core Web Vitals report after deploying optimizations.
+
+2. **Preloading non-LCP resources causes regressions** - Adding `<link rel="preload">` to fonts, CSS, or non-LCP images competes with the actual LCP resource for bandwidth, often making LCP worse. Preload only the single LCP element and critical fonts with `font-display: optional`.
+
+3. **`fetchpriority="high"` on multiple images** - Setting `fetchpriority="high"` on more than one image removes the browser's ability to prioritize. Only the single LCP element should carry this attribute; all below-fold images should use `loading="lazy"`.
+
+4. **INP spikes from third-party scripts** - Third-party scripts (analytics, chat widgets, A/B testing tools) inject and execute on the main thread, directly increasing INP. These show up in performance profiles as long tasks triggered by user interactions. Lazy-load third-party scripts with `async` or `defer` and consider loading them after the first user interaction.
+
+5. **CLS from dynamically injected cookie banners** - A cookie consent banner injected above the fold after initial render is one of the most common CLS sources. Reserve space for it with `min-height` before the JavaScript loads, or render it server-side so it is in the initial HTML.
+
+---
+
 ## References
 
 For deep technical guidance on specific topics, load the relevant reference file:

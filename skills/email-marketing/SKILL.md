@@ -328,6 +328,20 @@ calendar.
 
 ---
 
+## Gotchas
+
+1. **Apple Mail Privacy Protection inflates open rates since iOS 15 - open rate alone is no longer a reliable metric** - Apple pre-fetches email content to load tracking pixels, registering an "open" even when the user never read the email. Use click-to-open rate (CTOR) and conversion rate as primary engagement signals. Open rate is still useful for trend analysis but not absolute benchmarking.
+
+2. **Outlook renders email using the Word rendering engine, not a browser** - CSS `flexbox`, `grid`, and many modern properties silently fail in Outlook. Table-based HTML layouts with inlined CSS are still required for reliable Outlook rendering. Always test in Litmus or Email on Acid before sending to a list that includes corporate Outlook users.
+
+3. **Gmail clips emails over 102KB of HTML** - A clipped email shows a "View entire message" link, hiding your CTA, footer unsubscribe link, and often breaking rendering entirely. Keep HTML under 102KB. Heavy templates with extensive inline CSS are the most common culprit.
+
+4. **Sending re-engagement campaigns to your entire dormant segment at once can trigger blocklisting** - Dormant subscribers who haven't engaged in 6+ months are higher spam-complaint risk. Splitting re-engagement sends into smaller daily batches reduces the risk of a complaint spike that harms your domain reputation for active subscribers.
+
+5. **A/B tests on small lists produce statistically meaningless results** - Running a subject line test on 200 subscribers with a 50/50 split gives 100 per variant - nowhere near the 1,000 minimum needed for reliable signal. Shipping the "winner" from an underpowered test is often worse than just picking one option.
+
+---
+
 ## References
 
 For detailed templates and ready-to-use content, read:

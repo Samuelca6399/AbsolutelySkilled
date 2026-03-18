@@ -251,6 +251,20 @@ When emails land in spam, investigate in this order:
 
 ---
 
+## Gotchas
+
+1. **SPF over 10 DNS lookups silently fails - and many senders don't know they've hit the limit** - Each `include:`, `a:`, and `mx:` mechanism in an SPF record triggers recursive DNS lookups counted toward the 10-lookup limit. Many companies hit this limit after adding a third or fourth ESP. The result is a `permerror` that causes SPF to fail for all mail, silently. Use an SPF flattening tool and monitor lookup counts.
+
+2. **Jumping straight to `p=reject` DMARC breaks legitimate mail you forgot about** - CRMs, invoicing tools, support platforms, marketing automation, and third-party senders often send on behalf of your domain without proper DKIM signing. Deploy `p=none` first, monitor aggregate reports for at least 2-4 weeks, and only graduate to `p=reject` after all legitimate sources are authenticated.
+
+3. **Sending to a re-engagement segment before warming up a new IP causes blocklisting** - Dormant subscribers are more likely to mark mail as spam. During IP warm-up, send only to your most engaged subscribers (opened in the last 30 days). Bringing stale addresses into a new IP's warm-up period can tank the IP reputation before it's established.
+
+4. **DKIM keys in DNS must not exceed 255 characters per string without splitting** - A 2048-bit RSA public key in base64 exceeds 255 characters. DNS TXT records must split values into multiple quoted strings within the record. Some DNS providers handle this automatically; others require manual splitting. Test with `dig TXT selector._domainkey.yourdomain.com` and verify the key assembles correctly.
+
+5. **Feedback loop (FBL) complaint data requires separate registration per provider** - Gmail uses Google Postmaster Tools, Yahoo/AOL uses their FBL program, and Outlook uses Microsoft SNDS. These are separate registrations with separate dashboards. Many senders set up SPF/DKIM/DMARC and assume they'll receive complaint data automatically - they won't.
+
+---
+
 ## References
 
 For detailed implementation guidance on specific sub-domains, read the relevant

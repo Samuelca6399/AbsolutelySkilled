@@ -278,6 +278,20 @@ Sentry.init({
 
 ---
 
+## Gotchas
+
+1. **`Sentry.init()` must be the very first import** - If any other module (logging, HTTP client, database driver) is imported before `Sentry.init()` runs, that module's errors and performance data will not be captured. In Node.js, put `Sentry.init()` in a dedicated `instrument.js` file that is required before anything else via `--require`.
+
+2. **`tracesSampleRate: 1.0` in production will exhaust quota fast** - 100% tracing on any meaningful traffic volume rapidly burns through your event quota and skews billing. Use `tracesSampler` with a function that returns 0 for health checks and static assets, and lower rates (0.1-0.2) for general traffic.
+
+3. **Source maps must be uploaded before the first error** - Source map artifacts are matched to errors by release version. If an error is ingested before the source maps for that release are uploaded, the stack trace is permanently unminified in the UI. Upload source maps as part of the deploy pipeline, before traffic is shifted.
+
+4. **Session Replay records sensitive data by default without explicit masking** - While `maskAllText: true` is the default, custom components that inject text via `innerHTML` or canvas elements are not automatically masked. Audit replay recordings in a staging environment before enabling in production on pages with PII.
+
+5. **`withSentryConfig` in Next.js wraps and rewrites `next.config.js`** - If you manually merge config options incorrectly, you can silently disable Sentry's webpack instrumentation. Always use the spread pattern for `nextConfig` and verify source map upload in CI output after setup.
+
+---
+
 ## Error handling
 
 | Error | Cause | Resolution |

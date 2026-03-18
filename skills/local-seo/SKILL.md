@@ -283,6 +283,20 @@ words "near me" do not need to appear on your website. To rank for them:
 
 ---
 
+## Gotchas
+
+1. **GBP suspensions happen silently and without clear reasons** - Google can suspend a listing for guideline violations (keyword-stuffed name, virtual office address, duplicate listing) without email notice. The listing simply stops showing. Monitor GBP health weekly and always check the "Issues" tab. Recovery requires a reinstatement request through Google Business Profile support, which can take 2-6 weeks.
+
+2. **NAP inconsistencies from data aggregators propagate indefinitely** - The four major data aggregators (Neustar Localeze, Foursquare, Data Axle, Acxiom) feed hundreds of directories automatically. A wrong address they have on file will keep repopulating corrected listings unless you fix it at the aggregator level. Tools like Yext or BrightLocal push updates to aggregators directly; manual directory fixes alone are insufficient.
+
+3. **Keyword stuffing in the business name is a high-risk tactic that works short-term** - "Joe's Plumbing - Austin Emergency Plumber" may rank better temporarily, but it violates GBP guidelines and competitors can report it. Google processes reports and the listing name gets reverted or the listing suspended. Use the exact legal name.
+
+4. **Review gating violates Google's terms and triggers penalties** - "Review gating" is asking customers to rate satisfaction before deciding whether to send them to Google reviews, filtering out unhappy customers. Google explicitly prohibits this. Only direct customers to review platforms without pre-screening.
+
+5. **Multi-location businesses that share a phone number confuse Google's signals** - Using a single tracking or call center number across multiple locations makes it impossible for Google to associate each location with a unique NAP. Use unique local numbers per location, even if you route them centrally. Use call tracking at the subdomain/campaign level, not by replacing the primary GBP number.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

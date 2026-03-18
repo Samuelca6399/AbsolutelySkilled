@@ -189,6 +189,20 @@ Only adopt a service mesh when you have 10+ services and the cross-cutting conce
 | Big-bang migration | Rewriting the entire monolith at once | Use strangler fig - migrate incrementally |
 | No idempotency | Retries cause duplicate side effects | Design all endpoints and consumers to be idempotent |
 
+## Gotchas
+
+1. **Choreography sagas are deceptively hard to debug at scale** - In a choreography saga, each service reacts to events independently. There is no central coordinator to query for "what step are we on?" When a saga fails mid-way, tracing which compensating transactions ran and which did not requires correlating events across multiple services' logs by correlation ID. Prefer orchestration sagas for flows with more than 3-4 participants, and invest in distributed tracing from day one.
+
+2. **The strangler fig pattern stalls without an API gateway** - Teams try to route traffic to the new service by updating clients directly. This requires coordinated deployment of every client and the new service simultaneously, defeating the incremental migration goal. An API gateway (or reverse proxy) that owns routing is mandatory for strangler fig to work; the gateway lets you shift traffic without touching clients.
+
+3. **Event-driven eventual consistency surprises users when reads lag behind writes** - A user submits a form, the command is processed and an event emitted, but when they immediately reload the page the read model hasn't updated yet. This is expected in CQRS with async projection but is not acceptable UX without mitigation. Use optimistic UI updates on the client side, or add a short read-your-own-writes guarantee for the creating user's session.
+
+4. **Circuit breakers need per-dependency instances, not a single global one** - A single circuit breaker protecting all downstream calls means one slow service opens the breaker and blocks all outbound calls. Instantiate separate circuit breakers per downstream dependency so a failure in Service B does not degrade calls to Service C.
+
+5. **Shared library updates become de-facto distributed deployments** - Putting business logic or domain types in a shared library that all services depend on means updating that library forces a coordinated upgrade across all services. This reintroduces the coupling microservices were meant to remove. Keep shared libraries limited to infrastructure concerns (logging, tracing, auth middleware) and keep domain logic strictly inside the owning service.
+
+---
+
 ## References
 
 - `references/patterns.md` - Detailed coverage of saga, CQRS, event sourcing, circuit breaker, bulkhead, sidecar, ambassador, strangler fig

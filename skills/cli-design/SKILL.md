@@ -365,6 +365,20 @@ generate(Zsh, &mut cli, "mytool", &mut std::io::stdout());
 
 ---
 
+## Gotchas
+
+1. **Interactive prompts in CI/scripts** - A confirm prompt that blocks waiting for user input will hang a CI job indefinitely with no error message. Always check `process.stdin.isTTY` (or equivalent) before prompting, and provide a `--yes` / `-y` flag that skips all confirmations.
+
+2. **Exit code 0 on partial failure** - A command that processes 10 files but fails on 2 and still exits 0 breaks `&&` chaining and CI pipelines silently. Track failures explicitly and exit non-zero when any operation failed, even if some succeeded.
+
+3. **Flag name inconsistency across subcommands** - Having `--dry-run` on `deploy` but `--dryRun` on `migrate` creates a mental tax for users. Establish naming conventions (kebab-case) at project start and enforce them in every subcommand - inconsistency compounds with every new feature.
+
+4. **Node.js shebang missing or wrong** - Distributing a Node CLI without `#!/usr/bin/env node` as the first line means users must run `node mytool` instead of `mytool`, and npm's `bin` linking won't work correctly. Always set the shebang and make the file executable (`chmod +x`).
+
+5. **Swallowing parser errors** - Argument parsers like Commander.js call `process.exit(1)` on invalid args by default, but some configurations catch and suppress these errors. An invalid flag that silently falls back to defaults is extremely confusing. Ensure validation errors always produce a clear message to stderr and a non-zero exit code.
+
+---
+
 ## References
 
 For detailed patterns on specific CLI sub-domains, read the relevant file

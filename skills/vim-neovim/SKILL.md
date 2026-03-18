@@ -298,7 +298,7 @@ return {
 -- lua/config/keymaps.lua
 local map = vim.keymap.set
 
--- Better window navigation
+-- Window navigation (replaces <C-w>h/j/k/l)
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
@@ -308,18 +308,8 @@ map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 map("v", "<", "<gv", { desc = "Indent left" })
 map("v", ">", ">gv", { desc = "Indent right" })
 
--- Move lines in visual mode
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
-
--- Clear search highlight
-map("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
-
 -- Paste without overwriting register
 map("v", "p", '"_dP', { desc = "Paste without yank" })
-
--- Quick-save
-map({ "n", "i" }, "<C-s>", "<cmd>w<cr><Esc>", { desc = "Save file" })
 ```
 
 Always set `desc` - it powers `which-key.nvim` and `:help` lookups.
@@ -371,17 +361,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Remove trailing whitespace on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = augroup("trim_whitespace"),
-  pattern = "*",
-  callback = function()
-    local pos = vim.api.nvim_win_get_cursor(0)
-    vim.cmd([[%s/\s\+$//e]])
-    vim.api.nvim_win_set_cursor(0, pos)
-  end,
-})
-
 -- Restore cursor position on file open
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup("restore_cursor"),
@@ -390,16 +369,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     if mark[1] > 0 and mark[1] <= vim.api.nvim_buf_line_count(0) then
       vim.api.nvim_win_set_cursor(0, mark)
     end
-  end,
-})
-
--- Set filetype-specific settings
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("filetype_settings"),
-  pattern = { "markdown", "text" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
   end,
 })
 ```
@@ -419,6 +388,20 @@ on re-sourcing.
 | Global functions in plugin code | Pollutes `_G`, causes name collisions | Use modules: `local M = {} ... return M` |
 | Hard-coding absolute paths | Breaks portability across machines | Use `vim.fn.stdpath("config")` and `vim.fn.stdpath("data")` |
 | Calling `require` inside hot loops | Repeated `require` is a table lookup but adding logic there is a smell | Cache the result: `local lsp = require("lspconfig")` at module top |
+
+---
+
+## Gotchas
+
+1. **`mapleader` must be set before `lazy.setup()`** - If you set `vim.g.mapleader` after calling `require("lazy").setup(...)`, plugins that define keymaps using `<leader>` in their spec will use the default `\` leader instead. Always set leader keys before the lazy setup call in `init.lua`.
+
+2. **Autocommands duplicate on re-sourcing if not cleared** - Every time you `:source $MYVIMRC` or a module is re-required, `nvim_create_autocmd` appends another listener. Without a named augroup with `clear = true`, you accumulate duplicate handlers that fire multiple times. This is especially visible with format-on-save callbacks.
+
+3. **LSP `on_attach` runs once per buffer, not per server** - If multiple LSP servers attach to the same buffer, `on_attach` runs for each. Keymaps defined in `on_attach` without `buffer = bufnr` scope become global and conflict. Always pass `{ buffer = bufnr }` to all keymaps defined in `on_attach`.
+
+4. **Lazy-loading by `cmd` breaks if the plugin registers the command in `setup()`** - If a plugin's command only exists after `setup()` is called, and you lazy-load it with `cmd = "PluginCommand"`, Neovim will try to open the plugin to run the command but the command won't exist yet. Either eager-load plugins that register commands dynamically or use `event = "VeryLazy"`.
+
+5. **Treesitter and LSP syntax highlighting conflict when both are enabled for the same language** - With both `highlight.enable = true` in treesitter and an active LSP, you may see double-highlighted tokens or incorrect colors. Disable LSP semantic token highlighting explicitly: `client.server_capabilities.semanticTokensProvider = nil` in `on_attach` if treesitter handles highlighting.
 
 ---
 

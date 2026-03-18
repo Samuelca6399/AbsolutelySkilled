@@ -325,6 +325,20 @@ npx sentry-cli upload-dif ./ios/build/MyApp.app.dSYM
 
 ---
 
+## Gotchas
+
+1. **Detox tests become flaky when `testID` props are missing on native components** - Detox can only reliably target elements with `testID` set. Matching by text (`by.text()`) breaks as soon as a copy change or i18n update ships. Matching by type (`by.type()`) is fragile with component library upgrades. Add `testID` to every interactive element during development, not as a retroactive fix before testing.
+
+2. **TestFlight processing delay blocks release timelines** - Apple processes uploaded builds for TestFlight before they are available to testers. This takes 15 minutes to 2+ hours. Teams that schedule beta distributions the day before a release window get caught waiting. Buffer at least 4 hours for TestFlight processing in your release plan, or upload the previous night.
+
+3. **dSYM upload failures are silent until a crash occurs** - If the Crashlytics or Sentry dSYM upload step fails in CI (auth error, network timeout), the build succeeds but crash reports arrive unsymbolicated. You only discover this when the first crash report is unreadable. Add a post-build check that validates the dSYM was uploaded successfully, not just that the upload script exited 0.
+
+4. **Device farm tests run in a clean app state, which differs from upgrade paths** - Device farms install the app fresh for every test run. They never test the upgrade path from a prior version, which is how 90%+ of your real users will encounter a new release. Run upgrade-path tests separately by pre-installing the current App Store version, then installing the new build over it, before running your test suite.
+
+5. **Appium session timeouts differ across farm providers** - AWS Device Farm, Firebase Test Lab, and BrowserStack all have different default session timeout values (5-20 minutes). A test suite that runs fine locally or on one platform will time out silently on another. Set explicit `newCommandTimeout` capability values in your desired capabilities rather than relying on provider defaults.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

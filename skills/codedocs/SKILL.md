@@ -156,7 +156,7 @@ Workflow:
    from manifest files. Map directory structure to candidate modules. Detect entry points
    (main files, index files, route definitions, CLI entry points).
 2. **Plan** - Present the user with a proposed doc plan: list of modules to document,
-   patterns detected, estimated scope, and coverage percentage. Wait for approval.
+   patterns detected, estimated scope, and coverage percentage. Confirm before proceeding if the plan is large or ambiguous.
 3. **Write OVERVIEW.md** - Architecture summary, tech stack, annotated project structure
    tree, entry points, key concepts, and module map with one-line descriptions.
 4. **Write GETTING_STARTED.md** - Full local development guide: prerequisites, installation,
@@ -266,6 +266,20 @@ strategies for improving coverage on large repos.
 | Skipping INDEX.md | AI agents can't map a specific file to its module doc | Always generate INDEX.md as part of the output |
 | Skipping GETTING_STARTED.md | Developers and agents can't run the project without hunting through package.json and README | Always generate GETTING_STARTED.md; source commands from scripts, Makefile, and CI config |
 | Copying README verbatim into GETTING_STARTED.md | READMEs are often incomplete or outdated; the guide adds no value | Extract commands from README but expand with context, fill gaps, and verify against actual scripts |
+
+---
+
+## Gotchas
+
+1. **Manifest SHA drift causes phantom staleness** - If the repo has uncommitted changes when `codedocs:generate` runs, the recorded git SHA doesn't match the working tree. Subsequent `codedocs:update` runs see all files as stale and attempt full re-generation. Run codedocs against a clean working tree or committed state where possible.
+
+2. **Coverage counts source files, not lines** - A large 2,000-line file and a small 50-line config file each count as one source file for coverage. A 70% coverage score can hide an undocumented core module if it happens to be split into many small files. Review the gap directory list in `codedocs:status` rather than trusting the percentage alone.
+
+3. **Sub-module splitting creates orphaned parent docs** - When a module with 15+ files is split into sub-modules, the parent `modules/<name>.md` should become an index pointing to sub-modules. If you create `modules/api/routes.md` and `modules/api/middleware.md` but leave the original `modules/api.md` intact unchanged, agents get conflicting information from two sources about the same code.
+
+4. **Polyglot repos confuse module boundary detection** - A repo with both a Python backend and a TypeScript frontend may have overlapping directory names (`utils/`, `types/`, `config/`) at different levels. The discovery phase can conflate these into one module. Explicitly verify module boundaries during the plan phase for monorepos or polyglot projects.
+
+5. **GETTING_STARTED.md sourced only from README** - READMEs are often incomplete or outdated. Commands listed in `package.json` scripts, `Makefile` targets, and CI config files frequently include critical developer workflows not mentioned in the README. Always cross-check all three sources when generating GETTING_STARTED.md.
 
 ---
 

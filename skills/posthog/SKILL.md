@@ -333,6 +333,20 @@ export async function handler(event) {
 
 ---
 
+## Gotchas
+
+1. **Serverless functions silently drop events if `shutdown()` is not awaited** - The Node.js PostHog client batches events and flushes them asynchronously. In Lambda or Edge functions, the process exits before the batch is sent unless you call `await client.shutdown()` at the end of every handler. Setting `flushAt: 1` and `flushInterval: 0` ensures immediate dispatch but adds network latency to each handler invocation.
+
+2. **Feature flag local evaluation requires the personal API key, not the project key** - `isFeatureEnabled()` on the server will make a network call to PostHog on every invocation unless local evaluation is configured. Local evaluation requires `personalApiKey` (starts with `phx_`), not the project API key (`phc_`). Using the wrong key silently falls back to per-call evaluation with no error.
+
+3. **`posthog.identify()` in the browser does not immediately affect feature flag evaluation** - After calling `identify()`, the SDK asynchronously reloads flags for the new identity. Code that immediately calls `isFeatureEnabled()` after `identify()` will receive the flags for the old anonymous identity. Use the `onFeatureFlags()` callback or `await posthog.reloadFeatureFlags()` to ensure flags reflect the new identity.
+
+4. **`person_profiles: 'identified_only'` prevents anonymous user tracking** - Setting `person_profiles` to `identified_only` means events from anonymous (non-identified) users are captured but no person profile is created, and those events cannot be used in funnels or cohorts that require a person. If you need funnel analysis including pre-signup behavior, use `'always'` or ensure you identify users early in the funnel.
+
+5. **Private API rate limits are per-organization, not per-key** - All personal API keys within an organization share the same rate limit pool (240/min for analytics queries). Multiple automated scripts or CI jobs querying the private API simultaneously can exhaust the organization-wide limit and affect interactive usage in the PostHog UI.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file from the

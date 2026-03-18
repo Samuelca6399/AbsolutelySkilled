@@ -339,6 +339,20 @@ Lead with the so-what on every slide. CFOs and CEOs do not want to read tables
 
 ---
 
+## Gotchas
+
+1. **Partial-year headcount math** - A hire starting July 1 costs 6/12 of their annual loaded cost in that fiscal year. Forgetting to prorate new hires is the most common reason department budgets look balanced on paper but come in over on actuals.
+
+2. **Benefits load varies wildly** - 20-30% is a guideline but actual loads vary by country, company size, and plan design. Always confirm the exact employer-side benefits load with HR/payroll before locking headcount budgets - using the wrong rate can misstate OpEx by 5-10%.
+
+3. **Rolling forecast ≠ annual budget** - Treating the rolling forecast as the new annual budget (and tying comp to it) removes the incentive to forecast accurately. Keep the original annual budget as the compensation target; use the rolling forecast only for operational decisions.
+
+4. **Variance timing traps** - A variance that is labeled "timing" (spend shifted quarters) often resurfaces in Q4 as a real overage. Track timing variances separately and flag them if they haven't resolved by month 9.
+
+5. **Allocation method drift** - If you switch cost allocation drivers mid-year (e.g., from headcount to compute units), prior-period comparisons become meaningless. Lock the allocation method at budget time and don't change it within a fiscal year without a full restatement.
+
+---
+
 ## References
 
 - `references/variance-templates.md` - Variance analysis templates and

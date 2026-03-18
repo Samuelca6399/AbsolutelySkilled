@@ -302,6 +302,20 @@ CRM-MAP integration is a bidirectional sync. Design the data contract carefully:
 
 ---
 
+## Gotchas
+
+1. **Automating before stage definitions are stable** - Building workflow automations on top of pipeline stages that are still being debated bakes bad process into code. When stages change, you have to unwind automations, field mappings, and reports simultaneously. Freeze stage definitions for one full quarter before automating them.
+
+2. **Enrichment overwriting sales rep data** - When a data enrichment provider (Clearbit, ZoomInfo) updates a field like company size or industry, it can silently overwrite a value a rep manually entered from a real sales conversation. Reps notice, stop trusting the CRM, and revert to spreadsheets. Configure enrichment to fill empty fields only, never overwrite populated ones.
+
+3. **Lead routing on engagement score alone** - A high engagement score means someone is interested - not that they are a qualified buyer. Routing a university student who visits your pricing page 10 times to sales wastes rep time and trains reps to distrust MQL routing. Always require a minimum profile (ICP fit) score alongside engagement before routing.
+
+4. **Forecast categories without commit culture** - A categorical forecast ("Committed / Best Case / Pipeline") only works if reps treat "Committed" as a hard promise. Without explicit commit culture training and consequences for consistent miss-commits, reps either over-commit to look good or under-commit to sandbag. The methodology is useless without the discipline.
+
+5. **Required free-text fields** - Making a free-text field required (like "Next Steps" as a text box) guarantees garbage data. Reps type anything to save the record: "TBD", "follow up", or nothing meaningful. Replace free-text required fields with picklists that have clear, actionable options.
+
+---
+
 ## References
 
 For detailed templates and implementation guidance, read the relevant file from

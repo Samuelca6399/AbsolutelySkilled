@@ -285,6 +285,20 @@ discount rate vs exit multiple.
 
 ---
 
+## Gotchas
+
+1. **Terminal value represents 60-80% of DCF value - small changes to terminal growth rate or discount rate swing valuation by 30-50%** - This makes the DCF highly sensitive to two of its most uncertain inputs. Always show a sensitivity table of terminal growth rate vs discount rate alongside any DCF output, or the number is meaningless as a standalone figure.
+
+2. **Monthly churn compounded annually is much worse than it looks** - 2% monthly churn sounds small but means ~21% annual revenue loss. Founders often model monthly churn in isolation and miss the compounding effect on ARR. Build a cohort model that shows the revenue retention curve over 12-24 months to make this visible.
+
+3. **Option pool shuffle dilutes founders pre-money, not investors post-money** - When VCs require an option pool refresh at the time of investment, they typically require it to be created using pre-money shares. This means founders bear 100% of the dilution. A $10M pre-money valuation with a 10% option pool refresh effectively reduces the founder's pre-money valuation to ~$9M. Model this explicitly in cap table scenarios.
+
+4. **Blended CAC hides channel efficiency differences** - If paid search CAC is $5,000 and organic CAC is $500, a blended $2,000 CAC looks reasonable but the business is critically dependent on a channel that could turn off. Always model CAC by channel separately to understand which channels are economically viable.
+
+5. **"Scenario analysis" with only revenue assumptions changed is not scenario analysis** - A true scenario represents a coherent narrative where multiple assumptions change together (growth rate, churn, gross margin, sales efficiency all move in the same direction). Changing only one variable while holding others constant is sensitivity analysis, which is a different and complementary tool.
+
+---
+
 ## References
 
 For detailed benchmarks, formulas, and worked examples:

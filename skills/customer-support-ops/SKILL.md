@@ -333,6 +333,20 @@ On-call agent must complete a shift handoff note before logging off.
 
 ---
 
+## Gotchas
+
+1. **SLA clock running during "Pending Customer" status** - Many ticketing system configurations keep the SLA clock running even when a ticket is waiting on the customer. This inflates resolution time metrics and creates false SLA breaches. Verify your ticketing platform pauses the clock correctly when status changes to "Pending Customer" or equivalent.
+
+2. **Macros that skip populated placeholder fields** - A macro template with `{customer_name}` that sends as-is when the field is empty sends customers an email that starts "Hi ," - a CSAT disaster. Every macro must require agent review before send; never configure auto-fire on macros with dynamic fields.
+
+3. **Enterprise tickets routed into the shared queue** - An enterprise customer submitting a ticket via the same channel as a free-tier user will wait behind a backlog of low-priority tickets unless routing is automated. VIP/enterprise tier identification must happen at ticket creation via CRM lookup, not manual agent review.
+
+4. **On-call rotations without minimum coverage rules** - An on-call rotation with only two engineers per region means one calling in sick leaves a single person covering P1s. Define a minimum viable coverage threshold and have a clear escalation path when it cannot be met (pool from a secondary region, use a support-on-call vendor, etc.).
+
+5. **Escalation handoffs without context transfer** - Escalating a ticket with only "customer is unhappy" forces the Tier 2 agent to re-investigate everything already discovered. Every escalation must include: the issue summary, steps already tried with outcomes, customer tier and sentiment, and all relevant logs or screenshots. Missing any of these doubles the resolution time.
+
+---
+
 ## References
 
 For detailed guidance on specific customer support operations domains, load the

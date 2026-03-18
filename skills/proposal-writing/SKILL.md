@@ -307,6 +307,20 @@ Submit the compliance matrix as an appendix. Reference it from the executive sum
 
 ---
 
+## Gotchas
+
+1. **Executive summary written last and rushed** - Because the executive summary comes first in the document, teams often write it last under time pressure. But evaluators who read only the exec summary decide the proposal's fate. Draft the exec summary early as a forcing function to align the entire proposal narrative, then refine it last.
+
+2. **Win themes that describe you, not the buyer's benefit** - "25 years of experience" and "proven methodology" are company-centric claims. A win theme must end with a buyer benefit and a proof point, not stop at the discriminator. Apply the formula explicitly: discriminator + because + buyer benefit + proof.
+
+3. **SOW scope without an explicit out-of-scope list** - Every ambiguous item not excluded in the SOW will eventually become a disputed change order. When drafting a SOW, explicitly list what is excluded. The out-of-scope section is as legally important as the scope section.
+
+4. **Compliance matrix built after writing** - Building the compliance matrix retroactively means gaps are discovered late and addressed with retrofitted language. Build the matrix first from the RFP, then write to fill every row.
+
+5. **Single pricing option presented** - A single price creates a take-it-or-leave-it dynamic and anchors the buyer on your lowest number. Always present three tiers and explicitly recommend the middle one; this shifts the framing from "should we buy?" to "which option fits us?"
+
+---
+
 ## References
 
 For detailed templates and worked examples, read the relevant file from `references/`:

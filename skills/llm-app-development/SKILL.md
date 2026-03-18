@@ -372,6 +372,20 @@ const compressPrompt = (p: string): string => p.replace(/\s{2,}/g, ' ').trim()
 
 ---
 
+## Gotchas
+
+1. **Streaming guardrails can only run post-completion** - You cannot validate a streamed response mid-stream for content policy or schema compliance. The full text is only available after the last token. Run output guardrails after the stream ends, and design your client to handle a late rejection (e.g., replace streamed content with an error state) rather than assuming the stream is always valid.
+
+2. **JSON mode does not guarantee valid JSON on all providers** - OpenAI's `response_format: { type: "json_object" }` reduces but does not eliminate parse errors, especially on long outputs that hit `max_tokens`. Always wrap `JSON.parse()` in a try/catch and treat a parse failure as a retriable error, not a crash.
+
+3. **RAG retrieval quality is dominated by chunk boundaries, not embedding models** - Switching from `text-embedding-3-small` to `text-embedding-3-large` rarely fixes poor retrieval. Poor recall almost always traces to chunks that split mid-sentence or mid-concept. Fix chunking strategy (overlapping windows, semantic boundaries) before upgrading the embedding model.
+
+4. **Tool call loops can exceed `maxSteps` silently on some SDKs** - If the model keeps calling tools without emitting a `stop` finish reason, some SDK wrappers will retry indefinitely. Always set an explicit `maxSteps` cap and treat a loop-exceeded condition as a hard error, not a retry.
+
+5. **Semantic caches can return stale or incorrect answers for slightly rephrased queries** - A semantic cache that matches "What is the capital of France?" to "Tell me the capital of France" is fine. But caches with broad similarity thresholds can match unrelated questions with similar wording. Set cosine similarity thresholds conservatively (0.97+) for factual queries; use exact caching only for truly deterministic prompts.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, load the relevant reference file:

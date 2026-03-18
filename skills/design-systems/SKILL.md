@@ -352,6 +352,20 @@ Workflow: `npx changeset` (describe changes) -> PR -> merge -> CI runs `changese
 
 ---
 
+## Gotchas
+
+1. **CSS custom properties don't work in Tailwind utility class values without special syntax** - `bg-[--color-interactive-primary]` requires the bracket notation with `--` prefix. Using `bg-color-interactive-primary` as a utility class name silently fails. Test that tokens actually apply before shipping.
+
+2. **`changesets publish` requires a clean working directory and correct npm auth** - Running `changeset publish` with uncommitted files or a missing `.npmrc` token publishes nothing but exits with code 0. Always run `npm whoami` and verify the registry before CI publish steps.
+
+3. **Compound components using React context throw at the wrong level** - If a consumer renders `<Tabs.Tab>` outside `<Tabs>`, the context check throws. The error must reference the component name clearly. A generic "Cannot read property of null" doesn't help consumers. Always throw with `throw new Error('Tabs.Tab must be used inside <Tabs>')`.
+
+4. **Storybook's `autodocs` tag generates docs from the first exported story's args, not all stories** - If your `Primary` story omits certain prop values, those props won't appear in the auto-generated docs table. Explicitly define `argTypes` in `meta` to control what shows.
+
+5. **Token renames in a patch release will break consumers** - Even if you add a semantic alias pointing to the old name, consumers who reference the old CSS variable name by string (e.g., in inline styles) get broken silently. Any token rename is a breaking change requiring a major version bump.
+
+---
+
 ## References
 
 - `references/token-architecture.md` - Token naming conventions, full primitive/semantic reference, Style Dictionary config, multi-brand patterns, Figma Variables sync

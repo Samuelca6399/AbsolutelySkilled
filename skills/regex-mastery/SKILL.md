@@ -301,6 +301,20 @@ cyrillicWord.test('Привет') // true
 
 ---
 
+## Gotchas
+
+1. **Lookbehind not supported in Safari < 16.4** - `(?<=...)` and `(?<!...)` are supported in Node.js, Chrome, and .NET but NOT in older Safari (pre-2023 iOS devices). If the regex runs in a browser context, either polyfill or restructure the pattern to avoid lookbehind.
+
+2. **Unanchored validation pattern silently passes invalid input** - `/\d{4}/` matches the digits inside `"abc1234xyz"`, making `test()` return `true` for an invalid value. Always add `^` and `$` anchors to any validation pattern.
+
+3. **Catastrophic backtracking on adversarial input** - Patterns like `(a+)+` or `(a|ab)+` take exponential time on long non-matching strings. Test any pattern with quantifier nesting using a 30-character string that should not match. If it hangs for more than a millisecond, restructure.
+
+4. **`u` flag missing for Unicode input** - Without the `u` flag in JavaScript, emoji and other multi-codepoint characters are counted as two characters by `.` and `{n}`. This causes off-by-one failures on strings containing emoji, CJK characters, or diacritics. Always use `/pattern/u` when processing user-supplied text.
+
+5. **Regex compiled inside a loop** - `new RegExp(pattern)` inside a `for` loop re-compiles the pattern on every iteration, adding overhead proportional to loop count. Hoist regex literals or `new RegExp()` calls outside the loop.
+
+---
+
 ## References
 
 For ready-to-use patterns across common domains, read:

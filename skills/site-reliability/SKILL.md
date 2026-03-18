@@ -383,6 +383,20 @@ behavior.
 
 ---
 
+## Gotchas
+
+1. **SLO window reset on the 1st creates budget gaming** - Calendar month windows reset error budget on the 1st regardless of what happened on the 31st. Teams learn to push risky deploys right after reset. Use rolling 30-day windows which are always live and cannot be gamed.
+
+2. **Burn rate alerts with a single window produce too much noise** - A 5-minute burn rate alert alone generates pages for transient spikes that self-recover. Multi-window alerting (5-minute AND 1-hour both elevated) dramatically reduces false positives while keeping sensitivity to real incidents.
+
+3. **Toil metrics without a reduction target are just bookkeeping** - Measuring toil hours without committing to a reduction target and a sprint allocation to address it creates awareness without action. The measure only has value if it gates a quarterly automation investment.
+
+4. **Canary rollout with no automated rollback is manual canary** - A canary that requires a human to notice the error rate spike and manually roll back is not a canary - it is a staged rollout with extra steps. Automated rollback on threshold breach is the defining property; without it, the safety benefit is largely absent.
+
+5. **On-call runbooks that say "escalate to engineering"** - A runbook whose resolution step is "page someone else" does not reduce on-call burden; it just shifts it. Every runbook must include at least one concrete mitigation step the on-call can take before escalating.
+
+---
+
 ## Anti-patterns / common mistakes
 
 | Mistake | Why it is wrong | What to do instead |

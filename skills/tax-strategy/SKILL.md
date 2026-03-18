@@ -304,6 +304,20 @@ Shareholders of a C-Corp can exclude up to $10M (or 10x basis, whichever is grea
 
 ---
 
+## Gotchas
+
+1. **R&D credits require contemporaneous documentation, not retroactive reconstruction** - The IRS can and does reject R&D credit claims where time logs were created after the fact. Time-tracking systems must be running before the tax year you intend to claim. Reconstructed records from Jira or git history alone are not sufficient.
+
+2. **Economic nexus thresholds are based on prior-year activity, not current-year** - Many states look at the prior calendar year to determine if the current year creates nexus. A company that crossed $100K in sales to California in 2023 has nexus there starting January 1, 2024 - not the day they crossed the threshold.
+
+3. **QSBS exclusion requires the company to be a C-Corp at issuance** - Converting from LLC to C-Corp after investors receive units does not retroactively qualify. The shares must be original-issue C-Corp stock when issued. Advise on entity type before any equity grants.
+
+4. **S-Corp reasonable compensation is not optional** - The IRS actively audits S-Corp owner-operators who pay themselves below-market salaries. The standard is what the company would pay a third party to do the same job, not what feels tax-efficient.
+
+5. **Sales tax registration must precede collection** - Collecting sales tax before obtaining a state permit is a separate violation from failure to collect. Some states treat collection without registration as fraud. Register before enabling tax collection in billing systems.
+
+---
+
 ## References
 
 For detailed content on specific sub-domains, read the relevant file from

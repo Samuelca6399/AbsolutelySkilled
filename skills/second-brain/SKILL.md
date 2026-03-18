@@ -181,6 +181,20 @@ When new information contradicts an existing memory:
 
 ---
 
+## Gotchas
+
+1. **index.yaml out of sync crashes relevance matching** - If files are added or renamed without updating `index.yaml`, the tag-based lookup silently misses them. Always update `index.yaml` atomically when creating, renaming, or splitting memory files.
+
+2. **Splitting too eagerly fragments context** - Splitting a file at 90 lines into 5 sub-files can make each one too narrow to load usefully on its own. Before splitting, ask whether the sub-topics are actually queried independently. If not, keep them together and only split when a specific sub-topic is consistently relevant on its own.
+
+3. **Tags that are too generic defeat lookup** - Tags like `coding` or `work` match everything and score everything equally. Tags should be specific enough to differentiate: `typescript`, `react-patterns`, `vim-config` rather than just `tools`.
+
+4. **Proposing saves mid-task breaks focus** - Offering to save a learning while the user is still in the middle of a complex task pulls them out of flow. Batch all proposed saves for the end of the task in one approval round.
+
+5. **Wiki-links to non-existent files break the graph** - When splitting or pruning files, update all `[[wiki-links]]` that pointed to the old path. A broken link silently orphans the cross-reference and the graph loses its traversal utility.
+
+---
+
 ## Anti-patterns / common mistakes
 
 | Mistake | Why it's wrong | What to do instead |

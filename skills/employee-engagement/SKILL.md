@@ -365,6 +365,20 @@ attention before broader engagement programs will have meaningful impact.
 
 ---
 
+## Gotchas
+
+1. **Survey results shared without manager-level breakdowns are nearly useless for action** - Org-wide averages hide the teams where engagement is critically low and the managers who are the problem. Sharing only top-line scores protects poor managers while demoralizing the employees under them. Always segment by team, even if it requires a minimum respondent threshold to protect anonymity.
+
+2. **Response rates below 60% make results unrepresentative** - The employees who skip surveys are systematically different from those who complete them - often the most disengaged or the most burned out. A 40% response rate means your "engagement score" reflects the more motivated half of your workforce, not the whole.
+
+3. **Psychological safety scores below 70% favorable invalidate all other engagement data** - If people don't feel safe answering honestly, every other metric is distorted. Low-scoring teams will rate everything higher to avoid identification. Fix psychological safety before running any other diagnostic.
+
+4. **Annual surveys measure the mood of the month the survey was sent, not the year** - Sending the annual survey during a high-energy product launch or immediately after layoffs captures a snapshot, not a trend. Establish a fixed calendar cadence and stick to it, or use rolling pulse data that normalizes seasonal variation.
+
+5. **eNPS without a follow-up open-text question produces unactionable scores** - Knowing that 30% of employees are detractors tells you nothing about why. Always pair the eNPS question with "What is the primary reason for your score?" to get the qualitative themes that drive action planning.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

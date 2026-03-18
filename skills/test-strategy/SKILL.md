@@ -296,6 +296,20 @@ Never re-run a flaky test and call it fixed. Follow this protocol:
 
 ---
 
+## Gotchas
+
+1. **Testing implementation details breaks on every refactor** - Tests that assert internal function calls or private state are coupled to the how, not the what. When you move logic between files or rename functions, these tests fail even though nothing broke. Test through the public API and observable outputs only.
+
+2. **Transaction rollback in DB tests does not catch commit-time failures** - Rolling back a transaction after each test is fast but skips any constraints or triggers that only fire on COMMIT (e.g., deferred foreign key checks in PostgreSQL). For critical paths, run at least a subset of tests against a real transaction that commits.
+
+3. **Mutation testing tools report false positives on unreachable branches** - Some generated mutants will be in dead code paths that are never exercised. A "survived mutant" in code guarded by a feature flag or error path that is structurally unreachable is not a test gap. Review mutation reports in context.
+
+4. **Quarantined flaky tests accumulate and are never fixed** - Moving tests to a `flaky` folder or CI job without a SLA for fixing them creates a graveyard. Set a 2-week SLA: fix or delete. A quarantine suite that grows signals a systemic problem, not isolated test issues.
+
+5. **100% line coverage does not mean the test suite is valuable** - You can achieve 100% coverage with tests that assert nothing meaningful (just call the function). Mutation score is the real quality signal. If your 100% coverage suite has a 40% mutation score, 60% of your tests are noise.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

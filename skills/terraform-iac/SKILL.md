@@ -185,87 +185,11 @@ variable "service_name" {
 ### Write a reusable module
 
 A module is a directory with `main.tf`, `variables.tf`, and `outputs.tf`.
-Modules should express one cohesive infrastructure concern.
+Modules should express one cohesive infrastructure concern. All inputs are
+declared with descriptions in `variables.tf`; all outputs expose only what
+callers need in `outputs.tf`.
 
-**`modules/vpc/variables.tf`**
-
-```hcl
-variable "name" {
-  description = "Name prefix for all VPC resources"
-  type        = string
-}
-
-variable "cidr_block" {
-  description = "CIDR block for the VPC"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
-variable "availability_zones" {
-  description = "List of AZs to create subnets in"
-  type        = list(string)
-}
-
-variable "private_subnet_cidrs" {
-  type = list(string)
-}
-
-variable "public_subnet_cidrs" {
-  type = list(string)
-}
-```
-
-**`modules/vpc/main.tf`**
-
-```hcl
-resource "aws_vpc" "this" {
-  cidr_block           = var.cidr_block
-  enable_dns_hostnames = true
-  enable_dns_support   = true
-
-  tags = { Name = var.name }
-}
-
-resource "aws_subnet" "public" {
-  count             = length(var.public_subnet_cidrs)
-  vpc_id            = aws_vpc.this.id
-  cidr_block        = var.public_subnet_cidrs[count.index]
-  availability_zone = var.availability_zones[count.index]
-
-  map_public_ip_on_launch = true
-  tags = { Name = "${var.name}-public-${count.index + 1}" }
-}
-
-resource "aws_subnet" "private" {
-  count             = length(var.private_subnet_cidrs)
-  vpc_id            = aws_vpc.this.id
-  cidr_block        = var.private_subnet_cidrs[count.index]
-  availability_zone = var.availability_zones[count.index]
-
-  tags = { Name = "${var.name}-private-${count.index + 1}" }
-}
-```
-
-**`modules/vpc/outputs.tf`**
-
-```hcl
-output "vpc_id" {
-  description = "ID of the created VPC"
-  value       = aws_vpc.this.id
-}
-
-output "public_subnet_ids" {
-  description = "IDs of the public subnets"
-  value       = aws_subnet.public[*].id
-}
-
-output "private_subnet_ids" {
-  description = "IDs of the private subnets"
-  value       = aws_subnet.private[*].id
-}
-```
-
-**Calling the module from a root configuration:**
+**Calling a module from a root configuration:**
 
 ```hcl
 module "vpc" {
@@ -277,6 +201,8 @@ module "vpc" {
   private_subnet_cidrs = ["10.0.11.0/24", "10.0.12.0/24", "10.0.13.0/24"]
 }
 ```
+
+See `references/module-patterns.md` for complete module templates, versioning, and monorepo layout.
 
 ---
 
@@ -472,6 +398,20 @@ resource "aws_security_group" "app" {
 | `Error refreshing state: AccessDenied` | Provider credentials lack read permissions on existing resources | Expand IAM policy to include `Describe*` / `Get*` / `List*` for affected services |
 | `Error: Cycle detected` | Circular dependency between resources (`A depends on B, B depends on A`) | Break the cycle with `depends_on` or restructure - often caused by security group self-references |
 | `Plan shows replacement for unchanged resource` | A computed attribute (e.g., an ARN or auto-generated field) changed externally | Run `terraform refresh` then re-plan; if persistent, check for provider version changes |
+
+---
+
+## Gotchas
+
+1. **You cannot manage the S3 backend bucket with the config that uses it** - The backend must exist before `terraform init` runs. Bootstrap the state bucket and DynamoDB lock table with a separate configuration (or manually). Attempting to create both in the same root module causes a chicken-and-egg failure.
+
+2. **`terraform destroy` in a workspace also destroys shared resources** - If your module references shared infrastructure (e.g., a VPC created in another root module), and you run `destroy` in a feature workspace, any shared resources included via `data` sources will not be destroyed - but any created by this config will. Audit what belongs to the workspace before destroying.
+
+3. **Unpinned provider versions cause silent breakage on upgrades** - Without `version = "~> 5.0"` in `required_providers`, a provider major version bump in the registry can change resource schemas and break existing configs on the next `terraform init`. Always pin providers; update versions deliberately.
+
+4. **`terraform state rm` does not destroy the real resource** - It only removes Terraform's tracking entry. The resource continues running and accumulating cost. If you want the resource gone, run `terraform destroy -target=<resource>` first, then remove from state if needed.
+
+5. **Workspaces share a backend - a corrupted state affects all workspaces** - Using workspaces with separate state keys in the same S3 bucket means a misconfigured `state mv` or force-unlock at the wrong key can corrupt a different environment's state. Prefer separate AWS accounts or separate state buckets for prod/staging separation.
 
 ---
 

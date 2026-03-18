@@ -276,6 +276,20 @@ appeared in the journey of closed deals).
 
 ---
 
+## Gotchas
+
+1. **Content calendar without deadlines is fiction** - A calendar with "aspirational" publish dates is not a calendar. Dates must be committed and tied to an owner. Without a hard publish date, work expands to fill all available time and cadence collapses.
+
+2. **Repurposing means format change, not copy-paste** - Copying a blog post into LinkedIn as-is is not repurposing - it performs poorly and signals low effort. Format must change: a 2,000-word post becomes a 7-post thread that distills the key insights, not a wall of text.
+
+3. **Pillar pages without cluster links don't work** - A pillar page with no internal links to spoke articles is just a long article. The SEO benefit comes from the bidirectional link structure. Build the cluster first, then wire the links.
+
+4. **Targeting high-volume keywords too early** - New domains cannot rank for head terms (10K+ monthly searches) regardless of content quality. Begin with long-tail, low-competition keywords (<1K searches/month) to build domain authority before competing for volume.
+
+5. **Publishing without a distribution plan reaches no one** - Great content without promotion earns zero traffic. Treat distribution as a production step, not an afterthought. Plan social, email, and outreach before writing begins.
+
+---
+
 ## References
 
 For detailed templates and structures, read the relevant file from `references/`:

@@ -342,6 +342,20 @@ the schema).
 
 ---
 
+## Gotchas
+
+1. **Pages not in the top 10 almost never win snippets** - Featured snippets are almost exclusively drawn from positions 1-10. Optimizing snippet format on a page ranking position 15 is wasted effort. Earn the ranking first, then optimize for the snippet.
+
+2. **FAQPage schema without identical visible HTML gets penalized** - Every Q&A in `FAQPage` schema must have matching visible content on the page. Schema-only Q&A pairs (where the answer is in the JSON-LD but not rendered in the DOM) cause Google to revoke rich result eligibility for the entire page.
+
+3. **Snippet wins on high-traffic informational queries often reduce clicks** - Zero-click exposure builds brand awareness but does not drive traffic. Before optimizing for a snippet, check whether the query has purchase or navigation intent. Snippet-optimizing a bottom-funnel query that currently drives clicks may hurt conversion.
+
+4. **List snippet items must be self-contained** - Google sometimes displays only the label of each list item, not the supporting paragraph. If an item label only makes sense in context ("Step 3: Do this after step 2"), it will be useless in the snippet. Each item must stand alone.
+
+5. **Speakable schema is English-only and requires Google News eligibility** - Speakable is not a general-use schema. For non-news sites, it has no confirmed impact on voice results. Focus voice optimization efforts on winning paragraph featured snippets instead, as those are the primary source for voice responses.
+
+---
+
 ## References
 
 For detailed guidance on specific snippet mechanics and voice optimization, load:

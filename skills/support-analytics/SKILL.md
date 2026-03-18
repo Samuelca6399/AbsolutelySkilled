@@ -308,6 +308,20 @@ New customers tend to score differently than long-tenured accounts.
 
 ---
 
+## Gotchas
+
+1. **CSAT surveys sent more than 24 hours after ticket close get response bias** - Surveys sent days after resolution disproportionately capture customers who had extreme experiences (very positive or very negative) because neutral customers have moved on. Automate delivery within 1 hour of ticket close to get a representative sample.
+
+2. **FCR self-reporting by agents inflates the metric** - If agents mark tickets as "resolved first contact" manually, they will mark optimistically. FCR should be measured by the ticketing system based on whether the customer reopened or submitted a new ticket on the same topic within 72 hours, not by agent judgment.
+
+3. **Chatbot containment rate hides frustrated escalation paths** - If customers cannot find the escalation button, your containment rate looks great while your CSAT tanks. Always pair containment rate with a post-deflection CSAT signal (even a thumbs up/down) to distinguish genuinely resolved sessions from abandoned ones.
+
+4. **Normalizing agent CSAT by ticket type requires a large sample** - Comparing agents with statistical significance requires at minimum 30 surveys per agent per segment. Trying to normalize by ticket type with small sample sizes produces rankings that are noise, not signal. Use QA score for coaching with small agent pools instead.
+
+5. **Volume forecasting without seasonality adjustments leads to understaffing** - Applying a flat growth rate to weekly volume ignores known spikes (product launches, billing cycle dates, end-of-fiscal-year surges). Build a seasonal adjustment factor by comparing the same week across prior years before making staffing decisions.
+
+---
+
 ## Anti-patterns
 
 | Anti-pattern | Why it's wrong | What to do instead |

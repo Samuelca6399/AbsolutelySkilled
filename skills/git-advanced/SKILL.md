@@ -376,6 +376,20 @@ massive merge conflict.
 
 ---
 
+## Gotchas
+
+1. **Interactive rebase on commits already pushed to a shared branch will break teammates** - `git rebase -i` rewrites SHAs. If anyone has already pulled those commits, their history diverges and they face painful force-merge situations. Only interactively rebase commits that exist solely on your local or personal feature branch. Use `git push --force-with-lease` (never bare `--force`) if you must update a remote branch you own.
+
+2. **`git bisect reset` is not optional** - If you forget to run `git bisect reset` after a bisect session, HEAD remains detached at whatever commit bisect last checked out. Any work you commit in this state is not on any branch and is easily lost. Always run `git bisect reset` before returning to normal development.
+
+3. **Worktrees sharing the same branch causes confusing conflicts** - Git prevents two worktrees from checking out the exact same branch simultaneously, but it's easy to accidentally make changes in one worktree that affect the index visible in another. Keep one branch per worktree and run `git worktree prune` after removing worktree directories to prevent stale lock files.
+
+4. **Reflog entries expire - you cannot recover commits after `git gc` runs** - The default reflog expiry is 90 days, but `git gc` may run automatically. Once a commit's reflog entry is gone and it's unreachable from any branch, `git fsck --lost-found` is your last hope. When recovering, create a new branch immediately rather than cherry-picking from a detached state.
+
+5. **Cherry-picking merge commits requires `-m` to specify the mainline** - Running `git cherry-pick <merge-commit-sha>` without specifying a parent number will fail with an error. You must supply `-m 1` (or `-m 2`) to tell git which side of the merge is the mainline. For most cases, `-m 1` picks the changes relative to the first parent (the branch that was merged into).
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

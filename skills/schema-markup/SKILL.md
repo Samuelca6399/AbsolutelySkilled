@@ -365,6 +365,20 @@ same pattern: serialize the object and inject as `type="application/ld+json"`.
 
 ---
 
+## Gotchas
+
+1. **Rich Results Test passes but nothing appears in SERPs** - Passing validation only confirms syntax correctness. Google still decides whether to display rich results based on content quality, query relevance, and site authority. Schema eligibility is not a guarantee of display.
+
+2. **Product schema with dynamic pricing goes stale** - If `price` or `availability` are hardcoded in the template rather than dynamically rendered from live data, they drift out of sync. Google issues manual actions for misleading structured data. Always generate these fields server-side from live inventory.
+
+3. **FAQPage on community Q&A pages triggers spam detection** - `FAQPage` is for single-author authoritative Q&A (e.g., a brand's own FAQ). Marking up a community forum or user-generated Q&A as `FAQPage` violates Google's guidelines and can result in the rich result being suppressed across the entire domain.
+
+4. **Multiple `@type` blocks for the same entity cause conflicts** - Having two separate `<script type="application/ld+json">` blocks that both describe the same `Product` or `Organization` creates conflicting signals. Combine into one block or use an array at the top level.
+
+5. **Next.js `dangerouslySetInnerHTML` without JSON sanitization** - If any product name or description contains a `</script>` string (possible in user-generated content), it will break the JSON-LD block. Always sanitize dynamic strings or use a JSON serialization library that escapes special characters.
+
+---
+
 ## Anti-patterns / common mistakes
 
 | Mistake | Why it's wrong | What to do instead |

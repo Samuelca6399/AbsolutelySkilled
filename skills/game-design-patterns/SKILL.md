@@ -355,6 +355,20 @@ class NetworkCommandBuffer {
 
 ---
 
+## Gotchas
+
+1. **Object pools sized for average load, not burst load, cause missed spawns** - If you size a bullet pool for "average 50 bullets" but the boss fight fires 200 in 2 seconds, `acquire()` returns null and bullets silently fail to spawn. Always size pools to the worst-case burst in your game, add pool expansion with a warning log, and test the burst scenario explicitly.
+
+2. **State machine transitions that allocate new State objects cause GC pressure** - If each `transition()` call does `new JumpState(character)`, you're allocating during gameplay, which triggers garbage collection pauses. Pre-allocate all state instances at startup and store them in a dictionary; transition by swapping references, not by creating new objects.
+
+3. **Event bus subscriptions from destroyed entities cause null reference crashes** - When a game object is destroyed without unsubscribing its event handlers, the next event dispatch calls a handler with a null `this` context and crashes or produces stale state. Always store and invoke the unsubscribe function returned by `on()` in the entity's destroy/cleanup path.
+
+4. **Command history grows unbounded in long sessions** - Storing every command since session start for an undo system will consume growing memory over hours of gameplay. Cap the command history to a maximum depth (e.g., 100 commands) or checkpoint-and-truncate periodically. For replay systems, commands older than the checkpoint can be dropped.
+
+5. **Deterministic lockstep breaks silently on floating-point operations** - Two clients running the same command stream will desync if any physics or movement calculation uses floating-point math, because IEEE 754 results can differ across CPU architectures and compiler optimizations. Use fixed-point arithmetic for all game state that must be deterministic across clients.
+
+---
+
 ## References
 
 For detailed content on specific patterns, read the relevant file from `references/`:

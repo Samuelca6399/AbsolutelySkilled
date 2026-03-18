@@ -220,6 +220,20 @@ For any new research initiative, produce a one-page research plan:
 
 ---
 
+## Gotchas
+
+1. **Recruiting only current, happy customers** - If your interview panel is drawn from NPS promoters or customers who accepted a meeting invite, your research systematically misses churned users, non-adopters, and detractors. These are often the most informative participants. Explicitly recruit across churn status, tenure, and engagement level.
+
+2. **Survey question order creates priming effects** - Asking "How satisfied are you with our support?" immediately before "How likely are you to recommend us?" artificially inflates NPS. Question order changes answers. Randomize sections where possible, and never put evaluative questions before attitude questions they could bias.
+
+3. **Treating qualitative saturation as a sample size problem** - Researchers often keep interviewing because they feel "n=8 isn't enough." In qualitative research, you stop when new interviews stop producing new themes - typically 5-8 for a focused topic. More interviews after saturation waste time and produce diminishing returns.
+
+4. **Behavioral analytics without a prior hypothesis** - Starting with "let's look at the data and see what's interesting" produces confirmation bias and analysis paralysis. Define a specific behavioral question before opening the analytics tool: "Do users who complete onboarding step 3 within 7 days retain better at Day 30?"
+
+5. **Personas with invented attributes** - Personas built in a workshop from team assumptions rather than research data are archetypes of bias, not customers. Every persona attribute (goals, pain points, behaviors) must trace back to an observed data point. If you cannot cite the source, remove the attribute.
+
+---
+
 ## References
 
 For detailed methodology on specific research techniques, read the relevant file

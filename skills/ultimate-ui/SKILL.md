@@ -306,6 +306,20 @@ Use a modular scale with ratio 1.25 (major third). Base size: 16px.
 
 ---
 
+## Gotchas
+
+1. **CSS custom properties in dark mode require explicit overrides at the right scope** - Setting `--bg-primary` on `:root` works, but if a component is inside a portal or shadow DOM, it may not inherit the theme variables. Always test theme switching in modals, dropdowns, and third-party widget wrappers.
+
+2. **Tailwind's `purge`/`content` config missing component paths causes production CSS to be empty** - In a monorepo or when UI components live outside the `src/` directory, Tailwind will strip their classes from the production bundle. Every path that contains Tailwind classes must be listed in `content` in `tailwind.config.js`.
+
+3. **`transform: scale()` on buttons clips focus rings and overflow shadows** - Using `scale(0.98)` on `:active` is a common polish trick, but if the button has `box-shadow` for a focus ring, the shadow gets clipped by the parent's overflow. Use `outline-offset` instead of `box-shadow` for focus indicators on transformed elements.
+
+4. **`min-height: 100vh` breaks on mobile Safari** - Mobile browsers include the browser chrome in `100vh`, causing content to be cut off below the fold. Use `min-height: 100dvh` (dynamic viewport height) for full-screen layouts on mobile. Add a `100vh` fallback for older browsers.
+
+5. **Grid `auto-fill` vs `auto-fit` produces visually different results on sparse grids** - `auto-fill` creates empty columns to fill the row; `auto-fit` collapses them so items stretch. Using `auto-fill` when you expect items to fill the width produces a grid that stops at the last item with empty whitespace. Use `auto-fit` for responsive grids that should expand to fill.
+
+---
+
 ## References
 
 For detailed guidance on specific UI topics, read the relevant file

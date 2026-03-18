@@ -350,6 +350,20 @@ with a single application based on a home-country registration or application.
 
 ---
 
+## Gotchas
+
+1. **AGPL dependencies in SaaS products require full source disclosure** - AGPL's "network use" clause means that if your SaaS product runs AGPL-licensed code on a server that users interact with over a network, you must provide the complete source code of your entire application to those users on request. This applies even if you never distribute the binary. Run SCA tooling with an AGPL check before adding any dependency.
+
+2. **Contractor IP assignment must predate the work, not follow it** - An IP assignment clause signed after the work is created may not be enforceable in some jurisdictions - the contractor may argue there was no consideration. Require signed agreements before repository access is granted and before any work begins, without exception.
+
+3. **Provisional patent applications create a false sense of protection** - A provisional application secures a priority date but provides no actual patent protection. If you miss the 12-month deadline to file the non-provisional application, the provisional expires and the priority date is lost. Calendar the deadline at filing and treat it as a hard deadline, not an advisory.
+
+4. **Trademark "use in commerce" specimens must show actual use, not intended use** - The USPTO will reject specimens that show a mock-up, website screenshot with no purchase path, or a product page that doesn't yet sell. The specimen must show the mark used in connection with the actual sale or transport of goods or services. File on an intent-to-use basis if the product isn't launched yet.
+
+5. **New hires may bring IP obligations from their previous employer** - Work created by an employee that relates to their former employer's business may still belong to that employer, regardless of what your employment agreement says. For engineers hired from direct competitors, have counsel review any prior IP assignment agreements before they begin work in the same technical area.
+
+---
+
 ## References
 
 For detailed guidance on specific IP management domains, load the relevant

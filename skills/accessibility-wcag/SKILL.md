@@ -507,6 +507,20 @@ Manual audit checklist beyond automated tools:
 
 ---
 
+## Gotchas
+
+1. **`aria-hidden="true"` on a focusable element creates a keyboard trap** - Screen readers skip the element, but keyboard focus still lands on it. The user is stuck on something invisible. Never apply `aria-hidden` to any element that can receive focus; remove `tabindex` or use `inert` instead.
+
+2. **`role="button"` without keyboard handlers does nothing** - Adding `role="button"` to a `<div>` tells screen readers it's a button, but doesn't add keyboard activation. You must also add `tabindex="0"` and handle both `Enter` and `Space` keydown events. Just use `<button>` instead.
+
+3. **Live regions must be in the DOM before content is injected** - `aria-live` regions only announce changes that happen after they're rendered. If you inject the region and its content at the same time, screen readers won't announce it. Render the empty live region on page load, then populate it.
+
+4. **Focus return after modal close is not automatic** - When a modal closes, focus goes to `<body>` by default. Users lose their place in the page. Always store `document.activeElement` before opening a modal and call `.focus()` on that element when the modal closes.
+
+5. **Automated tools catch ~30% of violations** - axe and Lighthouse pass does not mean WCAG compliant. Focus order, announcement quality, color-alone information encoding, and logical reading order all require manual testing with a screen reader (VoiceOver on macOS, NVDA on Windows).
+
+---
+
 ## References
 
 For detailed patterns and widget specifications, load the relevant reference:

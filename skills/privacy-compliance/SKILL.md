@@ -402,6 +402,20 @@ Is the destination country on the EU adequacy list?
 
 ---
 
+## Gotchas
+
+1. **Consent banners that fire after analytics scripts have already loaded are non-compliant** - A common implementation mistake is loading Google Analytics, Meta Pixel, or Heap in the `<head>` before the consent banner renders. By the time the user sees the banner, non-essential cookies have already been set. Load analytics scripts conditionally: fire them only after consent is granted, not before the banner resolves.
+
+2. **Deletion requests must cascade to all processors and data warehouses, not just the primary DB** - Deleting a user from your application database while leaving their data in Segment, BigQuery, Amplitude, Intercom, and your email platform is not compliant with GDPR Art. 17. Maintain a processor inventory and build a deletion workflow that triggers deletion across every system in the chain.
+
+3. **Legitimate Interests as a catch-all basis for analytics is high-risk** - Many companies use "Legitimate Interests" for all analytics because it avoids requiring consent. But LI requires a genuine balancing test (Legitimate Interests Assessment) where user interests do not override yours. Regulators have repeatedly ruled that behavioral analytics for marketing cannot rely on LI and require explicit consent. Default to consent for analytics; use LI only for fraud prevention and security logging.
+
+4. **Breach notification to supervisory authority must happen within 72 hours of becoming aware** - The GDPR 72-hour clock starts when your organization has reasonable certainty that a breach occurred - not when the forensic investigation is complete. You can submit an initial notification with incomplete information and supplement it later. Many organizations fail this deadline by waiting for full confirmation.
+
+5. **Standard Contractual Clauses must be the 2021 version, not the 2010 version** - The EU Commission invalidated the 2010 SCCs in 2021. Any Data Processing Agreement or data transfer mechanism signed before June 2021 that uses the old SCCs must have been updated by December 2022. Using legacy SCCs is a compliance gap that regulators flag in audits. Always use the 2021 SCCs with the correct module (controller-to-processor = Module 2).
+
+---
+
 ## References
 
 For detailed side-by-side regulatory comparison, load the relevant reference file:

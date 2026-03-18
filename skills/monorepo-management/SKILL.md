@@ -354,6 +354,20 @@ for a genuinely polyglot repo with build engineering capacity.
 
 ---
 
+## Gotchas
+
+1. **Turborepo cache poisoning from over-broad `outputs`** - Setting `"outputs": ["**"]` in a task caches `node_modules/`, `.git/`, and generated files alongside build artifacts. A cache hit then restores stale `node_modules` from a previous run, causing dependency resolution bugs that are nearly impossible to trace. List only specific artifact directories: `dist/**`, `.next/**`, `coverage/**`.
+
+2. **`workspace:*` vs `workspace:^` produce different lockfile behavior** - `workspace:*` keeps the version as `*` in the lockfile and always resolves to whatever version the local package is at. `workspace:^` pins a semver range at install time. Mixing both across packages in the same repo produces inconsistent resolution and breaks remote cache hits. Choose one convention and enforce it.
+
+3. **Missing `"dependsOn": ["^build"]` causes type errors in downstream packages** - Without this directive, Turborepo may start building a consumer package before its dependency has emitted its `dist/` output and type declarations. TypeScript errors like `Cannot find module '@myorg/utils'` are the symptom. Always declare `^build` dependsOn for any task that produces files consumed by other packages.
+
+4. **Nx affected commands use `defaultBase` which defaults to `main` but CI often checks out a detached HEAD** - `nx affected` computes affected projects by diffing against `defaultBase`. In a GitHub Actions PR workflow with `actions/checkout@v4`, the base branch is not fetched by default. Add `fetch-depth: 0` to the checkout step and set `--base=origin/main` explicitly, or `nx affected` will compare against nothing and rebuild everything.
+
+5. **Circular workspace dependencies hang builds silently** - A circular dependency between packages (A depends on B, B depends on A) breaks the task DAG and causes Turborepo or Nx to either deadlock or skip tasks without error messages. Run `nx graph` or `madge --circular --extensions ts packages/` regularly to detect cycles before they cause build failures in CI.
+
+---
+
 ## References
 
 - [Turborepo docs](https://turbo.build/repo/docs)

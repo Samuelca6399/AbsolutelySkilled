@@ -301,6 +301,20 @@ note that prevents the receiving person from starting cold.
 
 ---
 
+## Gotchas
+
+1. **RFC review period ends with no decision recorded** - Teams collect comments but never formally update the RFC status from "In Review" to "Accepted" or "Rejected." Without a recorded decision, the RFC becomes a zombie document that people keep re-litigating. Always close the loop: update status, summarize the decision, and note the rationale.
+
+2. **Async standup replacing the only team touchpoint** - Async standups eliminate a synchronous moment, which is a good thing - but if they become the team's sole communication mechanism, relationship signals get lost. Preserve at least one brief weekly sync for relationship maintenance, not status.
+
+3. **Meeting recorded as the primary artifact** - A one-hour recording is not a searchable document. No one rewatches it. Write a summary with decisions and action items; include a recording link only as supplementary reference. Defaulting to "we recorded it" is not documentation.
+
+4. **"Silence equals consent" norm not stated explicitly** - If teams don't know that failing to respond to an RFC before the deadline counts as agreement, they feel blindsided by decisions made without them. State the norm explicitly in the RFC template and the team communication charter.
+
+5. **Cross-timezone handoffs written from the sender's perspective** - Handoffs that say "I got halfway through X" don't tell the receiver what to do next. Structure handoffs from the receiver's perspective: what is the next concrete action, what context do they need, and what decision is waiting for them.
+
+---
+
 ## References
 
 For detailed protocols and extended templates, read the relevant file from

@@ -430,6 +430,20 @@ latency and type safety are critical.
 
 ---
 
+## Gotchas
+
+1. **Offset pagination breaks under concurrent writes** - Offset-based pagination (`?page=2&limit=20`) produces incorrect results when rows are inserted or deleted between pages. Use cursor-based pagination (keyset/seek) for any dataset that changes while clients are paginating through it.
+
+2. **Breaking changes in "minor" updates** - Removing a field, changing a field's type, or narrowing an enum are breaking changes even if you don't bump the version. Consumers fail at runtime with no warning. Use the expand-contract pattern: add the new field, deprecate the old one, remove it only after all consumers have migrated.
+
+3. **`422` vs `400` confusion** - `400 Bad Request` is for malformed requests (unparseable JSON, wrong content type). `422 Unprocessable Entity` is for syntactically valid requests that fail business validation (email already taken, negative quantity). Returning `400` for validation errors prevents consumers from distinguishing parse errors from validation failures.
+
+4. **URL versioning leaks into caches and logs** - Query parameter versioning (`?version=2`) gets cached incorrectly by HTTP caches that ignore query strings, and pollutes analytics logs. URL path versioning (`/v2/`) is cleanest for public APIs; header versioning is better for internal APIs that need per-consumer negotiation.
+
+5. **`DELETE` returning `200` with a body vs `204`** - Many clients discard the body on `204 No Content` responses. If you need to return data from a delete operation, use `200 OK` with a body. If nothing needs to be returned, use `204`. Mixing them creates client parsing bugs.
+
+---
+
 ## References
 
 - [RFC 7807 - Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc7807)

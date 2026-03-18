@@ -215,6 +215,20 @@ meta git update   # clones any new repos listed in .meta
 
 ---
 
+## Gotchas
+
+1. **Child repo directories are in `.gitignore` but still show up as untracked if `.gitignore` was edited manually** - `meta project create/import` appends to `.gitignore` automatically. If you manually edit `.meta` without using the `meta project` command, the corresponding path is never added to `.gitignore`, and the child repo's contents leak into the meta repo's git status. Always use `meta project create` or `meta project import` rather than editing `.meta` directly.
+
+2. **`meta git clone` requires SSH key access to every child repo** - The clone command attempts to clone all repos listed in `.meta` in parallel. If your SSH key lacks access to even one child repo, that clone fails and the error is easy to miss in the parallel output. Check that the cloning user has access to all repos before running `meta git clone` for a new developer.
+
+3. **Shell variable expansion happens in the meta context, not the child repo context** - `meta exec "echo $PWD"` expands `$PWD` to the meta repo root before fanout, so every child repo prints the same (wrong) path. Escape the variable: `meta exec "echo \$PWD"` to expand it inside each child's shell.
+
+4. **`meta git update` does not pull - it only clones missing repos** - After a teammate adds a new child repo to `.meta` and you pull the meta repo, your existing child repos are not updated. You need to run `meta git update` to clone the newly listed repos, then separately run `meta git pull` to update all existing repos. Confusing these two commands is a common source of stale code.
+
+5. **Plugins must be installed globally, not just as devDependencies** - `meta` resolves plugin commands from the global `node_modules`. A plugin listed only in the meta repo's `package.json` devDependencies will not be found when running `meta` commands unless it is also installed globally or the repo's `node_modules/.bin` is in PATH. Install frequently used plugins with `npm i -g meta-<plugin>`.
+
+---
+
 ## References
 
 - `references/commands.md` — complete command reference with all flags for

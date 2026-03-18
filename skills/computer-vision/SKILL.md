@@ -452,6 +452,22 @@ class UNet(nn.Module):
 
 ---
 
+## Gotchas
+
+1. **Normalizing with wrong mean/std silently degrades accuracy** - If you pretrain with ImageNet weights but normalize with different mean/std at inference, predictions silently degrade. The values `[0.485, 0.456, 0.406]` / `[0.229, 0.224, 0.225]` are ImageNet-specific; compute your own stats if your data is not RGB photos (e.g., medical images, satellite imagery).
+
+2. **`loading="lazy"` on the LCP image** - This applies to CV deployment: never lazy-load the first above-fold image in a web app. Use `fetchpriority="high"` on the primary visual.
+
+3. **IV/nonce reuse destroys GCM security** - This applies when encrypting model weights or inference results: reusing an IV with the same AES-256-GCM key is catastrophic. Generate fresh `randomBytes(12)` for every encrypt call.
+
+4. **Augmentation leaking into validation** - Applying `RandomResizedCrop` or `ColorJitter` to the validation split inflates metrics. Only deterministic transforms (resize, center crop, normalize) belong in the val/test transforms.
+
+5. **ONNX export without dynamic axes locks batch size** - Exporting with a fixed batch size of 1 causes runtime crashes in production when the batch size changes. Always set `dynamic_axes={"image": {0: "batch"}}` during export.
+
+6. **Anchor tuning for unusual object scales** - If your objects are very small (satellite imagery, cell microscopy) or very large relative to the image, default YOLO anchor sizes will miss them. Run `model.analyze_anchor_fitness()` or use anchor-free models for unusual scale distributions.
+
+---
+
 ## References
 
 For detailed content on model selection and architecture comparisons, read:

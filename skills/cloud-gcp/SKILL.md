@@ -333,6 +333,20 @@ Pattern notes:
 
 ---
 
+## Gotchas
+
+1. **Cloud Run without max-instances is a database killer** - Cloud Run scales to hundreds of instances on traffic spikes. Each instance holds its own connection pool. Without `--max-instances`, a traffic spike can open thousands of database connections and exhaust Cloud SQL or Spanner limits. Always set `--max-instances` and size `--concurrency` to match your downstream connection budget.
+
+2. **BigQuery charges for scanned bytes, not returned rows** - A `SELECT *` on a 10 TB table bills for 10 TB even if you filter to one row. Always select only the columns needed and add partition filter clauses. Without a `WHERE DATE(event_ts) BETWEEN ...` condition on a partitioned table, the query scans all partitions.
+
+3. **Pub/Sub without a dead-letter topic blocks the subscription** - A single malformed message that causes the consumer to throw an exception will be retried indefinitely (up to `--max-delivery-attempts`, but that defaults to unlimited without a DLQ configured). Always set `--dead-letter-topic` and `--max-delivery-attempts` together - one without the other provides incomplete protection.
+
+4. **Service account key files are a persistent credential leak vector** - Downloaded JSON key files don't expire, are easy to commit to git, and can't be audited as precisely as Workload Identity. GCP's metadata server and Workload Identity provide automatic, rotating credentials for every compute surface. Never create key files for workloads that run on GCP infrastructure.
+
+5. **Firestore billing on aggregation queries** - Firestore bills per document read. A query that counts documents in a collection reads every document to compute the count. At scale, this means `SELECT COUNT(*)` equivalents are extremely expensive. Maintain aggregation counters as separate documents and update them via Cloud Functions triggered on writes.
+
+---
+
 ## References
 
 For detailed patterns and reference tables on specific GCP topics, read the relevant

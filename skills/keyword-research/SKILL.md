@@ -342,6 +342,20 @@ Diagnosis:
 
 ---
 
+## Gotchas
+
+1. **Traffic potential and search volume diverge most on commercial keywords** - A keyword with 300 monthly searches may be the primary term for a page that also ranks for 40 related variants, giving it 8,000 monthly visits. Conversely, a 10,000-volume head term may have traffic potential of only 6,000 because ranking page 1 earns only a small CTR share. Always pull traffic potential from your tool (Ahrefs "TP", Semrush "Traffic"), not raw volume.
+
+2. **SERP feature presence changes by location, device, and login state** - An AI Overview you see in a logged-in US Chrome session may not fire in an incognito session or in another country. Always verify SERP features in incognito mode and, where relevant, from the target country using a VPN or tool like SERP API, before assigning AEO or GEO scores.
+
+3. **Keyword cannibalization diagnosis is wrong if you use position average** - Google Search Console averages positions across all queries and dates. Two pages fighting for the same query may each show position 8 in the average, but the reality is one shows at 3 and the other at 15, alternating week by week. Filter GSC by specific queries and look for multiple pages appearing or for high impression/low click patterns on the same query across different pages.
+
+4. **Tri-surface scoring becomes meaningless if you score GEO for navigational queries** - Navigational queries ("brand login", "product dashboard") almost never trigger AI Overviews. Assigning any GEO score above zero to navigational keywords inflates composite scores and misdirects content effort. GEO score must be zero unless you have verified an AI Overview fires for that query.
+
+5. **Keyword clusters built from tool "related keywords" lists ignore SERP overlap** - Tool-suggested related keywords group by semantic similarity, not by whether Google actually returns the same URLs for both queries. Two semantically similar keywords may trigger completely different SERPs (different content types, different competition). Validate cluster membership by checking that 5+ of the top 10 results overlap between the keywords.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

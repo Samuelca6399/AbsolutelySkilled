@@ -374,6 +374,20 @@ jobs:
 
 ---
 
+## Gotchas
+
+1. **Mixing `async/await` with Cypress commands breaks the queue** - Cypress commands return a Cypress chainable, not a real Promise. Using `await cy.get(...)` bypasses the command queue, causing commands to run out of order or against stale DOM state. Use `.then()` chaining for sequential logic inside commands; never `async/await` in spec bodies.
+
+2. **`cy.session` cache invalidation surprises** - `cy.session` caches authentication state across tests. If the backend invalidates the session (token expiry, server restart during the test run), all subsequent tests fail with 401s in ways that look like unrelated test failures. Add a `validate` callback to `cy.session` that confirms the session is still active before trusting the cache.
+
+3. **Intercepting too broadly breaks test isolation** - Using `cy.intercept('*', ...)` to stub all requests catches requests you didn't intend to stub, including Cypress's own internal traffic and third-party scripts. Always use specific method + URL pattern matches and scope intercepts to the test that needs them.
+
+4. **Component tests mounting without providers** - Components that rely on React context, Redux store, router, or i18n providers will crash or render incorrectly when mounted without those providers in `cy.mount()`. Always wrap `cy.mount()` with the necessary providers matching the app's actual setup.
+
+5. **`data-testid` on dynamically rendered lists** - Adding a single `data-testid="item"` to a list renders multiple elements with the same selector. `cy.get('[data-testid="item"]')` returns a collection, and assertions on it behave unexpectedly. Use index-based IDs (`data-testid="item-0"`) or use `.eq(n)` / `.within()` to scope assertions to specific list items.
+
+---
+
 ## References
 
 For detailed content on specific topics, read the relevant file from `references/`:

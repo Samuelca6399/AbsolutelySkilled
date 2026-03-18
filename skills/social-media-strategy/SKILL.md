@@ -259,6 +259,20 @@ When a brand faces backlash, negative viral content, or a PR incident:
 
 ---
 
+## Gotchas
+
+1. **LinkedIn penalizes external links in the post body** - Posts that include a URL in the body text get significantly reduced organic reach on LinkedIn. Post the link as the first comment and reference it in the caption ("link in first comment") to preserve reach.
+
+2. **Instagram hashtag strategy inverted from what it used to be** - More hashtags (30) no longer improves reach and may suppress distribution. Instagram's current guidance is 3-5 highly relevant hashtags. Over-hashtagging is now a negative signal, not a neutral one.
+
+3. **Scheduling tools can delay posting windows by 5-30 minutes** - Native posting at peak time outperforms scheduled posting because platform algorithms weight early engagement velocity. A post scheduled for 9:00 AM that goes live at 9:18 AM misses the peak window. For high-priority posts, post natively or verify your scheduler's actual publish time.
+
+4. **Engagement baiting violates platform policies and reduces reach** - Phrases like "tag a friend who needs this" or "double tap if you agree" are classified as engagement bait by Facebook and Instagram algorithms and result in suppressed distribution. Ask genuine questions instead.
+
+5. **Crisis pause must include ad campaigns, not just organic posts** - When pausing scheduled content during a PR crisis, ad campaigns (boosted posts, dark posts) often continue running independently. Failing to pause paid promotion during a brand crisis accelerates negative sentiment at your own expense.
+
+---
+
 ## Anti-patterns / common mistakes
 
 | Mistake | Why it's wrong | What to do instead |
