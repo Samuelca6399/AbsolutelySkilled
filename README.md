@@ -288,6 +288,7 @@ skills/
 | [refactoring-patterns](skills/refactoring-patterns/) | Extract method, replace conditional with polymorphism, catalog of refactors |
 | [monorepo-management](skills/monorepo-management/) | Turborepo, Nx, Bazel, workspace dependencies, build caching |
 | [code-review-mastery](skills/code-review-mastery/) | Reviewing code effectively, giving actionable feedback, catching anti-patterns |
+| [live-dependency-resolver](skills/live-dependency-resolver/) | Live package version lookup across npm, pip, Go, cargo, gem - never hallucinate versions |
 | [edge-computing](skills/edge-computing/) | Edge functions, CDN logic, Cloudflare Workers, latency optimization |
 | [event-driven-architecture](skills/event-driven-architecture/) | Event sourcing, CQRS, message brokers, eventual consistency |
 | [localization-i18n](skills/localization-i18n/) | Translation workflows, RTL, pluralization, ICU message format |
