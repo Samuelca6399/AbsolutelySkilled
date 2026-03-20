@@ -1,0 +1,33 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  jsonLd?: Record<string, unknown>;
+  date?: string;
+  author?: string;
+}
+
+const { title, description, canonical, jsonLd, date, author } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold font-mono mb-4">{title}</h1>
+      {
+        (date || author) && (
+          <div class="flex items-center gap-4 text-text-secondary text-sm">
+            {date && <time datetime={date}>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>}
+            {author && <span>by {author}</span>}
+          </div>
+        )
+      }
+    </header>
+    <div class="prose-dark">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

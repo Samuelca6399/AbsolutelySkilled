@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  jsonLd?: Record<string, unknown>;
+  image?: string;
+}
+
+const { title, description, canonical, jsonLd, image = '/og-image.png' } = Astro.props;
+const siteUrl = 'https://absolutelyskilled.dev';
+const resolvedImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{canonical && <link rel="canonical" href={canonical} />}
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={resolvedImage} />
+{canonical && <meta property="og:url" content={canonical} />}
+<meta property="og:site_name" content="AbsolutelySkilled" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedImage} />
+
+{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

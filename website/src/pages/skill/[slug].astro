@@ -1,0 +1,90 @@
+---
+import SkillLayout from '../../layouts/SkillLayout.astro';
+import TabSwitcher from '../../components/TabSwitcher.astro';
+import { getAllSkills } from '../../lib/skills';
+import { getInstallCount } from '../../lib/installs';
+import { getSkillPageSEO } from '../../lib/seo';
+import { renderMarkdown } from '../../lib/markdown';
+
+export async function getStaticPaths() {
+  const skills = getAllSkills();
+  return skills.map((skill) => ({
+    params: { slug: skill.slug },
+    props: { skill },
+  }));
+}
+
+const { skill } = Astro.props;
+const installCount = getInstallCount(skill.slug);
+const seo = getSkillPageSEO(skill, installCount);
+
+// Strip the companion check footer from the body for display
+const bodyContent = skill.body
+  .replace(/---\s*\n## Companion check[\s\S]*$/, '')
+  .trim();
+
+// Strip activation emoji line
+const cleanBody = bodyContent.replace(/^When this skill is activated.*\n\n?/m, '');
+const cleanReadme = skill.readme?.replace(/^When this skill is activated.*\n\n?/m, '') || null;
+
+const overviewHtml = renderMarkdown(cleanReadme || cleanBody);
+const bodyHtml = renderMarkdown(cleanBody);
+const refsHtml = skill.references.map((ref) => ({
+  filename: ref.filename,
+  html: renderMarkdown(ref.content),
+}));
+---
+
+<SkillLayout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  jsonLd={seo.jsonLd}
+  skill={skill}
+  installCount={installCount}
+>
+  <div data-pagefind-body>
+    <h1
+      class="text-3xl font-bold font-mono mb-2"
+      data-pagefind-meta="title"
+    >
+      {skill.name}
+    </h1>
+    <p class="text-text-secondary mb-6">{skill.description}</p>
+    <span data-pagefind-filter="category" class="hidden">{skill.category}</span>
+    {skill.tags.map((tag) => (
+      <span data-pagefind-filter="tag" class="hidden">{tag}</span>
+    ))}
+
+    <TabSwitcher>
+      <div slot="overview" class="prose-dark">
+        <Fragment set:html={overviewHtml} />
+      </div>
+
+      <div slot="files" class="space-y-8">
+        <div>
+          <h2 class="text-xl font-semibold font-mono mb-4 text-text-primary">SKILL.md</h2>
+          <div class="prose-dark">
+            <Fragment set:html={bodyHtml} />
+          </div>
+        </div>
+
+        {refsHtml.length > 0 && (
+          <div class="space-y-8">
+            <h2 class="text-xl font-semibold font-mono text-text-primary">References</h2>
+            {refsHtml.map((ref) => (
+              <div class="card p-6">
+                <h3 class="text-lg font-mono font-semibold text-text-primary mb-4">
+                  {ref.filename}
+                </h3>
+                <div class="prose-dark">
+                  <Fragment set:html={ref.html} />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </TabSwitcher>
+  </div>
+</SkillLayout>

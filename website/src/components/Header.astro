@@ -1,0 +1,31 @@
+---
+import SearchButton from './SearchButton.astro';
+---
+
+<header class="border-b border-border sticky top-0 bg-page/80 backdrop-blur-xl z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-2.5 group shrink-0">
+      <img src="/logo.png" alt="AbsolutelySkilled" class="w-7 h-7" />
+      <span class="text-lg font-bold font-mono text-text-primary group-hover:text-accent-blue transition-colors hidden sm:inline">
+        AbsolutelySkilled
+      </span>
+    </a>
+
+    <div class="flex-1 max-w-sm">
+      <SearchButton />
+    </div>
+
+    <div class="flex items-center gap-5 shrink-0">
+      <a href="/#skills" class="text-sm text-text-secondary hover:text-text-primary transition-colors hidden sm:block">Skills</a>
+      <a href="/blog" class="text-sm text-text-secondary hover:text-text-primary transition-colors hidden sm:block">Blog</a>
+      <a
+        href="https://github.com/AbsolutelySkilled/AbsolutelySkilled"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-text-secondary hover:text-text-primary transition-colors"
+      >
+        GitHub
+      </a>
+    </div>
+  </nav>
+</header>

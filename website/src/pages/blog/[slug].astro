@@ -1,0 +1,34 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { getBlogPostSEO } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const seo = getBlogPostSEO({
+  title: post.data.title,
+  description: post.data.description,
+  slug: post.id,
+  date: post.data.date,
+  author: post.data.author,
+});
+---
+
+<BlogLayout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  jsonLd={seo.jsonLd}
+  date={post.data.date}
+  author={post.data.author}
+>
+  <Content />
+</BlogLayout>

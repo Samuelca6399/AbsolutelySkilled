@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+  --color-page: #0a0a0a;
+  --color-card: #141414;
+  --color-elevated: #1a1a1a;
+  --color-border: #262626;
+  --color-border-hover: #404040;
+  --color-text-primary: #ededed;
+  --color-text-secondary: #a1a1a1;
+  --color-text-muted: #666666;
+  --color-accent-blue: #3b82f6;
+  --color-accent-green: #22c55e;
+  --color-accent-purple: #a855f7;
+  --color-accent-orange: #f97316;
+  --color-accent-pink: #ec4899;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-yellow: #eab308;
+  --color-accent-red: #ef4444;
+  --color-accent-indigo: #6366f1;
+  --color-accent-teal: #14b8a6;
+  --color-accent-lime: #84cc16;
+  --color-accent-amber: #f59e0b;
+  --color-accent-rose: #f43f5e;
+  --color-accent-sky: #0ea5e9;
+  --color-accent-emerald: #10b981;
+  --color-accent-violet: #8b5cf6;
+  --color-accent-fuchsia: #d946ef;
+  --color-accent-slate: #64748b;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-page);
+    color: var(--color-text-primary);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent-blue) 30%, transparent);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--color-page);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-border-hover);
+    border-radius: 9999px;
+  }
+
+}
+
+@layer components {
+  .card {
+    @apply bg-card border border-border rounded-xl transition-all duration-200;
+  }
+
+  .card:hover {
+    @apply border-border-hover shadow-lg shadow-black/20;
+  }
+
+  .prose-dark {
+    @apply text-text-secondary leading-relaxed;
+  }
+
+  .prose-dark h1,
+  .prose-dark h2,
+  .prose-dark h3,
+  .prose-dark h4 {
+    @apply text-text-primary font-semibold mt-8 mb-4;
+  }
+
+  .prose-dark h1 {
+    @apply text-3xl font-bold;
+  }
+
+  .prose-dark h2 {
+    @apply text-2xl;
+  }
+
+  .prose-dark h3 {
+    @apply text-xl;
+  }
+
+  .prose-dark p {
+    @apply mb-4;
+  }
+
+  .prose-dark a {
+    @apply text-accent-blue hover:underline;
+  }
+
+  .prose-dark code {
+    @apply bg-elevated text-accent-green px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  .prose-dark pre {
+    @apply rounded-lg overflow-x-auto mb-4;
+    position: relative;
+  }
+
+  .prose-dark pre.shiki {
+    @apply p-4 border border-border text-sm leading-relaxed;
+  }
+
+  .prose-dark pre:not(.shiki) {
+    @apply bg-elevated border border-border p-4;
+  }
+
+  .prose-dark pre .code-copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    background: color-mix(in srgb, var(--color-border) 80%, transparent);
+    color: var(--color-text-muted);
+    opacity: 0;
+    transition: opacity 0.15s;
+    cursor: pointer;
+  }
+
+  .prose-dark pre .code-copy-btn:hover {
+    background: var(--color-border-hover);
+    color: var(--color-text-primary);
+  }
+
+  .prose-dark pre:hover .code-copy-btn {
+    opacity: 1;
+  }
+
+  .prose-dark pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .prose-dark ul,
+  .prose-dark ol {
+    @apply mb-4 pl-6;
+  }
+
+  .prose-dark ul {
+    @apply list-disc;
+  }
+
+  .prose-dark ol {
+    @apply list-decimal;
+  }
+
+  .prose-dark li {
+    @apply mb-2;
+  }
+
+  .prose-dark blockquote {
+    @apply border-l-4 border-accent-blue/50 pl-4 italic text-text-muted my-4;
+  }
+
+  .prose-dark table {
+    @apply w-full border-collapse mb-4;
+  }
+
+  .prose-dark th {
+    @apply bg-elevated text-text-primary font-semibold text-left px-4 py-2 border border-border;
+  }
+
+  .prose-dark td {
+    @apply px-4 py-2 border border-border;
+  }
+
+  .prose-dark hr {
+    @apply border-border my-8;
+  }
+
+  .prose-dark strong {
+    @apply text-text-primary font-semibold;
+  }
+
+  .install-block {
+    @apply bg-elevated border border-border rounded-lg p-4 font-mono text-sm flex items-center gap-3;
+  }
+
+  .install-block::before {
+    content: '$';
+    @apply text-accent-green font-bold;
+  }
+}
+
+/* Outside @layer so it can't be overridden by Tailwind preflight */
+a, button, [role="button"], label[for], select, summary, [tabindex]:not([tabindex="-1"]) {
+  cursor: pointer;
+}

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SkillCard from '../../components/SkillCard.astro';
+import { getAllSkills, getSkillsByCategory } from '../../lib/skills';
+import { getCategoryMeta } from '../../lib/categories';
+import { getCategoryPageSEO } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const skills = getAllSkills();
+  const grouped = getSkillsByCategory(skills);
+
+  return Object.entries(grouped).map(([category, skills]) => ({
+    params: { category },
+    props: { skills, category },
+  }));
+}
+
+const { skills, category } = Astro.props;
+const meta = getCategoryMeta(category);
+const seo = getCategoryPageSEO(category, meta.label, skills.length);
+---
+
+<BaseLayout title={seo.title} description={seo.description} canonical={seo.canonical}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8">
+      <a href="/" class="text-sm text-text-muted hover:text-text-secondary transition-colors mb-4 inline-block">
+        &larr; Back to all skills
+      </a>
+      <h1 class="text-3xl font-bold font-mono" style={`color: ${meta.color};`}>
+        {meta.label}
+      </h1>
+      <p class="text-text-secondary mt-2">{skills.length} skills in this category</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {skills.map((skill) => (
+        <SkillCard
+          slug={skill.slug}
+          name={skill.name}
+          description={skill.description}
+          category={skill.category}
+          tags={skill.tags}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

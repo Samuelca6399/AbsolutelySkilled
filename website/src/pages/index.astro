@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SkillCard from '../components/SkillCard.astro';
+import CategoryGrid from '../components/CategoryGrid.astro';
+import StatsCounter from '../components/StatsCounter.astro';
+import RecentSkills from '../components/RecentSkills.astro';
+import { getAllSkills, getSkillsByCategory, type Skill } from '../lib/skills';
+import { getTotalInstalls, getTopSkillsByCounts } from '../lib/installs';
+import { getHomePageSEO } from '../lib/seo';
+
+const skills = getAllSkills();
+const grouped = getSkillsByCategory(skills);
+const totalInstalls = getTotalInstalls();
+const seo = getHomePageSEO();
+
+const categories = Object.entries(grouped)
+  .map(([category, skills]) => ({ category, count: skills.length }))
+  .sort((a, b) => b.count - a.count);
+
+const topSkills = getTopSkillsByCounts(
+  skills.map((s) => s.slug),
+  5
+);
+
+const flagshipSlugs = ['super-brainstorm', 'superhuman', 'clean-code', 'frontend-developer', 'system-design'];
+const flagshipSkills = flagshipSlugs
+  .map((slug) => skills.find((s) => s.slug === slug))
+  .filter((s): s is Skill => !!s);
+
+const recentSkills = skills.slice(-10).reverse();
+---
+
+<BaseLayout title={seo.title} description={seo.description} canonical={seo.canonical} jsonLd={seo.jsonLd}>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-border">
+    <!-- Grid background -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
+    <!-- Radial glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08)_0%,transparent_70%)] pointer-events-none" />
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-32 sm:pb-24 text-center relative">
+      <!-- Logo -->
+      <img src="/logo.png" alt="" class="w-16 h-16 mx-auto mb-8" />
+
+      <h1 class="text-5xl sm:text-7xl font-bold font-mono mb-6 tracking-tight">
+        <span class="text-text-primary">Teach your AI agent</span>
+        <br />
+        <span class="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink bg-clip-text text-transparent">anything.</span>
+      </h1>
+
+      <p class="text-lg text-text-secondary max-w-xl mx-auto mb-10 leading-relaxed">
+        {skills.length}+ production-ready skills for Claude Code, Gemini CLI, OpenAI Codex, and 40+ more agents. From clean code to marketing strategy.
+      </p>
+
+      <!-- Install command -->
+      <div class="max-w-lg mx-auto mb-6">
+        <div class="install-block justify-center">
+          <code class="text-text-primary">npx skills add AbsolutelySkilled/AbsolutelySkilled</code>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex items-center justify-center gap-3 mb-12">
+        <a
+          href="#skills"
+          class="px-5 py-2.5 rounded-lg bg-accent-blue text-white text-sm font-medium hover:bg-accent-blue/90 transition-colors"
+        >
+          Browse Skills
+        </a>
+        <a
+          href="https://github.com/AbsolutelySkilled/AbsolutelySkilled"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-5 py-2.5 rounded-lg border border-border text-sm font-medium text-text-secondary hover:text-text-primary hover:border-border-hover transition-colors"
+        >
+          GitHub
+        </a>
+      </div>
+
+      <!-- Stats inline -->
+      <div class="flex items-center justify-center gap-8 text-sm">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl font-bold font-mono text-text-primary">{skills.length}</span>
+          <span class="text-text-muted">skills</span>
+        </div>
+        <div class="w-px h-6 bg-border" />
+        <div class="flex items-center gap-2">
+          <span class="text-2xl font-bold font-mono text-text-primary">{categories.length}</span>
+          <span class="text-text-muted">categories</span>
+        </div>
+        {totalInstalls > 0 && (
+          <>
+            <div class="w-px h-6 bg-border" />
+            <div class="flex items-center gap-2">
+              <span class="text-2xl font-bold font-mono text-text-primary">{totalInstalls.toLocaleString()}</span>
+              <span class="text-text-muted">installs</span>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Flagship Skills -->
+  <section class="py-16" id="skills">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold font-mono mb-8">Flagship Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {flagshipSkills.map((skill) => (
+          <SkillCard
+            slug={skill.slug}
+            name={skill.name}
+            description={skill.description}
+            category={skill.category}
+            tags={skill.tags}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="py-16 bg-card/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold font-mono mb-8">Categories</h2>
+      <CategoryGrid categories={categories} />
+    </div>
+  </section>
+
+  <!-- Recently Added -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold font-mono mb-8">Recently Added</h2>
+      <RecentSkills skills={recentSkills} />
+    </div>
+  </section>
+</BaseLayout>
