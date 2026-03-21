@@ -26,7 +26,7 @@ async function fetchInstalls() {
       }
 
       const data = await res.json();
-      const match = data?.results?.find(
+      const match = data?.skills?.find(
         (r: { id: string }) => r.id === `absolutelyskilled/absolutelyskilled/${slug}`
       );
 
@@ -41,6 +41,11 @@ async function fetchInstalls() {
 
   installs._total = total;
   installs._fetchedAt = new Date().toISOString();
+
+  const dir = path.dirname(OUTPUT_FILE);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(installs, null, 2) + '\n');
   console.log(`Wrote install counts for ${Object.keys(installs).length - 2} skills (total: ${total})`);
