@@ -1,152 +1,172 @@
 [
   {
     "id": "eval-trigger-001",
-    "description": "Skill triggers when user asks to write a Playwright test",
-    "prompt": "Write a Playwright test that verifies a user can log in to the application",
-    "type": "code",
+    "description": "Skill triggers when user asks to debug a flaky Playwright test",
+    "prompt": "My Playwright test for the checkout flow passes locally but fails intermittently in CI. How do I diagnose it?",
+    "type": "text",
     "assertions": [
-      { "type": "contains", "value": "import { test, expect }" },
-      { "type": "contains", "value": "async ({ page })" },
-      { "type": "contains", "value": "await page.goto" },
-      { "type": "code_valid", "language": "ts" }
+      { "type": "contains", "value": "trace" },
+      { "type": "contains", "value": "retry" },
+      { "type": "not_contains", "value": "waitForTimeout" }
     ],
-    "source": "https://playwright.dev/docs/writing-tests"
+    "source": "https://playwright.dev/docs/test-retries"
   },
   {
     "id": "eval-trigger-002",
-    "description": "Skill triggers on Page Object Model request",
-    "prompt": "Create a Page Object Model class for a checkout page using Playwright",
+    "description": "Skill triggers on auth setup with storageState",
+    "prompt": "Set up Playwright authentication that logs in once and reuses the session across all tests",
     "type": "code",
     "assertions": [
-      { "type": "contains", "value": "class" },
-      { "type": "contains", "value": "constructor" },
-      { "type": "contains", "value": "page: Page" },
-      { "type": "contains", "value": "getByRole" },
+      { "type": "contains", "value": "storageState" },
+      { "type": "contains", "value": "globalSetup" },
       { "type": "code_valid", "language": "ts" }
     ],
-    "source": "https://playwright.dev/docs/pom"
+    "source": "https://playwright.dev/docs/auth"
   },
   {
     "id": "eval-trigger-003",
-    "description": "Skill triggers on visual regression request",
-    "prompt": "Set up visual regression testing for my homepage with Playwright",
+    "description": "Skill triggers on CI sharding configuration",
+    "prompt": "Configure Playwright to run tests across 4 parallel shards in GitHub Actions",
     "type": "code",
     "assertions": [
-      { "type": "contains", "value": "toHaveScreenshot" },
-      { "type": "code_valid", "language": "ts" }
+      { "type": "contains", "value": "shard" },
+      { "type": "contains", "value": "matrix" },
+      { "type": "contains", "value": "upload-artifact" }
     ],
-    "source": "https://playwright.dev/docs/screenshots"
-  },
-  {
-    "id": "eval-trigger-004",
-    "description": "Skill triggers on API testing with Playwright request",
-    "prompt": "How do I test a REST API endpoint using Playwright without a browser?",
-    "type": "code",
-    "assertions": [
-      { "type": "contains", "value": "request" },
-      { "type": "contains", "value": "response" },
-      { "type": "contains", "value": "status()" }
-    ],
-    "source": "https://playwright.dev/docs/api-testing"
+    "source": "https://playwright.dev/docs/test-sharding"
   },
   {
     "id": "eval-task-001",
-    "description": "Agent writes a test using user-facing locators (getByRole, getByLabel)",
-    "prompt": "Write a Playwright test that fills out and submits a contact form",
+    "description": "Agent correctly sets up multi-role testing with project dependencies",
+    "prompt": "I need to test my app as both admin and regular member. Set up Playwright projects for multi-role testing.",
     "type": "code",
     "assertions": [
-      { "type": "contains", "value": "getByLabel" },
-      { "type": "contains", "value": "getByRole" },
-      { "type": "not_contains", "value": "page.$(" },
-      { "type": "not_contains", "value": "waitForTimeout" },
+      { "type": "contains", "value": "dependencies" },
+      { "type": "contains", "value": "storageState" },
+      { "type": "contains", "value": "projects" },
       { "type": "code_valid", "language": "ts" }
     ],
-    "source": "https://playwright.dev/docs/locators"
+    "source": "https://playwright.dev/docs/auth#testing-multiple-roles"
   },
   {
     "id": "eval-task-002",
-    "description": "Agent mocks an API route correctly",
-    "prompt": "Write a Playwright test that mocks an API call to return an error state",
+    "description": "Agent uses Promise.all pattern for network wait + action",
+    "prompt": "Write a Playwright test that clicks a save button and waits for the API response before asserting success",
     "type": "code",
     "assertions": [
-      { "type": "contains", "value": "page.route(" },
-      { "type": "contains", "value": "route.fulfill(" },
-      { "type": "contains", "value": "status:" },
+      { "type": "contains", "value": "Promise.all" },
+      { "type": "contains", "value": "waitForResponse" },
+      { "type": "not_contains", "value": "waitForTimeout" },
       { "type": "code_valid", "language": "ts" }
     ],
-    "source": "https://playwright.dev/docs/mock"
+    "source": "https://playwright.dev/docs/network#network-events"
   },
   {
     "id": "eval-task-003",
-    "description": "Agent creates a custom fixture for authentication",
-    "prompt": "Create a Playwright fixture that logs in before each test and logs out after",
+    "description": "Agent modifies API response without fully replacing it",
+    "prompt": "Intercept a Playwright API response and inject an extra item into the JSON array without replacing the entire response",
+    "type": "code",
+    "assertions": [
+      { "type": "contains", "value": "route.fetch()" },
+      { "type": "contains", "value": "route.fulfill" },
+      { "type": "contains", "value": "response.json()" },
+      { "type": "code_valid", "language": "ts" }
+    ],
+    "source": "https://playwright.dev/docs/mock#modify-api-responses"
+  },
+  {
+    "id": "eval-task-004",
+    "description": "Agent creates a custom fixture with proper setup and teardown",
+    "prompt": "Create a Playwright fixture that creates a test user via API before each test and deletes it after",
     "type": "code",
     "assertions": [
       { "type": "contains", "value": "base.extend" },
       { "type": "contains", "value": "await use(" },
+      { "type": "contains", "value": "request" },
       { "type": "code_valid", "language": "ts" }
     ],
     "source": "https://playwright.dev/docs/test-fixtures"
   },
   {
-    "id": "eval-task-004",
-    "description": "Agent configures playwright.config.ts for CI with retries and sharding",
-    "prompt": "Set up playwright.config.ts for a CI pipeline with 4 shards and retries",
+    "id": "eval-task-005",
+    "description": "Agent disables animations for stable visual tests",
+    "prompt": "My Playwright screenshot tests are flaky because of CSS animations. How do I stabilize them?",
     "type": "code",
     "assertions": [
-      { "type": "contains", "value": "defineConfig" },
-      { "type": "contains", "value": "retries" },
-      { "type": "contains", "value": "shard" },
+      { "type": "contains", "value": "reducedMotion" },
+      { "type": "not_contains", "value": "waitForTimeout" },
       { "type": "code_valid", "language": "ts" }
     ],
-    "source": "https://playwright.dev/docs/test-sharding"
+    "source": "https://playwright.dev/docs/api/class-browser#browser-new-context"
   },
   {
     "id": "eval-gotcha-001",
-    "description": "Agent avoids waitForTimeout and uses web-first assertions",
-    "prompt": "My Playwright test is flaky - it clicks a button but the next element is not found. How do I fix it?",
+    "description": "Agent knows storageState does not include sessionStorage",
+    "prompt": "I saved my Playwright auth state with storageState but tests still redirect to the login page. The app stores the JWT in sessionStorage. What's wrong?",
     "type": "text",
     "assertions": [
-      { "type": "not_contains", "value": "waitForTimeout" },
-      { "type": "contains", "value": "expect(" }
+      { "type": "contains", "value": "sessionStorage" },
+      { "type": "contains", "value": "storageState" },
+      { "type": "not_contains", "value": "waitForTimeout" }
     ],
-    "source": "https://playwright.dev/docs/actionability"
+    "source": "https://playwright.dev/docs/api/class-browsercontext#browser-context-storage-state"
   },
   {
     "id": "eval-gotcha-002",
-    "description": "Agent uses expect(locator).toHaveText() not raw textContent comparison",
-    "prompt": "How do I assert that a Playwright element has specific text content?",
-    "type": "code",
+    "description": "Agent knows page.route does not intercept iframe requests",
+    "prompt": "I'm mocking an API with page.route but the Stripe payment iframe still makes real API calls. How do I intercept them?",
+    "type": "text",
     "assertions": [
-      { "type": "contains", "value": "toHaveText" },
-      { "type": "not_contains", "value": "textContent()" },
-      { "type": "code_valid", "language": "ts" }
+      { "type": "contains", "value": "context.route" },
+      { "type": "contains", "value": "iframe" }
     ],
-    "source": "https://playwright.dev/docs/test-assertions"
+    "source": "https://playwright.dev/docs/api/class-browsercontext#browser-context-route"
   },
   {
     "id": "eval-gotcha-003",
-    "description": "Agent does not use legacy ElementHandle API",
-    "prompt": "Select a dropdown option and verify it is selected in Playwright",
-    "type": "code",
+    "description": "Agent warns about screenshot baseline OS mismatch",
+    "prompt": "My Playwright screenshot tests pass on my Mac but fail in CI on Linux. The diff shows tiny pixel differences in fonts.",
+    "type": "text",
     "assertions": [
-      { "type": "not_contains", "value": "page.$(" },
-      { "type": "not_contains", "value": "page.$$(" },
-      { "type": "contains", "value": "page.locator(" },
-      { "type": "code_valid", "language": "ts" }
+      { "type": "contains", "value": "font" },
+      { "type": "contains", "value": "Linux" },
+      { "type": "not_contains", "value": "threshold: 0.5" }
     ],
-    "source": "https://playwright.dev/docs/locators"
+    "source": "https://playwright.dev/docs/test-snapshots"
   },
   {
     "id": "eval-anti-hallucination-001",
     "description": "Agent does not invent non-existent Playwright methods",
-    "prompt": "Write a Playwright test that waits for a network request to complete before asserting",
+    "prompt": "Write a Playwright test that waits for all network requests to finish before taking a screenshot",
     "type": "code",
     "assertions": [
+      { "type": "not_contains", "value": "waitForNetworkIdle" },
       { "type": "not_contains", "value": "page.waitForAjax" },
-      { "type": "not_contains", "value": "page.waitForNetwork" },
+      { "type": "not_contains", "value": "networkidle" },
       { "type": "code_valid", "language": "ts" }
     ],
     "source": "https://playwright.dev/docs/network"
+  },
+  {
+    "id": "eval-anti-hallucination-002",
+    "description": "Agent does not use deprecated networkidle in goto",
+    "prompt": "Navigate to a page in Playwright and wait until all API calls are done",
+    "type": "code",
+    "assertions": [
+      { "type": "not_contains", "value": "networkidle" },
+      { "type": "code_valid", "language": "ts" }
+    ],
+    "source": "https://playwright.dev/docs/api/class-page#page-goto"
+  },
+  {
+    "id": "eval-references-001",
+    "description": "Agent references the flaky test playbook for complex flaky test debugging",
+    "prompt": "I have 5 Playwright tests that fail randomly. Two fail only in CI, one fails after another specific test, and two seem timing related. Help me systematically debug all of them.",
+    "type": "text",
+    "assertions": [
+      { "type": "contains", "value": "flaky" },
+      { "type": "contains", "value": "trace" }
+    ],
+    "source": "https://playwright.dev/docs/test-retries"
   }
 ]

@@ -1,6 +1,6 @@
 # playwright-testing
 
-Use this skill when writing Playwright tests, implementing visual regression, testing APIs, or automating browser interactions. Triggers on Playwright, page object model, browser automation, visual regression, API testing with Playwright, codegen, trace viewer, and any task requiring Playwright test automation.
+Use this skill when writing Playwright e2e tests, debugging flaky tests, setting up visual regression, testing APIs with request context, configuring CI sharding, or automating browser interactions. Triggers on Playwright, page.route, storageState, toHaveScreenshot, trace viewer, codegen, test.describe, page object model, and any task requiring Playwright test automation or flaky test diagnosis.
 
 ## Install
 
@@ -10,19 +10,30 @@ npx skills add AbsolutelySkilled/AbsolutelySkilled --skill playwright-testing
 
 ## Overview
 
-Playwright is a modern end-to-end testing framework by Microsoft that supports
-Chromium, Firefox, and WebKit from a single API. It features auto-waiting on
-every action, built-in web-first assertions, network interception, visual
-regression, API testing, trace viewer, and codegen. Tests are written in
-TypeScript (or JavaScript) and executed with `npx playwright test`. The
-`@playwright/test` runner is batteries-included: parallelism, sharding,
-fixtures, retries, and HTML reports all come out of the box.
+Playwright runs real Chromium, Firefox, and WebKit browsers from a single API with auto-waiting, network interception, and built-in assertions. This skill focuses on what Claude gets wrong by default: auth state management, flaky test diagnosis, CI optimization, and the subtle gotchas that burn hours. Includes executable scripts for project setup, flaky test diagnosis, and safe snapshot updates.
+
+## What's inside
+
+```
+SKILL.md              # Core skill - gotchas, non-obvious patterns, hooks
+config.json           # Project-specific settings (baseURL, auth strategy, CI)
+scripts/
+  setup-project.sh    # Init Playwright with CI-ready defaults
+  diagnose-flaky.sh   # Run tests repeatedly, categorize failures, track patterns
+  update-snapshots.sh # Safe snapshot update with git diff summary
+references/
+  locator-strategies.md   # Priority guide, filtering, chaining, iframe/shadow DOM
+  auth-patterns.md        # storageState, token refresh, multi-role, OAuth mocking
+  flaky-test-playbook.md  # Diagnosis flowchart, 7 root causes, trace debugging
+  ci-optimization.md      # Sharding math, browser caching, Docker, artifacts
+  component-testing.md    # CT mode, mounting, props serialization, mocking
+```
 
 ---
 
 ## Tags
 
-`playwright` `e2e` `testing` `browser-automation` `visual-regression`
+`playwright` `e2e` `testing` `browser-automation` `visual-regression` `flaky-tests`
 
 ## Platforms
 
@@ -36,6 +47,7 @@ fixtures, retries, and HTML reports all come out of the box.
 - [test-strategy](https://absolutelyskilled.dev/skill/test-strategy)
 - [jest-vitest](https://absolutelyskilled.dev/skill/jest-vitest)
 - [api-testing](https://absolutelyskilled.dev/skill/api-testing)
+- [webapp-testing](https://absolutelyskilled.dev/skill/webapp-testing)
 
 ## Maintainers
 
