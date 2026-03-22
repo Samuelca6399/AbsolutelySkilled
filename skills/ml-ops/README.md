@@ -1,12 +1,26 @@
 # ml-ops
 
-Use this skill when deploying ML models to production, setting up model monitoring, implementing A/B testing for models, or managing feature stores. Triggers on model deployment, model serving, ML pipelines, feature engineering, model versioning, data drift detection, model registry, experiment tracking, and any task requiring machine learning operations infrastructure.
+ml-ops is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Deploying ML models to production, setting up model monitoring, implementing A/B testing for models, or managing feature stores.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | ai-ml |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill ml-ops
 ```
+
+3. The ml-ops skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ treat reproducibility as a first-class constraint.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair ml-ops with these complementary skills:
 
 - [llm-app-development](https://absolutely-skilled.vercel.app/skill/llm-app-development)
 - [data-pipelines](https://absolutely-skilled.vercel.app/skill/data-pipelines)
 - [ci-cd-pipelines](https://absolutely-skilled.vercel.app/skill/ci-cd-pipelines)
 - [observability](https://absolutely-skilled.vercel.app/skill/observability)
+
+## Frequently Asked Questions
+
+### What is ml-ops?
+
+Use this skill when deploying ML models to production, setting up model monitoring, implementing A/B testing for models, or managing feature stores. Triggers on model deployment, model serving, ML pipelines, feature engineering, model versioning, data drift detection, model registry, experiment tracking, and any task requiring machine learning operations infrastructure.
+
+
+### How do I install ml-ops?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill ml-ops` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support ml-ops?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

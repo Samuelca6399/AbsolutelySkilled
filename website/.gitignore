@@ -3,3 +3,4 @@ dist/
 .astro/
 .vercel/
 src/data/installs.json
+public/og/

@@ -1,12 +1,26 @@
 # code-review-mastery
 
-Use this skill when the user asks to review their local git changes, staged or unstaged diffs, or wants a code review before committing. Triggers on "review my changes", "review staged", "review my diff", "check my code", "code review local changes", "review unstaged", "review before commit".
+code-review-mastery is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. The user asks to review their local git changes, staged or unstaged diffs, or wants a code review before committing.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.2.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill code-review-mastery
 ```
+
+3. The code-review-mastery skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -27,12 +41,29 @@ you can work through interactively.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair code-review-mastery with these complementary skills:
 
 - [clean-code](https://absolutely-skilled.vercel.app/skill/clean-code)
 - [refactoring-patterns](https://absolutely-skilled.vercel.app/skill/refactoring-patterns)
 - [test-strategy](https://absolutely-skilled.vercel.app/skill/test-strategy)
 - [git-advanced](https://absolutely-skilled.vercel.app/skill/git-advanced)
+
+## Frequently Asked Questions
+
+### What is code-review-mastery?
+
+Use this skill when the user asks to review their local git changes, staged or unstaged diffs, or wants a code review before committing. Triggers on "review my changes", "review staged", "review my diff", "check my code", "code review local changes", "review unstaged", "review before commit".
+
+
+### How do I install code-review-mastery?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill code-review-mastery` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support code-review-mastery?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

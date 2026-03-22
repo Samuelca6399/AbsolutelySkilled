@@ -1,12 +1,26 @@
 # social-media-strategy
 
-Use this skill when planning social media strategy, creating platform-specific content, scheduling posts, or analyzing engagement metrics. Triggers on social media strategy, content scheduling, engagement tactics, platform analytics, community building, hashtag strategy, and any task requiring social media planning or optimization.
+social-media-strategy is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Planning social media strategy, creating platform-specific content, scheduling posts, or analyzing engagement metrics.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill social-media-strategy
 ```
+
+3. The social-media-strategy skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ craft with data-driven iteration and genuine community engagement.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair social-media-strategy with these complementary skills:
 
 - [content-marketing](https://absolutely-skilled.vercel.app/skill/content-marketing)
 - [copywriting](https://absolutely-skilled.vercel.app/skill/copywriting)
 - [video-production](https://absolutely-skilled.vercel.app/skill/video-production)
 - [brand-strategy](https://absolutely-skilled.vercel.app/skill/brand-strategy)
+
+## Frequently Asked Questions
+
+### What is social-media-strategy?
+
+Use this skill when planning social media strategy, creating platform-specific content, scheduling posts, or analyzing engagement metrics. Triggers on social media strategy, content scheduling, engagement tactics, platform analytics, community building, hashtag strategy, and any task requiring social media planning or optimization.
+
+
+### How do I install social-media-strategy?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill social-media-strategy` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support social-media-strategy?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

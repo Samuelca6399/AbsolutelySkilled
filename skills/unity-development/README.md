@@ -1,12 +1,26 @@
 # unity-development
 
-Use this skill when working with Unity game engine - C# scripting, Entity Component System (ECS/DOTS), physics simulation, shader programming (ShaderLab, HLSL, Shader Graph), and UI Toolkit. Triggers on gameplay programming, MonoBehaviour lifecycle, component architecture, rigidbody physics, raycasting, collision handling, custom shader authoring, material configuration, USS styling, UXML layout, and performance optimization for real-time applications. Acts as a senior Unity engineer advisor for game developers building production-quality games and interactive apps.
+unity-development is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Working with Unity game engine - C# scripting, Entity Component System (ECS/DOTS), physics simulation, shader programming (ShaderLab, HLSL, Shader Graph), and UI Toolkit.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill unity-development
 ```
+
+3. The unity-development skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ for shipping real projects.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair unity-development with these complementary skills:
 
 - [game-design-patterns](https://absolutely-skilled.vercel.app/skill/game-design-patterns)
 - [game-balancing](https://absolutely-skilled.vercel.app/skill/game-balancing)
 - [game-audio](https://absolutely-skilled.vercel.app/skill/game-audio)
 - [pixel-art-sprites](https://absolutely-skilled.vercel.app/skill/pixel-art-sprites)
+
+## Frequently Asked Questions
+
+### What is unity-development?
+
+Use this skill when working with Unity game engine - C# scripting, Entity Component System (ECS/DOTS), physics simulation, shader programming (ShaderLab, HLSL, Shader Graph), and UI Toolkit. Triggers on gameplay programming, MonoBehaviour lifecycle, component architecture, rigidbody physics, raycasting, collision handling, custom shader authoring, material configuration, USS styling, UXML layout, and performance optimization for real-time applications. Acts as a senior Unity engineer advisor for game developers building production-quality games and interactive apps.
+
+
+### How do I install unity-development?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill unity-development` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support unity-development?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

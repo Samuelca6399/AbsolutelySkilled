@@ -1,12 +1,26 @@
 # content-marketing
 
-Use this skill when creating content strategy, writing SEO-optimized blog posts, planning content calendars, or repurposing content across channels. Triggers on blog strategy, content calendar, SEO content, content repurposing, editorial workflow, content pillars, topic clusters, and any task requiring content marketing planning or execution.
+content-marketing is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Creating content strategy, writing SEO-optimized blog posts, planning content calendars, or repurposing content across channels.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill content-marketing
 ```
+
+3. The content-marketing skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -21,6 +35,8 @@ architecture, cross-channel repurposing, and performance measurement - giving an
 agent the judgment to plan, write, and distribute content the way a seasoned content
 strategist would.
 
+---
+
 ## Tags
 
 `content-marketing` `blog` `seo-content` `editorial` `content-strategy`
@@ -31,12 +47,29 @@ strategist would.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair content-marketing with these complementary skills:
 
 - [copywriting](https://absolutely-skilled.vercel.app/skill/copywriting)
 - [content-seo](https://absolutely-skilled.vercel.app/skill/content-seo)
 - [email-marketing](https://absolutely-skilled.vercel.app/skill/email-marketing)
 - [social-media-strategy](https://absolutely-skilled.vercel.app/skill/social-media-strategy)
+
+## Frequently Asked Questions
+
+### What is content-marketing?
+
+Use this skill when creating content strategy, writing SEO-optimized blog posts, planning content calendars, or repurposing content across channels. Triggers on blog strategy, content calendar, SEO content, content repurposing, editorial workflow, content pillars, topic clusters, and any task requiring content marketing planning or execution.
+
+
+### How do I install content-marketing?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill content-marketing` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support content-marketing?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

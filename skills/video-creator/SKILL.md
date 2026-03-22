@@ -80,6 +80,31 @@ Do NOT trigger this skill for:
 
 ## The 7-Step Workflow
 
+### Step 0: Ensure Remotion Project Exists (prerequisite)
+
+Before anything else, the user must have a Remotion project set up. This is the
+workspace where all video code will be written. **Check if you are already inside
+a Remotion project** (look for `remotion.config.ts` or `@remotion/cli` in
+`package.json`). If not, scaffold one:
+
+```bash
+npx create-video@latest
+```
+
+This creates a new folder with the starter project. Then install dependencies:
+
+```bash
+cd <project-name>
+npm install
+```
+
+**Do NOT proceed to Step 1 until a Remotion project exists and dependencies are
+installed.** All subsequent steps write code into this project.
+
+If the user already has a Remotion project, `cd` into it and continue.
+
+---
+
 ### Step 1: Deep Interview
 
 Gather all context needed to write a complete script. Ask questions **one at a
@@ -171,12 +196,12 @@ Build a **minimal** Remotion project with visuals only - no audio layer yet.
 - Final render pipeline
 
 **Process:**
-1. Create the minimal Remotion project structure
-2. Build visual compositions for each scene
+1. Verify the Remotion project is set up (done in Step 0)
+2. Build visual compositions for each scene inside the project
 3. Launch Remotion Studio: `npx remotion studio`
-4. Tell the user to preview at `http://localhost:3000`
-5. Iterate on visual feedback (colors, timing, animations, transitions)
-6. Get EXPLICIT visual approval before proceeding
+5. Tell the user to preview at `http://localhost:3000`
+6. Iterate on visual feedback (colors, timing, animations, transitions)
+7. Get EXPLICIT visual approval before proceeding
 
 **Exit criteria:** User explicitly approves the visuals.
 

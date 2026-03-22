@@ -1,12 +1,26 @@
 # prompt-engineering
 
-Use this skill when crafting LLM prompts, implementing chain-of-thought reasoning, designing few-shot examples, building RAG pipelines, or optimizing prompt performance. Triggers on prompt design, system prompts, few-shot learning, chain-of-thought, prompt chaining, RAG, retrieval-augmented generation, prompt templates, structured output, and any task requiring effective LLM interaction patterns.
+prompt-engineering is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Crafting LLM prompts, implementing chain-of-thought reasoning, designing few-shot examples, building RAG pipelines, or optimizing prompt performance.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | ai-ml |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill prompt-engineering
 ```
+
+3. The prompt-engineering skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,11 +43,28 @@ across providers (OpenAI, Anthropic, Google) with minor syntactic differences.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair prompt-engineering with these complementary skills:
 
 - [llm-app-development](https://absolutely-skilled.vercel.app/skill/llm-app-development)
 - [ai-agent-design](https://absolutely-skilled.vercel.app/skill/ai-agent-design)
 - [nlp-engineering](https://absolutely-skilled.vercel.app/skill/nlp-engineering)
+
+## Frequently Asked Questions
+
+### What is prompt-engineering?
+
+Use this skill when crafting LLM prompts, implementing chain-of-thought reasoning, designing few-shot examples, building RAG pipelines, or optimizing prompt performance. Triggers on prompt design, system prompts, few-shot learning, chain-of-thought, prompt chaining, RAG, retrieval-augmented generation, prompt templates, structured output, and any task requiring effective LLM interaction patterns.
+
+
+### How do I install prompt-engineering?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill prompt-engineering` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support prompt-engineering?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

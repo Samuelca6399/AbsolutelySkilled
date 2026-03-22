@@ -1,12 +1,26 @@
 # real-time-streaming
 
-Use this skill when building real-time data pipelines, stream processing jobs, or change data capture systems. Triggers on tasks involving Apache Kafka (producers, consumers, topics, partitions, consumer groups, Connect, Streams), Apache Flink (DataStream API, windowing, checkpointing, stateful processing), event sourcing implementations, CDC with Debezium, stream processing patterns (windowing, watermarks, exactly-once semantics), and any pipeline that processes unbounded data in motion rather than data at rest.
+real-time-streaming is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Building real-time data pipelines, stream processing jobs, or change data capture systems.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | data |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill real-time-streaming
 ```
+
+3. The real-time-streaming skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ guidance on building streaming pipelines that run reliably at scale.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair real-time-streaming with these complementary skills:
 
 - [event-driven-architecture](https://absolutely-skilled.vercel.app/skill/event-driven-architecture)
 - [data-pipelines](https://absolutely-skilled.vercel.app/skill/data-pipelines)
 - [data-quality](https://absolutely-skilled.vercel.app/skill/data-quality)
 - [backend-engineering](https://absolutely-skilled.vercel.app/skill/backend-engineering)
+
+## Frequently Asked Questions
+
+### What is real-time-streaming?
+
+Use this skill when building real-time data pipelines, stream processing jobs, or change data capture systems. Triggers on tasks involving Apache Kafka (producers, consumers, topics, partitions, consumer groups, Connect, Streams), Apache Flink (DataStream API, windowing, checkpointing, stateful processing), event sourcing implementations, CDC with Debezium, stream processing patterns (windowing, watermarks, exactly-once semantics), and any pipeline that processes unbounded data in motion rather than data at rest.
+
+
+### How do I install real-time-streaming?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill real-time-streaming` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support real-time-streaming?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

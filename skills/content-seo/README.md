@@ -1,12 +1,26 @@
 # content-seo
 
-Use this skill when optimizing content for search engines - topic cluster strategy, pillar page architecture, E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness), content freshness, keyword cannibalization detection, topical authority building, and content gap analysis. Triggers on content planning for SEO, fixing thin content, building topical authority, or resolving cannibalization issues.
+content-seo is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Optimizing content for search engines - topic cluster strategy, pillar page architecture, E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness), content freshness, keyword cannibalization detection, topical authority building, and content gap analysis.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill content-seo
 ```
+
+3. The content-seo skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -32,12 +46,29 @@ approach to keeping content accurate and comprehensive over time.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair content-seo with these complementary skills:
 
 - [keyword-research](https://absolutely-skilled.vercel.app/skill/keyword-research)
 - [seo-mastery](https://absolutely-skilled.vercel.app/skill/seo-mastery)
 - [copywriting](https://absolutely-skilled.vercel.app/skill/copywriting)
 - [link-building](https://absolutely-skilled.vercel.app/skill/link-building)
+
+## Frequently Asked Questions
+
+### What is content-seo?
+
+Use this skill when optimizing content for search engines - topic cluster strategy, pillar page architecture, E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness), content freshness, keyword cannibalization detection, topical authority building, and content gap analysis. Triggers on content planning for SEO, fixing thin content, building topical authority, or resolving cannibalization issues.
+
+
+### How do I install content-seo?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill content-seo` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support content-seo?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

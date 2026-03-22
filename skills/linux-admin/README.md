@@ -1,12 +1,26 @@
 # linux-admin
 
-Use this skill when managing Linux servers, writing shell scripts, configuring systemd services, debugging networking, or hardening security. Triggers on bash scripting, systemd units, iptables, firewall, SSH configuration, file permissions, process management, cron jobs, disk management, and any task requiring Linux system administration.
+linux-admin is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Managing Linux servers, writing shell scripts, configuring systemd services, debugging networking, or hardening security.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | infra |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill linux-admin
 ```
+
+3. The linux-admin skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ locking down a fresh server.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair linux-admin with these complementary skills:
 
 - [docker-kubernetes](https://absolutely-skilled.vercel.app/skill/docker-kubernetes)
 - [shell-scripting](https://absolutely-skilled.vercel.app/skill/shell-scripting)
 - [site-reliability](https://absolutely-skilled.vercel.app/skill/site-reliability)
 - [observability](https://absolutely-skilled.vercel.app/skill/observability)
+
+## Frequently Asked Questions
+
+### What is linux-admin?
+
+Use this skill when managing Linux servers, writing shell scripts, configuring systemd services, debugging networking, or hardening security. Triggers on bash scripting, systemd units, iptables, firewall, SSH configuration, file permissions, process management, cron jobs, disk management, and any task requiring Linux system administration.
+
+
+### How do I install linux-admin?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill linux-admin` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support linux-admin?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

@@ -1,12 +1,26 @@
 # pixel-art-sprites
 
-Use this skill when creating pixel art sprites, animating sprite sheets, building tilesets for 2D games, or managing indexed color palettes. Triggers on pixel art, sprite sheet, sprite animation, tileset, tile map, pixel palette, indexed color, dithering, sub-pixel animation, NES palette, walk cycle sprite, and any task involving low-resolution raster art for games or retro aesthetics.
+pixel-art-sprites is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Creating pixel art sprites, animating sprite sheets, building tilesets for 2D games, or managing indexed color palettes.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | design |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill pixel-art-sprites
 ```
+
+3. The pixel-art-sprites skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -20,6 +34,7 @@ a silhouette, a wrong hue muddies readability at 1x scale, and an animation with
 inconsistent volume destroys the illusion of life. This skill covers the rules
 that prevent those failures.
 
+---
 
 ## Tags
 
@@ -31,12 +46,29 @@ that prevent those failures.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair pixel-art-sprites with these complementary skills:
 
 - [unity-development](https://absolutely-skilled.vercel.app/skill/unity-development)
 - [game-audio](https://absolutely-skilled.vercel.app/skill/game-audio)
 - [color-theory](https://absolutely-skilled.vercel.app/skill/color-theory)
 - [motion-design](https://absolutely-skilled.vercel.app/skill/motion-design)
+
+## Frequently Asked Questions
+
+### What is pixel-art-sprites?
+
+Use this skill when creating pixel art sprites, animating sprite sheets, building tilesets for 2D games, or managing indexed color palettes. Triggers on pixel art, sprite sheet, sprite animation, tileset, tile map, pixel palette, indexed color, dithering, sub-pixel animation, NES palette, walk cycle sprite, and any task involving low-resolution raster art for games or retro aesthetics.
+
+
+### How do I install pixel-art-sprites?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill pixel-art-sprites` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support pixel-art-sprites?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

@@ -1,12 +1,26 @@
 # pricing-strategy
 
-Use this skill when designing pricing models, packaging products into tiers, building freemium funnels, implementing usage-based billing, structuring enterprise pricing, or running price tests. Triggers on pricing pages, monetization strategy, willingness-to-pay research, price sensitivity analysis, free-to-paid conversion, seat-based vs consumption pricing, and A/B testing prices.
+pricing-strategy is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing pricing models, packaging products into tiers, building freemium funnels, implementing usage-based billing, structuring enterprise pricing, or running price tests.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | product |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill pricing-strategy
 ```
+
+3. The pricing-strategy skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ pricing pages, evaluate model trade-offs, design packaging, and structure experi
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair pricing-strategy with these complementary skills:
 
 - [saas-metrics](https://absolutely-skilled.vercel.app/skill/saas-metrics)
 - [product-analytics](https://absolutely-skilled.vercel.app/skill/product-analytics)
 - [competitive-analysis](https://absolutely-skilled.vercel.app/skill/competitive-analysis)
 - [api-monetization](https://absolutely-skilled.vercel.app/skill/api-monetization)
+
+## Frequently Asked Questions
+
+### What is pricing-strategy?
+
+Use this skill when designing pricing models, packaging products into tiers, building freemium funnels, implementing usage-based billing, structuring enterprise pricing, or running price tests. Triggers on pricing pages, monetization strategy, willingness-to-pay research, price sensitivity analysis, free-to-paid conversion, seat-based vs consumption pricing, and A/B testing prices.
+
+
+### How do I install pricing-strategy?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill pricing-strategy` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support pricing-strategy?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

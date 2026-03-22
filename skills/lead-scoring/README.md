@@ -1,12 +1,26 @@
 # lead-scoring
 
-Use this skill when defining ideal customer profiles, building scoring models, identifying intent signals, or qualifying leads. Triggers on lead scoring, ICP definition, scoring models, intent signals, MQL, SQL, lead qualification, BANT, and any task requiring lead prioritization or qualification framework design.
+lead-scoring is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Defining ideal customer profiles, building scoring models, identifying intent signals, or qualifying leads.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | sales |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill lead-scoring
 ```
+
+3. The lead-scoring skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ framework that drives consistent, measurable pipeline qualification.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair lead-scoring with these complementary skills:
 
 - [crm-management](https://absolutely-skilled.vercel.app/skill/crm-management)
 - [sales-playbook](https://absolutely-skilled.vercel.app/skill/sales-playbook)
 - [product-analytics](https://absolutely-skilled.vercel.app/skill/product-analytics)
 - [growth-hacking](https://absolutely-skilled.vercel.app/skill/growth-hacking)
+
+## Frequently Asked Questions
+
+### What is lead-scoring?
+
+Use this skill when defining ideal customer profiles, building scoring models, identifying intent signals, or qualifying leads. Triggers on lead scoring, ICP definition, scoring models, intent signals, MQL, SQL, lead qualification, BANT, and any task requiring lead prioritization or qualification framework design.
+
+
+### How do I install lead-scoring?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill lead-scoring` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support lead-scoring?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

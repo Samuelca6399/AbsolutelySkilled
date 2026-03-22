@@ -1,12 +1,26 @@
 # sales-enablement
 
-Use this skill when creating battle cards, competitive intelligence, case studies, or ROI calculators for sales teams. Triggers on battle cards, competitive analysis, case studies, sales collateral, ROI calculators, sales training, product positioning, and any task requiring sales enablement content or strategy.
+sales-enablement is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Creating battle cards, competitive intelligence, case studies, or ROI calculators for sales teams.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | sales |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill sales-enablement
 ```
+
+3. The sales-enablement skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ intelligence briefs, product one-pagers, and training programs.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair sales-enablement with these complementary skills:
 
 - [sales-playbook](https://absolutely-skilled.vercel.app/skill/sales-playbook)
 - [competitive-analysis](https://absolutely-skilled.vercel.app/skill/competitive-analysis)
 - [proposal-writing](https://absolutely-skilled.vercel.app/skill/proposal-writing)
 - [crm-management](https://absolutely-skilled.vercel.app/skill/crm-management)
+
+## Frequently Asked Questions
+
+### What is sales-enablement?
+
+Use this skill when creating battle cards, competitive intelligence, case studies, or ROI calculators for sales teams. Triggers on battle cards, competitive analysis, case studies, sales collateral, ROI calculators, sales training, product positioning, and any task requiring sales enablement content or strategy.
+
+
+### How do I install sales-enablement?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill sales-enablement` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support sales-enablement?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

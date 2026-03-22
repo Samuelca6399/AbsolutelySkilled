@@ -1,12 +1,26 @@
 # email-deliverability
 
-Use this skill when optimizing email deliverability, sender reputation, or authentication. Triggers on SPF record setup, DKIM signing configuration, DMARC policy deployment, IP warm-up planning, bounce handling strategy, sender reputation monitoring, inbox placement troubleshooting, email infrastructure hardening, DNS TXT record configuration for email, and diagnosing why emails land in spam. Acts as a senior email infrastructure advisor for engineers and marketers managing transactional or marketing email.
+email-deliverability is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Optimizing email deliverability, sender reputation, or authentication.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | communication |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill email-deliverability
 ```
+
+3. The email-deliverability skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,11 +45,28 @@ and marketers diagnosing delivery problems.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair email-deliverability with these complementary skills:
 
 - [email-marketing](https://absolutely-skilled.vercel.app/skill/email-marketing)
 - [technical-seo](https://absolutely-skilled.vercel.app/skill/technical-seo)
 - [privacy-compliance](https://absolutely-skilled.vercel.app/skill/privacy-compliance)
+
+## Frequently Asked Questions
+
+### What is email-deliverability?
+
+Use this skill when optimizing email deliverability, sender reputation, or authentication. Triggers on SPF record setup, DKIM signing configuration, DMARC policy deployment, IP warm-up planning, bounce handling strategy, sender reputation monitoring, inbox placement troubleshooting, email infrastructure hardening, DNS TXT record configuration for email, and diagnosing why emails land in spam. Acts as a senior email infrastructure advisor for engineers and marketers managing transactional or marketing email.
+
+
+### How do I install email-deliverability?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill email-deliverability` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support email-deliverability?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

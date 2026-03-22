@@ -1,12 +1,26 @@
 # proposal-writing
 
-Use this skill when writing proposals, responding to RFPs, drafting SOWs, or developing pricing strategies. Triggers on proposal writing, RFP response, statement of work, pricing strategy, win themes, executive summary, and any task requiring business proposal creation or optimization.
+proposal-writing is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Writing proposals, responding to RFPs, drafting SOWs, or developing pricing strategies.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | sales |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill proposal-writing
 ```
+
+3. The proposal-writing skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ judgment to draft, review, and sharpen any business proposal.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair proposal-writing with these complementary skills:
 
 - [sales-playbook](https://absolutely-skilled.vercel.app/skill/sales-playbook)
 - [copywriting](https://absolutely-skilled.vercel.app/skill/copywriting)
 - [competitive-analysis](https://absolutely-skilled.vercel.app/skill/competitive-analysis)
 - [pricing-strategy](https://absolutely-skilled.vercel.app/skill/pricing-strategy)
+
+## Frequently Asked Questions
+
+### What is proposal-writing?
+
+Use this skill when writing proposals, responding to RFPs, drafting SOWs, or developing pricing strategies. Triggers on proposal writing, RFP response, statement of work, pricing strategy, win themes, executive summary, and any task requiring business proposal creation or optimization.
+
+
+### How do I install proposal-writing?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill proposal-writing` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support proposal-writing?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

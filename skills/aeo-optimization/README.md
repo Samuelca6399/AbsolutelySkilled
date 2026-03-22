@@ -1,12 +1,26 @@
 # aeo-optimization
 
-Use this skill when optimizing content for answer engines and SERP features - featured snippets (paragraph, list, table), People Also Ask (PAA) targeting, voice search optimization, knowledge panels, speakable schema, and zero-click search strategies. Triggers on winning position zero, optimizing for Google's answer boxes, voice assistant responses, or FAQ-style content optimization.
+aeo-optimization is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Optimizing content for answer engines and SERP features - featured snippets (paragraph, list, table), People Also Ask (PAA) targeting, voice search optimization, knowledge panels, speakable schema, and zero-click search strategies.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill aeo-optimization
 ```
+
+3. The aeo-optimization skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -32,12 +46,29 @@ AI systems quote.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair aeo-optimization with these complementary skills:
 
 - [keyword-research](https://absolutely-skilled.vercel.app/skill/keyword-research)
 - [seo-mastery](https://absolutely-skilled.vercel.app/skill/seo-mastery)
 - [geo-optimization](https://absolutely-skilled.vercel.app/skill/geo-optimization)
 - [schema-markup](https://absolutely-skilled.vercel.app/skill/schema-markup)
+
+## Frequently Asked Questions
+
+### What is aeo-optimization?
+
+Use this skill when optimizing content for answer engines and SERP features - featured snippets (paragraph, list, table), People Also Ask (PAA) targeting, voice search optimization, knowledge panels, speakable schema, and zero-click search strategies. Triggers on winning position zero, optimizing for Google's answer boxes, voice assistant responses, or FAQ-style content optimization.
+
+
+### How do I install aeo-optimization?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill aeo-optimization` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support aeo-optimization?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

@@ -1,12 +1,26 @@
 # partnership-strategy
 
-Use this skill when planning co-marketing campaigns, technology integrations, channel partnership programs, or affiliate programs. Triggers on partner strategy, co-marketing, co-selling, integration partnerships, channel sales, reseller programs, affiliate commission structures, partner enablement, partner portals, referral programs, joint go-to-market, ecosystem development, and any task involving building or managing business partnerships.
+partnership-strategy is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Planning co-marketing campaigns, technology integrations, channel partnership programs, or affiliate programs.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | sales |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill partnership-strategy
 ```
+
+3. The partnership-strategy skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ balancing short-term revenue goals with long-term ecosystem value.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair partnership-strategy with these complementary skills:
 
 - [account-management](https://absolutely-skilled.vercel.app/skill/account-management)
 - [sales-enablement](https://absolutely-skilled.vercel.app/skill/sales-enablement)
 - [brand-strategy](https://absolutely-skilled.vercel.app/skill/brand-strategy)
 - [growth-hacking](https://absolutely-skilled.vercel.app/skill/growth-hacking)
+
+## Frequently Asked Questions
+
+### What is partnership-strategy?
+
+Use this skill when planning co-marketing campaigns, technology integrations, channel partnership programs, or affiliate programs. Triggers on partner strategy, co-marketing, co-selling, integration partnerships, channel sales, reseller programs, affiliate commission structures, partner enablement, partner portals, referral programs, joint go-to-market, ecosystem development, and any task involving building or managing business partnerships.
+
+
+### How do I install partnership-strategy?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill partnership-strategy` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support partnership-strategy?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

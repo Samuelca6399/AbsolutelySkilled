@@ -1,12 +1,26 @@
 # super-human
 
-AI-native software development lifecycle that replaces traditional SDLC. Triggers on "plan and build", "break this into tasks", "build this feature end-to-end", "sprint plan this", "super-human this", or any multi-step development task. Decomposes work into dependency-graphed sub-tasks, executes in parallel waves with TDD verification, and tracks progress on a persistent board. Handles features, refactors, greenfield projects, and migrations.
+super-human is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. AI-native software development lifecycle that replaces traditional SDLC.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill super-human
 ```
+
+3. The super-human skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -27,13 +41,30 @@ The model has 7 phases: **INTAKE - DECOMPOSE - DISCOVER - PLAN - EXECUTE - VERIF
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair super-human with these complementary skills:
 
 - [agile-scrum](https://absolutely-skilled.vercel.app/skill/agile-scrum)
 - [test-strategy](https://absolutely-skilled.vercel.app/skill/test-strategy)
 - [project-execution](https://absolutely-skilled.vercel.app/skill/project-execution)
 - [clean-code](https://absolutely-skilled.vercel.app/skill/clean-code)
 - [code-review-mastery](https://absolutely-skilled.vercel.app/skill/code-review-mastery)
+
+## Frequently Asked Questions
+
+### What is super-human?
+
+AI-native software development lifecycle that replaces traditional SDLC. Triggers on "plan and build", "break this into tasks", "build this feature end-to-end", "sprint plan this", "super-human this", or any multi-step development task. Decomposes work into dependency-graphed sub-tasks, executes in parallel waves with TDD verification, and tracks progress on a persistent board. Handles features, refactors, greenfield projects, and migrations.
+
+
+### How do I install super-human?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill super-human` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support super-human?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

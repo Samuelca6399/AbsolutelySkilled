@@ -1,12 +1,26 @@
 # agile-scrum
 
-Use this skill when working with Agile and Scrum methodologies - sprint planning, retrospectives, velocity tracking, Kanban boards, story point estimation, backlog grooming, or team workflow optimization. Triggers on any task involving sprint ceremonies, agile metrics, user story writing, capacity planning, or continuous improvement processes.
+agile-scrum is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Working with Agile and Scrum methodologies - sprint planning, retrospectives, velocity tracking, Kanban boards, story point estimation, backlog grooming, or team workflow optimization.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill agile-scrum
 ```
+
+3. The agile-scrum skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ tracking, Kanban flow management, and continuous improvement practices.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair agile-scrum with these complementary skills:
 
 - [project-execution](https://absolutely-skilled.vercel.app/skill/project-execution)
 - [user-stories](https://absolutely-skilled.vercel.app/skill/user-stories)
 - [remote-collaboration](https://absolutely-skilled.vercel.app/skill/remote-collaboration)
 - [super-human](https://absolutely-skilled.vercel.app/skill/super-human)
+
+## Frequently Asked Questions
+
+### What is agile-scrum?
+
+Use this skill when working with Agile and Scrum methodologies - sprint planning, retrospectives, velocity tracking, Kanban boards, story point estimation, backlog grooming, or team workflow optimization. Triggers on any task involving sprint ceremonies, agile metrics, user story writing, capacity planning, or continuous improvement processes.
+
+
+### How do I install agile-scrum?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill agile-scrum` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support agile-scrum?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

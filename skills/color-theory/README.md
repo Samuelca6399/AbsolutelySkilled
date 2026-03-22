@@ -1,12 +1,26 @@
 # color-theory
 
-Use this skill when choosing color palettes, ensuring contrast compliance, implementing dark mode, or defining semantic color tokens. Triggers on color palette, contrast ratio, WCAG color, dark mode, color tokens, HSL, OKLCH, brand colors, color harmony, and any task requiring color system design or implementation.
+color-theory is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Choosing color palettes, ensuring contrast compliance, implementing dark mode, or defining semantic color tokens.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | design |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill color-theory
 ```
+
+3. The color-theory skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ This skill prevents all four failure modes with concrete patterns.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair color-theory with these complementary skills:
 
 - [design-systems](https://absolutely-skilled.vercel.app/skill/design-systems)
 - [ultimate-ui](https://absolutely-skilled.vercel.app/skill/ultimate-ui)
 - [figma-to-code](https://absolutely-skilled.vercel.app/skill/figma-to-code)
 - [accessibility-wcag](https://absolutely-skilled.vercel.app/skill/accessibility-wcag)
+
+## Frequently Asked Questions
+
+### What is color-theory?
+
+Use this skill when choosing color palettes, ensuring contrast compliance, implementing dark mode, or defining semantic color tokens. Triggers on color palette, contrast ratio, WCAG color, dark mode, color tokens, HSL, OKLCH, brand colors, color harmony, and any task requiring color system design or implementation.
+
+
+### How do I install color-theory?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill color-theory` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support color-theory?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

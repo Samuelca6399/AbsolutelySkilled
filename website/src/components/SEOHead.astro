@@ -4,10 +4,18 @@ interface Props {
   description: string;
   canonical?: string;
   jsonLd?: Record<string, unknown>;
+  additionalJsonLd?: Record<string, unknown>[];
   image?: string;
 }
 
-const { title, description, canonical, jsonLd, image = '/og-image.png' } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  jsonLd,
+  additionalJsonLd = [],
+  image = '/og-image.png',
+} = Astro.props;
 const siteUrl = 'https://absolutely-skilled.vercel.app';
 const resolvedImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 ---
@@ -28,4 +36,9 @@ const resolvedImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={resolvedImage} />
 
+<link rel="alternate" type="application/rss+xml" title="AbsolutelySkilled Blog" href="/rss.xml" />
+
 {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+{additionalJsonLd.map((ld) => (
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+))}

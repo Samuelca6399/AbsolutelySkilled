@@ -1,12 +1,26 @@
 # ci-cd-pipelines
 
-Use this skill when setting up CI/CD pipelines, configuring GitHub Actions, implementing deployment strategies, or automating build/test/deploy workflows. Triggers on GitHub Actions, CI pipeline, CD pipeline, deployment automation, blue-green deployment, canary release, rolling update, build matrix, artifacts, and any task requiring continuous integration or delivery setup.
+ci-cd-pipelines is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Setting up CI/CD pipelines, configuring GitHub Actions, implementing deployment strategies, or automating build/test/deploy workflows.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | infra |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill ci-cd-pipelines
 ```
+
+3. The ci-cd-pipelines skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -21,6 +35,8 @@ discipline. The pipeline is the product team's contract with production: every
 commit that passes is a candidate release, and the pipeline enforces that
 contract automatically.
 
+---
+
 ## Tags
 
 `ci-cd` `github-actions` `deployment` `automation` `pipelines` `devops`
@@ -31,13 +47,30 @@ contract automatically.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair ci-cd-pipelines with these complementary skills:
 
 - [docker-kubernetes](https://absolutely-skilled.vercel.app/skill/docker-kubernetes)
 - [terraform-iac](https://absolutely-skilled.vercel.app/skill/terraform-iac)
 - [git-advanced](https://absolutely-skilled.vercel.app/skill/git-advanced)
 - [monorepo-management](https://absolutely-skilled.vercel.app/skill/monorepo-management)
 - [meta-repo](https://absolutely-skilled.vercel.app/skill/meta-repo)
+
+## Frequently Asked Questions
+
+### What is ci-cd-pipelines?
+
+Use this skill when setting up CI/CD pipelines, configuring GitHub Actions, implementing deployment strategies, or automating build/test/deploy workflows. Triggers on GitHub Actions, CI pipeline, CD pipeline, deployment automation, blue-green deployment, canary release, rolling update, build matrix, artifacts, and any task requiring continuous integration or delivery setup.
+
+
+### How do I install ci-cd-pipelines?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill ci-cd-pipelines` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support ci-cd-pipelines?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

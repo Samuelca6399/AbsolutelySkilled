@@ -1,12 +1,26 @@
 # knowledge-base
 
-Use this skill when designing help center architecture, writing support articles, or optimizing search and self-service. Triggers on knowledge base, help center, support articles, self-service, article templates, search optimization, content taxonomy, and any task requiring help documentation design or management.
+knowledge-base is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing help center architecture, writing support articles, or optimizing search and self-service.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill knowledge-base
 ```
+
+3. The knowledge-base skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ deflection to prove business value, and maintaining content ruthlessly so it sta
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair knowledge-base with these complementary skills:
 
 - [customer-support-ops](https://absolutely-skilled.vercel.app/skill/customer-support-ops)
 - [internal-docs](https://absolutely-skilled.vercel.app/skill/internal-docs)
 - [technical-writing](https://absolutely-skilled.vercel.app/skill/technical-writing)
 - [second-brain](https://absolutely-skilled.vercel.app/skill/second-brain)
+
+## Frequently Asked Questions
+
+### What is knowledge-base?
+
+Use this skill when designing help center architecture, writing support articles, or optimizing search and self-service. Triggers on knowledge base, help center, support articles, self-service, article templates, search optimization, content taxonomy, and any task requiring help documentation design or management.
+
+
+### How do I install knowledge-base?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill knowledge-base` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support knowledge-base?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

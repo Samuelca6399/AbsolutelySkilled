@@ -1,12 +1,26 @@
 # crm-management
 
-Use this skill when configuring CRM workflows, managing sales pipelines, building forecasting models, or optimizing CRM data hygiene. Triggers on Salesforce, HubSpot, CRM workflows, pipeline management, deal stages, forecasting, CRM automation, and any task requiring CRM architecture or process optimization.
+crm-management is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Configuring CRM workflows, managing sales pipelines, building forecasting models, or optimizing CRM data hygiene.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | sales |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill crm-management
 ```
+
+3. The crm-management skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -28,12 +42,29 @@ who need CRM to be a system of truth, not a graveyard of stale opportunities.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair crm-management with these complementary skills:
 
 - [sales-playbook](https://absolutely-skilled.vercel.app/skill/sales-playbook)
 - [lead-scoring](https://absolutely-skilled.vercel.app/skill/lead-scoring)
 - [account-management](https://absolutely-skilled.vercel.app/skill/account-management)
 - [sales-enablement](https://absolutely-skilled.vercel.app/skill/sales-enablement)
+
+## Frequently Asked Questions
+
+### What is crm-management?
+
+Use this skill when configuring CRM workflows, managing sales pipelines, building forecasting models, or optimizing CRM data hygiene. Triggers on Salesforce, HubSpot, CRM workflows, pipeline management, deal stages, forecasting, CRM automation, and any task requiring CRM architecture or process optimization.
+
+
+### How do I install crm-management?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill crm-management` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support crm-management?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

@@ -1,12 +1,26 @@
 # game-design-patterns
 
-Use this skill when implementing game programming patterns - state machines for character/AI behavior, object pooling for performance-critical spawning, event systems for decoupled game communication, or the command pattern for input handling, undo/redo, and replays. Triggers on game architecture, game loop design, entity management, finite state machines, object pools, observer/event bus, command queues, and gameplay programming patterns.
+game-design-patterns is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Implementing game programming patterns - state machines for character/AI behavior, object pooling for performance-critical spawning, event systems for decoupled game communication, or the command pattern for input handling, undo/redo, and replays.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill game-design-patterns
 ```
+
+3. The game-design-patterns skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,11 +44,28 @@ command pattern - that form the backbone of well-architected gameplay code.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair game-design-patterns with these complementary skills:
 
 - [unity-development](https://absolutely-skilled.vercel.app/skill/unity-development)
 - [game-balancing](https://absolutely-skilled.vercel.app/skill/game-balancing)
 - [clean-architecture](https://absolutely-skilled.vercel.app/skill/clean-architecture)
+
+## Frequently Asked Questions
+
+### What is game-design-patterns?
+
+Use this skill when implementing game programming patterns - state machines for character/AI behavior, object pooling for performance-critical spawning, event systems for decoupled game communication, or the command pattern for input handling, undo/redo, and replays. Triggers on game architecture, game loop design, entity management, finite state machines, object pools, observer/event bus, command queues, and gameplay programming patterns.
+
+
+### How do I install game-design-patterns?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill game-design-patterns` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support game-design-patterns?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

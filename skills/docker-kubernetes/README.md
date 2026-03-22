@@ -1,12 +1,26 @@
 # docker-kubernetes
 
-Use this skill when containerizing applications, writing Dockerfiles, deploying to Kubernetes, creating Helm charts, or configuring service mesh. Triggers on Docker, Kubernetes, k8s, containers, pods, deployments, services, ingress, Helm, Istio, container orchestration, and any task requiring container or cluster management.
+docker-kubernetes is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Containerizing applications, writing Dockerfiles, deploying to Kubernetes, creating Helm charts, or configuring service mesh.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | infra |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill docker-kubernetes
 ```
+
+3. The docker-kubernetes skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ guidance on production patterns.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair docker-kubernetes with these complementary skills:
 
 - [ci-cd-pipelines](https://absolutely-skilled.vercel.app/skill/ci-cd-pipelines)
 - [terraform-iac](https://absolutely-skilled.vercel.app/skill/terraform-iac)
 - [linux-admin](https://absolutely-skilled.vercel.app/skill/linux-admin)
 - [observability](https://absolutely-skilled.vercel.app/skill/observability)
+
+## Frequently Asked Questions
+
+### What is docker-kubernetes?
+
+Use this skill when containerizing applications, writing Dockerfiles, deploying to Kubernetes, creating Helm charts, or configuring service mesh. Triggers on Docker, Kubernetes, k8s, containers, pods, deployments, services, ingress, Helm, Istio, container orchestration, and any task requiring container or cluster management.
+
+
+### How do I install docker-kubernetes?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill docker-kubernetes` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support docker-kubernetes?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

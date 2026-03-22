@@ -1,12 +1,26 @@
 # posthog
 
-Use this skill when working with PostHog - product analytics, web analytics, feature flags, A/B testing, experiments, session replay, error tracking, surveys, LLM observability, or data warehouse. Triggers on any PostHog-related task including capturing events, identifying users, evaluating feature flags, creating experiments, setting up surveys, tracking errors, and querying analytics data via the PostHog API or SDKs (posthog-js, posthog-node, posthog-python).
+posthog is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Working with PostHog - product analytics, web analytics, feature flags, A/B testing, experiments, session replay, error tracking, surveys, LLM observability, or data warehouse.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | analytics |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill posthog
 ```
+
+3. The posthog skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ through its REST API for querying data and managing resources.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair posthog with these complementary skills:
 
 - [product-analytics](https://absolutely-skilled.vercel.app/skill/product-analytics)
 - [sentry](https://absolutely-skilled.vercel.app/skill/sentry)
 - [observability](https://absolutely-skilled.vercel.app/skill/observability)
 - [growth-hacking](https://absolutely-skilled.vercel.app/skill/growth-hacking)
+
+## Frequently Asked Questions
+
+### What is posthog?
+
+Use this skill when working with PostHog - product analytics, web analytics, feature flags, A/B testing, experiments, session replay, error tracking, surveys, LLM observability, or data warehouse. Triggers on any PostHog-related task including capturing events, identifying users, evaluating feature flags, creating experiments, setting up surveys, tracking errors, and querying analytics data via the PostHog API or SDKs (posthog-js, posthog-node, posthog-python).
+
+
+### How do I install posthog?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill posthog` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support posthog?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

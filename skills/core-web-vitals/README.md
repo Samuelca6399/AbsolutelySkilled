@@ -1,12 +1,26 @@
 # core-web-vitals
 
-Use this skill when optimizing Core Web Vitals - LCP (Largest Contentful Paint), INP (Interaction to Next Paint), and CLS (Cumulative Layout Shift). Triggers on page speed optimization, Lighthouse score improvement, fixing layout shifts, improving responsiveness, setting up performance monitoring with CrUX or RUM, and framework-specific CWV fixes for Next.js, Nuxt, Astro, and Remix.
+core-web-vitals is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Optimizing Core Web Vitals - LCP (Largest Contentful Paint), INP (Interaction to Next Paint), and CLS (Cumulative Layout Shift).
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill core-web-vitals
 ```
+
+3. The core-web-vitals skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ Poor CWV can suppress rankings regardless of content quality; good CWV is a rank
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair core-web-vitals with these complementary skills:
 
 - [technical-seo](https://absolutely-skilled.vercel.app/skill/technical-seo)
 - [performance-engineering](https://absolutely-skilled.vercel.app/skill/performance-engineering)
 - [on-site-seo](https://absolutely-skilled.vercel.app/skill/on-site-seo)
 - [frontend-developer](https://absolutely-skilled.vercel.app/skill/frontend-developer)
+
+## Frequently Asked Questions
+
+### What is core-web-vitals?
+
+Use this skill when optimizing Core Web Vitals - LCP (Largest Contentful Paint), INP (Interaction to Next Paint), and CLS (Cumulative Layout Shift). Triggers on page speed optimization, Lighthouse score improvement, fixing layout shifts, improving responsiveness, setting up performance monitoring with CrUX or RUM, and framework-specific CWV fixes for Next.js, Nuxt, Astro, and Remix.
+
+
+### How do I install core-web-vitals?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill core-web-vitals` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support core-web-vitals?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

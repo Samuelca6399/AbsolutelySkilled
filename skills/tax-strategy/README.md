@@ -1,12 +1,26 @@
 # tax-strategy
 
-Use this skill when planning corporate tax strategy, claiming R&D credits, managing transfer pricing, or ensuring tax compliance. Triggers on corporate tax, R&D tax credits, transfer pricing, tax compliance, sales tax, VAT, international tax, and any task requiring tax planning or compliance strategy.
+tax-strategy is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Planning corporate tax strategy, claiming R&D credits, managing transfer pricing, or ensuring tax compliance.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill tax-strategy
 ```
+
+3. The tax-strategy skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -20,6 +34,13 @@ international operations, quarterly estimated tax management, and audit
 preparation.
 
 > **Disclaimer:** This skill provides general educational information about tax
+> concepts and common strategies. It is NOT legal or tax advice. Tax law is
+> jurisdiction-specific, changes frequently, and depends on facts unique to each
+> business. Always consult a qualified tax attorney or CPA before making tax
+> decisions. Nothing in this skill should be relied upon as legal, accounting, or
+> tax advice.
+
+---
 
 ## Tags
 
@@ -31,12 +52,29 @@ preparation.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair tax-strategy with these complementary skills:
 
 - [financial-reporting](https://absolutely-skilled.vercel.app/skill/financial-reporting)
 - [budgeting-planning](https://absolutely-skilled.vercel.app/skill/budgeting-planning)
 - [regulatory-compliance](https://absolutely-skilled.vercel.app/skill/regulatory-compliance)
 - [bookkeeping-automation](https://absolutely-skilled.vercel.app/skill/bookkeeping-automation)
+
+## Frequently Asked Questions
+
+### What is tax-strategy?
+
+Use this skill when planning corporate tax strategy, claiming R&D credits, managing transfer pricing, or ensuring tax compliance. Triggers on corporate tax, R&D tax credits, transfer pricing, tax compliance, sales tax, VAT, international tax, and any task requiring tax planning or compliance strategy.
+
+
+### How do I install tax-strategy?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill tax-strategy` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support tax-strategy?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

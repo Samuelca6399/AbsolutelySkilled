@@ -4,9 +4,11 @@ import CategoryBadge from '../components/CategoryBadge.astro';
 import { getAllSkills, getSkillsByCategory } from '../lib/skills';
 import { getInstallCount } from '../lib/installs';
 import { getCategoryMeta } from '../lib/categories';
+import { getSkillsPageSEO } from '../lib/seo';
 
 const skills = getAllSkills();
 const grouped = getSkillsByCategory(skills);
+const seo = getSkillsPageSEO(skills.length);
 
 const categories = Object.entries(grouped)
   .map(([category, skills]) => ({
@@ -26,19 +28,23 @@ const skillsData = skills.map((s) => ({
   categoryLabel: getCategoryMeta(s.category).label,
   categoryColor: getCategoryMeta(s.category).color,
 }));
-
-const title = `All Skills - AbsolutelySkilled`;
-const description = `Browse all ${skills.length} production-ready AI agent skills. Search by name, filter by category, and find the perfect skill for your workflow.`;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  jsonLd={seo.jsonLd}
+  additionalJsonLd={seo.additionalJsonLd}
+  breadcrumbs={seo.breadcrumbs}
+>
   <section class="py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div class="mb-10">
-        <h1 class="text-3xl font-bold font-mono mb-2">All Skills</h1>
+        <h1 class="text-3xl font-bold font-mono mb-2">All AI Agent Skills</h1>
         <p class="text-text-secondary">
-          {skills.length} production-ready skills across {categories.length} categories
+          {skills.length} production-ready skills across {categories.length} categories for Claude Code, Gemini CLI, OpenAI Codex, and more.
         </p>
       </div>
 

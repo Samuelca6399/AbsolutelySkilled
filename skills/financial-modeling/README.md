@@ -1,12 +1,26 @@
 # financial-modeling
 
-Use this skill when building financial models, DCF analyses, revenue forecasts, scenario analyses, or cap tables. Triggers on DCF, LBO, revenue forecasting, scenario analysis, cap tables, financial projections, valuation, unit economics, and any task requiring financial model design or analysis.
+financial-modeling is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Building financial models, DCF analyses, revenue forecasts, scenario analyses, or cap tables.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill financial-modeling
 ```
+
+3. The financial-modeling skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -28,12 +42,29 @@ models that hold up to scrutiny.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair financial-modeling with these complementary skills:
 
 - [budgeting-planning](https://absolutely-skilled.vercel.app/skill/budgeting-planning)
 - [financial-reporting](https://absolutely-skilled.vercel.app/skill/financial-reporting)
 - [startup-fundraising](https://absolutely-skilled.vercel.app/skill/startup-fundraising)
 - [spreadsheet-modeling](https://absolutely-skilled.vercel.app/skill/spreadsheet-modeling)
+
+## Frequently Asked Questions
+
+### What is financial-modeling?
+
+Use this skill when building financial models, DCF analyses, revenue forecasts, scenario analyses, or cap tables. Triggers on DCF, LBO, revenue forecasting, scenario analysis, cap tables, financial projections, valuation, unit economics, and any task requiring financial model design or analysis.
+
+
+### How do I install financial-modeling?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill financial-modeling` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support financial-modeling?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

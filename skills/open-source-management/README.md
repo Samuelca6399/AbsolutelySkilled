@@ -1,12 +1,26 @@
 # open-source-management
 
-Use this skill when maintaining open source projects, managing OSS governance, writing changelogs, building community, choosing licenses, handling contributions, or managing releases. Triggers on tasks related to CONTRIBUTING.md, CODE_OF_CONDUCT, release notes, semantic versioning, maintainer workflows, issue triage, PR review policies, licensing decisions, community health, and open source project governance.
+open-source-management is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Maintaining open source projects, managing OSS governance, writing changelogs, building community, choosing licenses, handling contributions, or managing releases.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill open-source-management
 ```
+
+3. The open-source-management skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,13 +44,30 @@ widely accepted industry standards.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair open-source-management with these complementary skills:
 
 - [developer-advocacy](https://absolutely-skilled.vercel.app/skill/developer-advocacy)
 - [git-advanced](https://absolutely-skilled.vercel.app/skill/git-advanced)
 - [developer-experience](https://absolutely-skilled.vercel.app/skill/developer-experience)
 - [ip-management](https://absolutely-skilled.vercel.app/skill/ip-management)
 - [meta-repo](https://absolutely-skilled.vercel.app/skill/meta-repo)
+
+## Frequently Asked Questions
+
+### What is open-source-management?
+
+Use this skill when maintaining open source projects, managing OSS governance, writing changelogs, building community, choosing licenses, handling contributions, or managing releases. Triggers on tasks related to CONTRIBUTING.md, CODE_OF_CONDUCT, release notes, semantic versioning, maintainer workflows, issue triage, PR review policies, licensing decisions, community health, and open source project governance.
+
+
+### How do I install open-source-management?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill open-source-management` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support open-source-management?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

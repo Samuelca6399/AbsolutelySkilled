@@ -1,12 +1,26 @@
 # product-strategy
 
-Use this skill when defining product vision, building roadmaps, prioritizing features, or choosing frameworks like RICE, ICE, or MoSCoW. Triggers on product vision, roadmapping, prioritization, RICE scoring, product strategy, feature prioritization, OKRs for product, and any task requiring product direction or planning decisions.
+product-strategy is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Defining product vision, building roadmaps, prioritizing features, or choosing frameworks like RICE, ICE, or MoSCoW.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | product |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill product-strategy
 ```
+
+3. The product-strategy skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -20,6 +34,7 @@ work with prioritization frameworks, setting OKRs, and communicating direction t
 stakeholders. Agents can use this to draft strategy documents, evaluate feature trade-offs,
 run scoring sessions, and structure planning artifacts.
 
+---
 
 ## Tags
 
@@ -31,12 +46,29 @@ run scoring sessions, and structure planning artifacts.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair product-strategy with these complementary skills:
 
 - [product-discovery](https://absolutely-skilled.vercel.app/skill/product-discovery)
 - [competitive-analysis](https://absolutely-skilled.vercel.app/skill/competitive-analysis)
 - [product-analytics](https://absolutely-skilled.vercel.app/skill/product-analytics)
 - [user-stories](https://absolutely-skilled.vercel.app/skill/user-stories)
+
+## Frequently Asked Questions
+
+### What is product-strategy?
+
+Use this skill when defining product vision, building roadmaps, prioritizing features, or choosing frameworks like RICE, ICE, or MoSCoW. Triggers on product vision, roadmapping, prioritization, RICE scoring, product strategy, feature prioritization, OKRs for product, and any task requiring product direction or planning decisions.
+
+
+### How do I install product-strategy?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill product-strategy` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support product-strategy?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

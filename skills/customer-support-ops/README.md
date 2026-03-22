@@ -1,12 +1,26 @@
 # customer-support-ops
 
-Use this skill when designing ticket triage systems, managing SLAs, creating macros, or building escalation workflows. Triggers on ticket triage, SLA management, support macros, escalation workflows, support queue, first response time, and any task requiring customer support process design or optimization.
+customer-support-ops is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing ticket triage systems, managing SLAs, creating macros, or building escalation workflows.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill customer-support-ops
 ```
+
+3. The customer-support-ops skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ repeatable support machine.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair customer-support-ops with these complementary skills:
 
 - [knowledge-base](https://absolutely-skilled.vercel.app/skill/knowledge-base)
 - [support-analytics](https://absolutely-skilled.vercel.app/skill/support-analytics)
 - [customer-success-playbook](https://absolutely-skilled.vercel.app/skill/customer-success-playbook)
 - [community-management](https://absolutely-skilled.vercel.app/skill/community-management)
+
+## Frequently Asked Questions
+
+### What is customer-support-ops?
+
+Use this skill when designing ticket triage systems, managing SLAs, creating macros, or building escalation workflows. Triggers on ticket triage, SLA management, support macros, escalation workflows, support queue, first response time, and any task requiring customer support process design or optimization.
+
+
+### How do I install customer-support-ops?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill customer-support-ops` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support customer-support-ops?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

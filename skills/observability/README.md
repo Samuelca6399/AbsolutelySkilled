@@ -1,12 +1,26 @@
 # observability
 
-Use this skill when implementing logging, metrics, distributed tracing, alerting, or defining SLOs. Triggers on structured logging, Prometheus, Grafana, OpenTelemetry, Datadog, distributed tracing, error tracking, dashboards, alert fatigue, SLIs, SLOs, error budgets, and any task requiring system observability or monitoring setup.
+observability is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Implementing logging, metrics, distributed tracing, alerting, or defining SLOs.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | monitoring |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill observability
 ```
+
+3. The observability skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ as a retrofit.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair observability with these complementary skills:
 
 - [site-reliability](https://absolutely-skilled.vercel.app/skill/site-reliability)
 - [incident-management](https://absolutely-skilled.vercel.app/skill/incident-management)
 - [performance-engineering](https://absolutely-skilled.vercel.app/skill/performance-engineering)
 - [sentry](https://absolutely-skilled.vercel.app/skill/sentry)
+
+## Frequently Asked Questions
+
+### What is observability?
+
+Use this skill when implementing logging, metrics, distributed tracing, alerting, or defining SLOs. Triggers on structured logging, Prometheus, Grafana, OpenTelemetry, Datadog, distributed tracing, error tracking, dashboards, alert fatigue, SLIs, SLOs, error budgets, and any task requiring system observability or monitoring setup.
+
+
+### How do I install observability?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill observability` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support observability?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

@@ -1,12 +1,26 @@
 # budgeting-planning
 
-Use this skill when building budgets, conducting variance analysis, implementing rolling forecasts, or allocating costs. Triggers on FP&A, budgeting, variance analysis, rolling forecasts, cost allocation, headcount planning, department budgets, and any task requiring financial planning or budget management.
+budgeting-planning is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Building budgets, conducting variance analysis, implementing rolling forecasts, or allocating costs.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill budgeting-planning
 ```
+
+3. The budgeting-planning skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -28,12 +42,29 @@ aligns teams, surfaces trade-offs early, and enables rapid course correction.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair budgeting-planning with these complementary skills:
 
 - [financial-modeling](https://absolutely-skilled.vercel.app/skill/financial-modeling)
 - [financial-reporting](https://absolutely-skilled.vercel.app/skill/financial-reporting)
 - [tax-strategy](https://absolutely-skilled.vercel.app/skill/tax-strategy)
 - [saas-metrics](https://absolutely-skilled.vercel.app/skill/saas-metrics)
+
+## Frequently Asked Questions
+
+### What is budgeting-planning?
+
+Use this skill when building budgets, conducting variance analysis, implementing rolling forecasts, or allocating costs. Triggers on FP&A, budgeting, variance analysis, rolling forecasts, cost allocation, headcount planning, department budgets, and any task requiring financial planning or budget management.
+
+
+### How do I install budgeting-planning?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill budgeting-planning` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support budgeting-planning?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

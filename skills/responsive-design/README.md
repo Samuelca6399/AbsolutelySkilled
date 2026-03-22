@@ -1,12 +1,26 @@
 # responsive-design
 
-Use this skill when building responsive layouts, implementing fluid typography, using container queries, or defining breakpoint strategies. Triggers on responsive design, mobile-first, media queries, container queries, fluid typography, clamp(), viewport units, grid layout, flexbox patterns, and any task requiring adaptive or responsive web design.
+responsive-design is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Building responsive layouts, implementing fluid typography, using container queries, or defining breakpoint strategies.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | design |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill responsive-design
 ```
+
+3. The responsive-design skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -20,6 +34,7 @@ The difference between a truly responsive site and a barely-functional one comes
 down to architecture: fluid values over hard breakpoints, container awareness over
 viewport assumptions, and content-driven layout over device-targeted hacks.
 
+---
 
 ## Tags
 
@@ -31,12 +46,29 @@ viewport assumptions, and content-driven layout over device-targeted hacks.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair responsive-design with these complementary skills:
 
 - [design-systems](https://absolutely-skilled.vercel.app/skill/design-systems)
 - [accessibility-wcag](https://absolutely-skilled.vercel.app/skill/accessibility-wcag)
 - [frontend-developer](https://absolutely-skilled.vercel.app/skill/frontend-developer)
 - [motion-design](https://absolutely-skilled.vercel.app/skill/motion-design)
+
+## Frequently Asked Questions
+
+### What is responsive-design?
+
+Use this skill when building responsive layouts, implementing fluid typography, using container queries, or defining breakpoint strategies. Triggers on responsive design, mobile-first, media queries, container queries, fluid typography, clamp(), viewport units, grid layout, flexbox patterns, and any task requiring adaptive or responsive web design.
+
+
+### How do I install responsive-design?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill responsive-design` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support responsive-design?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

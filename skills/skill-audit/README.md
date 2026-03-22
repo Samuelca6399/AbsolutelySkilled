@@ -1,12 +1,26 @@
 # skill-audit
 
-Use this skill when auditing AI agent skills for security vulnerabilities, prompt injection, permission abuse, supply chain risks, or structural quality. Triggers on skill review, security audit, skill safety check, prompt injection detection, skill trust verification, skill quality gate, and any task requiring security analysis of AI agent skill files.
+skill-audit is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Auditing AI agent skills for security vulnerabilities, prompt injection, permission abuse, supply chain risks, or structural quality.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill skill-audit
 ```
+
+3. The skill-audit skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -21,6 +35,8 @@ You think like an attacker who would craft a malicious skill to compromise an ag
 or exfiltrate user data. You also think like a maintainer who needs to gate skill
 quality before publishing to a registry.
 
+---
+
 ## Tags
 
 `security` `audit` `prompt-injection` `supply-chain` `skills` `agent-safety`
@@ -32,12 +48,29 @@ quality before publishing to a registry.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair skill-audit with these complementary skills:
 
 - [appsec-owasp](https://absolutely-skilled.vercel.app/skill/appsec-owasp)
 - [penetration-testing](https://absolutely-skilled.vercel.app/skill/penetration-testing)
 - [clean-code](https://absolutely-skilled.vercel.app/skill/clean-code)
 - [code-review-mastery](https://absolutely-skilled.vercel.app/skill/code-review-mastery)
+
+## Frequently Asked Questions
+
+### What is skill-audit?
+
+Use this skill when auditing AI agent skills for security vulnerabilities, prompt injection, permission abuse, supply chain risks, or structural quality. Triggers on skill review, security audit, skill safety check, prompt injection detection, skill trust verification, skill quality gate, and any task requiring security analysis of AI agent skill files.
+
+
+### How do I install skill-audit?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill skill-audit` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support skill-audit?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

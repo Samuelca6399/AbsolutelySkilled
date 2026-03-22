@@ -1,12 +1,26 @@
 # figma-to-code
 
-Use this skill when translating Figma designs to code, interpreting design specs, matching visual fidelity, or bridging designer-developer handoff. Triggers on Figma implementation, design-to-code, pixel-perfect, design handoff, auto layout to flexbox, Figma tokens, component variants to props, and any task requiring faithful implementation of design mockups.
+figma-to-code is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Translating Figma designs to code, interpreting design specs, matching visual fidelity, or bridging designer-developer handoff.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | design |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill figma-to-code
 ```
+
+3. The figma-to-code skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -20,6 +34,7 @@ The gap between "looks like the design" and "is the design" is not artistic - it
 systematic. Figma has a direct mapping for nearly every visual property. Learn the
 mappings once, apply them always.
 
+---
 
 ## Tags
 
@@ -31,12 +46,29 @@ mappings once, apply them always.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair figma-to-code with these complementary skills:
 
 - [design-systems](https://absolutely-skilled.vercel.app/skill/design-systems)
 - [responsive-design](https://absolutely-skilled.vercel.app/skill/responsive-design)
 - [color-theory](https://absolutely-skilled.vercel.app/skill/color-theory)
 - [frontend-developer](https://absolutely-skilled.vercel.app/skill/frontend-developer)
+
+## Frequently Asked Questions
+
+### What is figma-to-code?
+
+Use this skill when translating Figma designs to code, interpreting design specs, matching visual fidelity, or bridging designer-developer handoff. Triggers on Figma implementation, design-to-code, pixel-perfect, design handoff, auto layout to flexbox, Figma tokens, component variants to props, and any task requiring faithful implementation of design mockups.
+
+
+### How do I install figma-to-code?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill figma-to-code` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support figma-to-code?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

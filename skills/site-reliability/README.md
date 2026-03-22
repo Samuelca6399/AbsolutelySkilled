@@ -1,12 +1,26 @@
 # site-reliability
 
-Use this skill when implementing SRE practices, defining error budgets, reducing toil, planning capacity, or improving service reliability. Triggers on SRE, error budgets, SLOs, SLAs, toil automation, incident management, postmortems, on-call rotation, capacity planning, chaos engineering, and any task requiring reliability engineering decisions.
+site-reliability is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Implementing SRE practices, defining error budgets, reducing toil, planning capacity, or improving service reliability.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill site-reliability
 ```
+
+3. The site-reliability skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ to systematic reliability ownership.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair site-reliability with these complementary skills:
 
 - [observability](https://absolutely-skilled.vercel.app/skill/observability)
 - [incident-management](https://absolutely-skilled.vercel.app/skill/incident-management)
 - [chaos-engineering](https://absolutely-skilled.vercel.app/skill/chaos-engineering)
 - [performance-engineering](https://absolutely-skilled.vercel.app/skill/performance-engineering)
+
+## Frequently Asked Questions
+
+### What is site-reliability?
+
+Use this skill when implementing SRE practices, defining error budgets, reducing toil, planning capacity, or improving service reliability. Triggers on SRE, error budgets, SLOs, SLAs, toil automation, incident management, postmortems, on-call rotation, capacity planning, chaos engineering, and any task requiring reliability engineering decisions.
+
+
+### How do I install site-reliability?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill site-reliability` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support site-reliability?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

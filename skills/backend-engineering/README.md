@@ -1,12 +1,26 @@
 # backend-engineering
 
-Use this skill when designing backend systems, databases, APIs, or services. Triggers on schema design, database migrations, indexing strategies, distributed systems architecture, microservices, caching, message queues, observability setup, logging, metrics, tracing, SLO/SLI definition, performance optimization, query tuning, security hardening, authentication, authorization, API design (REST, GraphQL, gRPC), rate limiting, pagination, and failure handling patterns. Acts as a senior backend engineering advisor for mid-level engineers leveling up.
+backend-engineering is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Designing backend systems, databases, APIs, or services.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill backend-engineering
 ```
+
+3. The backend-engineering skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ trade-offs.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair backend-engineering with these complementary skills:
 
 - [api-design](https://absolutely-skilled.vercel.app/skill/api-design)
 - [database-engineering](https://absolutely-skilled.vercel.app/skill/database-engineering)
 - [observability](https://absolutely-skilled.vercel.app/skill/observability)
 - [system-design](https://absolutely-skilled.vercel.app/skill/system-design)
+
+## Frequently Asked Questions
+
+### What is backend-engineering?
+
+Use this skill when designing backend systems, databases, APIs, or services. Triggers on schema design, database migrations, indexing strategies, distributed systems architecture, microservices, caching, message queues, observability setup, logging, metrics, tracing, SLO/SLI definition, performance optimization, query tuning, security hardening, authentication, authorization, API design (REST, GraphQL, gRPC), rate limiting, pagination, and failure handling patterns. Acts as a senior backend engineering advisor for mid-level engineers leveling up.
+
+
+### How do I install backend-engineering?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill backend-engineering` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support backend-engineering?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

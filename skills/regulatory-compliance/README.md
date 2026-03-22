@@ -1,12 +1,26 @@
 # regulatory-compliance
 
-Use this skill when preparing for SOC 2, HIPAA, or PCI-DSS compliance, conducting audits, or implementing security controls. Triggers on SOC 2, HIPAA, PCI-DSS, compliance audit, security controls, risk assessment, control frameworks, and any task requiring regulatory compliance planning or audit preparation.
+regulatory-compliance is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Preparing for SOC 2, HIPAA, or PCI-DSS compliance, conducting audits, or implementing security controls.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill regulatory-compliance
 ```
+
+3. The regulatory-compliance skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -27,12 +41,29 @@ compliance program, not just pass a one-time audit.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair regulatory-compliance with these complementary skills:
 
 - [privacy-compliance](https://absolutely-skilled.vercel.app/skill/privacy-compliance)
 - [contract-drafting](https://absolutely-skilled.vercel.app/skill/contract-drafting)
 - [cloud-security](https://absolutely-skilled.vercel.app/skill/cloud-security)
 - [tax-strategy](https://absolutely-skilled.vercel.app/skill/tax-strategy)
+
+## Frequently Asked Questions
+
+### What is regulatory-compliance?
+
+Use this skill when preparing for SOC 2, HIPAA, or PCI-DSS compliance, conducting audits, or implementing security controls. Triggers on SOC 2, HIPAA, PCI-DSS, compliance audit, security controls, risk assessment, control frameworks, and any task requiring regulatory compliance planning or audit preparation.
+
+
+### How do I install regulatory-compliance?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill regulatory-compliance` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support regulatory-compliance?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

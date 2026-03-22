@@ -1,12 +1,26 @@
 # live-dependency-resolver
 
-Use this skill when installing, adding, or updating packages, checking latest versions, scaffolding projects with dependencies, or generating code that imports third-party packages. Triggers on npm install, pip install, cargo add, gem install, go get, dependency resolution, package management, module installation, crate addition, or any task requiring live version verification across npm, pip, Go modules, Rust/cargo, and Ruby/gem ecosystems. Covers synonyms: dependency, package, module, crate, gem, library.
+live-dependency-resolver is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Installing, adding, or updating packages, checking latest versions, scaffolding projects with dependencies, or generating code that imports third-party packages.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill live-dependency-resolver
 ```
+
+3. The live-dependency-resolver skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,11 +43,28 @@ simplicity, with web API fallback when CLI tools are unavailable.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair live-dependency-resolver with these complementary skills:
 
 - [shell-scripting](https://absolutely-skilled.vercel.app/skill/shell-scripting)
 - [monorepo-management](https://absolutely-skilled.vercel.app/skill/monorepo-management)
 - [ci-cd-pipelines](https://absolutely-skilled.vercel.app/skill/ci-cd-pipelines)
+
+## Frequently Asked Questions
+
+### What is live-dependency-resolver?
+
+Use this skill when installing, adding, or updating packages, checking latest versions, scaffolding projects with dependencies, or generating code that imports third-party packages. Triggers on npm install, pip install, cargo add, gem install, go get, dependency resolution, package management, module installation, crate addition, or any task requiring live version verification across npm, pip, Go modules, Rust/cargo, and Ruby/gem ecosystems. Covers synonyms: dependency, package, module, crate, gem, library.
+
+
+### How do I install live-dependency-resolver?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill live-dependency-resolver` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support live-dependency-resolver?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

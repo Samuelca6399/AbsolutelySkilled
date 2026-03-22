@@ -1,12 +1,26 @@
 # cloud-security
 
-Use this skill when securing cloud infrastructure, configuring IAM policies, managing secrets, implementing network policies, or achieving compliance. Triggers on cloud IAM, secrets management, network security groups, VPC security, cloud compliance, SOC 2, HIPAA, zero trust, and any task requiring cloud security architecture or hardening.
+cloud-security is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Securing cloud infrastructure, configuring IAM policies, managing secrets, implementing network policies, or achieving compliance.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill cloud-security
 ```
+
+3. The cloud-security skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -28,12 +42,29 @@ posture of a cloud environment, not just a single service.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair cloud-security with these complementary skills:
 
 - [appsec-owasp](https://absolutely-skilled.vercel.app/skill/appsec-owasp)
 - [cloud-aws](https://absolutely-skilled.vercel.app/skill/cloud-aws)
 - [cloud-gcp](https://absolutely-skilled.vercel.app/skill/cloud-gcp)
 - [privacy-compliance](https://absolutely-skilled.vercel.app/skill/privacy-compliance)
+
+## Frequently Asked Questions
+
+### What is cloud-security?
+
+Use this skill when securing cloud infrastructure, configuring IAM policies, managing secrets, implementing network policies, or achieving compliance. Triggers on cloud IAM, secrets management, network security groups, VPC security, cloud compliance, SOC 2, HIPAA, zero trust, and any task requiring cloud security architecture or hardening.
+
+
+### How do I install cloud-security?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill cloud-security` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support cloud-security?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

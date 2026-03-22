@@ -1,12 +1,26 @@
 # bookkeeping-automation
 
-Use this skill when designing chart of accounts, automating reconciliation, managing AP/AR processes, or streamlining month-end close. Triggers on chart of accounts, bank reconciliation, accounts payable, accounts receivable, month-end close, journal entries, accruals, and any task requiring bookkeeping process design or automation.
+bookkeeping-automation is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing chart of accounts, automating reconciliation, managing AP/AR processes, or streamlining month-end close.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill bookkeeping-automation
 ```
+
+3. The bookkeeping-automation skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -20,6 +34,9 @@ This skill covers the design and automation of core bookkeeping workflows: chart
 accounts architecture, bank and credit card reconciliation, accounts payable and
 receivable pipelines, month-end close checklists, recurring journal entries, and
 expense management. It applies equally to spreadsheet-based setups, QuickBooks,
+Xero, NetSuite, and custom-built finance tooling.
+
+---
 
 ## Tags
 
@@ -31,12 +48,29 @@ expense management. It applies equally to spreadsheet-based setups, QuickBooks,
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair bookkeeping-automation with these complementary skills:
 
 - [financial-reporting](https://absolutely-skilled.vercel.app/skill/financial-reporting)
 - [tax-strategy](https://absolutely-skilled.vercel.app/skill/tax-strategy)
 - [budgeting-planning](https://absolutely-skilled.vercel.app/skill/budgeting-planning)
 - [no-code-automation](https://absolutely-skilled.vercel.app/skill/no-code-automation)
+
+## Frequently Asked Questions
+
+### What is bookkeeping-automation?
+
+Use this skill when designing chart of accounts, automating reconciliation, managing AP/AR processes, or streamlining month-end close. Triggers on chart of accounts, bank reconciliation, accounts payable, accounts receivable, month-end close, journal entries, accruals, and any task requiring bookkeeping process design or automation.
+
+
+### How do I install bookkeeping-automation?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill bookkeeping-automation` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support bookkeeping-automation?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

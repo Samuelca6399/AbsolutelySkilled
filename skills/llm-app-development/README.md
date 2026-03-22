@@ -1,12 +1,26 @@
 # llm-app-development
 
-Use this skill when building production LLM applications, implementing guardrails, evaluating model outputs, or deciding between prompting and fine-tuning. Triggers on LLM app architecture, AI guardrails, output evaluation, model selection, embedding pipelines, vector databases, fine-tuning, function calling, tool use, and any task requiring production AI application design.
+llm-app-development is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Building production LLM applications, implementing guardrails, evaluating model outputs, or deciding between prompting and fine-tuning.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | ai-ml |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill llm-app-development
 ```
+
+3. The llm-app-development skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ happy-path implementation.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair llm-app-development with these complementary skills:
 
 - [prompt-engineering](https://absolutely-skilled.vercel.app/skill/prompt-engineering)
 - [ai-agent-design](https://absolutely-skilled.vercel.app/skill/ai-agent-design)
 - [ml-ops](https://absolutely-skilled.vercel.app/skill/ml-ops)
 - [mastra](https://absolutely-skilled.vercel.app/skill/mastra)
+
+## Frequently Asked Questions
+
+### What is llm-app-development?
+
+Use this skill when building production LLM applications, implementing guardrails, evaluating model outputs, or deciding between prompting and fine-tuning. Triggers on LLM app architecture, AI guardrails, output evaluation, model selection, embedding pipelines, vector databases, fine-tuning, function calling, tool use, and any task requiring production AI application design.
+
+
+### How do I install llm-app-development?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill llm-app-development` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support llm-app-development?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

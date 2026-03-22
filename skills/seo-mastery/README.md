@@ -1,12 +1,26 @@
 # seo-mastery
 
-Use this skill when optimizing for search engines, conducting keyword research, implementing technical SEO, or building link strategies. Triggers on SEO, keyword research, meta tags, schema markup, Core Web Vitals, sitemap, robots.txt, link building, search console, and any task requiring search engine optimization.
+seo-mastery is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Optimizing for search engines, conducting keyword research, implementing technical SEO, or building link strategies.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill seo-mastery
 ```
+
+3. The seo-mastery skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -27,12 +41,29 @@ outputs, and iterative improvement - not guesswork.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair seo-mastery with these complementary skills:
 
 - [technical-seo](https://absolutely-skilled.vercel.app/skill/technical-seo)
 - [keyword-research](https://absolutely-skilled.vercel.app/skill/keyword-research)
 - [content-seo](https://absolutely-skilled.vercel.app/skill/content-seo)
 - [schema-markup](https://absolutely-skilled.vercel.app/skill/schema-markup)
+
+## Frequently Asked Questions
+
+### What is seo-mastery?
+
+Use this skill when optimizing for search engines, conducting keyword research, implementing technical SEO, or building link strategies. Triggers on SEO, keyword research, meta tags, schema markup, Core Web Vitals, sitemap, robots.txt, link building, search console, and any task requiring search engine optimization.
+
+
+### How do I install seo-mastery?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill seo-mastery` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support seo-mastery?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

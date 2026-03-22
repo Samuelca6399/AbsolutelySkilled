@@ -1,12 +1,26 @@
 # video-production
 
-Use this skill when creating, editing, or optimizing video content for YouTube and other platforms. Triggers on script writing, video editing workflows, thumbnail design, YouTube SEO, content strategy, retention optimization, or channel growth. Covers the full production pipeline from ideation to publish - scriptwriting frameworks, editing pacing, thumbnail best practices, metadata optimization, and audience retention techniques.
+video-production is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Creating, editing, or optimizing video content for YouTube and other platforms.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill video-production
 ```
+
+3. The video-production skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ across the entire production pipeline.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair video-production with these complementary skills:
 
 - [presentation-design](https://absolutely-skilled.vercel.app/skill/presentation-design)
 - [social-media-strategy](https://absolutely-skilled.vercel.app/skill/social-media-strategy)
 - [copywriting](https://absolutely-skilled.vercel.app/skill/copywriting)
 - [content-marketing](https://absolutely-skilled.vercel.app/skill/content-marketing)
+
+## Frequently Asked Questions
+
+### What is video-production?
+
+Use this skill when creating, editing, or optimizing video content for YouTube and other platforms. Triggers on script writing, video editing workflows, thumbnail design, YouTube SEO, content strategy, retention optimization, or channel growth. Covers the full production pipeline from ideation to publish - scriptwriting frameworks, editing pacing, thumbnail best practices, metadata optimization, and audience retention techniques.
+
+
+### How do I install video-production?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill video-production` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support video-production?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

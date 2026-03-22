@@ -1,12 +1,26 @@
 # project-execution
 
-Use this skill when planning, executing, or recovering software projects with a focus on risk management, dependency tracking, and stakeholder communication. Triggers on project planning, risk assessment, dependency mapping, status reporting, milestone tracking, stakeholder updates, escalation decisions, timeline estimation, resource allocation, and project recovery. Covers RAID logs, critical path analysis, and communication cadences.
+project-execution is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Planning, executing, or recovering software projects with a focus on risk management, dependency tracking, and stakeholder communication.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill project-execution
 ```
+
+3. The project-execution skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ throughout a project's lifecycle.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair project-execution with these complementary skills:
 
 - [agile-scrum](https://absolutely-skilled.vercel.app/skill/agile-scrum)
 - [remote-collaboration](https://absolutely-skilled.vercel.app/skill/remote-collaboration)
 - [incident-management](https://absolutely-skilled.vercel.app/skill/incident-management)
 - [product-launch](https://absolutely-skilled.vercel.app/skill/product-launch)
+
+## Frequently Asked Questions
+
+### What is project-execution?
+
+Use this skill when planning, executing, or recovering software projects with a focus on risk management, dependency tracking, and stakeholder communication. Triggers on project planning, risk assessment, dependency mapping, status reporting, milestone tracking, stakeholder updates, escalation decisions, timeline estimation, resource allocation, and project recovery. Covers RAID logs, critical path analysis, and communication cadences.
+
+
+### How do I install project-execution?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill project-execution` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support project-execution?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

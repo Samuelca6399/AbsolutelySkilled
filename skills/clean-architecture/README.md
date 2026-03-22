@@ -1,12 +1,26 @@
 # clean-architecture
 
-Use this skill when designing, reviewing, or refactoring software architecture following Robert C. Martin's (Uncle Bob) Clean Architecture principles. Triggers on project structure decisions, layer design, dependency management, use case modeling, boundary crossing patterns, component organization, and separating business rules from frameworks. Covers the Dependency Rule, concentric layers, component cohesion/coupling, and boundary patterns.
+clean-architecture is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Designing, reviewing, or refactoring software architecture following Robert C. Martin's (Uncle Bob) Clean Architecture principles.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill clean-architecture
 ```
+
+3. The clean-architecture skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ model, component design principles, and practical boundary-crossing patterns.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair clean-architecture with these complementary skills:
 
 - [clean-code](https://absolutely-skilled.vercel.app/skill/clean-code)
 - [system-design](https://absolutely-skilled.vercel.app/skill/system-design)
 - [microservices](https://absolutely-skilled.vercel.app/skill/microservices)
 - [backend-engineering](https://absolutely-skilled.vercel.app/skill/backend-engineering)
+
+## Frequently Asked Questions
+
+### What is clean-architecture?
+
+Use this skill when designing, reviewing, or refactoring software architecture following Robert C. Martin's (Uncle Bob) Clean Architecture principles. Triggers on project structure decisions, layer design, dependency management, use case modeling, boundary crossing patterns, component organization, and separating business rules from frameworks. Covers the Dependency Rule, concentric layers, component cohesion/coupling, and boundary patterns.
+
+
+### How do I install clean-architecture?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill clean-architecture` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support clean-architecture?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

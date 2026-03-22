@@ -1,12 +1,26 @@
 # a2a-protocol
 
-Use this skill when working with the A2A (Agent-to-Agent) protocol - agent interoperability, multi-agent communication, agent discovery, agent cards, task lifecycle, streaming, and push notifications. Triggers on any A2A-related task including implementing A2A servers/clients, building agent cards, sending messages between agents, managing tasks, and configuring push notification webhooks.
+a2a-protocol is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Working with the A2A (Agent-to-Agent) protocol - agent interoperability, multi-agent communication, agent discovery, agent cards, task lifecycle, streaming, and push notifications.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | ai-ml |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill a2a-protocol
 ```
+
+3. The a2a-protocol skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ enables agent-to-agent collaboration where agents remain autonomous entities.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair a2a-protocol with these complementary skills:
 
 - [ai-agent-design](https://absolutely-skilled.vercel.app/skill/ai-agent-design)
 - [a2ui](https://absolutely-skilled.vercel.app/skill/a2ui)
 - [mastra](https://absolutely-skilled.vercel.app/skill/mastra)
 - [llm-app-development](https://absolutely-skilled.vercel.app/skill/llm-app-development)
+
+## Frequently Asked Questions
+
+### What is a2a-protocol?
+
+Use this skill when working with the A2A (Agent-to-Agent) protocol - agent interoperability, multi-agent communication, agent discovery, agent cards, task lifecycle, streaming, and push notifications. Triggers on any A2A-related task including implementing A2A servers/clients, building agent cards, sending messages between agents, managing tasks, and configuring push notification webhooks.
+
+
+### How do I install a2a-protocol?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill a2a-protocol` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support a2a-protocol?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

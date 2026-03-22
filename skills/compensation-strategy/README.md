@@ -1,12 +1,26 @@
 # compensation-strategy
 
-Use this skill when benchmarking compensation, designing equity plans, building leveling frameworks, or structuring total rewards. Triggers on compensation benchmarking, equity grants, stock options, leveling, pay bands, total rewards, salary ranges, and any task requiring compensation strategy or structure design.
+compensation-strategy is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Benchmarking compensation, designing equity plans, building leveling frameworks, or structuring total rewards.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill compensation-strategy
 ```
+
+3. The compensation-strategy skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -28,12 +42,29 @@ to candidates, employees, and leadership.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair compensation-strategy with these complementary skills:
 
 - [performance-management](https://absolutely-skilled.vercel.app/skill/performance-management)
 - [recruiting-ops](https://absolutely-skilled.vercel.app/skill/recruiting-ops)
 - [financial-modeling](https://absolutely-skilled.vercel.app/skill/financial-modeling)
 - [employment-law](https://absolutely-skilled.vercel.app/skill/employment-law)
+
+## Frequently Asked Questions
+
+### What is compensation-strategy?
+
+Use this skill when benchmarking compensation, designing equity plans, building leveling frameworks, or structuring total rewards. Triggers on compensation benchmarking, equity grants, stock options, leveling, pay bands, total rewards, salary ranges, and any task requiring compensation strategy or structure design.
+
+
+### How do I install compensation-strategy?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill compensation-strategy` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support compensation-strategy?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

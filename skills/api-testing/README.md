@@ -1,12 +1,26 @@
 # api-testing
 
-Use this skill when testing REST or GraphQL APIs, implementing contract tests, setting up mock servers, or validating API behavior. Triggers on API testing, Postman, contract testing, Pact, mock servers, MSW, HTTP assertions, response validation, and any task requiring API test automation.
+api-testing is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Testing REST or GraphQL APIs, implementing contract tests, setting up mock servers, or validating API behavior.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill api-testing
 ```
+
+3. The api-testing skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -28,12 +42,29 @@ strategy, tooling, and avoiding common traps.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair api-testing with these complementary skills:
 
 - [api-design](https://absolutely-skilled.vercel.app/skill/api-design)
 - [jest-vitest](https://absolutely-skilled.vercel.app/skill/jest-vitest)
 - [test-strategy](https://absolutely-skilled.vercel.app/skill/test-strategy)
 - [playwright-testing](https://absolutely-skilled.vercel.app/skill/playwright-testing)
+
+## Frequently Asked Questions
+
+### What is api-testing?
+
+Use this skill when testing REST or GraphQL APIs, implementing contract tests, setting up mock servers, or validating API behavior. Triggers on API testing, Postman, contract testing, Pact, mock servers, MSW, HTTP assertions, response validation, and any task requiring API test automation.
+
+
+### How do I install api-testing?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill api-testing` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support api-testing?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

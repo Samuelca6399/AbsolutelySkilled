@@ -1,12 +1,26 @@
 # recruiting-ops
 
-Use this skill when writing job descriptions, building sourcing strategies, designing screening processes, or creating interview frameworks. Triggers on job descriptions, candidate sourcing, screening criteria, interview loops, recruiting pipelines, offer management, and any task requiring talent acquisition process design.
+recruiting-ops is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Writing job descriptions, building sourcing strategies, designing screening processes, or creating interview frameworks.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill recruiting-ops
 ```
+
+3. The recruiting-ops skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -20,6 +34,7 @@ pipeline metrics, and building employer brand. Built for hiring managers and rec
 who want to move from ad-hoc hiring to a repeatable, data-informed, candidate-respecting
 process.
 
+---
 
 ## Tags
 
@@ -31,12 +46,29 @@ process.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair recruiting-ops with these complementary skills:
 
 - [interview-design](https://absolutely-skilled.vercel.app/skill/interview-design)
 - [onboarding](https://absolutely-skilled.vercel.app/skill/onboarding)
 - [employment-law](https://absolutely-skilled.vercel.app/skill/employment-law)
 - [technical-interviewing](https://absolutely-skilled.vercel.app/skill/technical-interviewing)
+
+## Frequently Asked Questions
+
+### What is recruiting-ops?
+
+Use this skill when writing job descriptions, building sourcing strategies, designing screening processes, or creating interview frameworks. Triggers on job descriptions, candidate sourcing, screening criteria, interview loops, recruiting pipelines, offer management, and any task requiring talent acquisition process design.
+
+
+### How do I install recruiting-ops?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill recruiting-ops` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support recruiting-ops?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

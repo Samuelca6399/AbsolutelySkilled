@@ -1,12 +1,26 @@
 # sentry
 
-Use this skill when working with Sentry - error monitoring, performance tracing, session replay, cron monitoring, alerts, or source maps. Triggers on any Sentry-related task including SDK initialization, issue triage, custom instrumentation, uploading source maps, configuring alerts, and integrating Sentry into JavaScript, Python, Next.js, or other supported frameworks.
+sentry is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Working with Sentry - error monitoring, performance tracing, session replay, cron monitoring, alerts, or source maps.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | monitoring |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill sentry
 ```
+
+3. The sentry skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ distributed tracing to debug performance bottlenecks across your stack. Sentry s
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair sentry with these complementary skills:
 
 - [observability](https://absolutely-skilled.vercel.app/skill/observability)
 - [signoz](https://absolutely-skilled.vercel.app/skill/signoz)
 - [debugging-tools](https://absolutely-skilled.vercel.app/skill/debugging-tools)
 - [incident-management](https://absolutely-skilled.vercel.app/skill/incident-management)
+
+## Frequently Asked Questions
+
+### What is sentry?
+
+Use this skill when working with Sentry - error monitoring, performance tracing, session replay, cron monitoring, alerts, or source maps. Triggers on any Sentry-related task including SDK initialization, issue triage, custom instrumentation, uploading source maps, configuring alerts, and integrating Sentry into JavaScript, Python, Next.js, or other supported frameworks.
+
+
+### How do I install sentry?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill sentry` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support sentry?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

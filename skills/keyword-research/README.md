@@ -1,12 +1,26 @@
 # keyword-research
 
-Use this skill when performing keyword research, search intent analysis, keyword clustering, SERP analysis, competitor keyword gaps, long-tail keyword discovery, or evaluating keywords for snippet opportunity, AI Overview presence, and tri-surface keyword reports. Covers organic (SEO), answer engine (AEO snippets/PAA), and AI citation (GEO AI Overviews/ChatGPT Search/Perplexity) surfaces.
+keyword-research is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Performing keyword research, search intent analysis, keyword clustering, SERP analysis, competitor keyword gaps, long-tail keyword discovery, or evaluating keywords for snippet opportunity, AI Overview presence, and tri-surface keyword reports.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 1.0.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill keyword-research
 ```
+
+3. The keyword-research skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -20,6 +34,14 @@ assistants, understanding why they search (intent), and evaluating which of thre
 surfaces - organic results, answer engine features, or AI-generated citations -
 offers the best opportunity for each keyword.
 
+In 2026, keyword research must account for three surfaces simultaneously:
+- **Organic blue links (SEO)** - traditional rankings on Google, Bing, etc.
+- **Answer engine features (AEO)** - featured snippets, People Also Ask, voice results
+- **AI-generated citations (GEO)** - Google AI Overviews, ChatGPT Search, Perplexity
+
+This skill covers the full research workflow - from seed topic to prioritized,
+tri-surface-scored keyword report. It tells you WHAT to target and WHERE the
+opportunity is. For HOW to optimize content once you have chosen your targets,
 
 ## Tags
 
@@ -32,13 +54,30 @@ offers the best opportunity for each keyword.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair keyword-research with these complementary skills:
 
 - [content-seo](https://absolutely-skilled.vercel.app/skill/content-seo)
 - [seo-mastery](https://absolutely-skilled.vercel.app/skill/seo-mastery)
 - [aeo-optimization](https://absolutely-skilled.vercel.app/skill/aeo-optimization)
 - [programmatic-seo](https://absolutely-skilled.vercel.app/skill/programmatic-seo)
 - [geo-optimization](https://absolutely-skilled.vercel.app/skill/geo-optimization)
+
+## Frequently Asked Questions
+
+### What is keyword-research?
+
+Use this skill when performing keyword research, search intent analysis, keyword clustering, SERP analysis, competitor keyword gaps, long-tail keyword discovery, or evaluating keywords for snippet opportunity, AI Overview presence, and tri-surface keyword reports. Covers organic (SEO), answer engine (AEO snippets/PAA), and AI citation (GEO AI Overviews/ChatGPT Search/Perplexity) surfaces.
+
+
+### How do I install keyword-research?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill keyword-research` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support keyword-research?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

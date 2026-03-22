@@ -1,12 +1,26 @@
 # presentation-design
 
-Use this skill when designing presentations, slide decks, or pitch materials. Triggers on "create a presentation", "design slides", "build a deck", "structure my talk", "make a pitch deck", "data visualization for slides", or any request involving slide layout, storytelling frameworks (Pyramid Principle, Hero's Journey, Problem-Solution-Benefit), narrative arc, speaker notes, or chart selection for presentations. Covers slide structure, visual hierarchy, data-driven storytelling, and deck architecture from executive summaries to conference keynotes.
+presentation-design is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Designing presentations, slide decks, or pitch materials.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | design |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill presentation-design
 ```
+
+3. The presentation-design skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ internal strategy reviews, training materials, and any context where slides are 
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair presentation-design with these complementary skills:
 
 - [color-theory](https://absolutely-skilled.vercel.app/skill/color-theory)
 - [copywriting](https://absolutely-skilled.vercel.app/skill/copywriting)
 - [video-production](https://absolutely-skilled.vercel.app/skill/video-production)
 - [figma-to-code](https://absolutely-skilled.vercel.app/skill/figma-to-code)
+
+## Frequently Asked Questions
+
+### What is presentation-design?
+
+Use this skill when designing presentations, slide decks, or pitch materials. Triggers on "create a presentation", "design slides", "build a deck", "structure my talk", "make a pitch deck", "data visualization for slides", or any request involving slide layout, storytelling frameworks (Pyramid Principle, Hero's Journey, Problem-Solution-Benefit), narrative arc, speaker notes, or chart selection for presentations. Covers slide structure, visual hierarchy, data-driven storytelling, and deck architecture from executive summaries to conference keynotes.
+
+
+### How do I install presentation-design?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill presentation-design` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support presentation-design?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

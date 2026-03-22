@@ -1,12 +1,26 @@
 # product-launch
 
-Use this skill when planning go-to-market strategy, running beta programs, creating launch checklists, or managing rollout strategy. Triggers on product launch, go-to-market, GTM strategy, beta programs, launch checklist, rollout strategy, launch tiers, and any task requiring product release planning or execution.
+product-launch is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Planning go-to-market strategy, running beta programs, creating launch checklists, or managing rollout strategy.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | product |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill product-launch
 ```
+
+3. The product-launch skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ rollouts, and run launch retrospectives.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair product-launch with these complementary skills:
 
 - [product-strategy](https://absolutely-skilled.vercel.app/skill/product-strategy)
 - [content-marketing](https://absolutely-skilled.vercel.app/skill/content-marketing)
 - [growth-hacking](https://absolutely-skilled.vercel.app/skill/growth-hacking)
 - [project-execution](https://absolutely-skilled.vercel.app/skill/project-execution)
+
+## Frequently Asked Questions
+
+### What is product-launch?
+
+Use this skill when planning go-to-market strategy, running beta programs, creating launch checklists, or managing rollout strategy. Triggers on product launch, go-to-market, GTM strategy, beta programs, launch checklist, rollout strategy, launch tiers, and any task requiring product release planning or execution.
+
+
+### How do I install product-launch?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill product-launch` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support product-launch?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

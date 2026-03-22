@@ -1,12 +1,26 @@
 # account-management
 
-Use this skill when managing key accounts, planning expansions, running QBRs, or mapping stakeholders. Triggers on account management, expansion playbooks, QBR preparation, stakeholder mapping, renewal strategy, upsell, cross-sell, and any task requiring strategic account planning or relationship management.
+account-management is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Managing key accounts, planning expansions, running QBRs, or mapping stakeholders.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | sales |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill account-management
 ```
+
+3. The account-management skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ renewals, and rescue at-risk accounts before they churn.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair account-management with these complementary skills:
 
 - [customer-success-playbook](https://absolutely-skilled.vercel.app/skill/customer-success-playbook)
 - [crm-management](https://absolutely-skilled.vercel.app/skill/crm-management)
 - [sales-playbook](https://absolutely-skilled.vercel.app/skill/sales-playbook)
 - [partnership-strategy](https://absolutely-skilled.vercel.app/skill/partnership-strategy)
+
+## Frequently Asked Questions
+
+### What is account-management?
+
+Use this skill when managing key accounts, planning expansions, running QBRs, or mapping stakeholders. Triggers on account management, expansion playbooks, QBR preparation, stakeholder mapping, renewal strategy, upsell, cross-sell, and any task requiring strategic account planning or relationship management.
+
+
+### How do I install account-management?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill account-management` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support account-management?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

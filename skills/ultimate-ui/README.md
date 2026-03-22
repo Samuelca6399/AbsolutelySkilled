@@ -1,12 +1,26 @@
 # ultimate-ui
 
-Use this skill when building user interfaces that need to look polished, modern, and intentional - not like AI-generated slop. Triggers on UI design tasks including component styling, layout decisions, color choices, typography, spacing, responsive design, dark mode, accessibility, animations, landing pages, onboarding flows, data tables, navigation patterns, and any question about making a UI look professional. Covers CSS, Tailwind, and framework-agnostic design principles.
+ultimate-ui is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Building user interfaces that need to look polished, modern, and intentional - not like AI-generated slop.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill ultimate-ui
 ```
+
+3. The ultimate-ui skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -21,6 +35,8 @@ restraint - fewer colors used with intention, consistent spacing from a scale,
 typography that creates hierarchy without screaming, and micro-interactions that
 feel responsive without being distracting.
 
+---
+
 ## Tags
 
 `ui` `ux` `design` `css` `tailwind` `accessibility`
@@ -32,12 +48,29 @@ feel responsive without being distracting.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair ultimate-ui with these complementary skills:
 
 - [design-systems](https://absolutely-skilled.vercel.app/skill/design-systems)
 - [color-theory](https://absolutely-skilled.vercel.app/skill/color-theory)
 - [accessibility-wcag](https://absolutely-skilled.vercel.app/skill/accessibility-wcag)
 - [frontend-developer](https://absolutely-skilled.vercel.app/skill/frontend-developer)
+
+## Frequently Asked Questions
+
+### What is ultimate-ui?
+
+Use this skill when building user interfaces that need to look polished, modern, and intentional - not like AI-generated slop. Triggers on UI design tasks including component styling, layout decisions, color choices, typography, spacing, responsive design, dark mode, accessibility, animations, landing pages, onboarding flows, data tables, navigation patterns, and any question about making a UI look professional. Covers CSS, Tailwind, and framework-agnostic design principles.
+
+
+### How do I install ultimate-ui?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill ultimate-ui` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support ultimate-ui?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

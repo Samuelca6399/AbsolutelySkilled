@@ -1,12 +1,26 @@
 # system-design
 
-Use this skill when designing distributed systems, architecting scalable services, preparing for system design interviews, or making infrastructure decisions. Triggers on load balancing, CAP theorem, sharding, replication, caching strategies, message queues, microservices architecture, database selection, rate limiting, and any task requiring high-level system architecture decisions.
+system-design is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing distributed systems, architecting scalable services, preparing for system design interviews, or making infrastructure decisions.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill system-design
 ```
+
+3. The system-design skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ estimation through detailed component design.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair system-design with these complementary skills:
 
 - [clean-architecture](https://absolutely-skilled.vercel.app/skill/clean-architecture)
 - [microservices](https://absolutely-skilled.vercel.app/skill/microservices)
 - [database-engineering](https://absolutely-skilled.vercel.app/skill/database-engineering)
 - [performance-engineering](https://absolutely-skilled.vercel.app/skill/performance-engineering)
+
+## Frequently Asked Questions
+
+### What is system-design?
+
+Use this skill when designing distributed systems, architecting scalable services, preparing for system design interviews, or making infrastructure decisions. Triggers on load balancing, CAP theorem, sharding, replication, caching strategies, message queues, microservices architecture, database selection, rate limiting, and any task requiring high-level system architecture decisions.
+
+
+### How do I install system-design?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill system-design` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support system-design?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

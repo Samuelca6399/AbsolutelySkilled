@@ -1,12 +1,26 @@
 # database-engineering
 
-Use this skill when designing database schemas, optimizing queries, creating indexes, planning migrations, or choosing between database technologies. Triggers on schema design, normalization, indexing strategies, query optimization, EXPLAIN plans, migrations, partitioning, replication, connection pooling, and any task requiring database architecture or performance decisions.
+database-engineering is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing database schemas, optimizing queries, creating indexes, planning migrations, or choosing between database technologies.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill database-engineering
 ```
+
+3. The database-engineering skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ reference.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair database-engineering with these complementary skills:
 
 - [backend-engineering](https://absolutely-skilled.vercel.app/skill/backend-engineering)
 - [performance-engineering](https://absolutely-skilled.vercel.app/skill/performance-engineering)
 - [data-pipelines](https://absolutely-skilled.vercel.app/skill/data-pipelines)
 - [system-design](https://absolutely-skilled.vercel.app/skill/system-design)
+
+## Frequently Asked Questions
+
+### What is database-engineering?
+
+Use this skill when designing database schemas, optimizing queries, creating indexes, planning migrations, or choosing between database technologies. Triggers on schema design, normalization, indexing strategies, query optimization, EXPLAIN plans, migrations, partitioning, replication, connection pooling, and any task requiring database architecture or performance decisions.
+
+
+### How do I install database-engineering?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill database-engineering` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support database-engineering?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

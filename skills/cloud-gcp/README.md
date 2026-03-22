@@ -1,12 +1,26 @@
 # cloud-gcp
 
-Use this skill when architecting on Google Cloud Platform, selecting GCP services, or implementing data and compute solutions. Triggers on Cloud Run, BigQuery, Pub/Sub, GKE, Cloud Functions, Cloud Storage, Firestore, Spanner, Cloud SQL, IAM, VPC, and any task requiring GCP architecture decisions or service selection.
+cloud-gcp is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Architecting on Google Cloud Platform, selecting GCP services, or implementing data and compute solutions.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | cloud |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill cloud-gcp
 ```
+
+3. The cloud-gcp skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ the problem and *configuring it correctly* rather than memorizing every API surf
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair cloud-gcp with these complementary skills:
 
 - [terraform-iac](https://absolutely-skilled.vercel.app/skill/terraform-iac)
 - [cloud-security](https://absolutely-skilled.vercel.app/skill/cloud-security)
 - [docker-kubernetes](https://absolutely-skilled.vercel.app/skill/docker-kubernetes)
 - [cloud-aws](https://absolutely-skilled.vercel.app/skill/cloud-aws)
+
+## Frequently Asked Questions
+
+### What is cloud-gcp?
+
+Use this skill when architecting on Google Cloud Platform, selecting GCP services, or implementing data and compute solutions. Triggers on Cloud Run, BigQuery, Pub/Sub, GKE, Cloud Functions, Cloud Storage, Firestore, Spanner, Cloud SQL, IAM, VPC, and any task requiring GCP architecture decisions or service selection.
+
+
+### How do I install cloud-gcp?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill cloud-gcp` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support cloud-gcp?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

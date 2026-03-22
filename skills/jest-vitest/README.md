@@ -1,12 +1,26 @@
 # jest-vitest
 
-Use this skill when writing unit tests with Jest or Vitest, implementing mocking strategies, configuring test runners, or improving test coverage. Triggers on Jest, Vitest, describe/it/expect, mocking, vi.fn, jest.fn, snapshot testing, test coverage, and any task requiring JavaScript/TypeScript unit testing.
+jest-vitest is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Writing unit tests with Jest or Vitest, implementing mocking strategies, configuring test runners, or improving test coverage.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill jest-vitest
 ```
+
+3. The jest-vitest skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ React component testing, and coverage analysis.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair jest-vitest with these complementary skills:
 
 - [test-strategy](https://absolutely-skilled.vercel.app/skill/test-strategy)
 - [cypress-testing](https://absolutely-skilled.vercel.app/skill/cypress-testing)
 - [playwright-testing](https://absolutely-skilled.vercel.app/skill/playwright-testing)
 - [clean-code](https://absolutely-skilled.vercel.app/skill/clean-code)
+
+## Frequently Asked Questions
+
+### What is jest-vitest?
+
+Use this skill when writing unit tests with Jest or Vitest, implementing mocking strategies, configuring test runners, or improving test coverage. Triggers on Jest, Vitest, describe/it/expect, mocking, vi.fn, jest.fn, snapshot testing, test coverage, and any task requiring JavaScript/TypeScript unit testing.
+
+
+### How do I install jest-vitest?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill jest-vitest` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support jest-vitest?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

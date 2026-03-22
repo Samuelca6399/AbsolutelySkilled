@@ -1,12 +1,26 @@
 # onboarding
 
-Use this skill when designing onboarding programs, creating 30/60/90 plans, setting up buddy systems, or measuring ramp effectiveness. Triggers on onboarding plans, 30/60/90 day plans, buddy programs, knowledge transfer, ramp metrics, new hire experience, and any task requiring employee onboarding design or optimization.
+onboarding is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing onboarding programs, creating 30/60/90 plans, setting up buddy systems, or measuring ramp effectiveness.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill onboarding
 ```
+
+3. The onboarding skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ role-specific tracks, and the metrics that prove it is working.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair onboarding with these complementary skills:
 
 - [recruiting-ops](https://absolutely-skilled.vercel.app/skill/recruiting-ops)
 - [employee-engagement](https://absolutely-skilled.vercel.app/skill/employee-engagement)
 - [performance-management](https://absolutely-skilled.vercel.app/skill/performance-management)
 - [knowledge-base](https://absolutely-skilled.vercel.app/skill/knowledge-base)
+
+## Frequently Asked Questions
+
+### What is onboarding?
+
+Use this skill when designing onboarding programs, creating 30/60/90 plans, setting up buddy systems, or measuring ramp effectiveness. Triggers on onboarding plans, 30/60/90 day plans, buddy programs, knowledge transfer, ramp metrics, new hire experience, and any task requiring employee onboarding design or optimization.
+
+
+### How do I install onboarding?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill onboarding` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support onboarding?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

@@ -1,20 +1,31 @@
 ---
 import SkillLayout from '../../layouts/SkillLayout.astro';
 import TabSwitcher from '../../components/TabSwitcher.astro';
-import { getAllSkills } from '../../lib/skills';
+import { getAllSkills, getSkillsByCategory } from '../../lib/skills';
 import { getInstallCount } from '../../lib/installs';
 import { getSkillPageSEO } from '../../lib/seo';
 import { renderMarkdown } from '../../lib/markdown';
 
 export async function getStaticPaths() {
   const skills = getAllSkills();
-  return skills.map((skill) => ({
-    params: { slug: skill.slug },
-    props: { skill },
-  }));
+  const grouped = getSkillsByCategory(skills);
+  return skills.map((skill) => {
+    const categorySkills = grouped[skill.category] || [];
+    const sortedCategory = categorySkills.sort((a, b) => a.name.localeCompare(b.name));
+    const idx = sortedCategory.findIndex((s) => s.slug === skill.slug);
+    const prev = idx > 0 ? sortedCategory[idx - 1] : null;
+    const next = idx < sortedCategory.length - 1 ? sortedCategory[idx + 1] : null;
+    const moreInCategory = sortedCategory
+      .filter((s) => s.slug !== skill.slug)
+      .slice(0, 5);
+    return {
+      params: { slug: skill.slug },
+      props: { skill, prev, next, moreInCategory },
+    };
+  });
 }
 
-const { skill } = Astro.props;
+const { skill, prev, next, moreInCategory } = Astro.props;
 const installCount = getInstallCount(skill.slug);
 const seo = getSkillPageSEO(skill, installCount);
 
@@ -39,7 +50,10 @@ const refsHtml = skill.references.map((ref) => ({
   title={seo.title}
   description={seo.description}
   canonical={seo.canonical}
+  image={seo.image}
   jsonLd={seo.jsonLd}
+  additionalJsonLd={seo.additionalJsonLd}
+  breadcrumbs={seo.breadcrumbs}
   skill={skill}
   installCount={installCount}
 >
@@ -55,6 +69,12 @@ const refsHtml = skill.references.map((ref) => ({
     {skill.tags.map((tag) => (
       <span data-pagefind-filter="tag" class="hidden">{tag}</span>
     ))}
+
+    <!-- Definition block for AEO / featured snippets -->
+    <section class="card p-5 mb-6 border-l-4 border-l-accent-blue">
+      <h2 class="text-lg font-semibold font-mono mb-2 text-text-primary">What is {skill.name}?</h2>
+      <p class="text-text-secondary text-sm leading-relaxed">{skill.description}</p>
+    </section>
 
     <TabSwitcher>
       <div slot="overview" class="prose-dark">
@@ -86,5 +106,34 @@ const refsHtml = skill.references.map((ref) => ({
         )}
       </div>
     </TabSwitcher>
+
+    <!-- FAQ section matching FAQPage schema -->
+    <section class="mt-10 space-y-4">
+      <h2 class="text-xl font-semibold font-mono text-text-primary">Frequently Asked Questions</h2>
+      {seo.faqEntries.map((faq) => (
+        <div class="card p-5">
+          <h3 class="font-semibold text-text-primary mb-2">{faq.q}</h3>
+          <p class="text-sm text-text-secondary leading-relaxed">{faq.a}</p>
+        </div>
+      ))}
+    </section>
+
+    <!-- Prev / Next navigation within category -->
+    {(prev || next) && (
+      <nav class="mt-10 flex items-stretch gap-4" aria-label="Adjacent skills">
+        {prev ? (
+          <a href={`/skill/${prev.slug}`} class="card p-4 flex-1 group hover:border-border-hover transition-colors">
+            <span class="text-xs text-text-muted">Previous</span>
+            <span class="block font-mono text-sm text-text-primary group-hover:text-accent-blue transition-colors mt-1">{prev.name}</span>
+          </a>
+        ) : <div class="flex-1" />}
+        {next ? (
+          <a href={`/skill/${next.slug}`} class="card p-4 flex-1 text-right group hover:border-border-hover transition-colors">
+            <span class="text-xs text-text-muted">Next</span>
+            <span class="block font-mono text-sm text-text-primary group-hover:text-accent-blue transition-colors mt-1">{next.name}</span>
+          </a>
+        ) : <div class="flex-1" />}
+      </nav>
+    )}
   </div>
 </SkillLayout>

@@ -1,12 +1,26 @@
 # product-analytics
 
-Use this skill when analyzing product funnels, running cohort analysis, measuring feature adoption, or defining product metrics. Triggers on product analytics, funnel analysis, cohort analysis, feature adoption, north star metric, AARRR, retention curves, and any task requiring product data analysis or metrics design.
+product-analytics is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Analyzing product funnels, running cohort analysis, measuring feature adoption, or defining product metrics.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | product |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill product-analytics
 ```
+
+3. The product-analytics skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ to act on findings correctly.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair product-analytics with these complementary skills:
 
 - [saas-metrics](https://absolutely-skilled.vercel.app/skill/saas-metrics)
 - [product-strategy](https://absolutely-skilled.vercel.app/skill/product-strategy)
 - [growth-hacking](https://absolutely-skilled.vercel.app/skill/growth-hacking)
 - [data-science](https://absolutely-skilled.vercel.app/skill/data-science)
+
+## Frequently Asked Questions
+
+### What is product-analytics?
+
+Use this skill when analyzing product funnels, running cohort analysis, measuring feature adoption, or defining product metrics. Triggers on product analytics, funnel analysis, cohort analysis, feature adoption, north star metric, AARRR, retention curves, and any task requiring product data analysis or metrics design.
+
+
+### How do I install product-analytics?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill product-analytics` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support product-analytics?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

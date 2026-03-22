@@ -1,12 +1,26 @@
 # ecommerce-seo
 
-Use this skill when optimizing e-commerce sites for search engines - product page SEO, faceted navigation crawl control, category taxonomy, product schema markup, pagination handling, inventory-aware SEO (out-of-stock pages), and e-commerce site architecture. Triggers on any task involving online store search optimization, product listing pages, shopping search results, or e-commerce technical SEO challenges.
+ecommerce-seo is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Optimizing e-commerce sites for search engines - product page SEO, faceted navigation crawl control, category taxonomy, product schema markup, pagination handling, inventory-aware SEO (out-of-stock pages), and e-commerce site architecture.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill ecommerce-seo
 ```
+
+3. The ecommerce-seo skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ This skill provides the patterns and decision frameworks needed to win search fo
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair ecommerce-seo with these complementary skills:
 
 - [schema-markup](https://absolutely-skilled.vercel.app/skill/schema-markup)
 - [technical-seo](https://absolutely-skilled.vercel.app/skill/technical-seo)
 - [programmatic-seo](https://absolutely-skilled.vercel.app/skill/programmatic-seo)
 - [keyword-research](https://absolutely-skilled.vercel.app/skill/keyword-research)
+
+## Frequently Asked Questions
+
+### What is ecommerce-seo?
+
+Use this skill when optimizing e-commerce sites for search engines - product page SEO, faceted navigation crawl control, category taxonomy, product schema markup, pagination handling, inventory-aware SEO (out-of-stock pages), and e-commerce site architecture. Triggers on any task involving online store search optimization, product listing pages, shopping search results, or e-commerce technical SEO challenges.
+
+
+### How do I install ecommerce-seo?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill ecommerce-seo` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support ecommerce-seo?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

@@ -1,12 +1,26 @@
 # brand-strategy
 
-Use this skill when defining brand positioning, voice and tone guidelines, brand architecture, or storytelling frameworks. Triggers on brand positioning, brand voice, tone guidelines, brand architecture, brand story, messaging hierarchy, competitive positioning, and any task requiring brand strategy development or documentation.
+brand-strategy is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Defining brand positioning, voice and tone guidelines, brand architecture, or storytelling frameworks.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill brand-strategy
 ```
+
+3. The brand-strategy skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ storytelling, competitive mapping, and brand audits.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair brand-strategy with these complementary skills:
 
 - [copywriting](https://absolutely-skilled.vercel.app/skill/copywriting)
 - [social-media-strategy](https://absolutely-skilled.vercel.app/skill/social-media-strategy)
 - [competitive-analysis](https://absolutely-skilled.vercel.app/skill/competitive-analysis)
 - [product-strategy](https://absolutely-skilled.vercel.app/skill/product-strategy)
+
+## Frequently Asked Questions
+
+### What is brand-strategy?
+
+Use this skill when defining brand positioning, voice and tone guidelines, brand architecture, or storytelling frameworks. Triggers on brand positioning, brand voice, tone guidelines, brand architecture, brand story, messaging hierarchy, competitive positioning, and any task requiring brand strategy development or documentation.
+
+
+### How do I install brand-strategy?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill brand-strategy` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support brand-strategy?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

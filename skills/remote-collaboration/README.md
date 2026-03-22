@@ -1,12 +1,26 @@
 # remote-collaboration
 
-Use this skill when facilitating remote team collaboration - async-first workflows, documentation-driven decision making, meeting facilitation, and distributed team communication. Triggers on designing async processes, writing RFCs or decision docs, preparing meeting agendas, running standups or retros, establishing communication norms, reducing meeting load, or improving handoff quality across time zones.
+remote-collaboration is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Facilitating remote team collaboration - async-first workflows, documentation-driven decision making, meeting facilitation, and distributed team communication.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill remote-collaboration
 ```
+
+3. The remote-collaboration skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ writing more and meeting less - without losing alignment or team cohesion.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair remote-collaboration with these complementary skills:
 
 - [agile-scrum](https://absolutely-skilled.vercel.app/skill/agile-scrum)
 - [project-execution](https://absolutely-skilled.vercel.app/skill/project-execution)
 - [internal-docs](https://absolutely-skilled.vercel.app/skill/internal-docs)
 - [knowledge-base](https://absolutely-skilled.vercel.app/skill/knowledge-base)
+
+## Frequently Asked Questions
+
+### What is remote-collaboration?
+
+Use this skill when facilitating remote team collaboration - async-first workflows, documentation-driven decision making, meeting facilitation, and distributed team communication. Triggers on designing async processes, writing RFCs or decision docs, preparing meeting agendas, running standups or retros, establishing communication norms, reducing meeting load, or improving handoff quality across time zones.
+
+
+### How do I install remote-collaboration?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill remote-collaboration` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support remote-collaboration?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

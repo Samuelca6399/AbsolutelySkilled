@@ -1,12 +1,26 @@
 # api-monetization
 
-Use this skill when designing or implementing API monetization strategies - usage-based pricing, rate limiting, developer tier management, Stripe metering integration, or API billing systems. Triggers on tasks involving API pricing models, metered billing, per-request charging, quota enforcement, developer portal tiers, overage handling, and Stripe usage records.
+api-monetization is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Designing or implementing API monetization strategies - usage-based pricing, rate limiting, developer tier management, Stripe metering integration, or API billing systems.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill api-monetization
 ```
+
+3. The api-monetization skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,11 +44,28 @@ for automated invoicing.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair api-monetization with these complementary skills:
 
 - [api-design](https://absolutely-skilled.vercel.app/skill/api-design)
 - [pricing-strategy](https://absolutely-skilled.vercel.app/skill/pricing-strategy)
 - [saas-metrics](https://absolutely-skilled.vercel.app/skill/saas-metrics)
+
+## Frequently Asked Questions
+
+### What is api-monetization?
+
+Use this skill when designing or implementing API monetization strategies - usage-based pricing, rate limiting, developer tier management, Stripe metering integration, or API billing systems. Triggers on tasks involving API pricing models, metered billing, per-request charging, quota enforcement, developer portal tiers, overage handling, and Stripe usage records.
+
+
+### How do I install api-monetization?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill api-monetization` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support api-monetization?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

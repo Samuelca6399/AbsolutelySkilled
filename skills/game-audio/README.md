@@ -1,12 +1,26 @@
 # game-audio
 
-Use this skill when designing or implementing audio systems for games - sound effects, adaptive music, spatial/3D audio, and middleware integration with FMOD or Wwise. Triggers on sound design, audio implementation, adaptive music systems, spatial audio, HRTF, audio middleware setup, sound event architecture, audio mixing, dynamic soundscapes, and game audio optimization. Covers FMOD Studio, Audiokinetic Wwise, and engine-native audio APIs.
+game-audio is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Designing or implementing audio systems for games - sound effects, adaptive music, spatial/3D audio, and middleware integration with FMOD or Wwise.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | game-development |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill game-audio
 ```
+
+3. The game-audio skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,11 +45,28 @@ shipped titles.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair game-audio with these complementary skills:
 
 - [unity-development](https://absolutely-skilled.vercel.app/skill/unity-development)
 - [game-design-patterns](https://absolutely-skilled.vercel.app/skill/game-design-patterns)
 - [pixel-art-sprites](https://absolutely-skilled.vercel.app/skill/pixel-art-sprites)
+
+## Frequently Asked Questions
+
+### What is game-audio?
+
+Use this skill when designing or implementing audio systems for games - sound effects, adaptive music, spatial/3D audio, and middleware integration with FMOD or Wwise. Triggers on sound design, audio implementation, adaptive music systems, spatial audio, HRTF, audio middleware setup, sound event architecture, audio mixing, dynamic soundscapes, and game audio optimization. Covers FMOD Studio, Audiokinetic Wwise, and engine-native audio APIs.
+
+
+### How do I install game-audio?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill game-audio` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support game-audio?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

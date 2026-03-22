@@ -1,12 +1,26 @@
 # performance-engineering
 
-Use this skill when profiling application performance, debugging memory leaks, optimizing latency, benchmarking code, or reducing resource consumption. Triggers on CPU profiling, memory profiling, flame graphs, garbage collection tuning, load testing, P99 latency, throughput optimization, bundle size reduction, and any task requiring performance analysis or optimization.
+performance-engineering is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Profiling application performance, debugging memory leaks, optimizing latency, benchmarking code, or reducing resource consumption.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill performance-engineering
 ```
+
+3. The performance-engineering skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -28,12 +42,29 @@ and database query layer. The guiding philosophy is always measure first, optimi
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair performance-engineering with these complementary skills:
 
 - [observability](https://absolutely-skilled.vercel.app/skill/observability)
 - [load-testing](https://absolutely-skilled.vercel.app/skill/load-testing)
 - [backend-engineering](https://absolutely-skilled.vercel.app/skill/backend-engineering)
 - [database-engineering](https://absolutely-skilled.vercel.app/skill/database-engineering)
+
+## Frequently Asked Questions
+
+### What is performance-engineering?
+
+Use this skill when profiling application performance, debugging memory leaks, optimizing latency, benchmarking code, or reducing resource consumption. Triggers on CPU profiling, memory profiling, flame graphs, garbage collection tuning, load testing, P99 latency, throughput optimization, bundle size reduction, and any task requiring performance analysis or optimization.
+
+
+### How do I install performance-engineering?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill performance-engineering` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support performance-engineering?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

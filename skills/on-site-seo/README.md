@@ -1,12 +1,26 @@
 # on-site-seo
 
-Use this skill when implementing on-page SEO fixes in code - meta tags, title tags, heading structure, internal linking, image optimization, semantic HTML, Open Graph and Twitter card tags, and framework-specific SEO patterns. Covers Next.js Metadata API and generateMetadata, Nuxt useSeoMeta, Astro SEO patterns, and Remix meta function. Triggers on any hands-on code task to improve a page's on-site SEO signals.
+on-site-seo is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Implementing on-page SEO fixes in code - meta tags, title tags, heading structure, internal linking, image optimization, semantic HTML, Open Graph and Twitter card tags, and framework-specific SEO patterns.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill on-site-seo
 ```
+
+3. The on-site-seo skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ correct, production-grade implementation - not strategy or keyword research.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair on-site-seo with these complementary skills:
 
 - [technical-seo](https://absolutely-skilled.vercel.app/skill/technical-seo)
 - [core-web-vitals](https://absolutely-skilled.vercel.app/skill/core-web-vitals)
 - [schema-markup](https://absolutely-skilled.vercel.app/skill/schema-markup)
 - [frontend-developer](https://absolutely-skilled.vercel.app/skill/frontend-developer)
+
+## Frequently Asked Questions
+
+### What is on-site-seo?
+
+Use this skill when implementing on-page SEO fixes in code - meta tags, title tags, heading structure, internal linking, image optimization, semantic HTML, Open Graph and Twitter card tags, and framework-specific SEO patterns. Covers Next.js Metadata API and generateMetadata, Nuxt useSeoMeta, Astro SEO patterns, and Remix meta function. Triggers on any hands-on code task to improve a page's on-site SEO signals.
+
+
+### How do I install on-site-seo?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill on-site-seo` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support on-site-seo?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

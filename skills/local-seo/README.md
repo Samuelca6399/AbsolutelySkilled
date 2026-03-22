@@ -1,12 +1,26 @@
 # local-seo
 
-Use this skill when optimizing for local search results - Google Business Profile management, local citations, NAP consistency, local schema markup (LocalBusiness), review management, local pack optimization, and geo-targeted content. Triggers on any task involving local search visibility, map pack rankings, multi-location SEO, or local business online presence.
+local-seo is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Optimizing for local search results - Google Business Profile management, local citations, NAP consistency, local schema markup (LocalBusiness), review management, local pack optimization, and geo-targeted content.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill local-seo
 ```
+
+3. The local-seo skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -32,12 +46,29 @@ to drive foot traffic and phone calls.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair local-seo with these complementary skills:
 
 - [seo-mastery](https://absolutely-skilled.vercel.app/skill/seo-mastery)
 - [link-building](https://absolutely-skilled.vercel.app/skill/link-building)
 - [geo-optimization](https://absolutely-skilled.vercel.app/skill/geo-optimization)
 - [schema-markup](https://absolutely-skilled.vercel.app/skill/schema-markup)
+
+## Frequently Asked Questions
+
+### What is local-seo?
+
+Use this skill when optimizing for local search results - Google Business Profile management, local citations, NAP consistency, local schema markup (LocalBusiness), review management, local pack optimization, and geo-targeted content. Triggers on any task involving local search visibility, map pack rankings, multi-location SEO, or local business online presence.
+
+
+### How do I install local-seo?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill local-seo` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support local-seo?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

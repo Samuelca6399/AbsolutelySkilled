@@ -1,12 +1,26 @@
 # link-building
 
-Use this skill when building, auditing, or managing backlinks for SEO. Triggers on digital PR outreach, HARO/Connectively pitching, guest posting strategy, broken link building, anchor text optimization, toxic link auditing, disavow file creation, and link profile analysis. Covers ethical white-hat link acquisition tactics and link equity management.
+link-building is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Building, auditing, or managing backlinks for SEO.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | marketing |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill link-building
 ```
+
+3. The link-building skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ campaigns, and maintaining a clean link profile free of toxic signals.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair link-building with these complementary skills:
 
 - [content-seo](https://absolutely-skilled.vercel.app/skill/content-seo)
 - [seo-mastery](https://absolutely-skilled.vercel.app/skill/seo-mastery)
 - [content-marketing](https://absolutely-skilled.vercel.app/skill/content-marketing)
 - [local-seo](https://absolutely-skilled.vercel.app/skill/local-seo)
+
+## Frequently Asked Questions
+
+### What is link-building?
+
+Use this skill when building, auditing, or managing backlinks for SEO. Triggers on digital PR outreach, HARO/Connectively pitching, guest posting strategy, broken link building, anchor text optimization, toxic link auditing, disavow file creation, and link profile analysis. Covers ethical white-hat link acquisition tactics and link equity management.
+
+
+### How do I install link-building?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill link-building` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support link-building?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

@@ -1,12 +1,26 @@
 # edge-computing
 
-Use this skill when deploying edge functions, writing Cloudflare Workers, configuring CDN cache logic, optimizing latency with edge-side processing, or building serverless-at-the-edge architectures. Triggers on edge functions, CDN rules, Cloudflare Workers, Deno Deploy, Vercel Edge Functions, Lambda@Edge, cache headers, geo-routing, and any task requiring computation close to the user.
+edge-computing is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Deploying edge functions, writing Cloudflare Workers, configuring CDN cache logic, optimizing latency with edge-side processing, or building serverless-at-the-edge architectures.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | cloud |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill edge-computing
 ```
+
+3. The edge-computing skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ core principle is to move computation to where the user is, not the other way ar
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair edge-computing with these complementary skills:
 
 - [cloud-aws](https://absolutely-skilled.vercel.app/skill/cloud-aws)
 - [cloud-gcp](https://absolutely-skilled.vercel.app/skill/cloud-gcp)
 - [performance-engineering](https://absolutely-skilled.vercel.app/skill/performance-engineering)
 - [docker-kubernetes](https://absolutely-skilled.vercel.app/skill/docker-kubernetes)
+
+## Frequently Asked Questions
+
+### What is edge-computing?
+
+Use this skill when deploying edge functions, writing Cloudflare Workers, configuring CDN cache logic, optimizing latency with edge-side processing, or building serverless-at-the-edge architectures. Triggers on edge functions, CDN rules, Cloudflare Workers, Deno Deploy, Vercel Edge Functions, Lambda@Edge, cache headers, geo-routing, and any task requiring computation close to the user.
+
+
+### How do I install edge-computing?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill edge-computing` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support edge-computing?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

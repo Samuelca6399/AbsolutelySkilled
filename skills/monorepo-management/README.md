@@ -1,12 +1,26 @@
 # monorepo-management
 
-Use this skill when setting up or managing monorepos, configuring workspace dependencies, optimizing build caching, or choosing between monorepo tools. Triggers on Turborepo, Nx, Bazel, pnpm workspaces, npm workspaces, yarn workspaces, build pipelines, task orchestration, affected commands, and any task requiring multi-package repository management.
+monorepo-management is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Setting up or managing monorepos, configuring workspace dependencies, optimizing build caching, or choosing between monorepo tools.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill monorepo-management
 ```
+
+3. The monorepo-management skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,13 +44,30 @@ build systems (Bazel), internal package patterns, and shared tooling config.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair monorepo-management with these complementary skills:
 
 - [ci-cd-pipelines](https://absolutely-skilled.vercel.app/skill/ci-cd-pipelines)
 - [git-advanced](https://absolutely-skilled.vercel.app/skill/git-advanced)
 - [developer-experience](https://absolutely-skilled.vercel.app/skill/developer-experience)
 - [vite-plus](https://absolutely-skilled.vercel.app/skill/vite-plus)
 - [meta-repo](https://absolutely-skilled.vercel.app/skill/meta-repo)
+
+## Frequently Asked Questions
+
+### What is monorepo-management?
+
+Use this skill when setting up or managing monorepos, configuring workspace dependencies, optimizing build caching, or choosing between monorepo tools. Triggers on Turborepo, Nx, Bazel, pnpm workspaces, npm workspaces, yarn workspaces, build pipelines, task orchestration, affected commands, and any task requiring multi-package repository management.
+
+
+### How do I install monorepo-management?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill monorepo-management` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support monorepo-management?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

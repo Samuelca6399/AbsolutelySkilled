@@ -1,12 +1,26 @@
 # frontend-developer
 
-Senior frontend engineering expertise for building high-quality web interfaces. Use this skill when writing, reviewing, or optimizing frontend code - HTML, CSS, JavaScript, TypeScript, components, layouts, forms, or interactive UI. Triggers on web performance optimization (Core Web Vitals, bundle size, lazy loading), accessibility audits (WCAG, ARIA, keyboard navigation, screen readers), code quality reviews, component architecture decisions, testing strategy, and modern CSS patterns. Covers the full frontend spectrum from semantic markup to production performance.
+frontend-developer is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex, and 1 more. Senior frontend engineering expertise for building high-quality web interfaces. Use this skill when writing, reviewing, or optimizing frontend code - HTML, CSS, JavaScript, TypeScript, components, layouts, forms, or interactive UI.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex, mcp |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill frontend-developer
 ```
+
+3. The frontend-developer skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,30 @@ platform is the foundation.
 - openai-codex
 - mcp
 
-## Recommended Skills
+## Related Skills
+
+Pair frontend-developer with these complementary skills:
 
 - [design-systems](https://absolutely-skilled.vercel.app/skill/design-systems)
 - [accessibility-wcag](https://absolutely-skilled.vercel.app/skill/accessibility-wcag)
 - [responsive-design](https://absolutely-skilled.vercel.app/skill/responsive-design)
 - [ultimate-ui](https://absolutely-skilled.vercel.app/skill/ultimate-ui)
+- [react-ink](https://absolutely-skilled.vercel.app/skill/react-ink)
+
+## Frequently Asked Questions
+
+### What is frontend-developer?
+
+Senior frontend engineering expertise for building high-quality web interfaces. Use this skill when writing, reviewing, or optimizing frontend code - HTML, CSS, JavaScript, TypeScript, components, layouts, forms, or interactive UI. Triggers on web performance optimization (Core Web Vitals, bundle size, lazy loading), accessibility audits (WCAG, ARIA, keyboard navigation, screen readers), code quality reviews, component architecture decisions, testing strategy, and modern CSS patterns. Covers the full frontend spectrum from semantic markup to production performance.
+
+
+### How do I install frontend-developer?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill frontend-developer` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support frontend-developer?
+
+This skill works with claude-code, gemini-cli, openai-codex, mcp. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

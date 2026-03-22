@@ -2,15 +2,21 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPostCard from '../../components/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
+import { getBlogIndexSEO } from '../../lib/seo';
 
 const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const seo = getBlogIndexSEO();
 ---
 
 <BaseLayout
-  title="Blog - AbsolutelySkilled"
-  description="Updates, guides, and insights about AI agent skills."
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  additionalJsonLd={seo.additionalJsonLd}
+  breadcrumbs={seo.breadcrumbs}
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
     <h1 class="text-3xl font-bold font-mono mb-8">Blog</h1>

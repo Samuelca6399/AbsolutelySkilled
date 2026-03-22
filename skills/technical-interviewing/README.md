@@ -1,12 +1,26 @@
 # technical-interviewing
 
-Use this skill when designing coding challenges, structuring system design interviews, building interview rubrics, calibrating evaluation criteria, or creating hiring loops. Triggers on interview question design, coding assessment creation, system design prompt writing, rubric building, interviewer training, candidate evaluation, and any task requiring structured technical assessment.
+technical-interviewing is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing coding challenges, structuring system design interviews, building interview rubrics, calibrating evaluation criteria, or creating hiring loops.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill technical-interviewing
 ```
+
+3. The technical-interviewing skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,12 +44,29 @@ building rubrics, calibrating panels, and reducing bias.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair technical-interviewing with these complementary skills:
 
 - [interview-design](https://absolutely-skilled.vercel.app/skill/interview-design)
 - [recruiting-ops](https://absolutely-skilled.vercel.app/skill/recruiting-ops)
 - [system-design](https://absolutely-skilled.vercel.app/skill/system-design)
 - [clean-code](https://absolutely-skilled.vercel.app/skill/clean-code)
+
+## Frequently Asked Questions
+
+### What is technical-interviewing?
+
+Use this skill when designing coding challenges, structuring system design interviews, building interview rubrics, calibrating evaluation criteria, or creating hiring loops. Triggers on interview question design, coding assessment creation, system design prompt writing, rubric building, interviewer training, candidate evaluation, and any task requiring structured technical assessment.
+
+
+### How do I install technical-interviewing?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill technical-interviewing` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support technical-interviewing?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

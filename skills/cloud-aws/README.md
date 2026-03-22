@@ -1,12 +1,26 @@
 # cloud-aws
 
-Use this skill when architecting on AWS, selecting services, optimizing costs, or following the Well-Architected Framework. Triggers on EC2, S3, Lambda, RDS, DynamoDB, CloudFront, IAM, VPC, ECS, EKS, SQS, SNS, API Gateway, and any task requiring AWS architecture decisions, service selection, or cost management.
+cloud-aws is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Architecting on AWS, selecting services, optimizing costs, or following the Well-Architected Framework.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | cloud |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill cloud-aws
 ```
+
+3. The cloud-aws skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -28,12 +42,29 @@ who know AWS basics and need opinionated guidance on trade-offs and common pitfa
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair cloud-aws with these complementary skills:
 
 - [terraform-iac](https://absolutely-skilled.vercel.app/skill/terraform-iac)
 - [cloud-security](https://absolutely-skilled.vercel.app/skill/cloud-security)
 - [docker-kubernetes](https://absolutely-skilled.vercel.app/skill/docker-kubernetes)
 - [cloud-gcp](https://absolutely-skilled.vercel.app/skill/cloud-gcp)
+
+## Frequently Asked Questions
+
+### What is cloud-aws?
+
+Use this skill when architecting on AWS, selecting services, optimizing costs, or following the Well-Architected Framework. Triggers on EC2, S3, Lambda, RDS, DynamoDB, CloudFront, IAM, VPC, ECS, EKS, SQS, SNS, API Gateway, and any task requiring AWS architecture decisions, service selection, or cost management.
+
+
+### How do I install cloud-aws?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill cloud-aws` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support cloud-aws?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

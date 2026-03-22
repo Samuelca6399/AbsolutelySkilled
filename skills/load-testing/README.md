@@ -1,12 +1,26 @@
 # load-testing
 
-Use this skill when load testing services, benchmarking API performance, planning capacity, or identifying bottlenecks under stress. Triggers on k6, Artillery, JMeter, load testing, stress testing, soak testing, spike testing, performance benchmarks, throughput testing, and any task requiring load or performance testing.
+load-testing is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Load testing services, benchmarking API performance, planning capacity, or identifying bottlenecks under stress.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | engineering |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill load-testing
 ```
+
+3. The load-testing skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -27,12 +41,29 @@ Designed for engineers who need to validate performance before and after launche
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair load-testing with these complementary skills:
 
 - [performance-engineering](https://absolutely-skilled.vercel.app/skill/performance-engineering)
 - [chaos-engineering](https://absolutely-skilled.vercel.app/skill/chaos-engineering)
 - [site-reliability](https://absolutely-skilled.vercel.app/skill/site-reliability)
 - [api-testing](https://absolutely-skilled.vercel.app/skill/api-testing)
+
+## Frequently Asked Questions
+
+### What is load-testing?
+
+Use this skill when load testing services, benchmarking API performance, planning capacity, or identifying bottlenecks under stress. Triggers on k6, Artillery, JMeter, load testing, stress testing, soak testing, spike testing, performance benchmarks, throughput testing, and any task requiring load or performance testing.
+
+
+### How do I install load-testing?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill load-testing` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support load-testing?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

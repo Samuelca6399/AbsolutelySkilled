@@ -4,6 +4,8 @@ import TagPill from './TagPill.astro';
 import InstallCommand from './InstallCommand.astro';
 import RecommendedSkills from './RecommendedSkills.astro';
 import type { Skill } from '../lib/skills';
+import { getAllSkills } from '../lib/skills';
+import { getCategoryMeta } from '../lib/categories';
 
 interface Props {
   skill: Skill;
@@ -11,6 +13,13 @@ interface Props {
 }
 
 const { skill, installCount } = Astro.props;
+
+// Get other skills in same category for internal linking
+const allSkills = getAllSkills();
+const categorySkills = allSkills
+  .filter((s) => s.category === skill.category && s.slug !== skill.slug)
+  .slice(0, 5);
+const categoryMeta = getCategoryMeta(skill.category);
 ---
 
 <div class="space-y-6">
@@ -75,6 +84,8 @@ const { skill, installCount } = Astro.props;
                 alt={m.github}
                 class="w-5 h-5 rounded-full"
                 loading="lazy"
+                width="20"
+                height="20"
               />
               @{m.github}
             </a>
@@ -91,5 +102,29 @@ const { skill, installCount } = Astro.props;
 
   {skill.recommended_skills.length > 0 && (
     <RecommendedSkills skills={skill.recommended_skills} />
+  )}
+
+  {categorySkills.length > 0 && (
+    <div class="card p-5">
+      <h3 class="font-semibold text-text-primary mb-3 text-sm uppercase tracking-wider">
+        More {categoryMeta.label}
+      </h3>
+      <div class="space-y-2">
+        {categorySkills.map((s) => (
+          <a
+            href={`/skill/${s.slug}`}
+            class="block text-sm text-text-secondary hover:text-accent-blue transition-colors truncate"
+          >
+            {s.name}
+          </a>
+        ))}
+        <a
+          href={`/category/${skill.category}`}
+          class="block text-xs text-text-muted hover:text-text-secondary transition-colors mt-2"
+        >
+          View all &rarr;
+        </a>
+      </div>
+    </div>
   )}
 </div>

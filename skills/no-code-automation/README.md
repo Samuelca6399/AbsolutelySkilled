@@ -1,12 +1,26 @@
 # no-code-automation
 
-Use this skill when building workflow automations with Zapier, Make (Integromat), n8n, or similar no-code/low-code platforms. Triggers on workflow automation, Zap creation, Make scenario design, n8n workflow building, webhook routing, internal tooling automation, app integration, trigger-action patterns, and any task requiring connecting SaaS tools without writing full applications.
+no-code-automation is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Building workflow automations with Zapier, Make (Integromat), n8n, or similar no-code/low-code platforms.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | workflow |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill no-code-automation
 ```
+
+3. The no-code-automation skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -30,11 +44,28 @@ simple automations into maintenance nightmares.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair no-code-automation with these complementary skills:
 
 - [spreadsheet-modeling](https://absolutely-skilled.vercel.app/skill/spreadsheet-modeling)
 - [ci-cd-pipelines](https://absolutely-skilled.vercel.app/skill/ci-cd-pipelines)
 - [data-pipelines](https://absolutely-skilled.vercel.app/skill/data-pipelines)
+
+## Frequently Asked Questions
+
+### What is no-code-automation?
+
+Use this skill when building workflow automations with Zapier, Make (Integromat), n8n, or similar no-code/low-code platforms. Triggers on workflow automation, Zap creation, Make scenario design, n8n workflow building, webhook routing, internal tooling automation, app integration, trigger-action patterns, and any task requiring connecting SaaS tools without writing full applications.
+
+
+### How do I install no-code-automation?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill no-code-automation` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support no-code-automation?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

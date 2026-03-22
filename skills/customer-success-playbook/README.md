@@ -1,12 +1,26 @@
 # customer-success-playbook
 
-Use this skill when building health scores, predicting churn, identifying expansion signals, or running QBRs. Triggers on customer success, health scores, churn prediction, expansion signals, customer QBRs, onboarding playbooks, NRR optimization, and any task requiring customer success strategy or operations.
+customer-success-playbook is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Building health scores, predicting churn, identifying expansion signals, or running QBRs.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill customer-success-playbook
 ```
+
+3. The customer-success-playbook skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -29,12 +43,29 @@ performance measurement.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair customer-success-playbook with these complementary skills:
 
 - [account-management](https://absolutely-skilled.vercel.app/skill/account-management)
 - [support-analytics](https://absolutely-skilled.vercel.app/skill/support-analytics)
 - [customer-support-ops](https://absolutely-skilled.vercel.app/skill/customer-support-ops)
 - [saas-metrics](https://absolutely-skilled.vercel.app/skill/saas-metrics)
+
+## Frequently Asked Questions
+
+### What is customer-success-playbook?
+
+Use this skill when building health scores, predicting churn, identifying expansion signals, or running QBRs. Triggers on customer success, health scores, churn prediction, expansion signals, customer QBRs, onboarding playbooks, NRR optimization, and any task requiring customer success strategy or operations.
+
+
+### How do I install customer-success-playbook?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill customer-success-playbook` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support customer-success-playbook?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 

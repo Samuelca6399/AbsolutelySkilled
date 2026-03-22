@@ -1,12 +1,26 @@
 # employee-engagement
 
-Use this skill when designing engagement surveys, running pulse checks, building retention strategies, or improving culture. Triggers on employee engagement, surveys, pulse checks, retention strategies, culture building, eNPS, team health, and any task requiring engagement measurement or improvement programs.
+employee-engagement is a production-ready AI agent skill for claude-code, gemini-cli, openai-codex. Designing engagement surveys, running pulse checks, building retention strategies, or improving culture.
 
-## Install
+## Quick Facts
+
+| Field | Value |
+|-------|-------|
+| Category | operations |
+| Version | 0.1.0 |
+| Platforms | claude-code, gemini-cli, openai-codex |
+| License | MIT |
+
+## How to Install
+
+1. Make sure you have Node.js installed on your machine.
+2. Run the following command in your terminal:
 
 ```bash
 npx skills add AbsolutelySkilled/AbsolutelySkilled --skill employee-engagement
 ```
+
+3. The employee-engagement skill is now available in your AI coding agent (Claude Code, Gemini CLI, OpenAI Codex, etc.).
 
 ## Overview
 
@@ -31,12 +45,29 @@ action-oriented engagement practice.
 - gemini-cli
 - openai-codex
 
-## Recommended Skills
+## Related Skills
+
+Pair employee-engagement with these complementary skills:
 
 - [performance-management](https://absolutely-skilled.vercel.app/skill/performance-management)
 - [onboarding](https://absolutely-skilled.vercel.app/skill/onboarding)
 - [remote-collaboration](https://absolutely-skilled.vercel.app/skill/remote-collaboration)
 - [community-management](https://absolutely-skilled.vercel.app/skill/community-management)
+
+## Frequently Asked Questions
+
+### What is employee-engagement?
+
+Use this skill when designing engagement surveys, running pulse checks, building retention strategies, or improving culture. Triggers on employee engagement, surveys, pulse checks, retention strategies, culture building, eNPS, team health, and any task requiring engagement measurement or improvement programs.
+
+
+### How do I install employee-engagement?
+
+Run `npx skills add AbsolutelySkilled/AbsolutelySkilled --skill employee-engagement` in your terminal. The skill will be immediately available in your AI coding agent.
+
+### What AI agents support employee-engagement?
+
+This skill works with claude-code, gemini-cli, openai-codex. Install it once and use it across any supported AI coding agent.
 
 ## Maintainers
 
