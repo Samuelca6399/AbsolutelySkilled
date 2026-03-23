@@ -181,6 +181,36 @@ npx skills add AbsolutelySkilled/AbsolutelySkilled --skill video-creator
 
 Companion skills: [remotion-video](skills/remotion-video/), [video-scriptwriting](skills/video-scriptwriting/), [video-audio-design](skills/video-audio-design/), [video-analyzer](skills/video-analyzer/)
 
+### Supaguard - Synthetic Monitoring from Your Codebase
+
+A production monitoring skill that reads your source code, generates Playwright monitoring scripts, and deploys them as recurring checks via the supaguard CLI - all without committing any test scripts to your repository.
+
+**Install:**
+
+```bash
+npx skills add AbsolutelySkilled/AbsolutelySkilled --skill supaguard
+```
+
+**Usage:**
+
+```bash
+# Point at your app and the agent does the rest
+"Set up monitoring for my Next.js app"
+"Monitor the login flow on production"
+"Create an uptime check for our checkout page"
+```
+
+**How it works:**
+
+1. **Reads your source code** - scans components, routes, data-testids, API endpoints, and forms
+2. **Identifies critical flows** - login, checkout, page load, dashboard access
+3. **Generates Playwright scripts** - written to `/tmp/`, never committed to your repo
+4. **Tests in the cloud** - runs the script via `supaguard checks test` before deploying
+5. **Interactive deployment** - walks you through naming, scheduling, regions, and alerting one step at a time
+6. **Multi-region monitoring** - US East, EU North, India Central with configurable cron schedules
+
+Companion skills: [playwright-testing](skills/playwright-testing/), [cli-design](skills/cli-design/)
+
 ### Codedocs - AI-Agent-Friendly Codebase Documentation
 
 Generates a structured `docs/` tree from your codebase that AI agents can navigate instantly - module docs, pattern docs, an overview map, and a file-to-doc index with 70%+ coverage enforcement.
@@ -515,6 +545,12 @@ skills/
 | [pricing-strategy](skills/pricing-strategy/) | Packaging, freemium, usage-based, enterprise tiers, price testing |
 | [partnership-strategy](skills/partnership-strategy/) | Co-marketing, integrations, channel partnerships, affiliates |
 
+### Monitoring
+
+| Skill | Description |
+|---|---|
+| [supaguard](skills/supaguard/) | Synthetic monitoring from source code - Playwright script generation, multi-region checks, alerting |
+
 ### Operations & Automation
 
 | Skill | Description |
@@ -595,7 +631,7 @@ skills/
 
 ### Full Registry
 
-**165+ skills** across 26 categories.
+**166+ skills** across 27 categories.
 
 ## Creating Skills
 

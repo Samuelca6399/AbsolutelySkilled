@@ -23,7 +23,7 @@ const topSkills = getTopSkillsByCounts(
   5
 );
 
-const flagshipSlugs = ['super-brainstorm', 'super-human', 'video-creator', 'clean-code', 'frontend-developer', 'system-design'];
+const flagshipSlugs = ['super-brainstorm', 'super-human', 'video-creator', 'clean-code', 'frontend-developer', 'supaguard'];
 const flagshipSkills = flagshipSlugs
   .map((slug) => skills.find((s) => s.slug === slug))
   .filter((s): s is Skill => !!s);
@@ -41,7 +41,7 @@ const recentSkills = skills.slice(-10).reverse();
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-32 sm:pb-24 text-center relative">
       <!-- Logo -->
-      <img src="/logo.png" alt="AbsolutelySkilled logo" class="w-16 h-16 mx-auto mb-8" width="64" height="64" />
+      <img src="/logo.png" alt="AbsolutelySkilled logo" class="w-24 h-24 mx-auto mb-8" width="96" height="96" />
 
       <h1 class="text-5xl sm:text-7xl font-bold font-mono mb-6 tracking-tight">
         <span class="text-text-primary">Teach your AI agent</span>
